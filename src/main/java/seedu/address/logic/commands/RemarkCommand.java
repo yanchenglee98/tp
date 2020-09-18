@@ -1,17 +1,12 @@
 package seedu.address.logic.commands;
-
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
-
 import java.util.List;
-
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import static seedu.address.logic.commands.EditCommand.createEditedPerson;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 public class RemarkCommand extends Command {
@@ -41,7 +36,6 @@ public class RemarkCommand extends Command {
     public RemarkCommand(Index index, Remark remark) {
         requireNonNull(index);
         requireNonNull(remark);
-
         this.index = index;
         this.remark = remark;
     }
@@ -85,7 +79,6 @@ public class RemarkCommand extends Command {
         if (!(other instanceof RemarkCommand)) {
             return false;
         }
-
         // state check
         RemarkCommand e = (RemarkCommand) other;
         return index.equals(e.index)
