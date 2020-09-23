@@ -262,32 +262,88 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `hall leader`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: UC01 - Listing of contacts**
+
+**MSS**
+1.  User requests to list residents
+2.  AddressBook shows a list of residents
+Use case ends
+
+**Use case: UC02 - Delete a resident**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to <ins>list contacts (UC01)</ins>
+2.  User requests to delete a specific resident in the list
+3.  AddressBook deletes the resident
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The list is empty.
 
   Use case ends.
 
-* 3a. The given index is invalid.
+* 2a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 2a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: UC03 - Add a resident**
+
+**MSS**
+
+1.  User enters resident's details
+2.  AddressBook adds resident into list
+3.  AddressBook <ins>displays list (UC01)</ins>
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. User eneters details in the wrong format.
+    * 1a1. AddressBook shows an error message and correct format.
+    
+  Use case ends.
+
+**Use case: UC04 - Edit a resident**
+
+**MSS**
+
+1.  User requests to <ins>list contact (UC01) </ins>
+2.  User request to edit a specific resident in the list
+3.  AddressBook edits resident in the list
+4.  AddressBook <ins>displays list (UC01) </ins>
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 2a. The given index is invalid.
+
+    * 2a1. AddressBook shows an error message.
+* 2b. User enters details in the wrong format.
+    * 2b1. AddressBook shows an error message and correct format
+      
+      Use case ends.
+      
+**Use case: UC05 - Edit a resident**
+
+**MSS**
+
+1.  User requests to <ins>list contacts (UC01)</ins>
+2.  User request to export emails
+3.  AddressBook exports the list of email to a .txt file
+
+    Use case ends.
 
 ### Non-Functional Requirements
 
