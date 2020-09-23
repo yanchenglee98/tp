@@ -307,7 +307,7 @@ Use case ends
 
 * 1a. User eneters details in the wrong format.
     * 1a1. AddressBook shows an error message and correct format.
-    
+
   Use case ends.
 
 **Use case: UC04 - Edit a resident**
@@ -332,9 +332,9 @@ Use case ends
     * 2a1. AddressBook shows an error message.
 * 2b. User enters details in the wrong format.
     * 2b1. AddressBook shows an error message and correct format
-      
+
       Use case ends.
-      
+
 **Use case: UC05 - Edit a resident**
 
 **MSS**
