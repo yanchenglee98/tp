@@ -122,7 +122,9 @@ public class ParserUtil {
         }
         return tagSet;
     }
-
+    /**
+     * Parses {@code Remark remark} into a {@code Remark}.
+     */
     public static Remark parseRemarks(String remark) {
         requireNonNull(remark);
         String trimmedRemark = remark.trim();
