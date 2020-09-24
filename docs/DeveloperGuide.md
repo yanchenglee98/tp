@@ -269,6 +269,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 1.  User requests to list residents
 2.  AddressBook shows a list of residents
+
 Use case ends
 
 **Use case: UC02 - Delete a resident**
