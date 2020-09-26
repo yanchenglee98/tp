@@ -331,8 +331,10 @@ Use case ends
 * 2a. The given index is invalid.
 
     * 2a1. AddressBook shows an error message.
+    
+      Use case ends.
 * 2b. User enters details in the wrong format.
-    * 2b1. AddressBook shows an error message and correct format
+    * 2b1. AddressBook shows an error message and correct format.
 
       Use case ends.
 
