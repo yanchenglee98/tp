@@ -9,16 +9,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
 ### Pang Biao Yi
 
 <img src="images/pangbiaoyi.png" width="200px">
@@ -33,7 +23,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/teekoksiang.png" width="200px">
 
-[[github](http://github.com/teekoksiang)] [[portfolio](team/teekoksiang.md)]
+[[github](http://github.com/teekoksiang)]
+[[portfolio](team/teekoksiang.md)]
 
 * Role: Developer
 * Responsibilities: Deliverables and Deadlines
@@ -46,7 +37,17 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/leeyancheng.md)]
 
 * Role: Developer
-* Responsibilities: Scheduling, tracking and Code quality 
+* Responsibilities: Scheduling, tracking and Code quality
+
+### Aung Thuya Oo
+
+<img src="images/aungthuyaoo.png" width="200px">
+
+[[github](http://github.com/athuyaoo)]
+[[portfolio](team/aungthuyaoo.md)]
+
+* Role: Developer
+* Responsibilities: Git expert and integration
 
 ### Low Jie Feng
 
