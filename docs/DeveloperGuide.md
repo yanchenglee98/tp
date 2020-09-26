@@ -251,14 +251,34 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
-
-*{More to be added}*
+| `* * *`  | Hall admin managing residents       | Create residents' record        | I can keep track of the residents' record                 |
+| `* * *`  | Hall admin managing residents       | Delete residents' record               | I can have updated residents' record                                            |
+| `* * *`  | Hall admin managing residents       | View residents who are residing in the specific block  | I can keep track of the residents related to the specific block                  |
+| `* * *`  | Hall admin general                  | Export a list of emails          | I can email the correct group of students |
+| `* * *`  | Hall admin managing rooms           | Keep a record of who is residing in which rooms   | Quickly find out who is in which room                |
+| `* * `  | Hall admin managing rooms           | Keep a record of rooms that need maintenance   | Schedule rooms for maintenance and have maintenance records                |
+| `* * *`  | Hall admin managing student groups  | Keep track of the student group points accumulated by residents   | I know who can continue staying next semester                |
+| `* * *`  | Hall admin managing student groups  | Keep track of student groups within the hall   | So that I can find what student groups there are in the hall                |
+| `* * *`  | Hall admin managing student groups  | Keep track of student group member counts within the hall   | So that i can find out which student group’s are high in demand                |
+| `* * `  | Hall admin managing student groups  | Find who has which role in student group   | To find out which students are exco of the student group                |
+| `* * `  | Hall admin managing sports          | Find out whether our teams won IHG   | So that I know which athletes is good                |
+| `* * `  | Hall admin managing hall events     | Quickly filter out students involved in certain events   | I can email selected group of students easily                |
+| `* * *`  | Hall admin managing hall events     | Quickly find out who attended compulsory events   | I can email selected group of students easily                |
+| `* * *`  | Hall admin managing hall events     | Create hall events  | I can contact the residents about the events                |
+| `* * *`  | Hall admin managing hall events     | Update hall events   | I can update the event's details                |
+| `* *`  | Hall admin managing hall events     | Archive hall events   | I can archive past events                |
+| `* * `  | Hall admin managing hall events     | Delete hall events   | I can remove events that were cancelled                |
+| `* * `  | Hall admin managing hall events     | Query past hall events based on period   | So that I can do a recap of hall events                |
+| `* * `  | Hall admin managing discipline      | Query for a student's demerit points and all rules broken   | I can expel them next sem                |
+| `*`  | Hall admin managing discipline      | Query most commonly broken rules   | I can work to prevent those cases                |
+| `* `  | Hall admin managing discipline      | Create rule lists for demerit points   | To create and include new rules such as covid temp measures                |
+| `* * `  | Hall admin managing discipline      | Award demerit points to a student records   | Punish students                |
+| `* `  | Hall admin managing discipline      | Select a rule that was broken when awarding demerit points   | To correctly allocate the demerit point for the student commiting the offence                |
+| `*  `  | Hall admin managing discipline      | Give additional details, e.g. who, what, when, how, where   | I know why they received the demerit points in the first place                |
+| `* * `  | Hall admin managing discipline      | Delete demerit points from students' records   | Undo any mistakes that occurred when giving them demerit points               |
+| `* `  | Hall admin managing discipline      | Reset demerit points for all students   | -                |
+| `* `  | Hall admin managing discipline      | Keep track of the budget left for the block events   | I can plan the event according to the budget                |
+| `* * `  | Hall admin general                  | Export csv, based on filters  | I can send this data to people who will want information on these residents                |
 
 ### Use cases
 
