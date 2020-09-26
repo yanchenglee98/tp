@@ -9,16 +9,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
 ### Pang Biao Yi
 
 <img src="images/pangbiaoyi.png" width="200px">
@@ -57,7 +47,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/aungthuyaoo.md)]
 
 * Role: Developer
-* Responsibilities: Git expert + Integration
+* Responsibilities: Git expert and integration
 
 ### Low Jie Feng
 
