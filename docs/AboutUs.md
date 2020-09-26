@@ -24,7 +24,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/johndoe.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/lowjiefeng.md)]
+[[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -50,7 +50,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Low Jie Feng
 
-<img src="images/lowjiefeng.jpg" width="200px">
+<img src="images/lowjiefeng.png.jpg" width="200px">
 
 [[github](http://github.com/lowjiefeng1998)]
 [[portfolio](team/lowjiefeng.md)]
