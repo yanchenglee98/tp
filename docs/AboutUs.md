@@ -33,7 +33,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/teekoksiang.png" width="200px">
 
-[[github](http://github.com/teekoksiang)] [[portfolio](team/teekoksiang.md)]
+[[github](http://github.com/teekoksiang)] 
+[[portfolio](team/teekoksiang.md)]
 
 * Role: Developer
 * Responsibilities: Deliverables and Deadlines
@@ -47,6 +48,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Developer
 * Responsibilities: Scheduling, tracking and Code quality 
+
+### Aung Thuya Oo
+
+<img src="images/aungthuyaoo.png" width="200px">
+
+[[github](http://github.com/athuyaoo)] 
+[[portfolio](team/aungthuyaoo.md)]
+
+* Role: Developer
+* Responsibilities: Git expert + Integration
 
 ### Low Jie Feng
 
