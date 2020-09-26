@@ -294,8 +294,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+4.  The application should work without internet.
+5.  Data should be stored in a human editable text file.
+6.  Should be for a single-user
+7.  JAR file should be less than 100Mb.
+8.  PDF files should be less than 15Mb per file
 
 ### Glossary
 
