@@ -298,7 +298,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 5.  Data should be stored in a human editable text file.
 6.  Should be for a single-user
 7.  JAR file should be less than 100Mb.
-8.  PDF files should be less than 15Mb per file
 
 ### Glossary
 
