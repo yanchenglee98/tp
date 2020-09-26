@@ -383,7 +383,7 @@ Use case ends
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 * **Matriculation number**: Unique Identification for NUS students, which they will obtain when they matriculate into NUS
-* **Matriculation year**: Year when students started joined NUS
+* **Matriculation year**: Year when students enrolled in NUS
 
 --------------------------------------------------------------------------------------------------------------------
 
