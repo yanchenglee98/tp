@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Pang Biao Yi
 
-<img src="images/pangbiaoyi.png" width="200px">
+<img src="images/schoolex.png" width="200px">
 
 [[github](http://github.com/schoolex)]
 [[portfolio](team/pangbiaoyi.md)]
