@@ -152,6 +152,13 @@ Format: `exit`
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
+### Exporting of email : `export`
+
+Exports the email address of all entries in Hall-y as a .txt file.
+
+Format: `export`
+
+
 ### Archiving data files `[coming in v2.0]`
 
 _{explain the feature here}_
