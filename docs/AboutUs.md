@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Pang Biao Yi
 
-<img src="images/pangbiaoyi.png" width="200px">
+<img src="images/schoolex.png" width="200px">
 
 [[github](http://github.com/schoolex)]
 [[portfolio](team/pangbiaoyi.md)]
@@ -31,7 +31,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Lee Yan Cheng
 
-<img src="images/leeyancheng.png" width="200px">
+<img src="images/yanchenglee98.png" width="200px">
 
 [[github](http://github.com/yanchenglee98)]
 [[portfolio](team/leeyancheng.md)]
@@ -41,7 +41,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Aung Thuya Oo
 
-<img src="images/aungthuyaoo.png" width="200px">
+<img src="images/athuyaoo.png" width="200px">
 
 [[github](http://github.com/athuyaoo)]
 [[portfolio](team/aungthuyaoo.md)]
@@ -51,7 +51,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Low Jie Feng
 
-<img src="images/lowjiefeng.png" width="200px">
+<img src="images/lowjiefeng1998.png" width="200px">
 
 [[github](http://github.com/lowjiefeng1998)]
 [[portfolio](team/lowjiefeng.md)]
