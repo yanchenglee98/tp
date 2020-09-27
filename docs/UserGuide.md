@@ -150,7 +150,7 @@ Format: `exit`
 
 ### Saving the data
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Exporting of email : `export`
 
@@ -178,3 +178,4 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
+**Export** | `export`
