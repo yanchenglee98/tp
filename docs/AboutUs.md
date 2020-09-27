@@ -31,7 +31,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Lee Yan Cheng
 
-<img src="images/leeyancheng.png" width="200px">
+<img src="images/yanchenglee98.png" width="200px">
 
 [[github](http://github.com/yanchenglee98)]
 [[portfolio](team/leeyancheng.md)]
