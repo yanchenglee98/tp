@@ -152,6 +152,12 @@ Format: `exit`
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
+### Exporting of email : `export`
+
+Exports the email address of all entries in Hall-y as a .txt file.
+
+Format: `export`
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
@@ -172,3 +178,4 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
+**Export** | `export`
