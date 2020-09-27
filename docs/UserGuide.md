@@ -22,10 +22,7 @@ Hall-y is a **desktop app for managing hall residents, optimized for use via a C
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -34,7 +31,7 @@ Hall-y is a **desktop app for managing hall residents, optimized for use via a C
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
@@ -75,9 +72,9 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com r/B402` Edits the phone number, email address and room number of the 1st resident to be 91234567, johndoe@example.com and B402 respectively.
 *  `edit 2 n/Betsy Crower p/87652103` Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
 
-### Locating persons by name: `find`
+### Locating residents by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds residents whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -85,7 +82,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* Residents matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
