@@ -47,7 +47,7 @@ Adds a resident to Hall-y.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER`
 
-* ROOM_NUMBER is in the format <Block><Room Number>, e.g. B505, C201, etc
+* ROOM_NUMBER is in the format \<Block\>\<Room Number\>, e.g. B505, C201, etc
 * GENDER: either M for male or F for female
 
 Examples:
