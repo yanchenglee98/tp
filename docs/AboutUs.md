@@ -51,7 +51,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Low Jie Feng
 
-<img src="images/lowjiefeng.png" width="200px">
+<img src="images/lowjiefeng1998.png" width="200px">
 
 [[github](http://github.com/lowjiefeng1998)]
 [[portfolio](team/lowjiefeng.md)]
