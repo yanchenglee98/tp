@@ -67,15 +67,14 @@ Shows a message explaning how to access the help page.
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a resident: `add`
 
 Adds a resident to Hall-y.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER`
 
-```
-Tip: ROOM_NUMBER is in the format <Block>_<Room Number>, e.g. B505, C201, etc
-```
+* ROOM_NUMBER is in the format <Block><Room Number>, e.g. B505, C201, etc
+* GENDER: either M for male or F for female
 
 Examples:
 
