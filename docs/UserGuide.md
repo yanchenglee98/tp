@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Hall-y is a **desktop app for managing hall residents, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hall-y will allow you to add,edit,view, and delete hall residents' records faster than traditional GUI apps.
+Hall-y is a **desktop app for managing hall residents, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hall-y will allow you to add, edit, view, and delete hall residents' records faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -55,7 +55,7 @@ Examples:
 *   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/A104 g/M m/A0199242X`
 *   `add n/Mary Dill p/98236802 e/marryd@example.com a/Jane street, block 29, #02-01 r/B205 g/F m/A0192352T`
 
-### Listing all persons : `list`
+### Listing all residents : `list`
 
 Shows a list of all residents registered in Hall-y.
 
