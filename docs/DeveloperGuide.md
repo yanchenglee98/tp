@@ -242,7 +242,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage all hall residents records in a single desktop CLI-based app. 
+**Value proposition**: manage all hall residents' records in a single desktop CLI-based app. 
 
 
 ### User stories
