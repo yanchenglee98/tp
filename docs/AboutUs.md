@@ -5,8 +5,6 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
 ## Project team
 
 ### Pang Biao Yi
@@ -37,7 +35,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/leeyancheng.md)]
 
 * Role: Developer
-* Responsibilities: Scheduling, tracking and Code quality
+* Responsibilities: Scheduling, Tracking and Code quality
 
 ### Aung Thuya Oo
 
@@ -47,7 +45,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/aungthuyaoo.md)]
 
 * Role: Developer
-* Responsibilities: Git expert and integration
+* Responsibilities: Git expert and Integration
 
 ### Low Jie Feng
 
