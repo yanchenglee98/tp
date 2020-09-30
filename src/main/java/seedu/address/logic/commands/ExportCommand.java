@@ -15,7 +15,7 @@ import java.util.List;
 public class ExportCommand extends Command {
 
     public static final String COMMAND_WORD = "export";
-    public static final String MESSAGE_SUCCESS = "List of email exported";
+    public static final String MESSAGE_SUCCESS = "List of emails exported";
     public static final String FILENAME = "./data/hally.txt";
     public static final String DIRECTORY_NAME = "./data/";
 
@@ -34,9 +34,7 @@ public class ExportCommand extends Command {
             List<Person> list = model.getAddressBook().getPersonList();
 
             if (list.size() > 0) {
-                fw.write(list.get(0).getEmail().toString());
-
-                for (int i = 1; i < list.size(); i++) {
+                for (int i = 0; i < list.size(); i++) {
                     fw.write(list.get(i).getEmail().toString() + "\n");
                 }
             }
