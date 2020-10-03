@@ -20,6 +20,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -100,8 +101,9 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Remark remarks = editPersonDescriptor.getRemark().orElse(personToEdit.getRemark());
+        Block block = editPersonDescriptor.getBlock().orElse(personToEdit.getBlock());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, remarks);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, remarks, block);
     }
 
     @Override
@@ -133,6 +135,7 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Remark remark;
+        private Block block;
 
         public EditPersonDescriptor() {}
 
@@ -147,13 +150,14 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setTags(toCopy.tags);
             setRemark(toCopy.remark);
+            setBlock(toCopy.block);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, block, tags);
         }
 
         public void setName(Name name) {
@@ -233,6 +237,14 @@ public class EditCommand extends Command {
 
         public void setRemark(Remark remark) {
             this.remark = remark;
+        }
+
+        public Optional<Block> getBlock() {
+            return Optional.ofNullable(block);
+        }
+
+        public void setBlock(Block block) {
+            this.block = block;
         }
     }
 }

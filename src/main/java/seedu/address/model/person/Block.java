@@ -11,8 +11,8 @@ public class Block {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Block numbers should only contain alphabets";
-    public static final String VALIDATION_REGEX = "\\[a-zA-Z]";
+            "Block should only contain alphabets";
+    public static final String VALIDATION_REGEX = "[a-zA-Z]";
     public final String value;
 
     /**

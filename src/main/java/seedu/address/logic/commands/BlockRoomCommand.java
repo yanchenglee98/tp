@@ -9,40 +9,41 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Block;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
-
+// todo Change remark to block and room
 /**
  * Changes the remark of an existing person in the address book.
  */
-public class RemarkCommand extends Command {
+public class BlockRoomCommand extends Command {
 
-    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
-    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
+    public static final String MESSAGE_ADD_BLOCK_SUCCESS = "Added Block and Room to Person: %1$s";
+    public static final String MESSAGE_DELETE_BLOCK_SUCCESS = "Removed Block and Room from Person: %1$s";
 
-    public static final String COMMAND_WORD = "remark";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the remark of the person identified "
+    public static final String COMMAND_WORD = "blockRoom";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the Block and Room of the person identified "
             + "by the index number used in the last person listing. "
-            + "Existing remark will be overwritten by the input.\n"
+            + "Existing Block and Room will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "r/ [REMARK]\n"
+            + "br/ [Block and Room]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "r/ Likes to swim.";
-    public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
+            + "br/A50";
+    public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Block: %2$s";
 
     private final Index index;
-    private final Remark remark;
+    private final Block block;
 
 
     /**
      * @param index of the person in the filtered person list to edit the remark
-     * @param remark of the person to be updated to
+     * @param block of the person to be updated to
      */
-    public RemarkCommand(Index index, Remark remark) {
-        requireAllNonNull(index, remark);
+    public BlockRoomCommand(Index index, Block block) {
+        requireAllNonNull(index, block);
 
         this.index = index;
-        this.remark = remark;
+        this.block = block;
     }
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -54,7 +55,7 @@ public class RemarkCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
-                personToEdit.getAddress(), personToEdit.getTags(), remark, personToEdit.getBlock());
+                personToEdit.getAddress(), personToEdit.getTags(), personToEdit.getRemark(), block);
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -63,11 +64,11 @@ public class RemarkCommand extends Command {
     }
 
     /**
-     * Generates a command execution success message based on whether the remark is added to or removed from
+     * Generates a command execution success message based on whether the block is added to or removed from
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        String message = !block.value.isEmpty() ? MESSAGE_ADD_BLOCK_SUCCESS : MESSAGE_DELETE_BLOCK_SUCCESS;
         return String.format(message, personToEdit);
     }
 
@@ -79,14 +80,14 @@ public class RemarkCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof RemarkCommand)) {
+        if (!(other instanceof BlockRoomCommand)) {
             return false;
         }
 
         // state check
-        RemarkCommand e = (RemarkCommand) other;
+        BlockRoomCommand e = (BlockRoomCommand) other;
         return index.equals(e.index)
-                && remark.equals(e.remark);
+                && block.equals(e.block);
     }
 }
 
