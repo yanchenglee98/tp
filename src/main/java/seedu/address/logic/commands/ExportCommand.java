@@ -16,11 +16,7 @@ import seedu.address.model.person.Person;
  * 1) update DG/UG with rationale for exporting to txt
  *      reason: .txt is more user friendly as not everyone know about json
  *      and also every OS is able to open .txt files
- * 3) improve error message
  * 4) run bash ./config/travis/run-checks.sh
- *      currently failing /r/n new line but thats because
- *      need to stage changes through git add .
- *      so no changes required for new line
  */
 
 /**
@@ -36,7 +32,7 @@ public class ExportCommand extends Command {
     private final String extractType;
 
     /**
-     * Creates an ExportCommand to handle the specified type
+     * Creates an ExportCommand to handle the specified information
      */
     public ExportCommand(String type) {
         extractType = type;

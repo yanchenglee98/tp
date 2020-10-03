@@ -10,9 +10,9 @@ public class ExportCommandParser implements Parser<ExportCommand> {
             + "Parameters: INFORMATION (e.g. email, phone)\n"
             + "Example: export email";
     /**
-     * Parses the given {@code String} of arguments in the context of the RemarkCommand
-     * and returns an RemarkCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     * Parses the given {@code String} of arguments in the context of the ExportCommand
+     * and returns an ExportCommand object for execution.
+     * @throws ParseException if the user input does not conform to the expected format
      */
     public ExportCommand parse(String args) throws ParseException {
         String[] split = args.split(" ");
