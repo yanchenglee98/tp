@@ -1,20 +1,21 @@
 package seedu.address.logic.commands;
 
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
-import seedu.address.model.person.Person;
+import static seedu.address.logic.parser.ExportCommandParser.INVALID_EXPORT_COMMAND;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.Model;
+import seedu.address.model.person.Person;
+
 /**
  * todo
  * 1) update DG/UG with rationale for exporting to txt
  *      reason: .txt is more user friendly as not everyone know about json
  *      and also every OS is able to open .txt files
- * 2) update MESSAGE_SUCCESS variable with String.format("List of %s exported, extractType)
  * 3) improve error message
  * 4) run bash ./config/travis/run-checks.sh
  *      currently failing /r/n new line but thats because
@@ -28,7 +29,8 @@ import java.util.List;
 public class ExportCommand extends Command {
 
     public static final String COMMAND_WORD = "export";
-    public static final String MESSAGE_SUCCESS = "List of emails exported";
+    public static final String MESSAGE_EMAIL_SUCCESS = "List of emails exported";
+    public static final String MESSAGE_PHONE_SUCCESS = "List of phone numbers exported";
     public static final String FILENAME = "./data/hally.txt";
     public static final String DIRECTORY_NAME = "./data/";
     private final String extractType;
@@ -43,18 +45,21 @@ public class ExportCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
 
+        String message;
         switch (extractType) {
         case "email":
             handleEmail(model);
+            message = MESSAGE_EMAIL_SUCCESS;
             break;
         case "phone":
             handlePhone(model);
+            message = MESSAGE_PHONE_SUCCESS;
             break;
         default:
-            throw new CommandException("Invalid export format");
+            throw new CommandException(INVALID_EXPORT_COMMAND);
         }
 
-        return new CommandResult(MESSAGE_SUCCESS);
+        return new CommandResult(message);
     }
 
     /**
