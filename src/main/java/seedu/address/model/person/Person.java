@@ -24,23 +24,21 @@ public class Person {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private final Block block;
-    //private final Room room;
+    private final Room room;
 
-    // Optional fields
-    private final Remark remark;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Remark remark, Block block) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Block block, Room room) {
+        requireAllNonNull(name, phone, email, address, tags, room);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
-        this.remark = remark;
         this.block = block;
+        this.room = room;
     }
 
     public Name getName() {
@@ -59,13 +57,11 @@ public class Person {
         return address;
     }
 
-    public Remark getRemark() {
-        return remark;
-    }
-
     public Block getBlock() {
         return block;
     }
+
+    public Room getRoom() { return room;}
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}

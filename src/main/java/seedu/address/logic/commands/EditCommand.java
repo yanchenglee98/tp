@@ -25,7 +25,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Remark;
+import seedu.address.model.person.Room;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -100,10 +100,10 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
-        Remark remarks = editPersonDescriptor.getRemark().orElse(personToEdit.getRemark());
         Block block = editPersonDescriptor.getBlock().orElse(personToEdit.getBlock());
+        Room room = editPersonDescriptor.getRoom().orElse(personToEdit.getRoom());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, remarks, block);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, block, room);
     }
 
     @Override
@@ -134,8 +134,8 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
-        private Remark remark;
         private Block block;
+        private Room room;
 
         public EditPersonDescriptor() {}
 
@@ -149,8 +149,8 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
-            setRemark(toCopy.remark);
             setBlock(toCopy.block);
+            setRoom(toCopy.room);
         }
 
         /**
@@ -231,20 +231,20 @@ public class EditCommand extends Command {
                     && getTags().equals(e.getTags());
         }
 
-        public Optional<Remark> getRemark() {
-            return Optional.ofNullable(remark);
-        }
-
-        public void setRemark(Remark remark) {
-            this.remark = remark;
-        }
-
         public Optional<Block> getBlock() {
             return Optional.ofNullable(block);
         }
 
         public void setBlock(Block block) {
             this.block = block;
+        }
+
+        public Optional<Room> getRoom() {
+            return Optional.ofNullable(room);
+        }
+
+        public void setRoom(Room room) {
+            this.room = room;
         }
     }
 }

@@ -9,7 +9,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Remark;
+import seedu.address.model.person.Room;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -24,6 +24,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_REMARK = "She likes aardvarks.";
     public static final String DEFAULT_BLOCK = "A";
+    public static final String DEFAULT_ROOM = "405";
 
     private Name name;
     private Phone phone;
@@ -32,6 +33,7 @@ public class PersonBuilder {
     private Set<Tag> tags;
     private Remark remark;
     private Block block;
+    private Room room;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -44,6 +46,7 @@ public class PersonBuilder {
         tags = new HashSet<>();
         remark = new Remark(DEFAULT_REMARK);
         block = new Block(DEFAULT_BLOCK);
+        room = new Room(DEFAULT_ROOM);
     }
 
     /**
@@ -56,6 +59,7 @@ public class PersonBuilder {
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
         block = personToCopy.getBlock();
+        room = personToCopy.getRoom();
     }
 
     /**
@@ -114,8 +118,13 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withRoom(String room) {
+        this.room = new Room(room);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, tags, remark, block);
+        return new Person(name, phone, email, address, tags, remark, block, room);
     }
 
 }

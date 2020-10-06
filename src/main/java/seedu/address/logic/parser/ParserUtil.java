@@ -14,7 +14,6 @@ import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Remark;
 import seedu.address.model.person.Room;
 import seedu.address.model.tag.Tag;
 
@@ -123,14 +122,6 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
-    }
-    /**
-     * Parses {@code Remark remark} into a {@code Remark}.
-     */
-    public static Remark parseRemarks(String remark) {
-        requireNonNull(remark);
-        String trimmedRemark = remark.trim();
-        return new Remark(trimmedRemark);
     }
 
     /**

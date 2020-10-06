@@ -11,19 +11,19 @@ public class Room {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Room numbers should only contain numbers, and it should be at least 3 digits long";
-    public static final String VALIDATION_REGEX = "\\d{1,}";
+            "Room numbers should only contain numbers, and it should be 3 digits long";
+    public static final String VALIDATION_REGEX = "\\d{3}";
     public final String value;
 
     /**
      * Constructs a {@code Room}.
      *
-     * @param Room A valid Room number.
+     * @param room A valid Room number.
      */
-    public Room(String Room) {
-        requireNonNull(Room);
-        checkArgument(isValidRoom(Room), MESSAGE_CONSTRAINTS);
-        value = Room;
+    public Room(String room) {
+        requireNonNull(room);
+        checkArgument(isValidRoom(room), MESSAGE_CONSTRAINTS);
+        value = room;
     }
 
     /**
