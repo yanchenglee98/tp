@@ -18,12 +18,12 @@ public class Block {
     /**
      * Constructs a {@code Block}.
      *
-     * @param Block A valid Block number.
+     * @param block A valid Block number.
      */
-    public Block(String Block) {
-        requireNonNull(Block);
-        checkArgument(isValidBlock(Block), MESSAGE_CONSTRAINTS);
-        value = Block;
+    public Block(String block) {
+        requireNonNull(block);
+        checkArgument(isValidBlock(block), MESSAGE_CONSTRAINTS);
+        value = block;
     }
 
     /**

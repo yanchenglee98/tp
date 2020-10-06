@@ -61,7 +61,9 @@ public class Person {
         return block;
     }
 
-    public Room getRoom() { return room;}
+    public Room getRoom() {
+        return room;
+    }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
