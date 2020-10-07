@@ -49,9 +49,30 @@
 
         <BorderPane VBox.vgrow="ALWAYS">
           <left>
-            <StackPane styleClass="pane-with-border" minWidth="200" maxWidth="200" >
-              <Label text="Reference Sheet" styleClass="label-reference-header"/>
-            </StackPane>
+            <BorderPane styleClass="pane-with-border" minWidth="200" maxWidth="200">
+              <top>
+                <Label text="Reference Sheet" styleClass="label-reference-header">
+                  <BorderPane.margin>
+                    <Insets top="10" bottom="5" left="5" />
+                  </BorderPane.margin>
+                </Label>
+              </top>
+
+              <center>
+                <VBox>
+                  <BorderPane.margin>
+                    <Insets left="5" />
+                  </BorderPane.margin>
+
+                  <Label text="Block A"/>
+                  <Label text="Rooms: 100 to 120" />
+                  <Label text="Block B"/>
+                  <Label text="Rooms: 100 to 120" />
+                  <Label text="Block C"/>
+                  <Label text="Rooms: 100 to 120" />
+                </VBox>
+              </center>
+            </BorderPane>
           </left>
 
           <center>
