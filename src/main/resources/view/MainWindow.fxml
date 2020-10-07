@@ -25,7 +25,7 @@
       </stylesheets>
 
       <VBox>
-        <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
+        <MenuBar VBox.vgrow="NEVER" fx:id="menuBar">
           <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
           </Menu>
@@ -64,7 +64,7 @@
           </center>
         </BorderPane>
 
-        <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
+        <StackPane VBox.vgrow="NEVER" fx:id="statusbarPlaceholder" />
       </VBox>
     </Scene>
   </scene>
