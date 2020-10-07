@@ -50,7 +50,7 @@
         <BorderPane VBox.vgrow="ALWAYS">
           <left>
             <StackPane styleClass="pane-with-border" minWidth="200" maxWidth="200" >
-              <Label text="HelloWorld!" />
+              <Label text="Reference Sheet" styleClass="label-reference-header"/>
             </StackPane>
           </left>
 
