@@ -12,6 +12,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.layout.AnchorPane?>
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
          title="Hall-y" minWidth="800" minHeight="600" onCloseRequest="#handleExit">
   <icons>
@@ -51,7 +52,7 @@
           <left>
             <BorderPane styleClass="pane-with-border" minWidth="200" maxWidth="200">
               <top>
-                <Label text="Reference Sheet" styleClass="label-reference-header">
+                <Label text="Blocks &amp; Rooms" styleClass="label-reference-header">
                   <BorderPane.margin>
                     <Insets top="10" bottom="5" left="5" />
                   </BorderPane.margin>
@@ -59,7 +60,7 @@
               </top>
 
               <center>
-                <VBox>
+                <VBox styleClass="reference-list">
                   <BorderPane.margin>
                     <Insets left="5" />
                   </BorderPane.margin>
