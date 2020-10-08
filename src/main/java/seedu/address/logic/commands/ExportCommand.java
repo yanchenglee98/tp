@@ -12,14 +12,6 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**
- * todo
- * 1) update DG/UG with rationale for exporting to txt
- *      reason: .txt is more user friendly as not everyone know about json
- *      and also every OS is able to open .txt files
- * 4) run bash ./config/travis/run-checks.sh
- */
-
-/**
  * Exports the email of all existing residents.
  */
 public class ExportCommand extends Command {
