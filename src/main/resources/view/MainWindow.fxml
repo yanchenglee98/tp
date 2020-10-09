@@ -66,10 +66,16 @@
 
                   <Label text="Block A"/>
                   <Label text="Rooms: 100 to 120" />
+                  <Label text="Rooms: 200 to 220" />
+                  <Label text="Rooms: 300 to 320" />
+                  <Label text="Rooms: 400 to 420" />
+
                   <Label text="Block B"/>
                   <Label text="Rooms: 100 to 120" />
-                  <Label text="Block C"/>
-                  <Label text="Rooms: 100 to 120" />
+                  <Label text="Rooms: 200 to 220" />
+                  <Label text="Rooms: 300 to 320" />
+                  <Label text="Rooms: 400 to 420" />
+
                 </VBox>
               </center>
             </BorderPane>
