@@ -28,7 +28,8 @@ public class ReferenceSection extends UiPart<Region> {
 
         ObservableList<BlockSetting> blocksReference = FXCollections.observableArrayList();
         List<BlockSetting> blocks = Arrays.asList(
-                new BlockSetting("A"), new BlockSetting("B"));
+                new BlockSetting("A"), new BlockSetting("B"),
+                new BlockSetting("C"), new BlockSetting("D"));
         blocksReference.addAll(blocks);
 
         blockListView.setItems(blocksReference);
