@@ -9,7 +9,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
@@ -49,36 +48,8 @@
 
         <BorderPane VBox.vgrow="ALWAYS">
           <left>
-            <BorderPane styleClass="pane-with-border" minWidth="200" maxWidth="200">
-              <top>
-                <Label text="Blocks &amp; Rooms" styleClass="label-reference-header">
-                  <BorderPane.margin>
-                    <Insets top="10" bottom="5" left="5" />
-                  </BorderPane.margin>
-                </Label>
-              </top>
-
-              <center>
-                <VBox styleClass="reference-list">
-                  <BorderPane.margin>
-                    <Insets left="5" />
-                  </BorderPane.margin>
-
-                  <Label text="Block A"/>
-                  <Label text="Rooms: 100 to 120" />
-                  <Label text="Rooms: 200 to 220" />
-                  <Label text="Rooms: 300 to 320" />
-                  <Label text="Rooms: 400 to 420" />
-
-                  <Label text="Block B"/>
-                  <Label text="Rooms: 100 to 120" />
-                  <Label text="Rooms: 200 to 220" />
-                  <Label text="Rooms: 300 to 320" />
-                  <Label text="Rooms: 400 to 420" />
-
-                </VBox>
-              </center>
-            </BorderPane>
+            <StackPane fx:id="referenceSectionPlaceholder" styleClass="pane-with-border"
+                        minWidth="200" maxWidth="200" />
           </left>
 
           <center>
