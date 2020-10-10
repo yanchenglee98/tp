@@ -1,7 +1,5 @@
 package seedu.address.storage;
 
-import seedu.address.model.person.Person;
-
 /**
  * Represents a block with its settings.
  */
