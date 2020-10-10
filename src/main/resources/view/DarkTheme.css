@@ -39,6 +39,13 @@
     -fx-opacity: 0.9;
 }
 
+.reference-list .blockName {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: red;
+    -fx-opacity: 0.9;
+}
+
 .text-field {
     -fx-font-size: 12pt;
     -fx-font-family: "Segoe UI Semibold";
