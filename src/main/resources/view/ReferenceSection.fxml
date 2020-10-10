@@ -4,8 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
 
-<BorderPane styleClass="reference-list" xmlns="http://javafx.com/javafx/8">
+<BorderPane styleClass="reference-list" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <top>
     <Label text="Blocks &amp; Rooms" styleClass="label-reference-header">
       <BorderPane.margin>
@@ -20,17 +21,8 @@
         <Insets left="5"/>
       </BorderPane.margin>
 
-      <Label text="Block A"/>
-      <Label text="Rooms: 100 to 120"/>
-      <Label text="Rooms: 200 to 220"/>
-      <Label text="Rooms: 300 to 320"/>
-      <Label text="Rooms: 400 to 420"/>
+      <ListView fx:id="blockListView" VBox.vgrow="ALWAYS"/>
 
-      <Label text="Block B"/>
-      <Label text="Rooms: 100 to 120"/>
-      <Label text="Rooms: 200 to 220"/>
-      <Label text="Rooms: 300 to 320"/>
-      <Label text="Rooms: 400 to 420"/>
     </VBox>
   </center>
 </BorderPane>
