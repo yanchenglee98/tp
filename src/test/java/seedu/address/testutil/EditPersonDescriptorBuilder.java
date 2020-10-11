@@ -74,7 +74,6 @@ public class EditPersonDescriptorBuilder {
         return this;
     }
 
-
     /**
      * Sets the {@code Gender} of the {@code EditPersonDescriptor} that we are building.
      */
@@ -82,7 +81,6 @@ public class EditPersonDescriptorBuilder {
         descriptor.setGender(new Gender(gender));
         return this;
     }
-
 
     /**
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}

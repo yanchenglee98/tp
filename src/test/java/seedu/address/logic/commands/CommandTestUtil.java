@@ -65,7 +65,7 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_GENDER = " " + PREFIX_GENDER + "A"; // '*' not allowed in tags
-    public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+    public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // 'A' not allowed as gender
     public static final String INVALID_MATRICULATION_NUMBER_DESC = " " + PREFIX_MATRICULATION_NUMBER
             + "C0123456B"; // should start with 'A'
 
