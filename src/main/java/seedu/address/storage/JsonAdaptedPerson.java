@@ -106,7 +106,6 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
-
         if (gender == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Gender.class.getSimpleName()));
         }

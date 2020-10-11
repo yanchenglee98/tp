@@ -123,7 +123,6 @@ public class ParserUtil {
         return tagSet;
     }
 
-
     /**
      * Parses a {@code String gender} into a {@code Gender}.
      * Leading and trailing whitespaces will be trimmed.
