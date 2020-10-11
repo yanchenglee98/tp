@@ -6,7 +6,8 @@
     "address": "123, Jurong West Ave 6, #08-111",
     "block" : "A",
     "room" : "405",
-    "tagged": [ "friends" ]
+    "gender": "F",
+    "tagged": [ "friends" ],
     "matriculationNumber": "A0123456B"
 
   }, {
@@ -15,7 +16,8 @@
     "email": "pauline@example.com",
     "block" : "A",
     "room" : "405",
-    "address": "4th street"
+    "gender": "F",
+    "address": "4th street",
     "matriculationNumber": "A0123456B"
   } ]
 }

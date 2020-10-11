@@ -19,6 +19,7 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Gender gender;
     private final MatriculationNumber matriculationNumber;
 
     // Data fields
@@ -31,10 +32,9 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Block block, Room room,
-                  MatriculationNumber matriculationNumber) {
-        requireAllNonNull(name, phone, email, address, tags, block, room, matriculationNumber);
-
+    public Person(Name name, Phone phone, Email email, Address address, Gender gender, Set<Tag> tags,
+                Block block, Room room, MatriculationNumber matriculationNumber) {
+        requireAllNonNull(name, phone, email, address, gender, tags, block, room, matriculationNumber);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -42,6 +42,7 @@ public class Person {
         this.tags.addAll(tags);
         this.block = block;
         this.room = room;
+        this.gender = gender;
         this.matriculationNumber = matriculationNumber;
     }
 
@@ -61,12 +62,17 @@ public class Person {
         return address;
     }
 
+
     public Block getBlock() {
         return block;
     }
 
     public Room getRoom() {
         return room;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 
     /**
@@ -115,6 +121,7 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getGender().equals(getGender())
                 && otherPerson.getTags().equals(getTags())
                 && otherPerson.getMatriculationNumber().equals(getMatriculationNumber());
     }
@@ -122,7 +129,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags, matriculationNumber);
+        return Objects.hash(name, phone, email, address, gender, tags, matriculationNumber);
     }
 
     @Override
@@ -135,9 +142,15 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Gender: ")
+                .append(getGender())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
-        builder.append(" Matriculation Number: ")
+        builder.append(" Block: ")
+                .append(getBlock())
+                .append(" Room: ")
+                .append(getRoom())
+                .append(" Matriculation Number: ")
                 .append(getMatriculationNumber());
         return builder.toString();
     }

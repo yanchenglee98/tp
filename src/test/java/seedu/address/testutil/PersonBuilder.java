@@ -6,6 +6,7 @@ import java.util.Set;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -24,13 +25,15 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BLOCK = "A";
-    public static final String DEFAULT_ROOM = "405";
+    public static final String DEFAULT_ROOM = "420";
+    public static final String DEFAULT_GENDER = "F";
     public static final String DEFAULT_MATRICULATION_NUMBER = "A0123456A";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private Gender gender;
     private Set<Tag> tags;
     private Block block;
     private Room room;
@@ -44,6 +47,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        gender = new Gender(DEFAULT_GENDER);
         tags = new HashSet<>();
         block = new Block(DEFAULT_BLOCK);
         room = new Room(DEFAULT_ROOM);
@@ -58,10 +62,11 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        gender = personToCopy.getGender();
         tags = new HashSet<>(personToCopy.getTags());
         block = personToCopy.getBlock();
         room = personToCopy.getRoom();
-        matriculationNumber = personToCopy.getMatriculationNumber()
+        matriculationNumber = personToCopy.getMatriculationNumber();
     }
 
     /**
@@ -119,7 +124,20 @@ public class PersonBuilder {
         this.room = new Room(room);
         return this;
     }
-  
+    /**
+     * Sets the {@code MatriculationNumber} of the {@code Person} that we are building.
+     * Sets the {@code gender} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withGender(String gender) {
+        this.gender = new Gender(gender);
+        return this;
+    }
+
+
+    public Person build() {
+        return new Person(name, phone, email, address, gender, tags, block, room, matriculationNumber);
+    }
+
     /**
      * Sets the {@code MatriculationNumber} of the {@code Person} that we are building.
      */
@@ -127,9 +145,4 @@ public class PersonBuilder {
         this.matriculationNumber = new MatriculationNumber(matriculationNumber);
         return this;
     }
-
-    public Person build() {
-        return new Person(name, phone, email, address, tags, block, room, matriculationNumber);
-    }
-
 }

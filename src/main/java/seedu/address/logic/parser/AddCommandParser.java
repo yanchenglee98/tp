@@ -4,6 +4,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -17,6 +18,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -37,10 +39,10 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_ADDRESS, PREFIX_BLOCKROOM, PREFIX_TAG, PREFIX_MATRICULATION_NUMBER);
+                        PREFIX_ADDRESS, PREFIX_TAG, PREFIX_GENDER, PREFIX_BLOCKROOM, PREFIX_MATRICULATION_NUMBER);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_BLOCKROOM,
-                PREFIX_MATRICULATION_NUMBER) || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_GENDER,
+                PREFIX_BLOCKROOM, PREFIX_MATRICULATION_NUMBER) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
@@ -53,10 +55,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         String roomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(1);
         Block block = ParserUtil.parseBlock(blockString);
         Room room = ParserUtil.parseRoom(roomString);
+        Gender gender = ParserUtil.parseGender(argMultimap.getValue(PREFIX_GENDER).get());
         MatriculationNumber matriculationNumber = ParserUtil.parseMatriculationNumber(
                 argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).get());
-
-        Person person = new Person(name, phone, email, address, block, room, tagList, matriculationNumber);
+        Person person = new Person(name, phone, email, address, gender, tagList, block, room, matriculationNumber);
         return new AddCommand(person);
     }
 

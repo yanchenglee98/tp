@@ -7,7 +7,8 @@
     "address" : "123, Jurong West Ave 6, #08-111",
     "block" : "A",
     "room" : "405",
-    "tagged" : [ "friends" ]
+    "gender" : "F",
+    "tagged" : [ "friends" ],
     "matriculationNumber": "A0123456B"
   }, {
     "name" : "Benson Meier",
@@ -16,7 +17,8 @@
     "address" : "311, Clementi Ave 2, #02-25",
     "block" : "A",
     "room" : "405",
-    "tagged" : [ "owesMoney", "friends" ]
+    "gender" : "M",
+    "tagged" : [ "owesMoney", "friends" ],
     "matriculationNumber": "A0123456C"
   }, {
     "name" : "Carl Kurz",
@@ -25,7 +27,8 @@
     "address" : "wall street",
     "block" : "A",
     "room" : "405",
-    "tagged" : [ ]
+    "gender" : "M",
+    "tagged" : [ ],
     "matriculationNumber": "A0123456D"
   }, {
     "name" : "Daniel Meier",
@@ -34,7 +37,8 @@
     "address" : "10th street",
     "block" : "A",
     "room" : "405",
-    "tagged" : [ "friends" ]
+    "gender" : "M",
+    "tagged" : [ "friends" ],
     "matriculationNumber": "A0123456E"
   }, {
     "name" : "Elle Meyer",
@@ -43,7 +47,8 @@
     "address" : "michegan ave",
     "block" : "A",
     "room" : "405",
-    "tagged" : [ ]
+    "gender" : "F",
+    "tagged" : [ ],
     "matriculationNumber": "A0123456F"
   }, {
     "name" : "Fiona Kunz",
@@ -52,7 +57,8 @@
     "address" : "little tokyo",
     "block" : "A",
     "room" : "405",
-    "tagged" : [ ]
+    "gender" : "F",
+    "tagged" : [ ],
     "matriculationNumber": "A0123456G"
   }, {
     "name" : "George Best",
@@ -61,7 +67,8 @@
     "address" : "4th street",
     "block" : "A",
     "room" : "405",
-    "tagged" : [ ]
+    "gender" : "M",
+    "tagged" : [ ],
     "matriculationNumber": "A0123456H"
   } ]
 }
