@@ -232,9 +232,6 @@ public class EditCommand extends Command {
             // state check
             EditPersonDescriptor e = (EditPersonDescriptor) other;
 
-            System.out.println(getAddress().equals(e.getAddress()));
-            System.out.println(getMatriculationNumber().equals(e.getMatriculationNumber()));
-
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())

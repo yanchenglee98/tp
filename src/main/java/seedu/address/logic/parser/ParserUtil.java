@@ -132,7 +132,7 @@ public class ParserUtil {
     public static MatriculationNumber parseMatriculationNumber(String matriculationNumber) throws ParseException {
         requireNonNull(matriculationNumber);
         String trimmedMatriculationNumber = matriculationNumber.trim();
-        if (!MatriculationNumber.isValidMatriculationNumber(matriculationNumber)) {
+        if (!MatriculationNumber.isValidMatriculationNumber(trimmedMatriculationNumber)) {
             throw new ParseException(MatriculationNumber.MESSAGE_CONSTRAINTS);
         }
         return new MatriculationNumber(trimmedMatriculationNumber);
