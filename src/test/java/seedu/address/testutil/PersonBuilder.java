@@ -6,6 +6,7 @@ import java.util.Set;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -24,6 +25,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BLOCK = "A";
     public static final String DEFAULT_ROOM = "405";
+    public static final String DEFAULT_MATRICULATION_NUMBER = "A0123456A";
 
     private Name name;
     private Phone phone;
@@ -32,6 +34,7 @@ public class PersonBuilder {
     private Set<Tag> tags;
     private Block block;
     private Room room;
+    private MatriculationNumber matriculationNumber;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -44,6 +47,7 @@ public class PersonBuilder {
         tags = new HashSet<>();
         block = new Block(DEFAULT_BLOCK);
         room = new Room(DEFAULT_ROOM);
+        matriculationNumber = new MatriculationNumber(DEFAULT_MATRICULATION_NUMBER);
     }
 
     /**
@@ -57,6 +61,7 @@ public class PersonBuilder {
         tags = new HashSet<>(personToCopy.getTags());
         block = personToCopy.getBlock();
         room = personToCopy.getRoom();
+        matriculationNumber = personToCopy.getMatriculationNumber()
     }
 
     /**
@@ -114,9 +119,17 @@ public class PersonBuilder {
         this.room = new Room(room);
         return this;
     }
+  
+    /**
+     * Sets the {@code MatriculationNumber} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMatriculationNumber(String matriculationNumber) {
+        this.matriculationNumber = new MatriculationNumber(matriculationNumber);
+        return this;
+    }
 
     public Person build() {
-        return new Person(name, phone, email, address, tags, block, room);
+        return new Person(name, phone, email, address, tags, block, room, matriculationNumber);
     }
 
 }

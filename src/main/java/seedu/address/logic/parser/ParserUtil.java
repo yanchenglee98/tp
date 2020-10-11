@@ -12,6 +12,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
@@ -146,5 +147,18 @@ public class ParserUtil {
             throw new ParseException(Room.MESSAGE_CONSTRAINTS);
         }
         return new Room(trimmedRoom);
+     /**
+     * Parses a {@code String matriculationNumber} into an {@code MatriculationNumber}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code matriculationNumber} is invalid.
+     */
+    public static MatriculationNumber parseMatriculationNumber(String matriculationNumber) throws ParseException {
+        requireNonNull(matriculationNumber);
+        String trimmedMatriculationNumber = matriculationNumber.trim();
+        if (!MatriculationNumber.isValidMatriculationNumber(trimmedMatriculationNumber)) {
+            throw new ParseException(MatriculationNumber.MESSAGE_CONSTRAINTS);
+        }
+        return new MatriculationNumber(trimmedMatriculationNumber);
     }
 }
