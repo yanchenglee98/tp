@@ -20,6 +20,7 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final Gender gender;
+    private final MatriculationNumber matriculationNumber;
 
     // Data fields
     private final Address address;
@@ -28,14 +29,16 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Gender gender, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Gender gender, Set<Tag> tags,
+                  MatriculationNumber matriculationNumber) {
+        requireAllNonNull(name, phone, email, address, gender, tags, matriculationNumber);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
         this.gender = gender;
+        this.matriculationNumber = matriculationNumber;
     }
 
     public Name getName() {
@@ -66,6 +69,10 @@ public class Person {
         return Collections.unmodifiableSet(tags);
     }
 
+    public MatriculationNumber getMatriculationNumber() {
+        return matriculationNumber;
+    }
+
     /**
      * Returns true if both persons of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two persons.
@@ -77,7 +84,8 @@ public class Person {
 
         return otherPerson != null
                 && otherPerson.getName().equals(getName())
-                && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail()));
+                && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail())
+                || otherPerson.getMatriculationNumber().equals(getMatriculationNumber()));
     }
 
     /**
@@ -100,13 +108,14 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getGender().equals(getGender())
-                && otherPerson.getTags().equals(getTags());
+                && otherPerson.getTags().equals(getTags())
+                && otherPerson.getMatriculationNumber().equals(getMatriculationNumber());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, gender, tags);
+        return Objects.hash(name, phone, email, address, gender, tags, matriculationNumber);
     }
 
     @Override
@@ -123,6 +132,8 @@ public class Person {
                 .append(getGender())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
+        builder.append(" Matriculation Number: ")
+                .append(getMatriculationNumber());
         return builder.toString();
     }
 

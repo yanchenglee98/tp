@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -23,6 +24,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gender;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -44,7 +46,8 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_GENDER + "GENDER] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_TAG + "TAG] "
+            + "[" + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -102,8 +105,11 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Gender updatedGender = editPersonDescriptor.getGender().orElse(personToEdit.getGender());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        MatriculationNumber updatedMatriculationNumber = editPersonDescriptor.getMatriculationNumber()
+                .orElse(personToEdit.getMatriculationNumber());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedGender, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedGender, updatedTags,
+                updatedMatriculationNumber);
     }
 
     @Override
@@ -135,6 +141,7 @@ public class EditCommand extends Command {
         private Address address;
         private Gender gender;
         private Set<Tag> tags;
+        private MatriculationNumber matriculationNumber;
 
         public EditPersonDescriptor() {}
 
@@ -149,13 +156,14 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setGender(toCopy.gender);
             setTags(toCopy.tags);
+            setMatriculationNumber(toCopy.matriculationNumber);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, gender, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, gender, tags, matriculationNumber);
         }
 
         public void setName(Name name) {
@@ -215,6 +223,14 @@ public class EditCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
+        public void setMatriculationNumber(MatriculationNumber matriculationNumber) {
+            this.matriculationNumber = matriculationNumber;
+        }
+
+        public Optional<MatriculationNumber> getMatriculationNumber() {
+            return Optional.ofNullable(matriculationNumber);
+        }
+
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -235,7 +251,8 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getGender().equals(e.getGender())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getMatriculationNumber().equals(e.getMatriculationNumber());
         }
     }
 }
