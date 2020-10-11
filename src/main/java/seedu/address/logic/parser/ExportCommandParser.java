@@ -1,14 +1,14 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.commands.ExportCommand.MESSAGE_USAGE;
+
 import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class ExportCommandParser implements Parser<ExportCommand> {
+    private static final int MIN_ARGUMENTS = 2;
+    private static final int TYPE_INDEX = 1;
 
-    public static final String INVALID_EXPORT_COMMAND = "Invalid command format!\n"
-            + "export: Exports the corresponding information to a text file\n"
-            + "Parameters: INFORMATION (e.g. email, phone)\n"
-            + "Example: export email";
     /**
      * Parses the given {@code String} of arguments in the context of the ExportCommand
      * and returns an ExportCommand object for execution.
@@ -17,11 +17,11 @@ public class ExportCommandParser implements Parser<ExportCommand> {
     public ExportCommand parse(String args) throws ParseException {
         String[] split = args.split(" ");
 
-        if (split.length < 2) {
-            throw new ParseException(INVALID_EXPORT_COMMAND);
+        if (split.length < MIN_ARGUMENTS) {
+            throw new ParseException(MESSAGE_USAGE);
         } else {
             // make it case insensitive
-            String type = split[1].toLowerCase();
+            String type = split[TYPE_INDEX].toLowerCase();
 
             return new ExportCommand(type);
         }
