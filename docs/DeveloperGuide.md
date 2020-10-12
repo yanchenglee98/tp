@@ -7,15 +7,15 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## **1 Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Design**
+## **2 Design**
 
-### Architecture
+### 2.1 Architecture
 
 <img src="images/ArchitectureDiagram.png" width="450" />
 
@@ -57,14 +57,14 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 The sections below give more details of each component.
 
-### UI component
+### 2.2 UI component
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 **API** :
 [`Ui.java`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The `UI` component consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -73,12 +73,20 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-### Logic component
+### 2.3 Logic component
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 **API** :
 [`Logic.java`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+
+The `Logic` component consists of `LogicManager`, `Parser`, `Command`, etc. The `Logic` component parses and executes the user command.   
+
+The `Parser` component is defined in `src/main/java/seedu.address/logic/parser` folder, `XYZCommandParser` inherits from `Parser` and parses the respective `XYZCommand`. 
+
+The `Command` component is defined in `src/main/java/seedu.address/logic/commands` folder, `XYZCommand` inherits from `Command`. 
+
+The following steps explain the interactions of `Logic` component to parse and execute the user command:
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -93,13 +101,13 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-### Model component
+### 2.4 Model component
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
 **API** : [`Model.java`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
-The `Model`,
+The `Model` component,
 
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
@@ -113,7 +121,7 @@ The `Model`,
 </div>
 
 
-### Storage component
+### 2.5 Storage component
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
@@ -123,19 +131,19 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the address book data in json format and read it back.
 
-### Common classes
+### 2.6 Common classes
 
 Classes used by multiple components are in the `seedu.AddressBook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## **3 Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Undo/redo feature
+### 3.1 \[Proposed\] Undo/redo feature
 
-#### Proposed Implementation
+#### 3.1.1 Proposed Implementation
 
 The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `Hall-y` with an undo/redo history, stored internally as an `AddressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
@@ -198,7 +206,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 ![CommitActivityDiagram](images/CommitActivityDiagram.png)
 
-#### Design consideration:
+#### 3.1.2 Design consideration:
 
 ##### Aspect: How undo & redo executes
 
@@ -213,26 +221,44 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
+### 3.2 \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## **4 Documentation**
 
-* [Documentation guide](Documentation.md)
-* [Testing guide](Testing.md)
-* [Logging guide](Logging.md)
-* [Configuration guide](Configuration.md)
-* [DevOps guide](DevOps.md)
+Refer to the guide [Documentation guide](Documentation.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **5 Logging**
 
-### Product scope
+Refer to the guide [Logging guide](Logging.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **6 Testing**
+
+Refer to the guide [Testing guide](Testing.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **7 Configuration**
+
+Refer to the guide [Configuration guide](Configuration.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **8 DevOps**
+
+Refer to the guide [DevOps guide](DevOps.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix A: Product scope**
 
 **Target user profile**:
 
@@ -245,7 +271,7 @@ _{Explain here how the data archiving feature will be implemented}_
 **Value proposition**: manage all hall residents' records in a single desktop CLI-based app.
 
 
-### User stories
+## **Appendix B: User stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -280,7 +306,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* `  | Hall admin managing discipline      | Keep track of the budget left for the block events   | I can plan the event according to the budget                |
 | `* * `  | Hall admin general                  | Export csv, based on filters  | I can send this data to people who will want information on these residents                |
 
-### Use cases
+## **Appendix C: Use cases**
 
 (For all use cases below, the **System** is the `Hall-y` and the **Actor** is the `hall leader`, unless specified otherwise)
 
@@ -368,7 +394,7 @@ Use case ends
 
     Use case ends.
 
-### Non-Functional Requirements
+## **Appendix D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 residents without a noticeable sluggishness in performance for typical usage.
@@ -378,7 +404,7 @@ Use case ends
 6.  Should be for a single-user
 7.  JAR file should be less than 100Mb.
 
-### Glossary
+## **Appendix E: Glossary**
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
@@ -387,7 +413,7 @@ Use case ends
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## **Appendix F: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -396,7 +422,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Launch and shutdown
+### F.1 Launch and shutdown
 
 1. Initial launch
 
@@ -413,7 +439,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### F.2 Deleting a person
 
 1. Deleting a person while all persons are being shown
 
@@ -430,7 +456,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Saving data
+### F.3 Saving data
 
 1. Dealing with missing/corrupted data files
 
