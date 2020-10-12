@@ -90,20 +90,20 @@ public class AddCommandParserTest {
                 .build();
 
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                        + BLOCKROOM_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND
-                        + MATRICULATION_NUMBER_DESC_BOB + GENDER_DESC_BOB,
+                + BLOCKROOM_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND
+                + MATRICULATION_NUMBER_DESC_BOB + GENDER_DESC_BOB,
                 new AddCommand(expectedPersonMultipleTags));
 
         // multiple matriculation number - last matriculation number accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                        + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + TAG_DESC_FRIEND
-                        + MATRICULATION_NUMBER_DESC_AMY + MATRICULATION_NUMBER_DESC_BOB,
+                + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + TAG_DESC_FRIEND
+                + MATRICULATION_NUMBER_DESC_AMY + MATRICULATION_NUMBER_DESC_BOB,
                 new AddCommand(expectedPerson));
 
         // multiple genders - last gender accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                        + BLOCKROOM_DESC_BOB + TAG_DESC_FRIEND + MATRICULATION_NUMBER_DESC_BOB
-                        + GENDER_DESC_AMY + GENDER_DESC_BOB,
+                + BLOCKROOM_DESC_BOB + TAG_DESC_FRIEND + MATRICULATION_NUMBER_DESC_BOB
+                + GENDER_DESC_AMY + GENDER_DESC_BOB,
                 new AddCommand(expectedPerson));
     }
 
@@ -112,7 +112,7 @@ public class AddCommandParserTest {
         // zero tags
         Person expectedPerson = new PersonBuilder(AMY).withTags().build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
-                        + ADDRESS_DESC_AMY + BLOCKROOM_DESC_AMY + GENDER_DESC_AMY + MATRICULATION_NUMBER_DESC_AMY,
+                + ADDRESS_DESC_AMY + BLOCKROOM_DESC_AMY + GENDER_DESC_AMY + MATRICULATION_NUMBER_DESC_AMY,
                 new AddCommand(expectedPerson));
     }
 
@@ -122,17 +122,17 @@ public class AddCommandParserTest {
 
         // missing name prefix
         assertParseFailure(parser, VALID_NAME_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
+                + ADDRESS_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
                 expectedMessage);
 
         // missing phone prefix
         assertParseFailure(parser, NAME_DESC_BOB + VALID_PHONE_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
+                + ADDRESS_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
                 expectedMessage);
 
         // missing email prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + VALID_EMAIL_BOB
-                        + ADDRESS_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
+                + ADDRESS_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
                 expectedMessage);
 
         // missing address prefix
@@ -141,18 +141,18 @@ public class AddCommandParserTest {
 
         // missing matriculation number prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + VALID_MATRICULATION_NUMBER_BOB + GENDER_DESC_BOB,
+                + ADDRESS_DESC_BOB + VALID_MATRICULATION_NUMBER_BOB + GENDER_DESC_BOB,
                 expectedMessage);
 
         // missing gender prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB + VALID_GENDER_BOB,
+                + ADDRESS_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB + VALID_GENDER_BOB,
                 expectedMessage);
 
         // all prefixes missing
         assertParseFailure(parser, VALID_NAME_BOB + VALID_PHONE_BOB + VALID_EMAIL_BOB + VALID_ADDRESS_BOB
-                        + VALID_GENDER_BOB
-                        + VALID_MATRICULATION_NUMBER_BOB,
+                + VALID_GENDER_BOB
+                + VALID_MATRICULATION_NUMBER_BOB,
                 expectedMessage);
     }
 
@@ -175,14 +175,14 @@ public class AddCommandParserTest {
 
         // invalid address
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + INVALID_ADDRESS_DESC + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB
-                        + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + MATRICULATION_NUMBER_DESC_BOB,
+                + INVALID_ADDRESS_DESC + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + MATRICULATION_NUMBER_DESC_BOB,
                 Address.MESSAGE_CONSTRAINTS);
 
         // invalid gender
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + BLOCKROOM_DESC_BOB + INVALID_GENDER
-                        + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + MATRICULATION_NUMBER_DESC_BOB,
+                + ADDRESS_DESC_BOB + BLOCKROOM_DESC_BOB + INVALID_GENDER
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + MATRICULATION_NUMBER_DESC_BOB,
                 Gender.MESSAGE_CONSTRAINTS);
 
         // invalid tag
@@ -192,13 +192,13 @@ public class AddCommandParserTest {
 
         // two invalid values, only first invalid value reported
         assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + INVALID_ADDRESS_DESC + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
+                + INVALID_ADDRESS_DESC + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + MATRICULATION_NUMBER_DESC_BOB,
                 Name.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND
-                        + MATRICULATION_NUMBER_DESC_BOB,
+                + ADDRESS_DESC_BOB + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND
+                + MATRICULATION_NUMBER_DESC_BOB,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
         // invalid matriculation number
