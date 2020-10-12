@@ -23,10 +23,9 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ### 2.1 Architecture
 
-***Figure 2.1.1 Architecture Diagram*** given below explains the high-level design of the App.
+The ***Architecture Diagram*** given below explains the high-level design of the App.
 
 <img src="images/ArchitectureDiagram.png" width="450" />
-Figure 2.1.1 Architecture Diagram
 
 Given below is a quick overview of each component.
 
