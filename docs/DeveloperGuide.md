@@ -15,17 +15,20 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ## **2 Design**
 
-### 2.1 Architecture
-
-<img src="images/ArchitectureDiagram.png" width="450" />
-
-The ***Architecture Diagram*** given above explains the high-level design of the App. Given below is a quick overview of each component.
-
 <div markdown="span" class="alert alert-primary">
 
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/AddressBook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 
 </div>
+
+### 2.1 Architecture
+
+***Figure 2.1.1 Architecture Diagram*** given below explains the high-level design of the App.
+
+<img src="images/ArchitectureDiagram.png" width="450" />
+Figure 2.1.1 Architecture Diagram
+
+Given below is a quick overview of each component.
 
 **`Main`** has two classes called [`Main`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
