@@ -198,12 +198,12 @@ public class AddCommandParserTest {
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND
-                        + MATRICULATION_NUMBER_DESC_BOB,
+                + MATRICULATION_NUMBER_DESC_BOB,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
         // invalid matriculation number
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                        + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + TAG_DESC_HUSBAND
+                + BLOCKROOM_DESC_BOB + GENDER_DESC_BOB + TAG_DESC_HUSBAND
                 + TAG_DESC_FRIEND + INVALID_MATRICULATION_NUMBER_DESC, MatriculationNumber.MESSAGE_CONSTRAINTS);
     }
 }

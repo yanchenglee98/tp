@@ -23,7 +23,7 @@ public class Block {
     public Block(String block) {
         requireNonNull(block);
         checkArgument(isValidBlock(block), MESSAGE_CONSTRAINTS);
-        value = block;
+        value = block.toUpperCase();
     }
 
     /**

@@ -41,7 +41,8 @@ public class CommandTestUtil {
     public static final String VALID_GENDER_BOB = "M";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
-    public static final String VALID_BLOCKROOM = "A420";
+    public static final String VALID_BLOCK = "A";
+    public static final String VALID_ROOM = "420";
     public static final String VALID_MATRICULATION_NUMBER_AMY = "A0123456K";
     public static final String VALID_MATRICULATION_NUMBER_BOB = "A0123456L";
 
@@ -57,8 +58,8 @@ public class CommandTestUtil {
     public static final String GENDER_DESC_BOB = " " + PREFIX_GENDER + VALID_GENDER_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
-    public static final String BLOCKROOM_DESC_AMY = " " + PREFIX_BLOCKROOM + VALID_BLOCKROOM;
-    public static final String BLOCKROOM_DESC_BOB = " " + PREFIX_BLOCKROOM + VALID_BLOCKROOM;
+    public static final String BLOCKROOM_DESC_AMY = " " + PREFIX_BLOCKROOM + VALID_BLOCK + VALID_ROOM;
+    public static final String BLOCKROOM_DESC_BOB = " " + PREFIX_BLOCKROOM + VALID_BLOCK + VALID_ROOM;
     public static final String MATRICULATION_NUMBER_DESC_AMY = " " + PREFIX_MATRICULATION_NUMBER
             + VALID_MATRICULATION_NUMBER_AMY;
     public static final String MATRICULATION_NUMBER_DESC_BOB = " " + PREFIX_MATRICULATION_NUMBER
