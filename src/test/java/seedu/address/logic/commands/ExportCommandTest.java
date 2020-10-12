@@ -1,10 +1,10 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.address.logic.commands.ExportCommand.MESSAGE_EMAIL_SUCCESS;
 import static seedu.address.logic.commands.ExportCommand.MESSAGE_PHONE_SUCCESS;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
-import static seedu.address.logic.commands.ExportCommand.MESSAGE_EMAIL_SUCCESS;
 
 import org.junit.jupiter.api.Test;
 
