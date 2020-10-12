@@ -125,7 +125,6 @@ public class PersonBuilder {
         return this;
     }
     /**
-     * Sets the {@code MatriculationNumber} of the {@code Person} that we are building.
      * Sets the {@code gender} of the {@code Person} that we are building.
      */
     public PersonBuilder withGender(String gender) {

@@ -62,7 +62,6 @@ public class Person {
         return address;
     }
 
-
     public Block getBlock() {
         return block;
     }
