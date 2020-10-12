@@ -102,5 +102,12 @@ public class ExportCommand extends Command {
             directory.mkdir();
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ExportCommand // instanceof handles nulls
+                && extractType.equals(((ExportCommand) other).extractType)); // state check
+    }
 }
 
