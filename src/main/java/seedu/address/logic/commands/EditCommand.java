@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
@@ -22,12 +23,14 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Room;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -47,6 +50,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_GENDER + "GENDER] "
             + "[" + PREFIX_TAG + "TAG] "
+            + '[' + PREFIX_BLOCKROOM + "BLOCKROOM] "
             + "[" + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -105,11 +109,12 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Gender updatedGender = editPersonDescriptor.getGender().orElse(personToEdit.getGender());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Block updatedBlock = editPersonDescriptor.getBlock().orElse(personToEdit.getBlock());
+        Room updatedRoom = editPersonDescriptor.getRoom().orElse(personToEdit.getRoom());
         MatriculationNumber updatedMatriculationNumber = editPersonDescriptor.getMatriculationNumber()
                 .orElse(personToEdit.getMatriculationNumber());
-
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedGender, updatedTags,
-                updatedMatriculationNumber);
+                updatedBlock, updatedRoom, updatedMatriculationNumber);
     }
 
     @Override
@@ -141,6 +146,8 @@ public class EditCommand extends Command {
         private Address address;
         private Gender gender;
         private Set<Tag> tags;
+        private Block block;
+        private Room room;
         private MatriculationNumber matriculationNumber;
 
         public EditPersonDescriptor() {}
@@ -156,6 +163,8 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setGender(toCopy.gender);
             setTags(toCopy.tags);
+            setBlock(toCopy.block);
+            setRoom(toCopy.room);
             setMatriculationNumber(toCopy.matriculationNumber);
         }
 
@@ -163,7 +172,8 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, gender, tags, matriculationNumber);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address,
+                    gender, tags, block, room, matriculationNumber);
         }
 
         public void setName(Name name) {
@@ -253,6 +263,22 @@ public class EditCommand extends Command {
                     && getGender().equals(e.getGender())
                     && getTags().equals(e.getTags())
                     && getMatriculationNumber().equals(e.getMatriculationNumber());
+        }
+
+        public Optional<Block> getBlock() {
+            return Optional.ofNullable(block);
+        }
+
+        public void setBlock(Block block) {
+            this.block = block;
+        }
+
+        public Optional<Room> getRoom() {
+            return Optional.ofNullable(room);
+        }
+
+        public void setRoom(Room room) {
+            this.room = room;
         }
     }
 }

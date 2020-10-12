@@ -25,18 +25,23 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private final Block block;
+    private final Room room;
+
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Gender gender, Set<Tag> tags,
-                  MatriculationNumber matriculationNumber) {
-        requireAllNonNull(name, phone, email, address, gender, tags, matriculationNumber);
+                Block block, Room room, MatriculationNumber matriculationNumber) {
+        requireAllNonNull(name, phone, email, address, gender, tags, block, room, matriculationNumber);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.block = block;
+        this.room = room;
         this.gender = gender;
         this.matriculationNumber = matriculationNumber;
     }
@@ -55,6 +60,14 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Block getBlock() {
+        return block;
+    }
+
+    public Room getRoom() {
+        return room;
     }
 
     public Gender getGender() {
@@ -132,7 +145,11 @@ public class Person {
                 .append(getGender())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
-        builder.append(" Matriculation Number: ")
+        builder.append(" Block: ")
+                .append(getBlock())
+                .append(" Room: ")
+                .append(getRoom())
+                .append(" Matriculation Number: ")
                 .append(getMatriculationNumber());
         return builder.toString();
     }

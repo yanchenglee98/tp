@@ -10,11 +10,13 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Room;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -124,6 +126,29 @@ public class ParserUtil {
         return tagSet;
     }
 
+    /**
+     * Parses {@code Block block} into a {@code Remark}.
+     */
+    public static Block parseBlock(String block) throws ParseException {
+        requireNonNull(block);
+        String trimmedBlock = block.trim();
+        if (!Block.isValidBlock(trimmedBlock)) {
+            throw new ParseException(Block.MESSAGE_CONSTRAINTS);
+        }
+        return new Block(trimmedBlock);
+    }
+
+    /**
+     * Parses {@code Room room} into a {@code Room}.
+     */
+    public static Room parseRoom(String room) throws ParseException {
+        requireNonNull(room);
+        String trimmedRoom = room.trim();
+        if (!Room.isValidRoom(trimmedRoom)) {
+            throw new ParseException(Room.MESSAGE_CONSTRAINTS);
+        }
+        return new Room(trimmedRoom);
+    }
     /**
      * Parses a {@code String gender} into a {@code Gender}.
      * Leading and trailing whitespaces will be trimmed.

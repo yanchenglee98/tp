@@ -11,12 +11,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Room;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -32,6 +34,8 @@ class JsonAdaptedPerson {
     private final String address;
     private final String gender;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final String block;
+    private final String room;
     private final String matriculationNumber;
 
     /**
@@ -41,6 +45,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
             @JsonProperty("gender") String gender, @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+            @JsonProperty("block") String block, @JsonProperty("room") String room,
             @JsonProperty("matriculationNumber") String matriculationNumber) {
         this.name = name;
         this.phone = phone;
@@ -50,6 +55,8 @@ class JsonAdaptedPerson {
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
+        this.block = block;
+        this.room = room;
         this.matriculationNumber = matriculationNumber;
     }
 
@@ -65,6 +72,8 @@ class JsonAdaptedPerson {
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        block = source.getBlock().value;
+        room = source.getRoom().value;
         matriculationNumber = source.getMatriculationNumber().value;
     }
 
@@ -128,9 +137,11 @@ class JsonAdaptedPerson {
         if (!MatriculationNumber.isValidMatriculationNumber(matriculationNumber)) {
             throw new IllegalValueException(MatriculationNumber.MESSAGE_CONSTRAINTS);
         }
+        final Block modelBlock = new Block(block);
+        final Room modelRoom = new Room(room);
         final MatriculationNumber modelMatriculationNumber = new MatriculationNumber(matriculationNumber);
         return new Person(modelName, modelPhone, modelEmail,
-                modelAddress, modelGender, modelTags, modelMatriculationNumber);
+                modelAddress, modelGender, modelTags, modelBlock, modelRoom, modelMatriculationNumber);
     }
 
 }
