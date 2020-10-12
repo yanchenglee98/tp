@@ -5,6 +5,9 @@
     "phone" : "94351253",
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
+    "block" : "A",
+    "room" : "405",
+    "gender" : "F",
     "tagged" : [ "friends" ],
     "matriculationNumber": "A0123456B"
   }, {
@@ -12,6 +15,9 @@
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
+    "block" : "A",
+    "room" : "405",
+    "gender" : "M",
     "tagged" : [ "owesMoney", "friends" ],
     "matriculationNumber": "A0123456C"
   }, {
@@ -19,6 +25,9 @@
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "address" : "wall street",
+    "block" : "A",
+    "room" : "405",
+    "gender" : "M",
     "tagged" : [ ],
     "matriculationNumber": "A0123456D"
   }, {
@@ -26,6 +35,9 @@
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "address" : "10th street",
+    "block" : "A",
+    "room" : "405",
+    "gender" : "M",
     "tagged" : [ "friends" ],
     "matriculationNumber": "A0123456E"
   }, {
@@ -33,6 +45,9 @@
     "phone" : "9482224",
     "email" : "werner@example.com",
     "address" : "michegan ave",
+    "block" : "A",
+    "room" : "405",
+    "gender" : "F",
     "tagged" : [ ],
     "matriculationNumber": "A0123456F"
   }, {
@@ -40,6 +55,9 @@
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "address" : "little tokyo",
+    "block" : "A",
+    "room" : "405",
+    "gender" : "F",
     "tagged" : [ ],
     "matriculationNumber": "A0123456G"
   }, {
@@ -47,6 +65,9 @@
     "phone" : "9482442",
     "email" : "anna@example.com",
     "address" : "4th street",
+    "block" : "A",
+    "room" : "405",
+    "gender" : "M",
     "tagged" : [ ],
     "matriculationNumber": "A0123456H"
   } ]

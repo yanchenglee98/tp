@@ -11,11 +11,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Room;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,7 +32,10 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String address;
+    private final String gender;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final String block;
+    private final String room;
     private final String matriculationNumber;
 
     /**
@@ -38,15 +44,19 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-                             @JsonProperty("matriculationNumber") String matriculationNumber) {
+            @JsonProperty("gender") String gender, @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+            @JsonProperty("block") String block, @JsonProperty("room") String room,
+            @JsonProperty("matriculationNumber") String matriculationNumber) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.gender = gender;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
+        this.block = block;
+        this.room = room;
         this.matriculationNumber = matriculationNumber;
     }
 
@@ -58,9 +68,12 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
+        gender = source.getGender().type.getOption();
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        block = source.getBlock().value;
+        room = source.getRoom().value;
         matriculationNumber = source.getMatriculationNumber().value;
     }
 
@@ -107,6 +120,14 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
+        if (gender == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Gender.class.getSimpleName()));
+        }
+        if (!Gender.isValidGender(gender)) {
+            throw new IllegalValueException(Gender.MESSAGE_CONSTRAINTS);
+        }
+        final Gender modelGender = new Gender(gender);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
         if (matriculationNumber == null) {
@@ -116,8 +137,11 @@ class JsonAdaptedPerson {
         if (!MatriculationNumber.isValidMatriculationNumber(matriculationNumber)) {
             throw new IllegalValueException(MatriculationNumber.MESSAGE_CONSTRAINTS);
         }
+        final Block modelBlock = new Block(block);
+        final Room modelRoom = new Room(room);
         final MatriculationNumber modelMatriculationNumber = new MatriculationNumber(matriculationNumber);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelMatriculationNumber);
+        return new Person(modelName, modelPhone, modelEmail,
+                modelAddress, modelGender, modelTags, modelBlock, modelRoom, modelMatriculationNumber);
     }
 
 }
