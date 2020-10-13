@@ -48,7 +48,7 @@ public class ExportCommandTest {
 
     /**
      * Compares the output text at /data/hally.txt with the .txt file at the specified location.
-     * @param compare Path of the .txt file.
+     * @param compare Path of the .txt file to be compared to.
      * @return True if both text files have the same content, false otherwise.
      * @throws IOException If file reading is interrupted.
      */
