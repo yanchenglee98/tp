@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.ExportCommand.MESSAGE_EMAIL_SUCCESS;
 import static seedu.address.logic.commands.ExportCommand.MESSAGE_PHONE_SUCCESS;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -43,7 +44,9 @@ public class ExportCommandTest {
     public void execute_invalidType_throwsCommandException() {
         ExportCommand exportCommand = new ExportCommand("a");
 
-        assertThrows(CommandException.class, ExportCommand.MESSAGE_USAGE, () -> exportCommand.execute(model));
+        assertThrows(CommandException.class,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                        ExportCommand.MESSAGE_USAGE), () -> exportCommand.execute(model));
     }
 
     /**
