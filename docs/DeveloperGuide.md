@@ -58,13 +58,15 @@ For example, the `Logic` component (see the class diagram given below) defines i
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The ***Sequence Diagram*** below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
 The sections below give more details of each component.
 
 ### 2.2 UI component
+
+The ***UI Class Diagram*** diagram below shows the structure of the UI component.
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
@@ -81,6 +83,8 @@ The `UI` component,
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
 ### 2.3 Logic component
+
+The ***Logic Class Diagram*** diagram below shows the structure of the Logic component.
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
@@ -101,14 +105,19 @@ The following steps explain the interactions of `Logic` component to parse and e
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+The ***Logic Component Sequence Diagram*** diagram below shows the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
 </div>
 
 ### 2.4 Model component
+
+The ***Model Class Diagram*** diagram below shows the structure of the Model component.
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
@@ -122,13 +131,17 @@ The `Model` component,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hall-y` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hall-y` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
 
 
 ### 2.5 Storage component
+
+The ***Storage Class Diagram*** diagram below shows the structure of the Storage component.
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
