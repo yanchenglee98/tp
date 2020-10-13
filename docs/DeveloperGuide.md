@@ -36,16 +36,16 @@ Event           | Description
 At app launch   | Initializes the components in the correct sequence, and connects them up with each other.
 At shut down    | Shuts down the components and invokes cleanup methods where necessary.
 
-[**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
+[**`Commons`**](#26-common-classes) represents a collection of classes used by multiple other components.
 
 The rest of the App consists of four components:
 
 Component                            | Description
 ------------------------------------ | -----------
-[**`UI`**](#ui-component)            | Builds the UI of the App.
-[**`Logic`**](#logic-component)      | Executes the different commands.
-[**`Model`**](#model-component)      | Holds the data of the App in memory.
-[**`Storage`**](#storage-component)  | Reads data from, and writes data to, the hard disk.
+[**`UI`**](#22-ui-component)            | Builds the UI of the App.
+[**`Logic`**](#23-logic-component)      | Executes the different commands.
+[**`Model`**](#24-model-component)      | Holds the data of the App in memory.
+[**`Storage`**](#25-storage-component)  | Reads data from, and writes data to, the hard disk.
 
 Each of the four components,
 
