@@ -58,7 +58,7 @@ For example, the `Logic` component (see the class diagram given below) defines i
 
 **How the architecture components interact with each other**
 
-The ***Sequence Diagram*** below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The ***Sequence Diagram*** given below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
@@ -66,7 +66,7 @@ The sections below give more details of each component.
 
 ### 2.2 UI component
 
-The ***UI Class Diagram*** diagram below shows the structure of the `UI` component.
+The ***UI Class Diagram*** diagram given below shows the structure of the `UI` component.
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
@@ -84,7 +84,7 @@ The `UI` component,
 
 ### 2.3 Logic component
 
-The ***Logic Class Diagram*** diagram below shows the structure of the `Logic` component.
+The ***Logic Class Diagram*** diagram given below shows the structure of the `Logic` component.
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
@@ -105,7 +105,7 @@ The following steps explain the interactions of `Logic` component to parse and e
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-The ***Logic Component Sequence Diagram*** diagram below shows the interactions within the `Logic` component for the `execute("delete 1")` API call.
+The ***Logic Component Sequence Diagram*** diagram given below shows the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
@@ -117,7 +117,7 @@ The ***Logic Component Sequence Diagram*** diagram below shows the interactions 
 
 ### 2.4 Model component
 
-The ***Model Class Diagram*** diagram below shows the structure of the `Model` component.
+The ***Model Class Diagram*** diagram given below shows the structure of the `Model` component.
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
@@ -141,15 +141,15 @@ The `Model` component,
 
 ### 2.5 Storage component
 
-The ***Storage Class Diagram*** diagram below shows the structure of the `Storage` component.
+The ***Storage Class Diagram*** diagram given below shows the structure of the `Storage` component.
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
 The `Storage` component,
-* can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* saves `UserPref` objects in json format and read it back.
+* saves the address book data in json format and read it back.
 
 ### 2.6 Common classes
 
