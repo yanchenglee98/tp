@@ -1,15 +1,40 @@
----
-layout: page
-title: Developer Guide
----
+--------------------------------------------------------------------------------------------------------------------
+# Hall-y Developer Guide
+
+Version 1.2  
+_Updated on 14/10/2020_
+
+
+Prepared by:  
+Aung Thuya Oo  
+Lee Yan Cheng  
+Low Jie Feng  
+Pang Biao Yi  
+Tee Kok Siang  
+
+--------------------------------------------------------------------------------------------------------------------
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **1 Setting up, getting started**
+## **1 Introduction**
 
-Refer to the guide [_Setting up and getting started_](SettingUp.md).
+### **1.1 Purpose**
+
+This document describes the architecture and system design of Hall-y, a hall residents' contact management application.
+The goal of this document is to cover the high-level system architecture and design of this app.
+The document starts off by describing the high level overview before going into the details of the various components in their respective subsections.
+
+### **1.2 Audience**
+
+This documented is targeted at developers and designers who wish to do further development on the app.
+Software testers can utilize this document to aid them in uncovering bugs during testing.
+
+### **1.3 Development environment** 
+
+Developers and designer who wish to do further development on the app can refer to the guide [_Setting up and getting started_](SettingUp.md) 
+to set up their development environment
 
 --------------------------------------------------------------------------------------------------------------------
 
