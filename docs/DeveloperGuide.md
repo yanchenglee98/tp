@@ -14,33 +14,9 @@ Low Jie Feng
 Pang Biao Yi  
 Tee Kok Siang  
 
---------------------------------------------------------------------------------------------------------------------
-## **Table Of Contents**
-
-1. Setting Up, Getting Started
-2. Design
-    1. Architecture
-    2. UI Component
-    3. Logic Component
-    4. Model Component
-    5. Storage Component
-    6. Common Classes
-3. Implementation
-    1. \[Proposed\] Undo/Redo Feature
-        1. Proposed Implementation
-        2. Design Consideration
-    2. \[Proposed\] Data archiving
-4. Documentation
-5. Logging
-6. Testing
-7. Configuration
-8. DevOps
-9. Appendix A: Product Scope
-10. Appendix B: User Stories
-11. Appendix C: Use Cases
-12. Appendix D: Non-Functional Requirements
-13. Appendix E: Glossary
-14. Appendix F: Instructions For Manual Testing
+---
+* Table of Contents
+{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
