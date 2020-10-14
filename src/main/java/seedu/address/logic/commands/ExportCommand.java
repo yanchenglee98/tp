@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,8 +19,7 @@ public class ExportCommand extends Command {
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_EMAIL_SUCCESS = "List of emails exported";
     public static final String MESSAGE_PHONE_SUCCESS = "List of phone numbers exported";
-    public static final String MESSAGE_USAGE = "Invalid command format!\n"
-            + "export: Exports the corresponding information to a text file\n"
+    public static final String MESSAGE_USAGE = "export: Exports the corresponding information to a text file\n"
             + "Parameters: INFORMATION (e.g. email, phone)\n"
             + "Example: export email";
     public static final String FILENAME = "./data/hally.txt";
@@ -45,7 +46,7 @@ public class ExportCommand extends Command {
             message = MESSAGE_PHONE_SUCCESS;
             break;
         default:
-            throw new CommandException(MESSAGE_USAGE);
+            throw new CommandException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, MESSAGE_USAGE));
         }
 
         return new CommandResult(message);
@@ -101,6 +102,13 @@ public class ExportCommand extends Command {
         if (!directory.exists()) {
             directory.mkdir();
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ExportCommand // instanceof handles nulls
+                && extractType.equals(((ExportCommand) other).extractType)); // state check
     }
 }
 

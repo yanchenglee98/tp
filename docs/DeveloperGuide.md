@@ -1,9 +1,12 @@
+---
+layout: page
+title: Developer Guide
+---
 --------------------------------------------------------------------------------------------------------------------
 # Hall-y Developer Guide
 
 Version 1.2  
 _Updated on 14/10/2020_
-
 
 Prepared by:  
 Aung Thuya Oo  
@@ -13,8 +16,32 @@ Pang Biao Yi
 Tee Kok Siang  
 
 --------------------------------------------------------------------------------------------------------------------
-* Table of Contents
-{:toc}
+## **Table Of Contents**
+
+1. Setting Up, Getting Started
+2. Design
+    1. Architecture
+    2. UI Component
+    3. Logic Component
+    4. Model Component
+    5. Storage Component
+    6. Common Classes
+3. Implementation
+    1. \[Proposed\] Undo/Redo Feature
+        1. Proposed Implementation
+        2. Design Consideration
+    2. \[Proposed\] Data archiving
+4. Documentation
+5. Logging
+6. Testing
+7. Configuration
+8. DevOps
+9. Appendix A: Product Scope
+10. Appendix B: User Stories
+11. Appendix C: Use Cases
+12. Appendix D: Non-Functional Requirements
+13. Appendix E: Glossary
+14. Appendix F: Instructions For Manual Testing
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -89,7 +116,7 @@ The ***Sequence Diagram*** given below shows how the components interact with ea
 
 The sections below give more details of each component.
 
-### 2.2 UI component
+### 2.2 UI Component
 
 The ***UI Class Diagram*** given below shows the structure of the `UI` component.
 
@@ -107,7 +134,7 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-### 2.3 Logic component
+### 2.3 Logic Component
 
 The ***Logic Class Diagram*** given below shows the structure of the `Logic` component.
 
@@ -140,7 +167,7 @@ The ***Logic Component Sequence Diagram*** given below shows the interactions wi
 
 </div>
 
-### 2.4 Model component
+### 2.4 Model Component
 
 The ***Model Class Diagram*** given below shows the structure of the `Model` component.
 
@@ -167,7 +194,7 @@ It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hal
 </div>
 
 
-### 2.5 Storage component
+### 2.5 Storage Component
 
 The ***Storage Class Diagram*** given below shows the structure of the `Storage` component.
 
@@ -179,7 +206,7 @@ The `Storage` component,
 * saves `UserPref` objects in json format and read it back.
 * saves the address book data in json format and read it back.
 
-### 2.6 Common classes
+### 2.6 Common Classes
 
 Classes used by multiple components are in the `seedu.AddressBook.commons` package.
 
@@ -306,7 +333,7 @@ Refer to the guide [DevOps guide](DevOps.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix A: Product scope**
+## **Appendix A: Product Scope**
 
 **Target user profile**:
 
@@ -319,7 +346,7 @@ Refer to the guide [DevOps guide](DevOps.md).
 **Value proposition**: manage all hall residents' records in a single desktop CLI-based app.
 
 
-## **Appendix B: User stories**
+## **Appendix B: User Stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -354,7 +381,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* `  | Hall admin managing discipline      | Keep track of the budget left for the block events   | I can plan the event according to the budget                |
 | `* * `  | Hall admin general                  | Export csv, based on filters  | I can send this data to people who will want information on these residents                |
 
-## **Appendix C: Use cases**
+## **Appendix C: Use Cases**
 
 (For all use cases below, the **System** is the `Hall-y` and the **Actor** is the `hall leader`, unless specified otherwise)
 
@@ -461,7 +488,7 @@ Use case ends
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix F: Instructions for manual testing**
+## **Appendix F: Instructions For Manual Testing**
 
 Given below are instructions to test the app manually.
 
