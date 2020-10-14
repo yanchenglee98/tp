@@ -221,10 +221,17 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### 3.2 \[Proposed\] Data archiving
+### 3.2 Exporting of information
 
-_{Explain here how the data archiving feature will be implemented}_
+#### 3.2.1 Implementation
+Currently, only email address and phone number can be exported. The key idea is that we will iterate through the current list and access the relevant information fields.
+We will then write the information into a .txt file located at `/data/hall.txt` each separated by a new line. In the event that the current list is empty, an empty .txt file will be produced.
 
+#### 3.1.2 Design consideration:
+
+##### Aspect: Use of .txt to export the information
+* We decided to use .txt for exporting as it is more user-friendly.
+* .txt files are can be easily opened on most operating systems e.g. MacOS, Windows.
 
 --------------------------------------------------------------------------------------------------------------------
 
