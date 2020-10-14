@@ -52,7 +52,7 @@ Each of the four components,
 * defines its *API* in an `interface` with the same name as the Component.
 * exposes its functionality using a concrete `{Component Name}Manager` class (which implements the corresponding API `interface` mentioned in the previous point.
 
-For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
+For example, the ***Logic Class Diagram*** given below shows the `Logic` component. It defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
 
 ![Class Diagram of the Logic Component](images/LogicClassDiagram.png)
 
@@ -66,7 +66,7 @@ The sections below give more details of each component.
 
 ### 2.2 UI component
 
-The ***UI Class Diagram*** diagram given below shows the structure of the `UI` component.
+The ***UI Class Diagram*** given below shows the structure of the `UI` component.
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
@@ -84,7 +84,7 @@ The `UI` component,
 
 ### 2.3 Logic component
 
-The ***Logic Class Diagram*** diagram given below shows the structure of the `Logic` component.
+The ***Logic Class Diagram*** given below shows the structure of the `Logic` component.
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
@@ -105,7 +105,7 @@ The following steps explain the interactions of `Logic` component to parse and e
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-The ***Logic Component Sequence Diagram*** diagram given below shows the interactions within the `Logic` component for the `execute("delete 1")` API call.
+The ***Logic Component Sequence Diagram*** given below shows the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
@@ -117,7 +117,7 @@ The ***Logic Component Sequence Diagram*** diagram given below shows the interac
 
 ### 2.4 Model component
 
-The ***Model Class Diagram*** diagram given below shows the structure of the `Model` component.
+The ***Model Class Diagram*** given below shows the structure of the `Model` component.
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
@@ -133,15 +133,18 @@ The `Model` component,
 
 <div markdown="span" class="alert alert-info">
 
-:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hall-y` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+:information_source: **Note:** The ***Alternative Model Class Diagram*** given below shows an alternative (arguably, more OOP) model of the `Model` component.
+
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
+
+It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hall-y` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
 
 </div>
 
 
 ### 2.5 Storage component
 
-The ***Storage Class Diagram*** diagram given below shows the structure of the `Storage` component.
+The ***Storage Class Diagram*** given below shows the structure of the `Storage` component.
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
