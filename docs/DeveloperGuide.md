@@ -2,12 +2,38 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
+
+## **Table Of Contents**
+
+1. Setting Up, Getting Started
+2. Design
+    1. Architecture
+    2. UI Component
+    3. Logic Component
+    4. Model Component
+    5. Storage Component
+    6. Common Classes
+3. Implementation
+    1. \[Proposed\] Undo/Redo Feature
+        1. Proposed Implementation
+        2. Design Consideration
+    2. \[Proposed\] Data archiving
+4. Documentation
+5. Logging
+6. Testing
+7. Configuration
+8. DevOps
+9. Appendix A: Product Scope
+10. Appendix B: User Stories
+11. Appendix C: Use Cases
+12. Appendix D: Non-Functional Requirements
+13. Appendix E: Glossary
+14. Appendix F: Instructions For Manual Testing
+15. 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **1 Setting up, getting started**
+## **1 Setting Up, Getting Started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
@@ -57,7 +83,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 The sections below give more details of each component.
 
-### 2.2 UI component
+### 2.2 UI Component
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
@@ -73,7 +99,7 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-### 2.3 Logic component
+### 2.3 Logic Component
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
@@ -101,7 +127,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-### 2.4 Model component
+### 2.4 Model Component
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
@@ -121,7 +147,7 @@ The `Model` component,
 </div>
 
 
-### 2.5 Storage component
+### 2.5 Storage Component
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
@@ -131,7 +157,7 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the address book data in json format and read it back.
 
-### 2.6 Common classes
+### 2.6 Common Classes
 
 Classes used by multiple components are in the `seedu.AddressBook.commons` package.
 
@@ -258,7 +284,7 @@ Refer to the guide [DevOps guide](DevOps.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix A: Product scope**
+## **Appendix A: Product Scope**
 
 **Target user profile**:
 
@@ -271,7 +297,7 @@ Refer to the guide [DevOps guide](DevOps.md).
 **Value proposition**: manage all hall residents' records in a single desktop CLI-based app.
 
 
-## **Appendix B: User stories**
+## **Appendix B: User Stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -306,7 +332,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* `  | Hall admin managing discipline      | Keep track of the budget left for the block events   | I can plan the event according to the budget                |
 | `* * `  | Hall admin general                  | Export csv, based on filters  | I can send this data to people who will want information on these residents                |
 
-## **Appendix C: Use cases**
+## **Appendix C: Use Cases**
 
 (For all use cases below, the **System** is the `Hall-y` and the **Actor** is the `hall leader`, unless specified otherwise)
 
@@ -413,7 +439,7 @@ Use case ends
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix F: Instructions for manual testing**
+## **Appendix F: Instructions For Manual Testing**
 
 Given below are instructions to test the app manually.
 
