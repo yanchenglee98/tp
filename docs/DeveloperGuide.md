@@ -200,8 +200,8 @@ We will then write the information into a .txt file located at `/data/hall.txt` 
 #### 3.1.2 Design consideration:
 
 ##### Aspect: Use of .txt to export the information
-* We decided to use .txt for exporting as it is more user-friendly. Most users regardless of technical skills should know how to open a .txt file.
-* .txt files are can be easily opened on most operating systems e.g. MacOS, Windows.
+* We decided to use .txt for exporting as it is more user-friendly. Most users regardless of technical skills should know how to open .txt files.
+* .txt files can be easily opened on most operating systems e.g. MacOS, Windows.
 
 --------------------------------------------------------------------------------------------------------------------
 
