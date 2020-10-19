@@ -84,6 +84,8 @@ public class AddressBookTest {
         assertThrows(UnsupportedOperationException.class, () -> addressBook.getPersonList().remove(0));
     }
 
+    //TODO: [Event] Implement test for getEventList().
+
     /**
      * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
      */
