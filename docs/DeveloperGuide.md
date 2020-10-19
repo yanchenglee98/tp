@@ -214,7 +214,7 @@ Step 4. The person list is then passed to `ExportCommand#handlEmail()` which ite
 The following sequence diagram shows how the export operation works:
 ![](https://i.imgur.com/bbOtDI2.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** 
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> 
 If the current person list is empty, an empty hally.txt file will be created.
 </div>
 
@@ -422,7 +422,7 @@ Use case ends
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
