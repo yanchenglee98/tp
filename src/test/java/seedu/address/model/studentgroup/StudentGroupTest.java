@@ -12,14 +12,14 @@ public class StudentGroupTest {
     }
 
     @Test
-    public void constructor_invalidTagName_throwsIllegalArgumentException() {
-        String invalidTagName = "";
-        assertThrows(IllegalArgumentException.class, () -> new StudentGroup(invalidTagName));
+    public void constructor_invalidStudentGroupName_throwsIllegalArgumentException() {
+        String invalidStudentGroupName = "";
+        assertThrows(IllegalArgumentException.class, () -> new StudentGroup(invalidStudentGroupName));
     }
 
     @Test
-    public void isValidTagName() {
-        // null tag name
+    public void isValidStudentGroupName() {
+        // null student group name
         assertThrows(NullPointerException.class, () -> StudentGroup.isValidStudentGroupName(null));
     }
 

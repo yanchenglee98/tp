@@ -83,11 +83,11 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
+     * Parses the {@code studentGroups} into a {@code Set<StudentGroup>} and set it to the {@code EditPersonDescriptor}
      * that we are building.
      */
-    public EditPersonDescriptorBuilder withTags(String... tags) {
-        Set<StudentGroup> studentGroupSet = Stream.of(tags).map(StudentGroup::new).collect(Collectors.toSet());
+    public EditPersonDescriptorBuilder withStudentGroups(String... studentGroups) {
+        Set<StudentGroup> studentGroupSet = Stream.of(studentGroups).map(StudentGroup::new).collect(Collectors.toSet());
         descriptor.setStudentGroups(studentGroupSet);
         return this;
     }

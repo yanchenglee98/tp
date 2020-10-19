@@ -155,7 +155,7 @@ public class EditCommand extends Command {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
+         * A defensive copy of {@code studentGroups} is used internally.
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
@@ -218,8 +218,8 @@ public class EditCommand extends Command {
         }
 
         /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
+         * Sets {@code studentGroups} to this object's {@code studentGroups}.
+         * A defensive copy of {@code studentGroups} is used internally.
          */
         public void setStudentGroups(Set<StudentGroup> studentGroups) {
             this.studentGroups = (studentGroups != null) ? new HashSet<>(studentGroups) : null;
@@ -228,7 +228,7 @@ public class EditCommand extends Command {
         /**
          * Returns an unmodifiable student group set, which throws {@code UnsupportedOperationException}
          * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
+         * Returns {@code Optional#empty()} if {@code studentGroups} is null.
          */
         public Optional<Set<StudentGroup>> getStudentGroups() {
             return (studentGroups != null) ? Optional.of(Collections.unmodifiableSet(studentGroups)) : Optional.empty();

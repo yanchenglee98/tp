@@ -78,10 +78,11 @@ public class PersonBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Parses the {@code studentGroups} into a {@code Set<StudentGroup>} and
+     * set it to the {@code Person} that we are building.
      */
-    public PersonBuilder withTags(String ... tags) {
-        this.studentGroups = SampleDataUtil.getTagSet(tags);
+    public PersonBuilder withStudentGroups(String ... studentGroups) {
+        this.studentGroups = SampleDataUtil.getStudentGroupSet(studentGroups);
         return this;
     }
 

@@ -64,7 +64,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_GENDER).isPresent()) {
             editPersonDescriptor.setGender(ParserUtil.parseGender(argMultimap.getValue(PREFIX_GENDER).get()));
         }
-        parseTagsForEdit(argMultimap.getAllValues(PREFIX_STUDENT_GROUP))
+        parseStudyGroupsForEdit(argMultimap.getAllValues(PREFIX_STUDENT_GROUP))
                 .ifPresent(editPersonDescriptor::setStudentGroups);
         if (argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).isPresent()) {
             editPersonDescriptor.setMatriculationNumber(
@@ -79,18 +79,19 @@ public class EditCommandParser implements Parser<EditCommand> {
     }
 
     /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>} if {@code tags} is non-empty.
-     * If {@code tags} contain only one element which is an empty string, it will be parsed into a
-     * {@code Set<Tag>} containing zero tags.
+     * Parses {@code Collection<String> studyGroups} into a {@code Set<StudyGroup>} if {@code studyGroups} is non-empty.
+     * If {@code studyGroups} contain only one element which is an empty string, it will be parsed into a
+     * {@code Set<StudyGroup>} containing zero studyGroups.
      */
-    private Optional<Set<StudentGroup>> parseTagsForEdit(Collection<String> tags) throws ParseException {
-        assert tags != null;
+    private Optional<Set<StudentGroup>> parseStudyGroupsForEdit(Collection<String> studyGroups) throws ParseException {
+        assert studyGroups != null;
 
-        if (tags.isEmpty()) {
+        if (studyGroups.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> tagSet = tags.size() == 1 && tags.contains("") ? Collections.emptySet() : tags;
-        return Optional.of(ParserUtil.parseTags(tagSet));
+        Collection<String> studentGroupSet = studyGroups.size() == 1 && studyGroups.contains("")
+                ? Collections.emptySet() : studyGroups;
+        return Optional.of(ParserUtil.parseStudyGroups(studentGroupSet));
     }
 
 }

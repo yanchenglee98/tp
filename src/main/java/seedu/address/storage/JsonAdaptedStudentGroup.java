@@ -14,7 +14,7 @@ class JsonAdaptedStudentGroup {
     private final String studentGroupName;
 
     /**
-     * Constructs a {@code JsonAdaptedTag} with the given {@code tagName}.
+     * Constructs a {@code JsonAdaptedStudentGroup} with the given {@code studentGroupName}.
      */
     @JsonCreator
     public JsonAdaptedStudentGroup(String studentGroupName) {
@@ -22,7 +22,7 @@ class JsonAdaptedStudentGroup {
     }
 
     /**
-     * Converts a given {@code Tag} into this class for Jackson use.
+     * Converts a given {@code StudyGroup} into this class for Jackson use.
      */
     public JsonAdaptedStudentGroup(StudentGroup source) {
         studentGroupName = source.studentGroupName;
@@ -34,7 +34,7 @@ class JsonAdaptedStudentGroup {
     }
 
     /**
-     * Converts this Jackson-friendly adapted student group object into the model's {@code Tag} object.
+     * Converts this Jackson-friendly adapted student group object into the model's {@code StudyGroup} object.
      *
      * @throws IllegalValueException if there were any data constraints violated in the adapted student group.
      */
