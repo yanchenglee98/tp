@@ -19,7 +19,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * Jackson-friendly version of {@link Person}.
@@ -33,7 +33,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String gender;
-    private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final List<JsonAdaptedStudentGroup> studentGroups = new ArrayList<>();
     private final String block;
     private final String room;
     private final String matriculationNumber;
@@ -44,7 +44,7 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("gender") String gender, @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+            @JsonProperty("gender") String gender, @JsonProperty("tagged") List<JsonAdaptedStudentGroup> studentGroups,
             @JsonProperty("block") String block, @JsonProperty("room") String room,
             @JsonProperty("matriculationNumber") String matriculationNumber) {
         this.name = name;
@@ -52,8 +52,8 @@ class JsonAdaptedPerson {
         this.email = email;
         this.address = address;
         this.gender = gender;
-        if (tagged != null) {
-            this.tagged.addAll(tagged);
+        if (studentGroups != null) {
+            this.studentGroups.addAll(studentGroups);
         }
         this.block = block;
         this.room = room;
@@ -69,8 +69,8 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         address = source.getAddress().value;
         gender = source.getGender().type.getOption();
-        tagged.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
+        studentGroups.addAll(source.getStudentGroups().stream()
+                .map(JsonAdaptedStudentGroup::new)
                 .collect(Collectors.toList()));
         block = source.getBlock().value;
         room = source.getRoom().value;
@@ -83,9 +83,9 @@ class JsonAdaptedPerson {
      * @throws IllegalValueException if there were any data constraints violated in the adapted person.
      */
     public Person toModelType() throws IllegalValueException {
-        final List<Tag> personTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tagged) {
-            personTags.add(tag.toModelType());
+        final List<StudentGroup> personStudentGroups = new ArrayList<>();
+        for (JsonAdaptedStudentGroup studentGroup : studentGroups) {
+            personStudentGroups.add(studentGroup.toModelType());
         }
 
         if (name == null) {
@@ -128,7 +128,7 @@ class JsonAdaptedPerson {
         }
         final Gender modelGender = new Gender(gender);
 
-        final Set<Tag> modelTags = new HashSet<>(personTags);
+        final Set<StudentGroup> modelStudentGroups = new HashSet<>(personStudentGroups);
 
         if (matriculationNumber == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
@@ -141,7 +141,7 @@ class JsonAdaptedPerson {
         final Room modelRoom = new Room(room);
         final MatriculationNumber modelMatriculationNumber = new MatriculationNumber(matriculationNumber);
         return new Person(modelName, modelPhone, modelEmail,
-                modelAddress, modelGender, modelTags, modelBlock, modelRoom, modelMatriculationNumber);
+                modelAddress, modelGender, modelStudentGroups, modelBlock, modelRoom, modelMatriculationNumber);
     }
 
 }

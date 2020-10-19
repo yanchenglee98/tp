@@ -12,7 +12,7 @@ import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * A utility class to help with building EditPersonDescriptor objects.
@@ -38,7 +38,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
-        descriptor.setTags(person.getTags());
+        descriptor.setStudentGroups(person.getStudentGroups());
         descriptor.setMatriculationNumber(person.getMatriculationNumber());
     }
 
@@ -87,8 +87,8 @@ public class EditPersonDescriptorBuilder {
      * that we are building.
      */
     public EditPersonDescriptorBuilder withTags(String... tags) {
-        Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
-        descriptor.setTags(tagSet);
+        Set<StudentGroup> studentGroupSet = Stream.of(tags).map(StudentGroup::new).collect(Collectors.toSet());
+        descriptor.setStudentGroups(studentGroupSet);
         return this;
     }
 

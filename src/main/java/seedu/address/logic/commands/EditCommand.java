@@ -8,7 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Collections;
@@ -31,7 +31,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * Edits the details of an existing person in the address book.
@@ -51,7 +51,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_GENDER + "GENDER] "
             + '[' + PREFIX_BLOCKROOM + "BLOCKROOM] "
             + "[" + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_STUDENT_GROUP + "STUDENT_GROUP]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -108,12 +108,13 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Gender updatedGender = editPersonDescriptor.getGender().orElse(personToEdit.getGender());
-        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Set<StudentGroup> updatedStudentGroups = editPersonDescriptor.getStudentGroups()
+                .orElse(personToEdit.getStudentGroups());
         Block updatedBlock = editPersonDescriptor.getBlock().orElse(personToEdit.getBlock());
         Room updatedRoom = editPersonDescriptor.getRoom().orElse(personToEdit.getRoom());
         MatriculationNumber updatedMatriculationNumber = editPersonDescriptor.getMatriculationNumber()
                 .orElse(personToEdit.getMatriculationNumber());
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedGender, updatedTags,
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedGender, updatedStudentGroups,
                 updatedBlock, updatedRoom, updatedMatriculationNumber);
     }
 
@@ -145,7 +146,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Gender gender;
-        private Set<Tag> tags;
+        private Set<StudentGroup> studentGroups;
         private Block block;
         private Room room;
         private MatriculationNumber matriculationNumber;
@@ -162,7 +163,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setGender(toCopy.gender);
-            setTags(toCopy.tags);
+            setStudentGroups(toCopy.studentGroups);
             setBlock(toCopy.block);
             setRoom(toCopy.room);
             setMatriculationNumber(toCopy.matriculationNumber);
@@ -173,7 +174,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address,
-                    gender, tags, block, room, matriculationNumber);
+                    gender, studentGroups, block, room, matriculationNumber);
         }
 
         public void setName(Name name) {
@@ -220,17 +221,17 @@ public class EditCommand extends Command {
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
-        public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
+        public void setStudentGroups(Set<StudentGroup> studentGroups) {
+            this.studentGroups = (studentGroups != null) ? new HashSet<>(studentGroups) : null;
         }
 
         /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
+         * Returns an unmodifiable student group set, which throws {@code UnsupportedOperationException}
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
-        public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
+        public Optional<Set<StudentGroup>> getStudentGroups() {
+            return (studentGroups != null) ? Optional.of(Collections.unmodifiableSet(studentGroups)) : Optional.empty();
         }
 
         public void setMatriculationNumber(MatriculationNumber matriculationNumber) {
@@ -261,7 +262,7 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getGender().equals(e.getGender())
-                    && getTags().equals(e.getTags())
+                    && getStudentGroups().equals(e.getStudentGroups())
                     && getMatriculationNumber().equals(e.getMatriculationNumber());
         }
 

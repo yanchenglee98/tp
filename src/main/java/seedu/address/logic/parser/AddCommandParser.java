@@ -8,7 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -24,7 +24,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -39,7 +39,8 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_ADDRESS, PREFIX_TAG, PREFIX_GENDER, PREFIX_BLOCKROOM, PREFIX_MATRICULATION_NUMBER);
+                        PREFIX_ADDRESS, PREFIX_STUDENT_GROUP, PREFIX_GENDER, PREFIX_BLOCKROOM,
+                        PREFIX_MATRICULATION_NUMBER);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_GENDER,
                 PREFIX_BLOCKROOM, PREFIX_MATRICULATION_NUMBER) || !argMultimap.getPreamble().isEmpty()) {
@@ -50,7 +51,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        Set<StudentGroup> studentGroupList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_STUDENT_GROUP));
         String blockString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(0, 1);
         String roomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(1);
         Block block = ParserUtil.parseBlock(blockString);
@@ -58,7 +59,8 @@ public class AddCommandParser implements Parser<AddCommand> {
         Gender gender = ParserUtil.parseGender(argMultimap.getValue(PREFIX_GENDER).get());
         MatriculationNumber matriculationNumber = ParserUtil.parseMatriculationNumber(
                 argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).get());
-        Person person = new Person(name, phone, email, address, gender, tagList, block, room, matriculationNumber);
+        Person person = new Person(name, phone, email, address, gender, studentGroupList,
+                block, room, matriculationNumber);
         return new AddCommand(person);
     }
 

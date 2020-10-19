@@ -12,7 +12,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
@@ -34,7 +34,7 @@ public class PersonBuilder {
     private Email email;
     private Address address;
     private Gender gender;
-    private Set<Tag> tags;
+    private Set<StudentGroup> studentGroups;
     private Block block;
     private Room room;
     private MatriculationNumber matriculationNumber;
@@ -48,7 +48,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         gender = new Gender(DEFAULT_GENDER);
-        tags = new HashSet<>();
+        studentGroups = new HashSet<>();
         block = new Block(DEFAULT_BLOCK);
         room = new Room(DEFAULT_ROOM);
         matriculationNumber = new MatriculationNumber(DEFAULT_MATRICULATION_NUMBER);
@@ -63,7 +63,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         gender = personToCopy.getGender();
-        tags = new HashSet<>(personToCopy.getTags());
+        studentGroups = new HashSet<>(personToCopy.getStudentGroups());
         block = personToCopy.getBlock();
         room = personToCopy.getRoom();
         matriculationNumber = personToCopy.getMatriculationNumber();
@@ -81,7 +81,7 @@ public class PersonBuilder {
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
      */
     public PersonBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
+        this.studentGroups = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
@@ -134,7 +134,7 @@ public class PersonBuilder {
 
 
     public Person build() {
-        return new Person(name, phone, email, address, gender, tags, block, room, matriculationNumber);
+        return new Person(name, phone, email, address, gender, studentGroups, block, room, matriculationNumber);
     }
 
     /**

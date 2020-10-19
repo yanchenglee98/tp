@@ -9,7 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -56,8 +56,8 @@ public class CommandTestUtil {
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
     public static final String GENDER_DESC_AMY = " " + PREFIX_GENDER + VALID_GENDER_AMY;
     public static final String GENDER_DESC_BOB = " " + PREFIX_GENDER + VALID_GENDER_BOB;
-    public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
-    public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
+    public static final String TAG_DESC_FRIEND = " " + PREFIX_STUDENT_GROUP + VALID_TAG_FRIEND;
+    public static final String TAG_DESC_HUSBAND = " " + PREFIX_STUDENT_GROUP + VALID_TAG_HUSBAND;
     public static final String BLOCKROOM_DESC_AMY = " " + PREFIX_BLOCKROOM + VALID_BLOCK + VALID_ROOM;
     public static final String BLOCKROOM_DESC_BOB = " " + PREFIX_BLOCKROOM + VALID_BLOCK + VALID_ROOM;
     public static final String MATRICULATION_NUMBER_DESC_AMY = " " + PREFIX_MATRICULATION_NUMBER
@@ -70,7 +70,7 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_GENDER = " " + PREFIX_GENDER + "A"; // '*' not allowed in tags
-    public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // 'A' not allowed as gender
+    public static final String INVALID_TAG_DESC = " " + PREFIX_STUDENT_GROUP + "hubby*"; // 'A' not allowed as gender
     public static final String INVALID_MATRICULATION_NUMBER_DESC = " " + PREFIX_MATRICULATION_NUMBER
             + "C0123456B"; // should start with 'A'
 
