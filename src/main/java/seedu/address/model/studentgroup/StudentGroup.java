@@ -22,7 +22,7 @@ public class StudentGroup {
     public StudentGroup(String studentGroupName) {
         requireNonNull(studentGroupName);
         checkArgument(isValidStudentGroupName(studentGroupName), MESSAGE_CONSTRAINTS);
-        this.studentGroupName = studentGroupName;
+        this.studentGroupName = studentGroupName.toLowerCase();
     }
 
     /**
