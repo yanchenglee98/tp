@@ -12,7 +12,7 @@ Hall-y is a **desktop app for managing hall residents, optimized for use via a C
 
 
 
-## Features
+## 1 Features
 
 <div markdown="block" class="alert alert-info">
 
@@ -22,32 +22,29 @@ Hall-y is a **desktop app for managing hall residents, optimized for use via a C
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
 </div>
 
-### Viewing help : `help`
+### 1.1 Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
 
-### Adding a resident: `add`
+### 1.2 Adding a resident: `add`
 
 Adds a resident to Hall-y.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER`
 
-* ROOM_NUMBER is in the format <Block><Room Number>, e.g. B505, C201, etc
+* ROOM_NUMBER is in the format \<Block\>\<Room Number\>, e.g. B505, C201, etc
 * GENDER: either M for male or F for female
 
 Examples:
@@ -55,13 +52,13 @@ Examples:
 *   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/A104 g/M m/A0199242X`
 *   `add n/Mary Dill p/98236802 e/marryd@example.com a/Jane street, block 29, #02-01 r/B205 g/F m/A0192352T`
 
-### Listing all residents : `list`
+### 1.3 Listing all residents : `list`
 
 Shows a list of all residents registered in Hall-y.
 
 Format: `list`
 
-### Editing a resident : `edit`
+### 1.4 Editing a resident : `edit`
 
 Edits an existing resident in Hall-y.
 
@@ -75,9 +72,9 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com r/B402` Edits the phone number, email address and room number of the 1st resident to be 91234567, johndoe@example.com and B402 respectively.
 *  `edit 2 n/Betsy Crower p/87652103` Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
 
-### Locating persons by name: `find`
+### 1.5 Locating residents by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds residents whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -85,7 +82,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* Residents matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
@@ -93,7 +90,7 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-### Deleting a resident : `delete`
+### 1.6 Deleting a resident : `delete`
 
 Deletes the specified resident from Hall-y.
 
@@ -107,23 +104,23 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 * `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
 
-### Clearing all entries : `clear`
+### 1.7 Clearing all entries : `clear`
 
 Clears all entries from Hall-y.
 
 Format: `clear`
 
-### Exiting the program : `exit`
+### 1.8 Exiting the program : `exit`
 
 Exits the program.
 
 Format: `exit`
 
-### Saving the data
+### 1.9 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### Exporting of email : `export`
+### 1.10 Exporting of email : `export`
 
 Exports the email address of all entries in Hall-y as a .txt file.
 
@@ -131,14 +128,14 @@ Format: `export`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## FAQ
+## 2 FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Hall-y home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## 3 Command summary
 
 Action | Format, Examples
 --------|------------------

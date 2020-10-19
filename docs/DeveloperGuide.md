@@ -7,78 +7,97 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## **1 Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Design**
-
-### Architecture
-
-<img src="images/ArchitectureDiagram.png" width="450" />
-
-The ***Architecture Diagram*** given above explains the high-level design of the App. Given below is a quick overview of each component.
+## **2 Design**
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/AddressBook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 
 </div>
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
-* At app launch: Initializes the components in the correct sequence, and connects them up with each other.
-* At shut down: Shuts down the components and invokes cleanup methods where necessary.
+### 2.1 Architecture
 
-[**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
+The ***Architecture Diagram*** given below explains the high-level design of the App.
 
-The rest of the App consists of four components.
+<img src="images/ArchitectureDiagram.png" width="450" />
 
-* [**`UI`**](#ui-component): The UI of the App.
-* [**`Logic`**](#logic-component): The command executor.
-* [**`Model`**](#model-component): Holds the data of the App in memory.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+Given below is a quick overview of each component.
+
+**`Main`** has two classes called [`Main`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for:
+
+Event           | Description
+--------------- | -----------
+At app launch   | Initializes the components in the correct sequence, and connects them up with each other.
+At shut down    | Shuts down the components and invokes cleanup methods where necessary.
+
+[**`Commons`**](#26-common-classes) represents a collection of classes used by multiple other components.
+
+The rest of the App consists of four components:
+
+Component                            | Description
+------------------------------------ | -----------
+[**`UI`**](#22-ui-component)            | Builds the UI of the App.
+[**`Logic`**](#23-logic-component)      | Executes the different commands.
+[**`Model`**](#24-model-component)      | Holds the data of the App in memory.
+[**`Storage`**](#25-storage-component)  | Reads data from, and writes data to, the hard disk.
 
 Each of the four components,
 
 * defines its *API* in an `interface` with the same name as the Component.
 * exposes its functionality using a concrete `{Component Name}Manager` class (which implements the corresponding API `interface` mentioned in the previous point.
 
-For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
+For example, the ***Logic Class Diagram*** given below shows the `Logic` component. It defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
 
 ![Class Diagram of the Logic Component](images/LogicClassDiagram.png)
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The ***Sequence Diagram*** given below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
 The sections below give more details of each component.
 
-### UI component
+### 2.2 UI component
+
+The ***UI Class Diagram*** given below shows the structure of the `UI` component.
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 **API** :
-[`Ui.java`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+[`Ui.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The `UI` component consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
-The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/resources/view/MainWindow.fxml).
 
 The `UI` component,
 
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-### Logic component
+### 2.3 Logic component
+
+The ***Logic Class Diagram*** given below shows the structure of the `Logic` component.
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 **API** :
-[`Logic.java`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/logic/Logic.java)
+
+The `Logic` component consists of `LogicManager`, `Parser`, `Command`, etc. The `Logic` component parses and executes the user command.   
+
+The `Parser` component is defined in `src/main/java/seedu.address/logic/parser` folder, `XYZCommandParser` inherits from `Parser` and parses the respective `XYZCommand`. 
+
+The `Command` component is defined in `src/main/java/seedu.address/logic/commands` folder, `XYZCommand` inherits from `Command`. 
+
+The following steps explain the interactions of `Logic` component to parse and execute the user command:
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -86,20 +105,25 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+The ***Logic Component Sequence Diagram*** given below shows the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
 </div>
 
-### Model component
+### 2.4 Model component
+
+The ***Model Class Diagram*** given below shows the structure of the `Model` component.
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-**API** : [`Model.java`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/model/Model.java)
 
-The `Model`,
+The `Model` component,
 
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
@@ -107,35 +131,42 @@ The `Model`,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hall-y` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** The ***Alternative Model Class Diagram*** given below shows an alternative (arguably, more OOP) model of the `Model` component.
+
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
+
+It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hall-y` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
 
 </div>
 
 
-### Storage component
+### 2.5 Storage component
+
+The ***Storage Class Diagram*** given below shows the structure of the `Storage` component.
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
-**API** : [`Storage.java`](https://github.com/se-edu/AddressBook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
 The `Storage` component,
-* can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* saves `UserPref` objects in json format and read it back.
+* saves the address book data in json format and read it back.
 
-### Common classes
+### 2.6 Common classes
 
 Classes used by multiple components are in the `seedu.AddressBook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## **3 Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Undo/redo feature
+### 3.1 \[Proposed\] Undo/redo feature
 
-#### Proposed Implementation
+#### 3.1.1 Proposed Implementation
 
 The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `Hall-y` with an undo/redo history, stored internally as an `AddressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
@@ -198,7 +229,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 ![CommitActivityDiagram](images/CommitActivityDiagram.png)
 
-#### Design consideration:
+#### 3.1.2 Design consideration:
 
 ##### Aspect: How undo & redo executes
 
@@ -213,26 +244,44 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
+### 3.2 \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## **4 Documentation**
 
-* [Documentation guide](Documentation.md)
-* [Testing guide](Testing.md)
-* [Logging guide](Logging.md)
-* [Configuration guide](Configuration.md)
-* [DevOps guide](DevOps.md)
+Refer to the guide [Documentation guide](Documentation.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **5 Logging**
 
-### Product scope
+Refer to the guide [Logging guide](Logging.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **6 Testing**
+
+Refer to the guide [Testing guide](Testing.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **7 Configuration**
+
+Refer to the guide [Configuration guide](Configuration.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **8 DevOps**
+
+Refer to the guide [DevOps guide](DevOps.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix A: Product scope**
 
 **Target user profile**:
 
@@ -242,10 +291,10 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage all hall residents' records in a single desktop CLI-based app. 
+**Value proposition**: manage all hall residents' records in a single desktop CLI-based app.
 
 
-### User stories
+## **Appendix B: User stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -280,7 +329,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* `  | Hall admin managing discipline      | Keep track of the budget left for the block events   | I can plan the event according to the budget                |
 | `* * `  | Hall admin general                  | Export csv, based on filters  | I can send this data to people who will want information on these residents                |
 
-### Use cases
+## **Appendix C: Use cases**
 
 (For all use cases below, the **System** is the `Hall-y` and the **Actor** is the `hall leader`, unless specified otherwise)
 
@@ -351,7 +400,7 @@ Use case ends
 * 2a. The given index is invalid.
 
     * 2a1. Hall-y shows an error message.
-    
+
       Use case ends.
 * 2b. User enters details in the wrong format.
     * 2b1. Hall-y shows an error message and correct format.
@@ -368,7 +417,7 @@ Use case ends
 
     Use case ends.
 
-### Non-Functional Requirements
+## **Appendix D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 residents without a noticeable sluggishness in performance for typical usage.
@@ -378,7 +427,7 @@ Use case ends
 6.  Should be for a single-user
 7.  JAR file should be less than 100Mb.
 
-### Glossary
+## **Appendix E: Glossary**
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
@@ -387,7 +436,7 @@ Use case ends
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## **Appendix F: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -396,7 +445,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Launch and shutdown
+### F.1 Launch and shutdown
 
 1. Initial launch
 
@@ -413,7 +462,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### F.2 Deleting a person
 
 1. Deleting a person while all persons are being shown
 
@@ -430,7 +479,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Saving data
+### F.3 Saving data
 
 1. Dealing with missing/corrupted data files
 
