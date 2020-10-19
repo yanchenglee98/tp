@@ -193,12 +193,6 @@ This section describes some noteworthy details on how certain features are imple
 
 ### 3.1 Exporting of information
 
-## **3 Implementation**
-
-This section describes some noteworthy details on how certain features are implemented.
-
-### 3.1 Exporting of information
-
 #### 3.1.1 Implementation
 The export feature is facilitated by `FileWriter` from Java's IO library.
 Currently, only email address and phone number can be exported. 
