@@ -60,6 +60,15 @@
               <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
             </VBox>
           </center>
+
+          <right>
+            <VBox fx:id="eventList" styleClass="pane-with-border" minWidth="340" prefWidth="340">
+              <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+              </padding>
+              <StackPane fx:id="eventListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+            </VBox>
+          </right>
         </BorderPane>
 
         <StackPane VBox.vgrow="NEVER" fx:id="statusbarPlaceholder" />

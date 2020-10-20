@@ -55,7 +55,7 @@ public class AssignCommand extends Command {
         // get original event from event list
         Event originalEvent = eventList.get(eventIndex);
 
-        // add person to event: originalEvent.addPerson(personToAdd);
+        // TODO: add person to event similar to: originalEvent.addPerson(personToAdd);
 
         return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd, originalEvent));
     }
