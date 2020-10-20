@@ -203,6 +203,33 @@ We will then write the information into a .txt file located at `/data/hall.txt` 
 * We decided to use .txt for exporting as it is more user-friendly. Most users regardless of technical skills should know how to open .txt files.
 * .txt files can be easily opened on most operating systems e.g. MacOS, Windows.
 
+### 3.2 Listing all student groups
+
+#### 3.2.1 Implementation
+The listing all student groups feature is facilitated by `ListGroupCommand`. It extends `Command` and overrides `Command#execute()` to list all student groups.
+
+Given below is a step-by-step usage scenario and how the listing all student groups feature works:
+
+1. The user launches the application and types `list-group` into the input box.
+2. The `UI` handles the input and calls `LogicManager#execute()` to execute it.
+3. The `AddressBookParser#parseCommand()` is called to parse the input and return a `ListGroupCommand`.
+4. The `ListGroupCommand` calls `ListGroupCommand#execute()` to retrieve the list of all residents by calling `Model#getFilteredPersonList()`.
+5. The `ListGroupCommand#execute()` collects all residents' student groups and return the results to `UI`.
+6. The `UI` displays the results in the result box.
+
+The following sequence diagram shows how the listing all student groups operation works:
+![Listing Student Groups Sequence Diagram](images/ListGroupSequenceDiagram.png)  
+                    
+#### 3.2.2 Design consideration:                                                
+                                                                                            
+##### Aspect: Retrieve all residents' student groups
+
+* **Alternative 1 (current choice):** Iterate through the resident list and then iterate through their student groups
+
+Pros | Cons
+-----|-----
+\+Easy to implement | \- May have performance issue if the data size is huge  
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **4 Documentation**
