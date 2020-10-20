@@ -2,7 +2,12 @@ package seedu.address.model.event;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
+import seedu.address.model.person.Person;
+
 
 /**
  * Represents an Event in the address book.
@@ -11,7 +16,7 @@ import java.util.Objects;
 public class Event {
     private final EventName eventName;
     private final Description description;
-    private final AttendeesList attendeesList = new AttendeesList();
+    private final Set<Person> attendeesList = new HashSet<>();
 
     /**
      * Every field must be present and not null.
@@ -30,7 +35,7 @@ public class Event {
         return description;
     }
 
-    public AttendeesList getAttendeesList() {
+    public Set<Person> getAttendeesList() {
         return attendeesList;
     }
 
