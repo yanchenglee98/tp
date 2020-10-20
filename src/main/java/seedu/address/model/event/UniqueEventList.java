@@ -48,7 +48,7 @@ public class UniqueEventList implements Iterable<Event> {
      */
     public void add(Event toAdd) {
         requireNonNull(toAdd);
-        if (!contains(toAdd)) {
+        if (contains(toAdd)) {
             throw new DuplicateEventException();
         }
         internalList.add(toAdd);
