@@ -203,13 +203,13 @@ We will then write the information into a .txt file located at `/data/hall.txt` 
 
 Given below is a step-by-step usage scenario of how the `export` feature works:
 
-Step 1. The user launches the application and inputs `export email` into the input box.
+1. The user launches the application and inputs `export email` into the input box.
 
-Step 2. The `LogicManager#execute()` is then called and the input is parsed through `AddressBookParser#parseCommand()`, returning an `ExportCommand`.
+2. The `LogicManager#execute()` is then called and the input is parsed through `AddressBookParser#parseCommand()`, returning an `ExportCommand`.
 
-Step 3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` follwed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
+3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` follwed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
 
-Step 4. The person list is then passed to `ExportCommand#handlEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
+4. The person list is then passed to `ExportCommand#handlEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
 
 The following sequence diagram shows how the export operation works:
 ![](https://i.imgur.com/bbOtDI2.png)
@@ -222,14 +222,18 @@ If the current person list is empty, an empty hally.txt file will be created.
 #### 3.1.2 Design consideration:
 
 ##### Aspect: What file format to export to
+
 * **Alternative 1 (current choice):** Write to a .txt file.
-  * Pros: More user-friendly.
-  * Pros: Most operating system is able to open .txt files natively.
-  * Cons: Does not offer much functionality apart from viewing and copying.
+
+Pros | Cons
+-----|-----
+\+ More user-friendly <br> + Most operating systems is able to open .txt files natively. | - Does not offer much functionality apart from viewing and copying. 
 
 * **Alternative 2:** Write to a .json file
-  * Pros: More well known among developers.
-  * Cons: Less technical users may not know how to open a .json file.
+
+Pros | Cons
+-----|-----
+\+ More well-known among developers | - Less technical users may not know how to open a .json file.
 
 --------------------------------------------------------------------------------------------------------------------
 
