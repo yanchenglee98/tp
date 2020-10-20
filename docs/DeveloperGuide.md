@@ -205,9 +205,9 @@ Given below is a step-by-step usage scenario of how the `export` feature works:
 
 1. The user launches the application and inputs `export email` into the input box.
 
-2. The `LogicManager#execute()` is then called and the input is parsed through `AddressBookParser#parseCommand()`, returning an `ExportCommand`.
+2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `ExportCommand`.
 
-3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` follwed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
+3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` followed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
 
 4. The person list is then passed to `ExportCommand#handlEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
 
