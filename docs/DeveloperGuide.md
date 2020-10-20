@@ -194,14 +194,46 @@ This section describes some noteworthy details on how certain features are imple
 ### 3.1 Exporting of information
 
 #### 3.1.1 Implementation
-Currently, only email address and phone number can be exported. The key idea is that we will iterate through the current list and access the relevant information fields.
-We will then write the information into a .txt file located at `/data/hall.txt` each separated by a new line. In the event that the current list is empty, an empty .txt file will be produced.
+The export feature is facilitated by `FileWriter` from Java's IO library.
+Currently, only email address and phone number can be exported. 
+
+The key idea is that we will iterate through the current list and access the relevant information fields.
+This operation depends on the size of the current person list and will be relatively fast.
+We will then write the information into a .txt file located at `/data/hall.txt` each separated by a new line. 
+
+Given below is a step-by-step usage scenario of how the `export` feature works:
+
+1. The user launches the application and inputs `export email` into the input box.
+
+2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `ExportCommand`.
+
+3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` followed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
+
+4. The person list is then passed to `ExportCommand#handlEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
+
+The following sequence diagram shows how the export operation works:
+![](https://i.imgur.com/bbOtDI2.png)
+
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> 
+If the current person list is empty, an empty hally.txt file will be created.
+</div>
+
 
 #### 3.1.2 Design consideration:
 
-##### Aspect: Use of .txt to export the information
-* We decided to use .txt for exporting as it is more user-friendly. Most users regardless of technical skills should know how to open .txt files.
-* .txt files can be easily opened on most operating systems e.g. MacOS, Windows.
+##### Aspect: What file format to export to
+
+* **Alternative 1 (current choice):** Write to a .txt file.
+
+Pros | Cons
+-----|-----
+\+ More user-friendly <br> + Most operating systems is able to open .txt files natively. | - Does not offer much functionality apart from viewing and copying. 
+
+* **Alternative 2:** Write to a .json file
+
+Pros | Cons
+-----|-----
+\+ More well-known among developers | - Less technical users may not know how to open a .json file.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -394,7 +426,7 @@ Use case ends
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
