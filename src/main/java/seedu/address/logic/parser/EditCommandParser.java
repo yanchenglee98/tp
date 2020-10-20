@@ -59,7 +59,10 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         }
         if (argMultimap.getValue(PREFIX_BLOCKROOM).isPresent()) {
-            editPersonDescriptor.setBlock(ParserUtil.parseBlock(argMultimap.getValue(PREFIX_BLOCKROOM).get()));
+            String blockString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(0, 1);
+            String roomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(1);
+            editPersonDescriptor.setBlock(ParserUtil.parseBlock(blockString));
+            editPersonDescriptor.setRoom(ParserUtil.parseRoom(roomString));
         }
         if (argMultimap.getValue(PREFIX_GENDER).isPresent()) {
             editPersonDescriptor.setGender(ParserUtil.parseGender(argMultimap.getValue(PREFIX_GENDER).get()));
