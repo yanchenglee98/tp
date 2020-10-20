@@ -57,13 +57,16 @@ public class AssignCommand extends Command {
         // get original event from event list
         Event originalEvent = eventList.get(eventIndex);
 
-        // TODO: add person to event similar to: originalEvent.addPerson(personToAdd);
+        // add person to event's attendees list
         AttendeesList attendeesList = originalEvent.getAttendeesList();
         try {
             attendeesList.add(personToAdd);
         } catch (DuplicatePersonException e) {
             throw new CommandException("Duplicate person being added to event");
         }
+
+        // TODO: update model's observable list of events similar to ModelManager#updateFilteredPersonList()
+        // when updating observable list of persons
 
         return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), originalEvent));
     }
