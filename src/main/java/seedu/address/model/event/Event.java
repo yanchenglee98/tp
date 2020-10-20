@@ -1,5 +1,7 @@
 package seedu.address.model.event;
 
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
 import java.util.Objects;
 
 /**
@@ -12,11 +14,10 @@ public class Event {
     private final AttendeesList attendeesList = new AttendeesList();
 
     /**
-     * Constructs a dummy implementation of event.
-     * @param eventName name of the event
-     * @param description description for the event
+     * Every field must be present and not null.
      */
     public Event(EventName eventName, Description description) {
+        requireAllNonNull(eventName, description);
         this.eventName = eventName;
         this.description = description;
     }
@@ -33,9 +34,17 @@ public class Event {
         return attendeesList;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(eventName, description, attendeesList);
+    /**
+     * Returns true if both events have the same name and description.
+     */
+    public boolean isSameEvent(Event otherEvent) {
+        if (otherEvent == this) {
+            return true;
+        }
+
+        return otherEvent != null
+                && otherEvent.getName().equals(getName())
+                && otherEvent.getDescription().equals(getDescription());
     }
 
     /**
@@ -55,5 +64,19 @@ public class Event {
         Event otherEvent = (Event) other;
         return otherEvent.getName().equals(getName())
                 && otherEvent.getDescription().equals(getDescription());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(eventName, description, attendeesList);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append(getName())
+                .append(" Description: ")
+                .append(getDescription());
+        return builder.toString();
     }
 }
