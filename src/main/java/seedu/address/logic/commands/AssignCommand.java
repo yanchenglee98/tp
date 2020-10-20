@@ -21,7 +21,7 @@ public class AssignCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 " + "Hall dinner";
 
     public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
-    public static final String MESSAGE_ASSIGN_PERSON_SUCCESS = "Assigned Person %s to %s";
+    public static final String MESSAGE_ASSIGN_PERSON_SUCCESS = "Assigned resident %s to %s";
 
     // index of person in person list to add
     // event that person will be added to
