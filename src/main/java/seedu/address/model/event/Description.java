@@ -1,5 +1,8 @@
 package seedu.address.model.event;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 /**
  * Represents an Event's description in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidDescription(String)}
@@ -22,6 +25,8 @@ public class Description {
      * @param description A valid description.
      */
     public Description(String description) {
+        requireNonNull(description);
+        checkArgument(isValidDescription(description), MESSAGE_CONSTRAINTS);
         this.description = description;
     }
 
