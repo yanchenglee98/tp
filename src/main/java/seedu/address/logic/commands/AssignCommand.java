@@ -16,7 +16,7 @@ public class AssignCommand extends Command {
             + ": Assigns the person identified by the index number used in the displayed person list"
             + "to the specified event.\n"
             + "Parameters: INDEX (must be a positive integer) EVENT_NAME\n"
-            + "Example: " + COMMAND_WORD + " 1" + "Hall dinner";
+            + "Example: " + COMMAND_WORD + " 1 " + "Hall dinner";
 
     public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
     public static final String MESSAGE_ASSIGN_PERSON_SUCCESS = "Assigned Person %s to %s";
