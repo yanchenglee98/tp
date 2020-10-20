@@ -33,4 +33,9 @@ public class Event {
                 || (other instanceof Event // instanceof handles nulls
                 && eventName.equals(((Event) other).eventName)); // state check
     }
+
+    @Override
+    public String toString() {
+        return eventName;
+    }
 }

@@ -4,6 +4,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.event.AttendeesList;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
 
@@ -56,7 +57,9 @@ public class AssignCommand extends Command {
         Event originalEvent = eventList.get(eventIndex);
 
         // TODO: add person to event similar to: originalEvent.addPerson(personToAdd);
+        AttendeesList attendeesList = originalEvent.getAttendeesList();
+        attendeesList.add(personToAdd);
 
-        return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd, originalEvent));
+        return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), originalEvent));
     }
 }
