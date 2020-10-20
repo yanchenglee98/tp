@@ -7,6 +7,7 @@ import seedu.address.model.Model;
 import seedu.address.model.event.AttendeesList;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.exceptions.DuplicatePersonException;
 
 import java.util.List;
 
@@ -58,7 +59,11 @@ public class AssignCommand extends Command {
 
         // TODO: add person to event similar to: originalEvent.addPerson(personToAdd);
         AttendeesList attendeesList = originalEvent.getAttendeesList();
-        attendeesList.add(personToAdd);
+        try {
+            attendeesList.add(personToAdd);
+        } catch (DuplicatePersonException e) {
+            throw new CommandException("Duplicate person being added to event");
+        }
 
         return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), originalEvent));
     }
