@@ -10,6 +10,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 
 import java.util.List;
+import java.util.Set;
 
 public class AssignCommand extends Command {
 
@@ -26,12 +27,12 @@ public class AssignCommand extends Command {
     // index of person in person list to add
     // event that person will be added to
     // note that event is just a copy and not the direct reference to the event in the event list in model
-    private final Index index;
-    private final Event event;
+    private final Index residentIndex;
+    private final Index eventIndex;
 
-    public AssignCommand(Index index, Event event) {
-        this.index = index;
-        this.event = event;
+    public AssignCommand(Index residentIndex, Index eventIndex) {
+        this.residentIndex = residentIndex;
+        this.eventIndex = eventIndex;
     }
 
     // an example of an assign command is assign 1 Hall dinner
@@ -41,24 +42,21 @@ public class AssignCommand extends Command {
         List<Event> eventList = model.getEventList();
 
         // get person from list based on index
-        if (index.getZeroBased() >= lastShownList.size()) {
+        if (residentIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToAdd = lastShownList.get(index.getZeroBased());
-
-        // get event from list
-        int eventIndex = eventList.indexOf(event);
-
-        if (eventIndex < 0) {
+        if (eventIndex.getZeroBased() >= eventList.size()) {
             throw new CommandException(MESSAGE_INVALID_EVENT);
         }
 
-        // get original event from event list
-        Event originalEvent = eventList.get(eventIndex);
+        Person personToAdd = lastShownList.get(residentIndex.getZeroBased());
+
+        // get event from list
+        Event event = eventList.get(eventIndex.getZeroBased());
 
         // add person to event's attendees list
-        AttendeesList attendeesList = originalEvent.getAttendeesList();
+        Set<Person> attendeesList = event.getAttendeesList();
         try {
             attendeesList.add(personToAdd);
         } catch (DuplicatePersonException e) {
@@ -68,6 +66,6 @@ public class AssignCommand extends Command {
         // TODO: update model's observable list of events similar to ModelManager#updateFilteredPersonList()
         // when updating observable list of persons
 
-        return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), originalEvent));
+        return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), event.getName()));
     }
 }
