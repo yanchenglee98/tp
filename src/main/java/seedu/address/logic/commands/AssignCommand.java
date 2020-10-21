@@ -16,9 +16,9 @@ public class AssignCommand extends Command {
     public static final String COMMAND_WORD = "assign";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Assigns the person identified by the index number used in the displayed person list"
-            + "to the specified event.\n"
-            + "Parameters: INDEX (must be a positive integer) EVENT_NAME\n"
-            + "Example: " + COMMAND_WORD + " 1 " + "Hall dinner";
+            + "to the event specified by the index number used in the displayed event list.\n"
+            + "Parameters: RESIDENT_INDEX EVENT_INDEX\n"
+            + "Example: " + COMMAND_WORD + " 1 1";
 
     public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
     public static final String MESSAGE_ASSIGN_PERSON_SUCCESS = "Assigned resident %s to %s";
@@ -53,6 +53,11 @@ public class AssignCommand extends Command {
         if (eventIndex.getZeroBased() >= eventList.size()) {
             throw new CommandException(MESSAGE_INVALID_EVENT);
         }
+
+        // ensure that index is not negative
+        // to be taken out on final release
+        assert residentIndex.getZeroBased() >= 0;
+        assert eventIndex.getZeroBased() >= 0;
 
         Person personToAdd = lastShownList.get(residentIndex.getZeroBased());
 
