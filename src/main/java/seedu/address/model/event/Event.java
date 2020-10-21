@@ -16,7 +16,7 @@ import seedu.address.model.person.Person;
 public class Event {
     private final EventName eventName;
     private final Description description;
-    private final Set<Person> attendeesList = new HashSet<>();
+    private final Set<Person> attendeesList;
 
     /**
      * Every field must be present and not null.
@@ -25,6 +25,17 @@ public class Event {
         requireAllNonNull(eventName, description);
         this.eventName = eventName;
         this.description = description;
+        this.attendeesList = new HashSet<>();
+    }
+
+    /**
+     * Every field must be present and not null.
+     */
+    public Event (EventName eventName, Description description, Set<Person> personSet) {
+        requireAllNonNull(eventName, description);
+        this.eventName = eventName;
+        this.description = description;
+        this.attendeesList = personSet;
     }
 
     public EventName getName() {
@@ -68,7 +79,8 @@ public class Event {
 
         Event otherEvent = (Event) other;
         return otherEvent.getName().equals(getName())
-                && otherEvent.getDescription().equals(getDescription());
+                && otherEvent.getDescription().equals(getDescription())
+                && attendeesList.equals(otherEvent.attendeesList);
     }
 
     @Override
