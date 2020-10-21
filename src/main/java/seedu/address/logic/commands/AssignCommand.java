@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -9,7 +10,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.exceptions.DuplicatePersonException;
 
 public class AssignCommand extends Command {
 
@@ -22,6 +22,7 @@ public class AssignCommand extends Command {
 
     public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
     public static final String MESSAGE_ASSIGN_PERSON_SUCCESS = "Assigned resident %s to %s";
+    public static final String MESSAGE_DUPLICATE_PERSON_ADDED = "Duplicate resident %s being added to event %s";
 
     // index of person in person list to add
     // event that person will be added to
@@ -58,16 +59,23 @@ public class AssignCommand extends Command {
         // get event from list
         Event event = eventList.get(eventIndex.getZeroBased());
 
-        // add person to event's attendees list
-        Set<Person> attendeesList = event.getAttendeesList();
-        try {
-            attendeesList.add(personToAdd);
-        } catch (DuplicatePersonException e) {
-            throw new CommandException("Duplicate person being added to event");
+        // get attendee list from event
+        Set<Person> attendeesList = new HashSet<>(event.getAttendeesList());
+
+        // check if person to add is already in the event list
+        if (attendeesList.contains(personToAdd)) {
+            throw new CommandException(String.format(MESSAGE_DUPLICATE_PERSON_ADDED,
+                    personToAdd.getName(),
+                    event.getName()));
         }
+
+        // add person to event's attendee list
+        attendeesList.add(personToAdd);
+        Event editedEvent = new Event(event.getName(), event.getDescription(), attendeesList);
 
         // TODO: update model's observable list of events similar to ModelManager#updateFilteredPersonList()
         // when updating observable list of persons
+        model.setEvent(event, editedEvent);
 
         return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), event.getName()));
     }

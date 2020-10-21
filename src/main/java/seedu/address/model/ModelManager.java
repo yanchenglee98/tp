@@ -131,6 +131,12 @@ public class ModelManager implements Model {
         addressBook.removeEvent(event);
     }
 
+    @Override
+    public void setEvent(Event target, Event editedEvent) {
+        requireAllNonNull(target, editedEvent);
+        addressBook.setEvent(target, editedEvent);
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
