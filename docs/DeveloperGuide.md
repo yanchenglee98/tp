@@ -288,7 +288,7 @@ Blocks : A, B, C, D
 Rooms : 100 - 420
 
 Blocks are represented as a single alphabet in uppercase. Rooms are represented as <Level><Room number>.
-The default settings specifies that the Hall will have 4 blocks, A, B, C and D. There are 4 levels with 20 rooms per level.  
+The default settings specifies that the hall will have 4 blocks, A, B, C and D. There are 4 levels with 20 rooms per level.  
 Advanced users can edit the json file directly to change these settings
 
 
