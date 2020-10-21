@@ -286,6 +286,9 @@ Pros | Cons
 -----|-----
 \+ All users will be able to edit the file safely | - Troublesome to implement
 
+Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work 
+since we would require more rigorous testing to ensure that it is bug free. 
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **4 Documentation**
