@@ -308,7 +308,7 @@ Given below is a step-by-step usage scenario of how this feature will ensure tha
 6. A new `Block` and `Room` is returned if the input arguments matches the info specified in the json file. Otherwise, an exception is thrown and the result box will inform the user of the invalid input.
 
 The following sequence diagram shows how this feature works:
-![](images/Block%20Room%20Validation.png)
+![](images/BlockRoomValidationDiagram.png)
 
 
 
