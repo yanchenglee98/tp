@@ -235,59 +235,47 @@ Pros | Cons
 -----|-----
 \+ More well-known among developers | - Less technical users may not know how to open a .json file.
 
-### 3.3 Persistent block and room settings
+### 3.2 Adding of events
 
-#### 3.3.1 Implementation
-This feature is implemented by making use of a json file to store the blocks and rooms info of the Hall. It does this by defining all available block and rooms in an editable json file. 
+#### 3.2.1 Implementation
+The add event feature is facilitated by the `AddEventCommand`.
+It extends `Command` and overrides `Command#execute()` to perform the adding of events.
 
-A predefined configuration with the following settings will be set as default:
+The key idea is that we will pass the user's input into the `AddressBookParser#parseCommand()`. 
+It will create an `Event` with the user's inputs and associate it with `AddEventCommand`.
+When `AddEventCommand#execute()` is called, the associated `Event` is passed into the `Model` component.
+The `Model` component then saves the `Event`.
 
-Blocks : A,B,C,D  
-Rooms : 100 - 420
+Given below is a step-by-step usage scenario and how the add event feature works:
+1. The user launches the application and inputs `add-event n/Hall Dinner d/Dinner@Dining Hall` into the input box.
+2. The `UI` component accepts the input and passes it to `LogicManager#execute()`.
+3. The input is parsed through `AddressBookParser#parseCommand()`, returning an `AddEventCommand` with an `Event` class associated to it.
+4. The `LogicManager` class then calls `AddEventCommand#execute()`, which uses `Model#addEvent()` to save the associated `Event` class.
 
-Blocks are represented as a single alphabet in uppercase. Rooms are represented as <Level><Room number>.
-The default settings specifies that the Hall will have 4 blocks,A,B,C and D. There are 4 levels with 20 rooms per level.  
-Advanced users can edit the json file directly to change these settings
+The following sequence diagram shows how the add event operation works:
+![Add Event Sequence Diagram](diagrams/commands/dg-add-event.png)
 
+#### 3.2.2 Design consideration:
 
-Given below is a step-by-step usage scenario of how this feature will ensure that there are no invalid inputs for the block and room field 
+#### Aspect: When to create the new `Event` class
 
-1. The user launches the application and tries to add a new user by typing  
-`add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` into the input box
+* **Alternative 1 (current choice)**: Create the new `Event` in `AddressBookParser#parseCommand()`
 
-2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `AddCommand`.
+Pros | Cons
+-----| -----
+\+ Early conversion of user's input into `Event` class<br />+ Consistent with the existing code base</span> | - Increases dependency between `Logic` and `Model` component
 
-3. The `AddCommand` then calls `AddCommand#execute()`, and passes all the arguments to the `Person` constructor.
-
-4. The `Person` constructor proceeds to create a new `Person` object with all the fields, 2 of which are `Block` and `Room`.
-
-5. The `Block` and `Room` calls `Block#isValidBlock()` and `Room#isValidRoom()` respectively to parse the json file and compares the input arguments with the information specified in the json file. 
-
-6. A new `Block` and `Room` is returned if the input arguments matches the info specified in the json file. Otherwise, an exception is thrown and the result box will inform the user of the invalid input.
-
-The following sequence diagram shows how this feature works:
-![](images/Block Room Validation.png)
-
-
-
-#### 3.3.2 Design consideration:
-
-##### Aspect: Method of modifying the json file
-
-* **Alternative 1 (current choice):** Editing it directly
+* **Alternative 2**: Create the new `Event` in `AddEventCommand#execute()`
 
 Pros | Cons
 -----|-----
-\+ Easier to implement <br> | - Less technical users may not know how to edit the file correctly 
+\+ Decreases dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
 
-* **Alternative 2:** Via a command
+We decided to use **Alternative 1** as it is simpler.
 
-Pros | Cons
------|-----
-\+ All users will be able to edit the file safely | - Troublesome to implement
-
-Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work 
-since we would require more rigorous testing to ensure that it is bug free. 
+For **Alternative 2**, we found it to be too complex. The user's input has to be passed across the different components.
+By converting it to an `Event` class early, we can work at a higher level of abstraction.
+Other methods do not have to worry about string's format, and can focus on handling it as an `Event` class.
 
 --------------------------------------------------------------------------------------------------------------------
 
