@@ -271,9 +271,9 @@ Pros | Cons
 -----|-----
 \+ Decreases dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
 
-We decided to use **Alternative 1**. 
+We decided to use **Alternative 1** as it is simpler.
 
-We found that **Alternative 2** is too complex, as the user's input is passed across the different components.
+For **Alternative 2**, we found it to be too complex. The user's input has to be passed across the different components.
 By converting it to an `Event` class early, we can work at a higher level of abstraction.
 Other methods do not have to worry about string's format, and can focus on handling it as an `Event` class.
 
