@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,6 +44,8 @@ public class AssignCommand extends Command {
     // an example of an assign command is assign 1 Hall dinner
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        requireNonNull(model);
+
         List<Person> lastShownList = model.getFilteredPersonList();
         List<Event> eventList = model.getEventList();
 
