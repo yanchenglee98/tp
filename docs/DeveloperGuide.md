@@ -277,6 +277,59 @@ For **Alternative 2**, we found it to be too complex. The user's input has to be
 By converting it to an `Event` class early, we can work at a higher level of abstraction.
 Other methods do not have to worry about string's format, and can focus on handling it as an `Event` class.
 
+### 3.3 Persistent block and room settings
+
+#### 3.3.1 Implementation
+This feature is implemented by making use of a json file to store the blocks and rooms info of the Hall. It does this by defining all available block and rooms in an editable json file. 
+
+A predefined configuration with the following settings will be set as default:
+
+Blocks : A, B, C, D  
+Rooms : 100 - 420
+
+Blocks are represented as a single alphabet in uppercase. Rooms are represented as <Level><Room number>.
+The default settings specifies that the Hall will have 4 blocks, A, B, C and D. There are 4 levels with 20 rooms per level.  
+Advanced users can edit the json file directly to change these settings
+
+
+Given below is a step-by-step usage scenario of how this feature will ensure that there are no invalid inputs for the block and room field:
+
+1. The user launches the application and tries to add a new user by typing  
+`add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` into the input box.
+
+2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `AddCommand`.
+
+3. The `AddCommand` then calls `AddCommand#execute()`, and passes all the arguments to the `Person` constructor.
+
+4. The `Person` constructor proceeds to create a new `Person` object with all the fields, 2 of which are `Block` and `Room`.
+
+5. The `Block` and `Room` calls `Block#isValidBlock()` and `Room#isValidRoom()` respectively to parse the json file and compares the input arguments with the information specified in the json file. 
+
+6. A new `Block` and `Room` is returned if the input arguments matches the info specified in the json file. Otherwise, an exception is thrown and the result box will inform the user of the invalid input.
+
+The following sequence diagram shows how this feature works:
+![](images/Block%20Room%20Validation.png)
+
+
+
+#### 3.3.2 Design consideration:
+
+##### Aspect: Method of modifying the json file
+
+* **Alternative 1 (current choice):** Editing it directly
+
+Pros | Cons
+-----|-----
+\+ Easier to implement <br> | - Less technical users may not know how to edit the file correctly 
+
+* **Alternative 2:** Via a command
+
+Pros | Cons
+-----|-----
+\+ All users will be able to edit the file safely | - Troublesome to implement
+
+Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work since we would require more rigorous testing to ensure that it is bug free. 
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **4 Documentation**
