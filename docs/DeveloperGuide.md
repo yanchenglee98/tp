@@ -269,7 +269,7 @@ Pros | Cons
 
 Pros | Cons
 -----|-----
-\+ Decrease dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
+\+ Decreases dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
 
 We decided to use **Alternative 1**. 
 
