@@ -78,10 +78,17 @@ public class AssignCommand extends Command {
         attendeesList.add(personToAdd);
         Event editedEvent = new Event(event.getName(), event.getDescription(), attendeesList);
 
-        // TODO: update model's observable list of events similar to ModelManager#updateFilteredPersonList()
-        // when updating observable list of persons
+        // update model
         model.setEvent(event, editedEvent);
 
         return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), event.getName()));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this == obj
+                || (obj instanceof AssignCommand)
+                && residentIndex.equals(((AssignCommand) obj).residentIndex)
+                && eventIndex.equals(((AssignCommand) obj).eventIndex);
     }
 }
