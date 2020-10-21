@@ -14,33 +14,9 @@ Low Jie Feng
 Pang Biao Yi  
 Tee Kok Siang  
 
---------------------------------------------------------------------------------------------------------------------
-## **Table Of Contents**
-
-1. Setting Up, Getting Started
-2. Design
-    1. Architecture
-    2. UI Component
-    3. Logic Component
-    4. Model Component
-    5. Storage Component
-    6. Common Classes
-3. Implementation
-    1. \[Proposed\] Undo/Redo Feature
-        1. Proposed Implementation
-        2. Design Consideration
-    2. \[Proposed\] Data archiving
-4. Documentation
-5. Logging
-6. Testing
-7. Configuration
-8. DevOps
-9. Appendix A: Product Scope
-10. Appendix B: User Stories
-11. Appendix C: Use Cases
-12. Appendix D: Non-Functional Requirements
-13. Appendix E: Glossary
-14. Appendix F: Instructions For Manual Testing
+---
+* Table of Contents
+{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -215,90 +191,100 @@ Classes used by multiple components are in the `seedu.AddressBook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### 3.1 \[Proposed\] Undo/redo feature
+### 3.1 Exporting of information
 
-#### 3.1.1 Proposed Implementation
+#### 3.1.1 Implementation
+The export feature is facilitated by `FileWriter` from Java's IO library.
+Currently, only email address and phone number can be exported. 
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `Hall-y` with an undo/redo history, stored internally as an `AddressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The key idea is that we will iterate through the current list and access the relevant information fields.
+This operation depends on the size of the current person list and will be relatively fast.
+We will then write the information into a .txt file located at `/data/hall.txt` each separated by a new line. 
 
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+Given below is a step-by-step usage scenario of how the `export` feature works:
 
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
+1. The user launches the application and inputs `export email` into the input box.
 
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
+2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `ExportCommand`.
 
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` followed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
 
-![UndoRedoState0](images/UndoRedoState0.png)
+4. The person list is then passed to `ExportCommand#handlEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `AddressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+The following sequence diagram shows how the export operation works:
+![](https://i.imgur.com/bbOtDI2.png)
 
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `AddressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `AddressBookStateList`.
-
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> 
+If the current person list is empty, an empty hally.txt file will be created.
 </div>
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial Hall-y state, then there are no previous Hall-y states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `AddressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone Hall-y states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `AddressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `AddressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-![CommitActivityDiagram](images/CommitActivityDiagram.png)
 
 #### 3.1.2 Design consideration:
 
-##### Aspect: How undo & redo executes
+##### Aspect: What file format to export to
 
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
+* **Alternative 1 (current choice):** Write to a .txt file.
 
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
+Pros | Cons
+-----|-----
+\+ More user-friendly <br> + Most operating systems is able to open .txt files natively. | - Does not offer much functionality apart from viewing and copying. 
 
-_{more aspects and alternatives to be added}_
+* **Alternative 2:** Write to a .json file
 
-### 3.2 \[Proposed\] Data archiving
+Pros | Cons
+-----|-----
+\+ More well-known among developers | - Less technical users may not know how to open a .json file.
 
-_{Explain here how the data archiving feature will be implemented}_
+### 3.3 Persistent block and room settings
 
+#### 3.3.1 Implementation
+This feature is implemented by making use of a json file to store the blocks and rooms info of the Hall. It does this by defining all available block and rooms in an editable json file. 
+
+A predefined configuration with the following settings will be set as default:
+
+Blocks : A,B,C,D  
+Rooms : 100 - 420
+
+Blocks are represented as a single alphabet in uppercase. Rooms are represented as <Level><Room number>.
+The default settings specifies that the Hall will have 4 blocks,A,B,C and D. There are 4 levels with 20 rooms per level.  
+Advanced users can edit the json file directly to change these settings
+
+
+Given below is a step-by-step usage scenario of how this feature will ensure that there are no invalid inputs for the block and room field 
+
+1. The user launches the application and tries to add a new user by typing  
+`add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` into the input box
+
+2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `AddCommand`.
+
+3. The `AddCommand` then calls `AddCommand#execute()`, and passes all the arguments to the `Person` constructor.
+
+4. The `Person` constructor proceeds to create a new `Person` object with all the fields, 2 of which are `Block` and `Room`.
+
+5. The `Block` and `Room` calls `Block#isValidBlock()` and `Room#isValidRoom()` respectively to parse the json file and compares the input arguments with the information specified in the json file. 
+
+6. A new `Block` and `Room` is returned if the input arguments matches the info specified in the json file. Otherwise, an exception is thrown and the result box will inform the user of the invalid input.
+
+The following sequence diagram shows how this feature works:
+![](images/Block Room Validation.png)
+
+
+
+#### 3.3.2 Design consideration:
+
+##### Aspect: Method of modifying the json file
+
+* **Alternative 1 (current choice):** Editing it directly
+
+Pros | Cons
+-----|-----
+\+ Easier to implement <br> | - Less technical users may not know how to edit the file correctly 
+
+* **Alternative 2:** Via a command
+
+Pros | Cons
+-----|-----
+\+ All users will be able to edit the file safely | - Troublesome to implement
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -491,7 +477,7 @@ Use case ends
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
