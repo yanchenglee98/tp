@@ -18,7 +18,7 @@ public class AssignCommand extends Command {
     public static final String COMMAND_WORD = "assign";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Assigns the person identified by the index number used in the displayed person list"
-            + "to the event specified by the index number used in the displayed event list.\n"
+            + " to the event specified by the index number used in the displayed event list.\n"
             + "Parameters: RESIDENT_INDEX EVENT_INDEX\n"
             + "Example: " + COMMAND_WORD + " 1 1";
 
