@@ -20,6 +20,13 @@ public class AssignCommandParserTest {
     }
 
     @Test
+    public void parse_validArgsWithSpace_returnsAssignCommand() throws ParseException {
+        assertParseSuccess(parser, "     1        1       ",
+                new AssignCommand(ParserUtil.parseIndex("1"),
+                        ParserUtil.parseIndex("1")));
+    }
+
+    @Test
     public void parse_invalidArgs_throwsParseException() {
         assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT, AssignCommand.MESSAGE_USAGE));
     }
