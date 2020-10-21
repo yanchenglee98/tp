@@ -27,8 +27,7 @@ public class AssignCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON_ADDED = "Duplicate resident %s being added to event %s";
 
     // index of person in person list to add
-    // event that person will be added to
-    // note that event is just a copy and not the direct reference to the event in the event list in model
+    // index event that person will be added to
     private final Index residentIndex;
     private final Index eventIndex;
 
@@ -41,7 +40,7 @@ public class AssignCommand extends Command {
         this.eventIndex = eventIndex;
     }
 
-    // an example of an assign command is assign 1 Hall dinner
+    // an example of an assign command is assign 1 1
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -65,7 +64,7 @@ public class AssignCommand extends Command {
 
         Person personToAdd = lastShownList.get(residentIndex.getZeroBased());
 
-        // get event from list
+        // get event from event list
         Event event = eventList.get(eventIndex.getZeroBased());
 
         // get attendee list from event
