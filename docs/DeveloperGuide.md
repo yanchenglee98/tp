@@ -235,6 +235,48 @@ Pros | Cons
 -----|-----
 \+ More well-known among developers | - Less technical users may not know how to open a .json file.
 
+### 3.2 Adding of events
+
+#### 3.2.1 Implementation
+The add event feature is facilitated by the `AddEventCommand`.
+It extends `Command` and overrides `Command#execute()` to perform the adding of events.
+
+The key idea is that we will pass the user's input into the `AddressBookParser#parseCommand()`. 
+It will create an `Event` with the user's inputs and associate it with `AddEventCommand`.
+When `AddEventCommand#execute()` is called, the associated `Event` is passed into the `Model` component.
+The `Model` component then saves the `Event`.
+
+Given below is a step-by-step usage scenario and how the add event feature works:
+1. The user launches the application and inputs `add-event n/Hall Dinner d/Dinner@Dining Hall` into the input box.
+2. The `UI` component accepts the input and passes it to `LogicManager#execute()`.
+3. The input is parsed through `AddressBookParser#parseCommand()`, returning an `AddEventCommand` with an `Event` class associated to it.
+4. The `LogicManager` class then calls `AddEventCommand#execute()`, which uses `Model#addEvent()` to save the associated `Event` class.
+
+The following sequence diagram shows how the add event operation works:
+![Add Event Sequence Diagram](diagrams/commands/dg-add-event.png)
+
+#### 3.1.2 Design consideration:
+
+#### Aspect: When to create the new `Event` class
+
+* **Alternative 1 (current choice)**: Create the new `Event` in `AddressBookParser#parseCommand()`
+
+Pros | Cons
+-----| -----
+\+ Early conversion of user's input into `Event` class<br />+ Consistent with the existing code base</span> | - Increases dependency between `Logic` and `Model` component
+
+* **Alternative 2**: Create the new `Event` in `AddEventCommand#execute()`
+
+Pros | Cons
+-----|-----
+\+ Decreases dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
+
+We decided to use **Alternative 1** as it is simpler.
+
+For **Alternative 2**, we found it to be too complex. The user's input has to be passed across the different components.
+By converting it to an `Event` class early, we can work at a higher level of abstraction.
+Other methods do not have to worry about string's format, and can focus on handling it as an `Event` class.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **4 Documentation**
