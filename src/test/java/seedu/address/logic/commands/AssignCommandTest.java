@@ -23,7 +23,7 @@ public class AssignCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
-    public void execute_assignResident_exportSuccessful() throws CommandException {
+    public void execute_assignResident_success() throws CommandException {
         Person person = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         Event event = model.getEventList().get(INDEX_FIRST_EVENT.getZeroBased());
         CommandResult commandResult = new AssignCommand(INDEX_FIRST_PERSON, INDEX_FIRST_EVENT).execute(model);
