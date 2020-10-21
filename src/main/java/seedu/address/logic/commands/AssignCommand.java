@@ -1,16 +1,15 @@
 package seedu.address.logic.commands;
 
+import java.util.List;
+import java.util.Set;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.event.AttendeesList;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
-
-import java.util.List;
-import java.util.Set;
 
 public class AssignCommand extends Command {
 
@@ -30,6 +29,10 @@ public class AssignCommand extends Command {
     private final Index residentIndex;
     private final Index eventIndex;
 
+    /**
+     * @param residentIndex index of the resident to be added
+     * @param eventIndex index of the event to be modified
+     */
     public AssignCommand(Index residentIndex, Index eventIndex) {
         this.residentIndex = residentIndex;
         this.eventIndex = eventIndex;

@@ -1,12 +1,10 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AssignCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.event.Event;
-import seedu.address.model.event.EventName;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 public class AssignCommandParser implements Parser<AssignCommand> {
     private static final int RESIDENT_INDEX = 0;
