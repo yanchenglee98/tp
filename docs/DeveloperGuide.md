@@ -337,9 +337,9 @@ Given below is a step-by-step usage scenario and how the listing all student gro
 1. The user launches the application and types `list-group` into the input box.
 2. The `UI` handles the input and calls `LogicManager#execute()` to execute it.
 3. The `AddressBookParser#parseCommand()` is called to parse the input and returns a `ListGroupCommand`.
-4. The `ListGroupCommand` calls `ListGroupCommand#execute()` to retrieve the list of all residents by calling `Model#getFilteredPersonList()`.
-5. The `ListGroupCommand#execute()` iterates the list of all residents and then gets a set of all residents' student groups.
-6. The `ListGroupCommand#execute()` iterates the set of all student groups and formats it to a `String` result.     
+4. The `ListGroupCommand` calls `ListGroupCommand#execute()` which retrieves the list of all residents by calling `Model#getFilteredPersonList()`.
+5. The `ListGroupCommand#execute()` iterates through the list of all residents and then gets a set of all residents' student groups.
+6. The `ListGroupCommand#execute()` iterates through the set of all student groups and formats it to a `String` result.     
 7. The `UI` displays the result in the result box.
 
 The following sequence diagram shows how the listing all student groups operation works:
