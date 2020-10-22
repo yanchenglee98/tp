@@ -31,13 +31,19 @@ public class FindCommand extends Command {
 
     private final List<Predicate<Person>> predicates;
 
+    /**
+     * Create a findCommand with the appropriate predicates.
+     * @param predicates List of predicates to use to find the resident
+     */
     public FindCommand(List<Predicate<Person>> predicates) {
+        requireNonNull(predicates);
         this.predicates = predicates;
     }
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
+        assert predicates != null : "predicates shouldn't be null";
         Predicate<Person> personPredicate = predicates.stream().reduce(Predicate::and).orElse(person -> true);
         model.updateFilteredPersonList(personPredicate);
         return new CommandResult(
@@ -46,6 +52,7 @@ public class FindCommand extends Command {
 
     @Override
     public boolean equals(Object other) {
+        assert predicates != null : "predicates shouldn't be null";
         return other == this // short circuit if same object
                 || (other instanceof FindCommand // instanceof handles nulls
                 && predicates.equals(((FindCommand) other).predicates)); // state check

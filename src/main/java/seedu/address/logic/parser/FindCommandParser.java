@@ -41,6 +41,7 @@ public class FindCommandParser implements Parser<FindCommand> {
                 throw new ParseException(FindCommand.MESSAGE_EMPTY_KEYWORD);
             }
             String[] nameKeywords = trimmedArgs.split("\\s+");
+            assert nameKeywords.length > 0 : "there should be some keywords";
             predicates.add(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
         }
 
@@ -53,7 +54,6 @@ public class FindCommandParser implements Parser<FindCommand> {
         if (predicates.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
-
 
         return new FindCommand(predicates);
     }
