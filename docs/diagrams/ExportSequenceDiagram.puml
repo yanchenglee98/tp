@@ -1,0 +1,59 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant "e:ExportCommand" as ExportCommand LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+participant ":ReadOnlyAddressBook" as ReadOnlyAddressBook MODEL_COLOR
+end box
+[-> LogicManager : execute(export)
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand(export)
+activate AddressBookParser
+
+create ExportCommand
+AddressBookParser -> ExportCommand
+activate ExportCommand
+
+ExportCommand --> AddressBookParser
+deactivate ExportCommand
+
+AddressBookParser --> LogicManager : e
+deactivate AddressBookParser
+
+LogicManager -> ExportCommand : execute()
+activate ExportCommand
+
+ExportCommand -> Model : getAddressBook()
+activate Model
+
+Model --> ExportCommand : addressBook
+deactivate Model
+
+ExportCommand -> ReadOnlyAddressBook: getPersonList()
+activate ReadOnlyAddressBook
+
+ReadOnlyAddressBook --> ExportCommand: personList
+deactivate ReadOnlyAddressBook
+
+ExportCommand -> ExportCommand: handleEmail()
+activate ExportCommand
+
+ExportCommand --> ExportCommand
+deactivate ExportCommand
+
+ExportCommand --> LogicManager : result
+deactivate ExportCommand
+
+ExportCommand -[hidden]-> LogicManager : result
+destroy ExportCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
