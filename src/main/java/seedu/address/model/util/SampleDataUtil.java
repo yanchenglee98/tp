@@ -43,7 +43,8 @@ public class SampleDataUtil {
                     new MatriculationNumber("A0123456F")),
             new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
                 new Address("Blk 45 Aljunied Street 85, #11-31"), new Gender("M"),
-                getStudentGroupSet("tableTennis"), new Block("A"), new Room("405"), new MatriculationNumber("A0123456G"))
+                getStudentGroupSet("tableTennis"), new Block("A"), new Room("405"),
+                new MatriculationNumber("A0123456G"))
         };
     }
 
