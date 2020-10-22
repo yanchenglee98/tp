@@ -14,8 +14,8 @@ public class Room {
     public static final String VALIDATION_REGEX = "\\d{3}";
     private static final int MIN_FLOOR_NUMBER = 1;
     private static final int MIN_ROOM_NUMBER = 1;
-    private static int MAX_FLOOR_NUMBER;
-    private static int MAX_ROOM_NUMBER;
+    private static int MAX_FLOOR_NUMBER = 4;
+    private static int MAX_ROOM_NUMBER = 20;
     public final String value;
 
     /**
