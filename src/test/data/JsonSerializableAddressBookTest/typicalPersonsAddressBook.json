@@ -9,7 +9,7 @@
     "room" : "405",
     "gender" : "F",
     "matriculationNumber": "A0123456B",
-    "studentGroups" : [ "friends" ]
+    "studentGroups" : [ "badminton" ]
   }, {
     "name" : "Benson Meier",
     "phone" : "98765432",
@@ -19,7 +19,7 @@
     "room" : "405",
     "gender" : "M",
     "matriculationNumber": "A0123456C",
-    "studentGroups" : [ "owesMoney", "friends" ]
+    "studentGroups" : [ "hackers", "soccer" ]
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
@@ -29,7 +29,7 @@
     "room" : "405",
     "gender" : "M",
     "matriculationNumber": "A0123456D",
-    "studentGroups" : [ ]
+    "studentGroups" : [  ]
   }, {
     "name" : "Daniel Meier",
     "phone" : "87652533",
@@ -39,7 +39,7 @@
     "room" : "405",
     "gender" : "M",
     "matriculationNumber": "A0123456E",
-    "studentGroups" : [ "friends" ]
+    "studentGroups" : [ "dance" ]
   }, {
     "name" : "Elle Meyer",
     "phone" : "9482224",
@@ -49,7 +49,7 @@
     "room" : "405",
     "gender" : "F",
     "matriculationNumber": "A0123456F",
-    "studentGroups" : [ ]
+    "studentGroups" : [  ]
   }, {
     "name" : "Fiona Kunz",
     "phone" : "9482427",
@@ -59,7 +59,7 @@
     "room" : "405",
     "gender" : "F",
     "matriculationNumber": "A0123456G",
-    "studentGroups" : [ ]
+    "studentGroups" : [  ]
   }, {
     "name" : "George Best",
     "phone" : "9482442",
@@ -69,6 +69,6 @@
     "room" : "405",
     "gender" : "M",
     "matriculationNumber": "A0123456H",
-    "studentGroups" : [ ]
+    "studentGroups" : [  ]
   } ]
 }

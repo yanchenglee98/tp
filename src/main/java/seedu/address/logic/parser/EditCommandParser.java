@@ -64,7 +64,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_GENDER).isPresent()) {
             editPersonDescriptor.setGender(ParserUtil.parseGender(argMultimap.getValue(PREFIX_GENDER).get()));
         }
-        parseStudyGroupsForEdit(argMultimap.getAllValues(PREFIX_STUDENT_GROUP))
+        parseStudentGroupsForEdit(argMultimap.getAllValues(PREFIX_STUDENT_GROUP))
                 .ifPresent(editPersonDescriptor::setStudentGroups);
         if (argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).isPresent()) {
             editPersonDescriptor.setMatriculationNumber(
@@ -79,19 +79,19 @@ public class EditCommandParser implements Parser<EditCommand> {
     }
 
     /**
-     * Parses {@code Collection<String> studyGroups} into a {@code Set<StudyGroup>} if {@code studyGroups} is non-empty.
-     * If {@code studyGroups} contain only one element which is an empty string, it will be parsed into a
-     * {@code Set<StudyGroup>} containing zero studyGroups.
+     * Parses {@code Collection<String> studentGroups} into a {@code Set<StudentGroup>} if {@code studentGroups} is non-empty.
+     * If {@code studentGroups} contain only one element which is an empty string, it will be parsed into a
+     * {@code Set<StudentGroup>} containing zero studentGroups.
      */
-    private Optional<Set<StudentGroup>> parseStudyGroupsForEdit(Collection<String> studyGroups) throws ParseException {
-        assert studyGroups != null;
+    private Optional<Set<StudentGroup>> parseStudentGroupsForEdit(Collection<String> studentGroups) throws ParseException {
+        assert studentGroups != null;
 
-        if (studyGroups.isEmpty()) {
+        if (studentGroups.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> studentGroupSet = studyGroups.size() == 1 && studyGroups.contains("")
-                ? Collections.emptySet() : studyGroups;
-        return Optional.of(ParserUtil.parseStudyGroups(studentGroupSet));
+        Collection<String> studentGroupSet = studentGroups.size() == 1 && studentGroups.contains("")
+                ? Collections.emptySet() : studentGroups;
+        return Optional.of(ParserUtil.parseStudentGroups(studentGroupSet));
     }
 
 }

@@ -100,7 +100,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String studentGroup} into a {@code StudyGroup}.
+     * Parses a {@code String studentGroup} into a {@code StudentGroup}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code studentGroup} is invalid.
@@ -115,12 +115,12 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code Collection<String> studyGroups} into a {@code Set<StudyGroup>}.
+     * Parses {@code Collection<String> studentGroups} into a {@code Set<StudentGroup>}.
      */
-    public static Set<StudentGroup> parseStudyGroups(Collection<String> studyGroups) throws ParseException {
-        requireNonNull(studyGroups);
+    public static Set<StudentGroup> parseStudentGroups(Collection<String> studentGroups) throws ParseException {
+        requireNonNull(studentGroups);
         final Set<StudentGroup> studentGroupSet = new HashSet<>();
-        for (String studentGroupName : studyGroups) {
+        for (String studentGroupName : studentGroups) {
             studentGroupSet.add(parseStudentGroup(studentGroupName));
         }
         return studentGroupSet;

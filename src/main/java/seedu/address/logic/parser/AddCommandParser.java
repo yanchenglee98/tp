@@ -51,7 +51,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-        Set<StudentGroup> studentGroupList = ParserUtil.parseStudyGroups(argMultimap
+        Set<StudentGroup> studentGroupList = ParserUtil.parseStudentGroups(argMultimap
                 .getAllValues(PREFIX_STUDENT_GROUP));
         String blockString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(0, 1);
         String roomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(1);

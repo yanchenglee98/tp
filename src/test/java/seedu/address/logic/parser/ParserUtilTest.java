@@ -173,23 +173,23 @@ public class ParserUtilTest {
 
     @Test
     public void parseStudentGroups_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseStudyGroups(null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseStudentGroups(null));
     }
 
     @Test
     public void parseStudentGroups_collectionWithInvalidStudentGroups_throwsParseException() {
         assertThrows(ParseException.class, () ->
-            ParserUtil.parseStudyGroups(Arrays.asList(VALID_STUDENT_GROUP_1, INVALID_STUDENT_GROUP)));
+            ParserUtil.parseStudentGroups(Arrays.asList(VALID_STUDENT_GROUP_1, INVALID_STUDENT_GROUP)));
     }
 
     @Test
     public void parseStudentGroups_emptyCollection_returnsEmptySet() throws Exception {
-        assertTrue(ParserUtil.parseStudyGroups(Collections.emptyList()).isEmpty());
+        assertTrue(ParserUtil.parseStudentGroups(Collections.emptyList()).isEmpty());
     }
 
     @Test
     public void parseStudentGroups_collectionWithValidStudentGroups_returnsStudentGroupSet() throws Exception {
-        Set<StudentGroup> actualStudentGroupSet = ParserUtil.parseStudyGroups(
+        Set<StudentGroup> actualStudentGroupSet = ParserUtil.parseStudentGroups(
             Arrays.asList(VALID_STUDENT_GROUP_1, VALID_STUDENT_GROUP_2));
         Set<StudentGroup> expectedStudentGroupSet = new HashSet<>(Arrays
                 .asList(new StudentGroup(VALID_STUDENT_GROUP_1), new StudentGroup(VALID_STUDENT_GROUP_2)));

@@ -30,17 +30,17 @@ public class TypicalPersons {
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
             .withPhone("94351253").withGender("F").withMatriculationNumber("A0123456B")
-            .withBlock("A").withRoom("420").withStudentGroups("friends").build();
+            .withBlock("A").withRoom("420").withStudentGroups("badminton").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432").withGender("M").withMatriculationNumber("A0123456C")
-            .withBlock("A").withRoom("420").withStudentGroups("owesMoney", "friends").build();
+            .withBlock("A").withRoom("420").withStudentGroups("hackers", "soccer").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
             .withEmail("heinz@example.com").withAddress("wall street")
             .withBlock("A").withRoom("420").withGender("M").withMatriculationNumber("A0123456D").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withEmail("cornelia@example.com").withAddress("10th street").withGender("M")
-            .withBlock("A").withRoom("420").withMatriculationNumber("A0123456E").withStudentGroups("friends").build();
+            .withBlock("A").withRoom("420").withMatriculationNumber("A0123456E").withStudentGroups("dance").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
             .withEmail("werner@example.com").withAddress("michegan ave")
             .withBlock("A").withRoom("420").withGender("F").withMatriculationNumber("A0123456F").build();
