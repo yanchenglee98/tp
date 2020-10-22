@@ -22,7 +22,7 @@ public class Room {
      */
     public Room(String room) {
         requireNonNull(room);
-        checkArgument(isValidRoom(room), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidRoom(room), getMessageConstraints());
         value = room;
     }
 
