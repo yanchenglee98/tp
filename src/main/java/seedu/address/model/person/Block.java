@@ -3,6 +3,9 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Represents a Person's Block number in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidBlock(String)}
@@ -13,6 +16,7 @@ public class Block {
     public static final String MESSAGE_CONSTRAINTS =
             "Block should only contain alphabets";
     public static final String VALIDATION_REGEX = "[a-zA-Z]";
+    private static List<String> blockPref = Arrays.asList(new String[]{"A", "B", "C", "D"});
     public final String value;
 
     /**
@@ -22,15 +26,30 @@ public class Block {
      */
     public Block(String block) {
         requireNonNull(block);
-        checkArgument(isValidBlock(block), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidBlock(block), getMessageConstraints());
         value = block.toUpperCase();
+    }
+
+    public static String getMessageConstraints() {
+        StringBuilder blockConstraints = new StringBuilder();
+        blockConstraints.append(" ");
+        for (String block : blockPref) {
+            blockConstraints.append(block);
+            blockConstraints.append(", ");
+        }
+        blockConstraints.setLength(blockConstraints.length() - 2);
+        return MESSAGE_CONSTRAINTS + blockConstraints.toString();
     }
 
     /**
      * Returns true if a given string is a valid Block number.
      */
     public static boolean isValidBlock(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX) && blockPref.contains(test);
+    }
+
+    public static void setBlockPref(String pref) {
+        blockPref = Arrays.asList(pref.split(","));
     }
 
     @Override

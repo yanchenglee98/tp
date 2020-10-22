@@ -48,7 +48,7 @@ public class BlockTest {
         // valid block
         assertTrue(Block.isValidBlock("A"));
         assertTrue(Block.isValidBlock("B"));
-        assertTrue(Block.isValidBlock("c"));
-        assertTrue(Block.isValidBlock("d"));
+        assertTrue(Block.isValidBlock("C"));
+        assertTrue(Block.isValidBlock("D"));
     }
 }

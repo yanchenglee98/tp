@@ -13,4 +13,8 @@ public interface ReadOnlyUserPrefs {
 
     Path getAddressBookFilePath();
 
+    String getBlockSettings();
+
+    int getRoomSettings();
+
 }

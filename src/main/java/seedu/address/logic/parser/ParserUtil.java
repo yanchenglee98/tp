@@ -135,7 +135,7 @@ public class ParserUtil {
         requireNonNull(block);
         String trimmedBlock = block.trim();
         if (!Block.isValidBlock(trimmedBlock)) {
-            throw new ParseException(Block.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Block.getMessageConstraints());
         }
         return new Block(trimmedBlock);
     }
@@ -147,7 +147,7 @@ public class ParserUtil {
         requireNonNull(room);
         String trimmedRoom = room.trim();
         if (!Room.isValidRoom(trimmedRoom)) {
-            throw new ParseException(Room.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Room.getMessageConstraints());
         }
         return new Room(trimmedRoom);
     }
