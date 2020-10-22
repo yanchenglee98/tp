@@ -9,7 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -20,7 +20,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * Parses input arguments and creates a new EditCommand object
@@ -36,7 +36,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BLOCKROOM, PREFIX_TAG, PREFIX_MATRICULATION_NUMBER, PREFIX_GENDER);
+                        PREFIX_BLOCKROOM, PREFIX_STUDENT_GROUP, PREFIX_MATRICULATION_NUMBER, PREFIX_GENDER);
         Index index;
 
         try {
@@ -67,7 +67,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_GENDER).isPresent()) {
             editPersonDescriptor.setGender(ParserUtil.parseGender(argMultimap.getValue(PREFIX_GENDER).get()));
         }
-        parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
+        parseStudentGroupsForEdit(argMultimap.getAllValues(PREFIX_STUDENT_GROUP))
+                .ifPresent(editPersonDescriptor::setStudentGroups);
         if (argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).isPresent()) {
             editPersonDescriptor.setMatriculationNumber(
                     ParserUtil.parseMatriculationNumber(argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).get()));
@@ -81,18 +82,21 @@ public class EditCommandParser implements Parser<EditCommand> {
     }
 
     /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>} if {@code tags} is non-empty.
-     * If {@code tags} contain only one element which is an empty string, it will be parsed into a
-     * {@code Set<Tag>} containing zero tags.
+     * Parses {@code Collection<String> studentGroups} into a {@code Set<StudentGroup>} if {@code studentGroups}
+     * is non-empty.
+     * If {@code studentGroups} contain only one element which is an empty string, it will be parsed into a
+     * {@code Set<StudentGroup>} containing zero studentGroups.
      */
-    private Optional<Set<Tag>> parseTagsForEdit(Collection<String> tags) throws ParseException {
-        assert tags != null;
+    private Optional<Set<StudentGroup>> parseStudentGroupsForEdit(Collection<String> studentGroups)
+        throws ParseException {
+        assert studentGroups != null;
 
-        if (tags.isEmpty()) {
+        if (studentGroups.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> tagSet = tags.size() == 1 && tags.contains("") ? Collections.emptySet() : tags;
-        return Optional.of(ParserUtil.parseTags(tagSet));
+        Collection<String> studentGroupSet = studentGroups.size() == 1 && studentGroups.contains("")
+                ? Collections.emptySet() : studentGroups;
+        return Optional.of(ParserUtil.parseStudentGroups(studentGroupSet));
     }
 
 }

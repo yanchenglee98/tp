@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * Represents a Person in the address book.
@@ -24,7 +24,7 @@ public class Person {
 
     // Data fields
     private final Address address;
-    private final Set<Tag> tags = new HashSet<>();
+    private final Set<StudentGroup> studentGroups = new HashSet<>();
     private final Block block;
     private final Room room;
 
@@ -32,14 +32,14 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Gender gender, Set<Tag> tags,
+    public Person(Name name, Phone phone, Email email, Address address, Gender gender, Set<StudentGroup> studentGroups,
                 Block block, Room room, MatriculationNumber matriculationNumber) {
-        requireAllNonNull(name, phone, email, address, gender, tags, block, room, matriculationNumber);
+        requireAllNonNull(name, phone, email, address, gender, studentGroups, block, room, matriculationNumber);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
-        this.tags.addAll(tags);
+        this.studentGroups.addAll(studentGroups);
         this.block = block;
         this.room = room;
         this.gender = gender;
@@ -75,11 +75,11 @@ public class Person {
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
+     * Returns an immutable student group set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
+    public Set<StudentGroup> getStudentGroups() {
+        return Collections.unmodifiableSet(studentGroups);
     }
 
     public MatriculationNumber getMatriculationNumber() {
@@ -121,14 +121,14 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getGender().equals(getGender())
-                && otherPerson.getTags().equals(getTags())
+                && otherPerson.getStudentGroups().equals(getStudentGroups())
                 && otherPerson.getMatriculationNumber().equals(getMatriculationNumber());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, gender, tags, matriculationNumber);
+        return Objects.hash(name, phone, email, address, gender, studentGroups, matriculationNumber);
     }
 
     @Override
@@ -143,14 +143,14 @@ public class Person {
                 .append(getAddress())
                 .append(" Gender: ")
                 .append(getGender())
-                .append(" Tags: ");
-        getTags().forEach(builder::append);
-        builder.append(" Block: ")
+                .append(" Block: ")
                 .append(getBlock())
                 .append(" Room: ")
                 .append(getRoom())
                 .append(" Matriculation Number: ")
-                .append(getMatriculationNumber());
+                .append(getMatriculationNumber())
+                .append(" Student Groups: ");
+        getStudentGroups().forEach(builder::append);
         return builder.toString();
     }
 

@@ -41,7 +41,7 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label gender;
     @FXML
-    private FlowPane tags;
+    private FlowPane studentGroups;
     @FXML
     private Label blockRoom;
     @FXML
@@ -61,9 +61,9 @@ public class PersonCard extends UiPart<Region> {
         blockRoom.setText(person.getBlock().value + person.getRoom().value);
         gender.setText(person.getGender().type.toString());
         matriculationNumber.setText(person.getMatriculationNumber().value);
-        person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        person.getStudentGroups().stream()
+                .sorted(Comparator.comparing(studentGroup -> studentGroup.studentGroupName))
+                .forEach(studentGroup -> studentGroups.getChildren().add(new Label(studentGroup.studentGroupName)));
     }
 
     @Override
