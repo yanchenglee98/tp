@@ -218,7 +218,6 @@ The following sequence diagram shows how the export operation works:
 If the current person list is empty, an empty hally.txt file will be created.
 </div>
 
-
 #### 3.1.2 Design consideration:
 
 ##### Aspect: What file format to export to
@@ -310,8 +309,6 @@ Given below is a step-by-step usage scenario of how this feature will ensure tha
 The following sequence diagram shows how this feature works:
 ![](images/BlockRoomValidationDiagram.png)
 
-
-
 #### 3.3.2 Design consideration:
 
 ##### Aspect: Method of modifying the json file
@@ -329,6 +326,24 @@ Pros | Cons
 \+ All users will be able to edit the file safely | - Troublesome to implement
 
 Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work since we would require more rigorous testing to ensure that it is bug free. 
+
+### 3.4 Listing all student groups
+
+#### 3.4.1 Implementation
+The listing all student groups feature is facilitated by `ListGroupCommand`. It extends `Command` and overrides `Command#execute()` to list all student groups.
+
+Given below is a step-by-step usage scenario and how the listing all student groups feature works:
+
+1. The user launches the application and types `list-group` into the input box.
+2. The `UI` handles the input and calls `LogicManager#execute()` to execute it.
+3. The `AddressBookParser#parseCommand()` is called to parse the input and returns a `ListGroupCommand`.
+4. The `ListGroupCommand` calls `ListGroupCommand#execute()` which retrieves the list of all residents by calling `Model#getFilteredPersonList()`.
+5. The `ListGroupCommand#execute()` iterates through the list of all residents and then gets a set of all residents' student groups.
+6. The `ListGroupCommand#execute()` iterates through the set of all student groups and formats it to a `String` result.     
+7. The `UI` displays the result in the result box.
+
+The following sequence diagram shows how the listing all student groups operation works:
+![Listing Student Groups Sequence Diagram](images/ListGroupSequenceDiagram.png)  
 
 --------------------------------------------------------------------------------------------------------------------
 
