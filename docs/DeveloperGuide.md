@@ -4,8 +4,8 @@ title: Developer Guide
 ---
 # Hall-y Developer Guide
 
-Version 1.2  
-_Updated on 14/10/2020_
+Version 1.3  
+_Updated on 23/10/2020_
 
 Prepared by:  
 Aung Thuya Oo  
@@ -344,6 +344,52 @@ Given below is a step-by-step usage scenario and how the listing all student gro
 
 The following sequence diagram shows how the listing all student groups operation works:
 ![Listing Student Groups Sequence Diagram](images/ListGroupSequenceDiagram.png)  
+
+### 3.5 Finding Students
+
+#### 3.5.1 Implementation
+The finding of students based on their characteristics is facilitated by the `FindCommand`.
+It extends `Command` and overrides `Command#execute()` to find students.
+
+The high-level idea is that the user input from the `FindCommand` will be passed into the 
+`AddressBookParser#parseCommand()`. Based on user input, it will form a list of predicates
+that will return true if a resident matches the given inputs.
+
+Given below is a step-by-step usage scenario and how the finding of students works:
+
+1. The user launches the application and types `find n/meier b/B` into the input box.
+2. The `UI` handles the input and calls `LogicManager#execute()` to execute it.
+3. The `AddressBookParser#parseCommand()` is called to parse the input, which calls `FindCommandParser#parseCommand()`,
+subsequently returning a `FindCommand` with the associated list of predicates.
+4. The `FindCommand` calls `FindCommand#execute()` which forms a predicate that fulfill every predicate from the list.
+5. The predicate updates the filtered list of all residents by calling `Model#updateFilteredPersonList()`.
+The resulting filtered list matches this predicate, which means that it matches all predicates in the original list.
+7. The `UI` displays the result in the result box.
+
+The following sequence diagram shows how finding students works:
+![Find Sequence Diagram](images/FindSequenceDiagram.png)  
+
+#### 3.5.2 Design consideration:
+
+#### Aspect: When to convert list of predicates to a single predicate
+
+* **Alternative 1 (current choice)**: Create the predicate during `AddressBookParser#parseCommand()`
+
+Pros | Cons
+-----| -----
+\+ Memory is freed earlier as list of predicates is converted immediately | - Makes testing of equal find commands more difficult
+
+* **Alternative 2**: Create the predicate during `FindCommand#execute()`
+
+Pros | Cons
+-----|-----
+\+ It is easier to compare equality for `FindCommand` objects<br/>\+ It is easier to test | - More memory is needed to store the list of predicates for longer period of time
+
+We decided to use **Alternative 2** as it increases testability by making it simpler to test.
+
+For **Alternative 1**, it is difficult to compare 2 predicates as they have been merged together. 
+With **Alternative 2**, it is easier to compare each equality of each element in the list of predicates instead to check whether the `FindCommand` objects are equal. 
+As testing is important to ensuring that programs run correctly, we decided to use alternative 2.
 
 --------------------------------------------------------------------------------------------------------------------
 
