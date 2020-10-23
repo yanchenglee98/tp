@@ -4,8 +4,10 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.Set;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -14,6 +16,8 @@ import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
 
 public class AssignCommand extends Command {
+
+    private static final Logger logger = LogsCenter.getLogger(AssignCommand.class);
 
     public static final String COMMAND_WORD = "assign";
     public static final String MESSAGE_USAGE = COMMAND_WORD
@@ -72,6 +76,9 @@ public class AssignCommand extends Command {
 
         // check if person to add is already in the event list
         if (attendeesList.contains(personToAdd)) {
+            logger.warning(String.format(MESSAGE_DUPLICATE_PERSON_ADDED,
+                    personToAdd.getName(),
+                    event.getName()));
             throw new CommandException(String.format(MESSAGE_DUPLICATE_PERSON_ADDED,
                     personToAdd.getName(),
                     event.getName()));
@@ -83,6 +90,8 @@ public class AssignCommand extends Command {
 
         // update model
         model.setEvent(event, editedEvent);
+
+        logger.fine(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), event.getName()));
 
         return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), event.getName()));
     }
