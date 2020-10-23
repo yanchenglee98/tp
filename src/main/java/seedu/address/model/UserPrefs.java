@@ -15,8 +15,11 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
     private Path addressBookFilePath = Paths.get("data" , "addressbook.json");
-    private String blockSettings = "A,B,C,D";
-    private int roomSettings = 420;
+    private String[] blockSettings = {"A", "B", "C", "D"};
+    private int minRoomSettings = 1;
+    private int maxRoomSettings = 20;
+    private int minFloorSettings = 1;
+    private int maxFloorSettings = 4;
 
     /**
      * Creates a {@code UserPrefs} with default values.
@@ -39,7 +42,10 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         setGuiSettings(newUserPrefs.getGuiSettings());
         setAddressBookFilePath(newUserPrefs.getAddressBookFilePath());
         setBlockSettings(newUserPrefs.getBlockSettings());
-        setRoomSettings(newUserPrefs.getRoomSettings());
+        setMinRoomSettings(newUserPrefs.getMinRoomSettings());
+        setMaxRoomSettings(newUserPrefs.getMaxRoomSettings());
+        setMinFloorSettings(newUserPrefs.getMinFloorSettings());
+        setMaxFloorSettings(newUserPrefs.getMaxFloorSettings());
     }
 
     public GuiSettings getGuiSettings() {
@@ -51,22 +57,49 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.guiSettings = guiSettings;
     }
 
-    public String getBlockSettings() {
+    public String[] getBlockSettings() {
         return blockSettings;
     }
 
-    public void setBlockSettings(String blockSettings) {
+    public void setBlockSettings(String[] blockSettings) {
         requireNonNull(blockSettings);
         this.blockSettings = blockSettings;
     }
 
-    public int getRoomSettings() {
-        return roomSettings;
+    public int getMinRoomSettings() {
+        return minRoomSettings;
     }
 
-    public void setRoomSettings(int roomSettings) {
-        requireNonNull(roomSettings);
-        this.roomSettings = roomSettings;
+    public void setMinRoomSettings(int minRoomSettings) {
+        requireNonNull(minRoomSettings);
+        this.minRoomSettings = minRoomSettings;
+    }
+
+    public int getMaxRoomSettings() {
+        return maxRoomSettings;
+    }
+
+    public void setMaxRoomSettings(int maxRoomSettings) {
+        requireNonNull(maxRoomSettings);
+        this.maxRoomSettings = maxRoomSettings;
+    }
+
+    public int getMinFloorSettings() {
+        return minFloorSettings;
+    }
+
+    public void setMinFloorSettings(int minFloorSettings) {
+        requireNonNull(minFloorSettings);
+        this.minFloorSettings = minFloorSettings;
+    }
+
+    public int getMaxFloorSettings() {
+        return maxFloorSettings;
+    }
+
+    public void setMaxFloorSettings(int maxFloorSettings) {
+        requireNonNull(maxFloorSettings);
+        this.maxFloorSettings = maxFloorSettings;
     }
 
     public Path getAddressBookFilePath() {
@@ -104,7 +137,10 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         sb.append("Gui Settings : " + guiSettings);
         sb.append("\nLocal data file location : " + addressBookFilePath);
         sb.append("\nBlock Settings : " + blockSettings);
-        sb.append("\nRoom Settings : " + roomSettings);
+        sb.append("\nMin room Settings : " + minRoomSettings);
+        sb.append("\nMax room Settings : " + maxRoomSettings);
+        sb.append("\nMin floor Settings : " + minFloorSettings);
+        sb.append("\nMax floor Settings : " + maxFloorSettings);
         return sb.toString();
     }
 

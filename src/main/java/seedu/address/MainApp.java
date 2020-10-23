@@ -81,7 +81,8 @@ public class MainApp extends Application {
 
         try {
             Block.setBlockPref(userPrefs.getBlockSettings());
-            Room.setRoomPref(userPrefs.getRoomSettings());
+            Room.setRoomPref(userPrefs.getMinRoomSettings(), userPrefs.getMaxRoomSettings(),
+                    userPrefs.getMinFloorSettings(), userPrefs.getMaxFloorSettings());
             addressBookOptional = storage.readAddressBook();
             if (!addressBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample AddressBook");

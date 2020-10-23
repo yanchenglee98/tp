@@ -48,8 +48,8 @@ public class Block {
         return test.matches(VALIDATION_REGEX) && blockPref.contains(test);
     }
 
-    public static void setBlockPref(String pref) {
-        blockPref = Arrays.asList(pref.split(","));
+    public static void setBlockPref(String[] pref) {
+        blockPref = Arrays.asList(pref);
     }
 
     @Override

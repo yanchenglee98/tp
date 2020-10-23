@@ -12,8 +12,8 @@ public class Room {
     public static final String MESSAGE_CONSTRAINTS =
             "Room numbers should only contain numbers, and it should be 3 digits long";
     public static final String VALIDATION_REGEX = "\\d{3}";
-    private static final int MIN_FLOOR_NUMBER = 1;
-    private static final int MIN_ROOM_NUMBER = 1;
+    private static int MIN_FLOOR_NUMBER = 1;
+    private static int MIN_ROOM_NUMBER = 1;
     private static int MAX_FLOOR_NUMBER = 4;
     private static int MAX_ROOM_NUMBER = 20;
     public final String value;
@@ -49,9 +49,11 @@ public class Room {
                 + "\nRoom: " + MIN_ROOM_NUMBER + " to " + MAX_ROOM_NUMBER;
     }
 
-    public static void setRoomPref(int pref) {
-        MAX_FLOOR_NUMBER = Math.floorDiv(pref, 100);
-        MAX_ROOM_NUMBER = pref % 100;
+    public static void setRoomPref(int minRoom, int maxRoom, int minFloor, int maxFloor) {
+        MIN_ROOM_NUMBER = minRoom;
+        MAX_ROOM_NUMBER = maxRoom;
+        MIN_FLOOR_NUMBER = minFloor;
+        MAX_FLOOR_NUMBER = maxFloor;
     }
 
     @Override

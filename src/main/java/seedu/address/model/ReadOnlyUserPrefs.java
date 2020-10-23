@@ -10,11 +10,11 @@ import seedu.address.commons.core.GuiSettings;
 public interface ReadOnlyUserPrefs {
 
     GuiSettings getGuiSettings();
-
     Path getAddressBookFilePath();
-
-    String getBlockSettings();
-
-    int getRoomSettings();
+    String[] getBlockSettings();
+    int getMinRoomSettings();
+    int getMaxRoomSettings();
+    int getMinFloorSettings();
+    int getMaxFloorSettings();
 
 }
