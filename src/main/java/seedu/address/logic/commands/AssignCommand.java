@@ -5,7 +5,9 @@ import static java.util.Objects.requireNonNull;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -16,15 +18,16 @@ import seedu.address.model.person.Person;
 public class AssignCommand extends Command {
 
     public static final String COMMAND_WORD = "assign";
+    public static final String MESSAGE_ASSIGN_PERSON_SUCCESS = "Assigned resident %s to %s";
+    public static final String MESSAGE_DUPLICATE_PERSON_ADDED = "Duplicate resident %s being added to event %s";
+    public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Assigns the person identified by the index number used in the displayed person list"
             + " to the event specified by the index number used in the displayed event list.\n"
             + "Parameters: RESIDENT_INDEX EVENT_INDEX\n"
             + "Example: " + COMMAND_WORD + " 1 1";
 
-    public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
-    public static final String MESSAGE_ASSIGN_PERSON_SUCCESS = "Assigned resident %s to %s";
-    public static final String MESSAGE_DUPLICATE_PERSON_ADDED = "Duplicate resident %s being added to event %s";
+    private static final Logger logger = LogsCenter.getLogger(AssignCommand.class);
 
     // index of person in person list to add
     // index event that person will be added to
@@ -72,6 +75,9 @@ public class AssignCommand extends Command {
 
         // check if person to add is already in the event list
         if (attendeesList.contains(personToAdd)) {
+            logger.warning(String.format(MESSAGE_DUPLICATE_PERSON_ADDED,
+                    personToAdd.getName(),
+                    event.getName()));
             throw new CommandException(String.format(MESSAGE_DUPLICATE_PERSON_ADDED,
                     personToAdd.getName(),
                     event.getName()));
@@ -83,6 +89,8 @@ public class AssignCommand extends Command {
 
         // update model
         model.setEvent(event, editedEvent);
+
+        logger.fine(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), event.getName()));
 
         return new CommandResult(String.format(MESSAGE_ASSIGN_PERSON_SUCCESS, personToAdd.getName(), event.getName()));
     }
