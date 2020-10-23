@@ -19,7 +19,7 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("find b/B")
+[-> LogicManager : execute("find n/meier b/B")
 activate LogicManager
 
 LogicManager -> AddressBookParser : parseCommand("find n/meier b/B")
