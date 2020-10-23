@@ -9,6 +9,8 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.event.Description;
+import seedu.address.model.event.EventName;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
@@ -17,7 +19,7 @@ import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -100,30 +102,30 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String tag} into a {@code Tag}.
+     * Parses a {@code String studentGroup} into a {@code StudentGroup}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code tag} is invalid.
+     * @throws ParseException if the given {@code studentGroup} is invalid.
      */
-    public static Tag parseTag(String tag) throws ParseException {
-        requireNonNull(tag);
-        String trimmedTag = tag.trim();
-        if (!Tag.isValidTagName(trimmedTag)) {
-            throw new ParseException(Tag.MESSAGE_CONSTRAINTS);
+    public static StudentGroup parseStudentGroup(String studentGroup) throws ParseException {
+        requireNonNull(studentGroup);
+        String trimmedStudentGroup = studentGroup.trim();
+        if (!StudentGroup.isValidStudentGroupName(trimmedStudentGroup)) {
+            throw new ParseException(StudentGroup.MESSAGE_CONSTRAINTS);
         }
-        return new Tag(trimmedTag);
+        return new StudentGroup(trimmedStudentGroup);
     }
 
     /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
+     * Parses {@code Collection<String> studentGroups} into a {@code Set<StudentGroup>}.
      */
-    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
-        requireNonNull(tags);
-        final Set<Tag> tagSet = new HashSet<>();
-        for (String tagName : tags) {
-            tagSet.add(parseTag(tagName));
+    public static Set<StudentGroup> parseStudentGroups(Collection<String> studentGroups) throws ParseException {
+        requireNonNull(studentGroups);
+        final Set<StudentGroup> studentGroupSet = new HashSet<>();
+        for (String studentGroupName : studentGroups) {
+            studentGroupSet.add(parseStudentGroup(studentGroupName));
         }
-        return tagSet;
+        return studentGroupSet;
     }
 
     /**
@@ -177,5 +179,35 @@ public class ParserUtil {
             throw new ParseException(MatriculationNumber.MESSAGE_CONSTRAINTS);
         }
         return new MatriculationNumber(trimmedMatriculationNumber);
+    }
+
+    /**
+     * Parses a {@code String eventName} into an {@code EventName}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code eventName} is invalid.
+     */
+    public static EventName parseEventName(String eventName) throws ParseException {
+        requireNonNull(eventName);
+        String trimmedEventName = eventName.trim();
+        if (!EventName.isValidEventName(trimmedEventName)) {
+            throw new ParseException(EventName.MESSAGE_CONSTRAINTS);
+        }
+        return new EventName(trimmedEventName);
+    }
+
+    /**
+     * Parses a {@code String description} into a {@code Description}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code description} is invalid.
+     */
+    public static Description parseDescription(String description) throws ParseException {
+        requireNonNull(description);
+        String trimmedDescription = description.trim();
+        if (!Description.isValidDescription(trimmedDescription)) {
+            throw new ParseException(Description.MESSAGE_CONSTRAINTS);
+        }
+        return new Description(trimmedDescription);
     }
 }

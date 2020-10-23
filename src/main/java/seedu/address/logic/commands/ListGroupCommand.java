@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * Lists all student groups of residents.
@@ -36,9 +36,9 @@ public class ListGroupCommand extends Command {
         // use Set to avoid storing duplicate elements
         Set<String> groupNameSet = new HashSet<>();
         for (Person resident : residentList) {
-            Set<Tag> studentGroupSet = resident.getTags();
-            for (Tag tag : studentGroupSet) {
-                groupNameSet.add(tag.tagName);
+            Set<StudentGroup> studentGroupSet = resident.getStudentGroups();
+            for (StudentGroup studentGroup : studentGroupSet) {
+                groupNameSet.add(studentGroup.studentGroupName);
             }
         }
         logger.log(Level.INFO, "The number of student groups is " + groupNameSet.size());

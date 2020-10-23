@@ -4,8 +4,8 @@ title: Developer Guide
 ---
 # Hall-y Developer Guide
 
-Version 1.2  
-_Updated on 14/10/2020_
+Version 1.3  
+_Updated on 23/10/2020_
 
 Prepared by:  
 Aung Thuya Oo  
@@ -218,7 +218,6 @@ The following sequence diagram shows how the export operation works:
 If the current person list is empty, an empty hally.txt file will be created.
 </div>
 
-
 #### 3.1.2 Design consideration:
 
 ##### Aspect: What file format to export to
@@ -234,6 +233,163 @@ Pros | Cons
 Pros | Cons
 -----|-----
 \+ More well-known among developers | - Less technical users may not know how to open a .json file.
+
+### 3.2 Adding of events
+
+#### 3.2.1 Implementation
+The add event feature is facilitated by the `AddEventCommand`.
+It extends `Command` and overrides `Command#execute()` to perform the adding of events.
+
+The key idea is that we will pass the user's input into the `AddressBookParser#parseCommand()`. 
+It will create an `Event` with the user's inputs and associate it with `AddEventCommand`.
+When `AddEventCommand#execute()` is called, the associated `Event` is passed into the `Model` component.
+The `Model` component then saves the `Event`.
+
+Given below is a step-by-step usage scenario and how the add event feature works:
+1. The user launches the application and inputs `add-event n/Hall Dinner d/Dinner@Dining Hall` into the input box.
+2. The `UI` component accepts the input and passes it to `LogicManager#execute()`.
+3. The input is parsed through `AddressBookParser#parseCommand()`, returning an `AddEventCommand` with an `Event` class associated to it.
+4. The `LogicManager` class then calls `AddEventCommand#execute()`, which uses `Model#addEvent()` to save the associated `Event` class.
+
+The following sequence diagram shows how the add event operation works:
+![Add Event Sequence Diagram](diagrams/commands/dg-add-event.png)
+
+#### 3.2.2 Design consideration:
+
+#### Aspect: When to create the new `Event` class
+
+* **Alternative 1 (current choice)**: Create the new `Event` in `AddressBookParser#parseCommand()`
+
+Pros | Cons
+-----| -----
+\+ Early conversion of user's input into `Event` class<br />+ Consistent with the existing code base</span> | - Increases dependency between `Logic` and `Model` component
+
+* **Alternative 2**: Create the new `Event` in `AddEventCommand#execute()`
+
+Pros | Cons
+-----|-----
+\+ Decreases dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
+
+We decided to use **Alternative 1** as it is simpler.
+
+For **Alternative 2**, we found it to be too complex. The user's input has to be passed across the different components.
+By converting it to an `Event` class early, we can work at a higher level of abstraction.
+Other methods do not have to worry about string's format, and can focus on handling it as an `Event` class.
+
+### 3.3 Persistent block and room settings
+
+#### 3.3.1 Implementation
+This feature is implemented by making use of a json file to store the blocks and rooms info of the Hall. It does this by defining all available block and rooms in an editable json file. 
+
+A predefined configuration with the following settings will be set as default:
+
+Blocks : A, B, C, D  
+Rooms : 100 - 420
+
+Blocks are represented as a single alphabet in uppercase. Rooms are represented as <Level><Room number>.
+The default settings specifies that the hall will have 4 blocks, A, B, C and D. There are 4 levels with 20 rooms per level.  
+Advanced users can edit the json file directly to change these settings
+
+
+Given below is a step-by-step usage scenario of how this feature will ensure that there are no invalid inputs for the block and room field:
+
+1. The user launches the application and tries to add a new user by typing  
+`add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` into the input box.
+
+2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `AddCommand`.
+
+3. The `AddCommand` then calls `AddCommand#execute()`, and passes all the arguments to the `Person` constructor.
+
+4. The `Person` constructor proceeds to create a new `Person` object with all the fields, 2 of which are `Block` and `Room`.
+
+5. The `Block` and `Room` calls `Block#isValidBlock()` and `Room#isValidRoom()` respectively to parse the json file and compares the input arguments with the information specified in the json file. 
+
+6. A new `Block` and `Room` is returned if the input arguments matches the info specified in the json file. Otherwise, an exception is thrown and the result box will inform the user of the invalid input.
+
+The following sequence diagram shows how this feature works:
+![](images/BlockRoomValidationDiagram.png)
+
+#### 3.3.2 Design consideration:
+
+##### Aspect: Method of modifying the json file
+
+* **Alternative 1 (current choice):** Editing it directly
+
+Pros | Cons
+-----|-----
+\+ Easier to implement <br> | - Less technical users may not know how to edit the file correctly 
+
+* **Alternative 2:** Via a command
+
+Pros | Cons
+-----|-----
+\+ All users will be able to edit the file safely | - Troublesome to implement
+
+Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work since we would require more rigorous testing to ensure that it is bug free. 
+
+### 3.4 Listing all student groups
+
+#### 3.4.1 Implementation
+The listing all student groups feature is facilitated by `ListGroupCommand`. It extends `Command` and overrides `Command#execute()` to list all student groups.
+
+Given below is a step-by-step usage scenario and how the listing all student groups feature works:
+
+1. The user launches the application and types `list-group` into the input box.
+2. The `UI` handles the input and calls `LogicManager#execute()` to execute it.
+3. The `AddressBookParser#parseCommand()` is called to parse the input and returns a `ListGroupCommand`.
+4. The `ListGroupCommand` calls `ListGroupCommand#execute()` which retrieves the list of all residents by calling `Model#getFilteredPersonList()`.
+5. The `ListGroupCommand#execute()` iterates through the list of all residents and then gets a set of all residents' student groups.
+6. The `ListGroupCommand#execute()` iterates through the set of all student groups and formats it to a `String` result.     
+7. The `UI` displays the result in the result box.
+
+The following sequence diagram shows how the listing all student groups operation works:
+![Listing Student Groups Sequence Diagram](images/ListGroupSequenceDiagram.png)  
+
+### 3.5 Finding Students
+
+#### 3.5.1 Implementation
+The finding of students based on their characteristics is facilitated by the `FindCommand`.
+It extends `Command` and overrides `Command#execute()` to find students.
+
+The high-level idea is that the user input from the `FindCommand` will be passed into the 
+`AddressBookParser#parseCommand()`. Based on user input, it will form a list of predicates
+that will return true if a resident matches the given inputs.
+
+Given below is a step-by-step usage scenario and how the finding of students works:
+
+1. The user launches the application and types `find n/meier b/B` into the input box.
+2. The `UI` handles the input and calls `LogicManager#execute()` to execute it.
+3. The `AddressBookParser#parseCommand()` is called to parse the input, which calls `FindCommandParser#parseCommand()`,
+subsequently returning a `FindCommand` with the associated list of predicates.
+4. The `FindCommand` calls `FindCommand#execute()` which forms a predicate that fulfill every predicate from the list.
+5. The predicate updates the filtered list of all residents by calling `Model#updateFilteredPersonList()`.
+The resulting filtered list matches this predicate, which means that it matches all predicates in the original list.
+7. The `UI` displays the result in the result box.
+
+The following sequence diagram shows how finding students works:
+![Find Sequence Diagram](images/FindSequenceDiagram.png)  
+
+#### 3.5.2 Design consideration:
+
+#### Aspect: When to convert list of predicates to a single predicate
+
+* **Alternative 1 (current choice)**: Create the predicate during `AddressBookParser#parseCommand()`
+
+Pros | Cons
+-----| -----
+\+ Memory is freed earlier as list of predicates is converted immediately | - Makes testing of equal find commands more difficult
+
+* **Alternative 2**: Create the predicate during `FindCommand#execute()`
+
+Pros | Cons
+-----|-----
+\+ It is easier to compare equality for `FindCommand` objects<br/>\+ It is easier to test | - More memory is needed to store the list of predicates for longer period of time
+
+We decided to use **Alternative 2** as it increases testability by making it simpler to test.
+
+For **Alternative 1**, it is difficult to compare 2 predicates as they have been merged together. 
+With **Alternative 2**, it is easier to compare each equality of each element in the list of predicates instead to check whether the `FindCommand` objects are equal. 
+As testing is important to ensuring that programs run correctly, we decided to use alternative 2.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -471,4 +627,4 @@ testers are expected to do more *exploratory* testing.
 
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
-1. _{ more test cases …​ }_
+1. _{ more test cases …​ }

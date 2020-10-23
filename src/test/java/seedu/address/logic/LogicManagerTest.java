@@ -30,7 +30,9 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.event.Description;
 import seedu.address.model.event.Event;
+import seedu.address.model.event.EventName;
 import seedu.address.model.person.Person;
 import seedu.address.storage.JsonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
@@ -86,7 +88,7 @@ public class LogicManagerTest {
         // Execute add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + ADDRESS_DESC_AMY + GENDER_DESC_AMY + BLOCKROOM_DESC_AMY + MATRICULATION_NUMBER_DESC_AMY;
-        Person expectedPerson = new PersonBuilder(AMY).withTags().build();
+        Person expectedPerson = new PersonBuilder(AMY).withStudentGroups().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addPerson(expectedPerson);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
@@ -100,8 +102,11 @@ public class LogicManagerTest {
 
     @Test
     public void getEventList() {
-        assertTrue(logic.getEventList().contains(new Event("Hall dinner")));
-        assertTrue(logic.getEventList().contains(new Event("Hall supper")));
+        Event dummy1 = new Event(new EventName("Hall supper"), new Description("Have supper together"));
+        Event dummy2 = new Event(new EventName("Hall dinner"), new Description("Have dinner together"));
+
+        assertTrue(logic.getEventList().contains(dummy1));
+        assertTrue(logic.getEventList().contains(dummy2));
     }
 
     /**
