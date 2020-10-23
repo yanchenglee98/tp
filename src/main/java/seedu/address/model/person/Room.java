@@ -11,10 +11,10 @@ public class Room {
     public static final String MESSAGE_CONSTRAINTS =
             "Room numbers should only contain numbers, and it should be 3 digits long";
     public static final String VALIDATION_REGEX = "\\d{3}";
-    private static int MIN_FLOOR_NUMBER = 1;
-    private static int MIN_ROOM_NUMBER = 1;
-    private static int MAX_FLOOR_NUMBER = 4;
-    private static int MAX_ROOM_NUMBER = 20;
+    private static int minFloorNumber = 1;
+    private static int minRoomNumber = 1;
+    private static int maxFloorNumber = 4;
+    private static int maxRoomNumber = 20;
     public final String value;
 
     /**
@@ -38,21 +38,21 @@ public class Room {
         int room = Integer.parseInt(test);
         int roomNo = room % 100;
         int floorNo = Math.floorDiv(room, 100);
-        boolean isRoomValid = (roomNo <= MAX_ROOM_NUMBER) && (roomNo >= MIN_ROOM_NUMBER);
-        boolean isFloorValid = (floorNo <= MAX_FLOOR_NUMBER) && (floorNo >= MIN_FLOOR_NUMBER);
+        boolean isRoomValid = (roomNo <= maxRoomNumber) && (roomNo >= minRoomNumber);
+        boolean isFloorValid = (floorNo <= maxFloorNumber) && (floorNo >= minFloorNumber);
         return isFloorValid && isRoomValid;
     }
 
     public static String getMessageConstraints() {
-        return MESSAGE_CONSTRAINTS + "\nFloor : " + MIN_FLOOR_NUMBER + " to " + MAX_FLOOR_NUMBER
-                + "\nRoom: " + MIN_ROOM_NUMBER + " to " + MAX_ROOM_NUMBER;
+        return MESSAGE_CONSTRAINTS + "\nFloor : " + minFloorNumber + " to " + maxFloorNumber
+                + "\nRoom: " + minRoomNumber + " to " + maxRoomNumber;
     }
 
     public static void setRoomPref(int minRoom, int maxRoom, int minFloor, int maxFloor) {
-        MIN_ROOM_NUMBER = minRoom;
-        MAX_ROOM_NUMBER = maxRoom;
-        MIN_FLOOR_NUMBER = minFloor;
-        MAX_FLOOR_NUMBER = maxFloor;
+        minRoomNumber = minRoom;
+        maxRoomNumber = maxRoom;
+        minFloorNumber = minFloor;
+        maxFloorNumber = maxFloor;
     }
 
     @Override
