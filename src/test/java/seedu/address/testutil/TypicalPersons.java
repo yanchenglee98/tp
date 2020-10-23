@@ -34,22 +34,22 @@ public class TypicalPersons {
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432").withGender("M").withMatriculationNumber("A0123456C")
-            .withBlock("A").withRoom("420").withStudentGroups("hackers", "soccer").build();
+            .withBlock("C").withRoom("420").withStudentGroups("hackers", "soccer").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
             .withEmail("heinz@example.com").withAddress("wall street")
-            .withBlock("A").withRoom("420").withGender("M").withMatriculationNumber("A0123456D").build();
+            .withBlock("B").withRoom("420").withGender("M").withMatriculationNumber("A0123456D").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withEmail("cornelia@example.com").withAddress("10th street").withGender("M")
             .withBlock("A").withRoom("420").withMatriculationNumber("A0123456E").withStudentGroups("dance").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
             .withEmail("werner@example.com").withAddress("michegan ave")
-            .withBlock("A").withRoom("420").withGender("F").withMatriculationNumber("A0123456F").build();
+            .withBlock("D").withRoom("420").withGender("F").withMatriculationNumber("A0123456F").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withEmail("lydia@example.com").withAddress("little tokyo")
-            .withBlock("A").withRoom("420").withMatriculationNumber("A0123456G").withGender("F").build();
+            .withBlock("C").withRoom("420").withMatriculationNumber("A0123456G").withGender("F").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
             .withEmail("anna@example.com").withAddress("4th street")
-            .withBlock("A").withRoom("420").withMatriculationNumber("A0123456H").withGender("M").build();
+            .withBlock("B").withRoom("420").withMatriculationNumber("A0123456H").withGender("M").build();
 
 
     // Manually added

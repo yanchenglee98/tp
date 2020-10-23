@@ -1,6 +1,8 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_BLOCK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -13,8 +15,10 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FindCommand;
+import seedu.address.model.person.Block;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.RoomInBlockPredicate;
 
 public class FindCommandParserTest {
 
@@ -28,20 +32,34 @@ public class FindCommandParserTest {
 
     @Test
     public void parse_emptyFields_throwsParseException() {
-        assertParseFailure(parser, " " + PREFIX_NAME, String.format(FindCommand.MESSAGE_EMPTY_KEYWORD));
+        assertParseFailure(parser, " " + PREFIX_NAME, FindCommand.MESSAGE_EMPTY_KEYWORD);
+    }
+
+    @Test
+    public void parse_invalidValue_failure() {
+        assertParseFailure(parser, INVALID_BLOCK, Block.MESSAGE_CONSTRAINTS);
     }
 
     @Test
     public void parse_validArgs_returnsFindCommand() {
-        List<Predicate<Person>> predicateList =
-                Collections.singletonList(
-                        new NameContainsKeywordsPredicate(Arrays.asList("Alice", "Bob")));
-        // no leading and trailing whitespaces
+        NameContainsKeywordsPredicate namePredicate =
+                new NameContainsKeywordsPredicate(Arrays.asList("Alice", "Bob"));
+        List<Predicate<Person>> namePredicateList =
+                Collections.singletonList(namePredicate);
+
         FindCommand expectedFindCommand =
-                new FindCommand(predicateList);
+                new FindCommand(namePredicateList);
         assertParseSuccess(parser, " " + PREFIX_NAME + "Alice Bob", expectedFindCommand);
 
         // multiple whitespaces between keywords
         assertParseSuccess(parser, " " + PREFIX_NAME + " \n Alice \n \t Bob  \t", expectedFindCommand);
+
+        // combined block and keywords find command
+        FindCommand expectedCombinedFindCommand =
+                new FindCommand(List.of(namePredicate, new RoomInBlockPredicate(new Block("B"))));
+
+        // test parsing of multiple fields
+        assertParseSuccess(parser, " " + PREFIX_NAME + " \n Alice \n \t Bob  \t"
+                + " " + PREFIX_BLOCK + 'B', expectedCombinedFindCommand);
     }
 }

@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
@@ -75,6 +76,7 @@ public class CommandTestUtil {
     public static final String INVALID_STUDENT_GROUP_DESC = " " + PREFIX_STUDENT_GROUP + "soccer*";
     public static final String INVALID_MATRICULATION_NUMBER_DESC = " " + PREFIX_MATRICULATION_NUMBER
             + "C0123456B"; // should start with 'A'
+    public static final String INVALID_BLOCK = " " + PREFIX_BLOCK + "A2"; // number not allowed in block
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
