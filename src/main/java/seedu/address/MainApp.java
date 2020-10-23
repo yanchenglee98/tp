@@ -64,6 +64,8 @@ public class MainApp extends Application {
         initLogging(config);
 
         model = initModelManager(storage, userPrefs);
+        logger.info(String.format("Events: Loaded %d events from file", model.getEventList().size()));
+        logger.info(String.format("Persons: Loaded %d persons from file", model.getFilteredPersonList().size()));
 
         logic = new LogicManager(model, storage);
 

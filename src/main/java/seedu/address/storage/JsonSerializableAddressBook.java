@@ -19,7 +19,6 @@ import seedu.address.model.person.Person;
  */
 @JsonRootName(value = "addressbook")
 class JsonSerializableAddressBook {
-
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
     public static final String MESSAGE_DUPLICATE_EVENT = "Events list contains duplicate event(s)";
 
@@ -68,6 +67,7 @@ class JsonSerializableAddressBook {
             }
             addressBook.addEvent(event);
         }
+
         return addressBook;
     }
 

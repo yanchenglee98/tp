@@ -35,6 +35,7 @@ public class AddEventCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        assert toAdd != null : "A null event was associated to this AddEventCommand";
 
         if (model.hasEvent(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_EVENT);
