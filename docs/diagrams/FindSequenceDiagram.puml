@@ -32,7 +32,7 @@ activate FindCommandParser
 FindCommandParser --> AddressBookParser
 deactivate FindCommandParser
 
-AddressBookParser -> FindCommandParser : parse("n/meier b/")
+AddressBookParser -> FindCommandParser : parse("n/meier b/B")
 activate FindCommandParser
 
 create FindCommand
