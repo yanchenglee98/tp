@@ -4,8 +4,8 @@ title: Developer Guide
 ---
 # Hall-y Developer Guide
 
-Version 1.2  
-_Updated on 14/10/2020_
+Version 1.3  
+_Updated on 23/10/2020_
 
 Prepared by:  
 Aung Thuya Oo  
