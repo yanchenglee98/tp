@@ -138,6 +138,20 @@ class JsonAdaptedPerson {
         if (!MatriculationNumber.isValidMatriculationNumber(matriculationNumber)) {
             throw new IllegalValueException(MatriculationNumber.MESSAGE_CONSTRAINTS);
         }
+        if (block == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Block.class.getSimpleName()));
+        }
+        if (!Block.isValidBlock(block)) {
+            throw new IllegalValueException(Block.getMessageConstraints());
+        }
+        if (room == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Room.class.getSimpleName()));
+        }
+        if (!Room.isValidRoom(room)) {
+            throw new IllegalValueException(Room.getMessageConstraints());
+        }
         final Block modelBlock = new Block(block);
         final Room modelRoom = new Room(room);
         final MatriculationNumber modelMatriculationNumber = new MatriculationNumber(matriculationNumber);
