@@ -383,7 +383,7 @@ Pros | Cons
 
 Pros | Cons
 -----|-----
-\+ It is easier to compare equality for `FindCommand` objects<br/>/+ It is easier to test | - More memory is needed to store the list of predicates for longer period of time
+\+ It is easier to compare equality for `FindCommand` objects<br/>\+ It is easier to test | - More memory is needed to store the list of predicates for longer period of time
 
 We decided to use **Alternative 2** as it increases testability by making it simpler to test.
 

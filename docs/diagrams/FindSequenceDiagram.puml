@@ -22,7 +22,7 @@ end box
 [-> LogicManager : execute("find b/B")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("find b/B")
+LogicManager -> AddressBookParser : parseCommand("find n/meier b/B")
 activate AddressBookParser
 
 create FindCommandParser
@@ -32,7 +32,7 @@ activate FindCommandParser
 FindCommandParser --> AddressBookParser
 deactivate FindCommandParser
 
-AddressBookParser -> FindCommandParser : parse("b/B")
+AddressBookParser -> FindCommandParser : parse("n/meier b/")
 activate FindCommandParser
 
 create FindCommand
