@@ -54,7 +54,7 @@ public class SampleDataUtil {
     public static Event[] getSampleEvents() {
         return new Event[] {
             new Event(new EventName("Hall Lunch"), new Description("Hall-wide lunch event.")),
-            new Event(new EventName("Hall Dinner"), new Description("Hall-wide dinner event"))
+            new Event(new EventName("Hall Dinner"), new Description("Hall-wide dinner event."))
         };
     }
 
