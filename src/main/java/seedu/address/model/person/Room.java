@@ -8,7 +8,6 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable; is valid as declared in {@link #isValidRoom(String)}
  */
 public class Room {
-
     public static final String MESSAGE_CONSTRAINTS =
             "Room numbers should only contain numbers, and it should be 3 digits long";
     public static final String VALIDATION_REGEX = "\\d{3}";

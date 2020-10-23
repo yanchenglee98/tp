@@ -7,7 +7,7 @@
     "block" : "A",
     "room" : "405",
     "gender": "F",
-    "tagged": [ "friends" ],
+    "studentGroups": [ "badminton" ],
     "matriculationNumber": "A0123456B"
 
   }, {
