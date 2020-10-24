@@ -59,7 +59,7 @@
     "room" : "405",
     "gender" : "F",
     "matriculationNumber": "A0123456G",
-    "studentGroups" : [  ]
+    "studentGroups" : [ "badminton" ]
   }, {
     "name" : "George Best",
     "phone" : "9482442",
@@ -69,7 +69,7 @@
     "room" : "405",
     "gender" : "M",
     "matriculationNumber": "A0123456H",
-    "studentGroups" : [  ]
+    "studentGroups" : [ "basketball" ]
   } ],
   "events": [
     {

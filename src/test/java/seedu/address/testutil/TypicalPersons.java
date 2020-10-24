@@ -51,10 +51,12 @@ public class TypicalPersons {
             .withBlock("D").withRoom("420").withGender("F").withMatriculationNumber("A0123456F").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withEmail("lydia@example.com").withAddress("little tokyo")
-            .withBlock("C").withRoom("420").withMatriculationNumber("A0123456G").withGender("F").build();
+            .withBlock("C").withRoom("420").withMatriculationNumber("A0123456G").withGender("F")
+            .withStudentGroups("badminton").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
             .withEmail("anna@example.com").withAddress("4th street")
-            .withBlock("B").withRoom("420").withMatriculationNumber("A0123456H").withGender("M").build();
+            .withBlock("B").withRoom("420").withMatriculationNumber("A0123456H").withGender("M")
+            .withStudentGroups("basketball").build();
 
 
     // Manually added
