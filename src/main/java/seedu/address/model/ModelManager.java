@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -22,6 +24,7 @@ public class ModelManager implements Model {
 
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
+    private final List<Person> personList;
     private final FilteredList<Person> filteredPersons;
 
     /**
@@ -36,6 +39,7 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        personList = new ArrayList<>(this.addressBook.getPersonList());
     }
 
     public ModelManager() {
@@ -135,6 +139,11 @@ public class ModelManager implements Model {
     public void setEvent(Event target, Event editedEvent) {
         requireAllNonNull(target, editedEvent);
         addressBook.setEvent(target, editedEvent);
+    }
+
+    @Override
+    public List<Person> getPersonList() {
+        return personList;
     }
 
     //=========== Filtered Person List Accessors =============================================================

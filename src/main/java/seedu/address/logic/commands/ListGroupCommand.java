@@ -30,7 +30,8 @@ public class ListGroupCommand extends Command {
     public CommandResult execute(Model model) {
         assert model != null : "Model is null";
         requireNonNull(model);
-        List<Person> residentList = model.getFilteredPersonList();
+
+        List<Person> residentList = model.getPersonList();
         logger.log(Level.INFO, "The number of residents is " + residentList.size());
 
         // use Set to avoid storing duplicate elements

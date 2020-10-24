@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -100,6 +101,11 @@ public interface Model {
      * The event identity of {@code editedEvent} must not be the same as another existing event in the address book.
      */
     void setEvent(Event target, Event editedEvent);
+
+    /**
+     * Returns an unmodifiable view of a list of all person
+     */
+    List<Person> getPersonList();
 
     /**
      * Returns an unmodifiable view of the filtered person list
