@@ -70,5 +70,11 @@
     "gender" : "M",
     "matriculationNumber": "A0123456H",
     "studentGroups" : [  ]
-  } ]
+  } ],
+  "events": [
+    {
+      "eventName": "Hall Lunch",
+      "description": "Eat lunch together"
+    }
+  ]
 }

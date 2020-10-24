@@ -19,7 +19,7 @@ public class AddEventCommand extends Command {
             + PREFIX_EVENT_NAME + "Hall Dinner@Dining Room "
             + PREFIX_EVENT_DESC + "The yearly Eusoff Hall Dinner. ";
 
-    public static final String MESSAGE_SUCCESS = "New event added: %1$s";
+    public static final String MESSAGE_SUCCESS = "New event added:\n%1$s";
     public static final String MESSAGE_DUPLICATE_EVENT = "This event already exists in the address book";
 
     private final Event toAdd;
@@ -35,6 +35,7 @@ public class AddEventCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        assert toAdd != null : "A null event was associated to this AddEventCommand";
 
         if (model.hasEvent(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_EVENT);
