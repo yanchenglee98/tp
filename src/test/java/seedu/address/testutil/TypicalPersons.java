@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import seedu.address.model.AddressBook;
+import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
 import seedu.address.model.studentgroup.StudentGroup;
 
@@ -77,6 +78,11 @@ public class TypicalPersons {
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
+    public static final Event LUNCH = new EventBuilder()
+            .withEventName("Hall Lunch")
+            .withDescription("Eat lunch together")
+            .build();
+
     private TypicalPersons() {} // prevents instantiation
 
     /**
@@ -87,6 +93,9 @@ public class TypicalPersons {
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);
         }
+        for (Event event : getTypicalEvents()) {
+            ab.addEvent(event);
+        }
         return ab;
     }
 
@@ -95,7 +104,7 @@ public class TypicalPersons {
     }
 
     /**
-     * Returns an {@code List<Tag>} with all the student groups.
+     * Returns an {@code List<StudentGroup>} with all the student groups.
      */
     public static List<String> getTypicalStudentGroups() {
         Set<String> studentGroupSet = new HashSet<>();
@@ -105,5 +114,9 @@ public class TypicalPersons {
             }
         }
         return studentGroupSet.stream().sorted().collect(Collectors.toList());
+    }
+    
+    public static List<Event> getTypicalEvents() {
+        return new ArrayList<>(Arrays.asList(LUNCH));
     }
 }

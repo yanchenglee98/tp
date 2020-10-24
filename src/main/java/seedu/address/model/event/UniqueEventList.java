@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Iterator;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,17 +24,6 @@ public class UniqueEventList implements Iterable<Event> {
             FXCollections.observableArrayList();
     private final ObservableList<Event> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
-
-    /**
-     * Creates a dummy implementation for UniqueEventList.
-     */
-    public UniqueEventList() {
-        Event dummy1 = new Event(new EventName("Hall supper"), new Description("Have supper together"));
-        Event dummy2 = new Event(new EventName("Hall dinner"), new Description("Have dinner together"));
-
-        internalList.add(dummy1);
-        internalList.add(dummy2);
-    }
 
     /**
      * Returns true if the list contains an equivalent event in the given argument.
@@ -84,6 +74,19 @@ public class UniqueEventList implements Iterable<Event> {
     }
 
     /**
+     * Replaces the contents of this list with {@code events}.
+     * {@code events} must not contain duplicate events.
+     */
+    public void setEvents(List<Event> events) {
+        requireAllNonNull(events);
+        if (!eventsAreUnique(events)) {
+            throw new DuplicateEventException();
+        }
+
+        internalList.setAll(events);
+    }
+
+    /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
     public ObservableList<Event> asUnmodifiableObservableList() {
@@ -105,5 +108,19 @@ public class UniqueEventList implements Iterable<Event> {
     @Override
     public int hashCode() {
         return internalList.hashCode();
+    }
+
+    /**
+     * Returns true if {@code events} contains only unique events.
+     */
+    private boolean eventsAreUnique(List<Event> events) {
+        for (int i = 0; i < events.size() - 1; i++) {
+            for (int j = i + 1; j < events.size(); j++) {
+                if (events.get(i).isSameEvent(events.get(j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

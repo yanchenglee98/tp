@@ -45,10 +45,15 @@ public class RoomTest {
         assertFalse(Room.isValidRoom("320 ")); // trailing space
         assertFalse(Room.isValidRoom("105 ")); // trailing space
 
+        // room number 0
+        assertFalse(Room.isValidRoom("400")); // Room number 0
+        assertFalse(Room.isValidRoom("200")); // Room number 0
+        assertFalse(Room.isValidRoom("100")); // Room number 0
+
         // valid Room
         assertTrue(Room.isValidRoom("405"));
         assertTrue(Room.isValidRoom("120"));
-        assertTrue(Room.isValidRoom("300"));
+        assertTrue(Room.isValidRoom("301"));
         assertTrue(Room.isValidRoom("212"));
     }
 }

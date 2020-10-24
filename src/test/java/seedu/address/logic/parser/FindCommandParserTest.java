@@ -37,7 +37,7 @@ public class FindCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
-        assertParseFailure(parser, INVALID_BLOCK, Block.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, INVALID_BLOCK, Block.getMessageConstraints());
     }
 
     @Test
