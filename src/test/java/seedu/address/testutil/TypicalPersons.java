@@ -115,7 +115,6 @@ public class TypicalPersons {
         }
         return studentGroupSet.stream().sorted().collect(Collectors.toList());
     }
-    
     public static List<Event> getTypicalEvents() {
         return new ArrayList<>(Arrays.asList(LUNCH));
     }
