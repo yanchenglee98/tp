@@ -22,7 +22,7 @@ public class DeleteEventCommand extends Command {
             + "Parameter: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Event: %1$s";
+    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Event:\n%1$s";
 
     private final Index targetIndex;
 
@@ -44,6 +44,7 @@ public class DeleteEventCommand extends Command {
         }
 
         Event eventToDelete = eventsList.get(targetIndex.getZeroBased());
+
         model.deleteEvent(eventToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, eventToDelete));
     }
