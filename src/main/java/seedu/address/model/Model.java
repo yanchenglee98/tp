@@ -102,6 +102,11 @@ public interface Model {
     void setEvent(Event target, Event editedEvent);
 
     /**
+     * Returns an unmodifiable view of a list of all person
+     */
+    ObservableList<Person> getPersonList();
+
+    /**
      * Returns an unmodifiable view of the filtered person list
      */
     ObservableList<Person> getFilteredPersonList();

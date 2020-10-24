@@ -137,6 +137,11 @@ public class ModelManager implements Model {
         addressBook.setEvent(target, editedEvent);
     }
 
+    @Override
+    public ObservableList<Person> getPersonList() {
+        return addressBook.getPersonList();
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**

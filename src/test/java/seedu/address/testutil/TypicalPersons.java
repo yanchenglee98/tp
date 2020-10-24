@@ -17,11 +17,15 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_GROUP_D
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
+import seedu.address.model.studentgroup.StudentGroup;
 
 /**
  * A utility class containing a list of {@code Person} objects to be used in tests.
@@ -99,6 +103,18 @@ public class TypicalPersons {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
     }
 
+    /**
+     * Returns an {@code List<StudentGroup>} with all the student groups.
+     */
+    public static List<String> getTypicalStudentGroups() {
+        Set<String> studentGroupSet = new HashSet<>();
+        for (Person person : getTypicalPersons()) {
+            for (StudentGroup studentGroup : person.getStudentGroups()) {
+                studentGroupSet.add(studentGroup.studentGroupName);
+            }
+        }
+        return studentGroupSet.stream().sorted().collect(Collectors.toList());
+    }
     public static List<Event> getTypicalEvents() {
         return new ArrayList<>(Arrays.asList(LUNCH));
     }
