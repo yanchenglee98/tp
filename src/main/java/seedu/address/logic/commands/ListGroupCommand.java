@@ -31,6 +31,7 @@ public class ListGroupCommand extends Command {
         assert model != null : "Model is null";
         requireNonNull(model);
 
+        // retrieve a list of all residents
         List<Person> residentList = model.getPersonList();
         logger.log(Level.INFO, "The number of residents is " + residentList.size());
 
