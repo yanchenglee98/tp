@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import javafx.collections.ObservableList;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.studentgroup.StudentGroup;
@@ -32,7 +33,7 @@ public class ListGroupCommand extends Command {
         requireNonNull(model);
 
         // retrieve a list of all residents
-        List<Person> residentList = model.getPersonList();
+        ObservableList<Person> residentList = model.getPersonList();
         logger.log(Level.INFO, "The number of residents is " + residentList.size());
 
         // use Set to avoid storing duplicate elements
