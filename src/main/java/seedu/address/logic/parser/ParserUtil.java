@@ -118,6 +118,8 @@ public class ParserUtil {
 
     /**
      * Parses {@code Collection<String> studentGroups} into a {@code Set<StudentGroup>}.
+     *
+     * @throws ParseException if the {@code studentGroupName} is invalid while iterating studentGroups.
      */
     public static Set<StudentGroup> parseStudentGroups(Collection<String> studentGroups) throws ParseException {
         requireNonNull(studentGroups);

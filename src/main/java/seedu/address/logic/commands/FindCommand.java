@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -25,6 +26,7 @@ public class FindCommand extends Command {
             + "Parameters: "
             + "[" + PREFIX_NAME + "KEYWORDS [MORE KEYWORDS] " + "]"
             + "[" + PREFIX_BLOCK + "BLOCK " + "]"
+            + "[" + PREFIX_STUDENT_GROUP + "STUDENT_GROUP " + "]"
             + "...\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice bob charlie " + PREFIX_BLOCK + "B";
 

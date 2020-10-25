@@ -2,14 +2,18 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_BLOCK;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_STUDENT_GROUP_DESC;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -19,6 +23,8 @@ import seedu.address.model.person.Block;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.RoomInBlockPredicate;
+import seedu.address.model.person.StudentGroupPredicate;
+import seedu.address.model.studentgroup.StudentGroup;
 
 public class FindCommandParserTest {
 
@@ -38,6 +44,7 @@ public class FindCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, INVALID_BLOCK, Block.getMessageConstraints());
+        assertParseFailure(parser, INVALID_STUDENT_GROUP_DESC, StudentGroup.MESSAGE_CONSTRAINTS);
     }
 
     @Test
@@ -54,12 +61,15 @@ public class FindCommandParserTest {
         // multiple whitespaces between keywords
         assertParseSuccess(parser, " " + PREFIX_NAME + " \n Alice \n \t Bob  \t", expectedFindCommand);
 
-        // combined block and keywords find command
+        // combined block, name and student group keywords find command
+        Set<StudentGroup> studentGroupSet = new HashSet<>();
+        studentGroupSet.add(new StudentGroup("badminton"));
         FindCommand expectedCombinedFindCommand =
-                new FindCommand(List.of(namePredicate, new RoomInBlockPredicate(new Block("B"))));
+                new FindCommand(List.of(namePredicate, new RoomInBlockPredicate(new Block("B")),
+                    new StudentGroupPredicate(studentGroupSet)));
 
         // test parsing of multiple fields
         assertParseSuccess(parser, " " + PREFIX_NAME + " \n Alice \n \t Bob  \t"
-                + " " + PREFIX_BLOCK + 'B', expectedCombinedFindCommand);
+                + " " + PREFIX_BLOCK + 'B' + " " + PREFIX_STUDENT_GROUP + "badminton", expectedCombinedFindCommand);
     }
 }

@@ -4,11 +4,15 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 import static seedu.address.logic.parser.ParserUtil.parseBlock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +24,8 @@ import seedu.address.model.person.Block;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.RoomInBlockPredicate;
+import seedu.address.model.person.StudentGroupPredicate;
+import seedu.address.model.studentgroup.StudentGroup;
 import seedu.address.storage.JsonAddressBookStorage;
 
 /**
@@ -37,7 +43,7 @@ public class FindCommandParser implements Parser<FindCommand> {
         requireNonNull(args);
         logger.log(Level.INFO, "going to start parsing find command");
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_BLOCK);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_BLOCK, PREFIX_STUDENT_GROUP);
 
         List<Predicate<Person>> predicates = new ArrayList<>();
 
@@ -47,6 +53,10 @@ public class FindCommandParser implements Parser<FindCommand> {
 
         if (argMultimap.getValue(PREFIX_BLOCK).isPresent()) {
             predicates.add(getBlockPredicate(argMultimap.getValue(PREFIX_BLOCK).get()));
+        }
+
+        if (!argMultimap.getAllValues(PREFIX_STUDENT_GROUP).isEmpty()) {
+            predicates.add(getStudentGroupPredicate(argMultimap.getAllValues(PREFIX_STUDENT_GROUP)));
         }
 
         if (predicates.isEmpty()) {
@@ -72,5 +82,26 @@ public class FindCommandParser implements Parser<FindCommand> {
         String[] nameKeywords = trimmedKeywords.split("\\s+");
         assert nameKeywords.length > 0 : "there should be some keywords";
         return new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords));
+    }
+
+    private Predicate<Person> getStudentGroupPredicate(Collection<String> studentGroups) throws ParseException {
+        logger.log(Level.INFO, "getting student group predicate");
+        return new StudentGroupPredicate(parseStudentGroupsForFind(studentGroups));
+    }
+
+    /**
+     * Parses {@code Collection<String> studentGroups} into a {@code Set<StudentGroup>}.
+     * If {@code studentGroups} contain only one element which is an empty string, it will be parsed into a
+     * {@code Set<StudentGroup>} containing zero studentGroups.
+     *
+     * @throws ParseException if {@code studentGroups} contain invalid student group name.
+     */
+    private Set<StudentGroup> parseStudentGroupsForFind(Collection<String> studentGroups)
+        throws ParseException {
+        assert studentGroups != null;
+
+        Collection<String> studentGroupNames = studentGroups.size() == 1 && studentGroups.contains("")
+            ? Collections.emptySet() : studentGroups;
+        return ParserUtil.parseStudentGroups(studentGroupNames);
     }
 }
