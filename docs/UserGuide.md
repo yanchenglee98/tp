@@ -18,16 +18,6 @@ If you can type fast, Hall-y will allow you to manage hall residents and events 
 
 Interested? You can jump straight to the [Getting Started](#4-Getting-Started) guide and start trying Hall-y now! Alternatively, you can check out Hall-y's feature list [here](#6-Features).
 
-### 1.2 Purpose of Document
-
-The purpose of this document is to teach you how to start up Hall-y, and to provide information necessary to understand how to use this application.
-It will provide the commands used in Hall-y and tell you how to use them.
-
-### 1.3 Target Audience
-
-The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who is responsible for managing residents in hall.
-This includes keeping track of their information, such as the rooms they stay in, their student group, their matriculation number and contact information.
-
 --------------------------------------------------------------------------------------------------------------------
 
 * Table of Contents
