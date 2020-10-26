@@ -162,6 +162,22 @@ The steps for this command are as follows:
 
 Format: `export`
 
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command format:**<br>
+
+* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+
+* Items in square brackets are optional.<br>
+  e.g `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`.
+
+* Parameters can be in any order.<br>
+  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+
+</div>
+
 ### 6.13 Assigning a resident to a hall event: `assign`
 
 You can assign a resident to a hall event by using the `assign` command followed by the index of the resident and event.
@@ -189,6 +205,79 @@ The steps for this command are as follows:
 2. Press enter
 3. The result box will display all the student groups: 
 ![result for 'list-group'](images/listGroup.png)
+  
+  
+### 6.2 Adding a resident: `add`
+
+You can add a new resident to Hall-y by using the `add` command.
+
+The steps for this command are as follows:
+
+1. Enter the add command by typing `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` into the input box 
+2. Press enter
+3. The result box will show the details of the added resident![](https://i.imgur.com/xZOvAVP.png)
+4. Scroll down to the bottom of the residents list to view the newly added resident
+![](https://i.imgur.com/FGmNSKv.png)
+
+#### Note:
+Please take note of the format required:
+* `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
+* `GENDER`:  M for male, F for female
+
+Examples:
+
+*   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/soccer`
+*   `add n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/badminton s/dance`
+
+  
+### 6.4 Editing a resident : `edit`
+
+You can edit an existing resident to Hall-y by using the `edit` command.
+
+The steps for this command are as follows:
+
+1. Enter the edit command by typing `edit [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER] [s/STUDENT_GROUP...]` into the input box 
+2. Press enter
+3. The result box will show the details of the added resident![To update](https://i.imgur.com/xZOvAVP.png)
+4. Scroll to the specified index of the resident list to view the update resident
+![To update](https://i.imgur.com/FGmNSKv.png)
+
+#### Note:
+Please take note of the format required:
+* `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
+* `GENDER`:  M for male, F for female
+
+Examples:
+* `edit 1 p/91234567 e/johndoe@example.com br/B402`   
+Edits the phone number, email address and room number of the 1st resident to be 91234567, johndoe@example.com and B402 respectively.
+* `edit 2 n/Betsy Crower p/87652103`   
+Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
+
+
+### 6.7 Clearing all entries : `clear`
+
+You can clear all residents in Hall-y by using the `clear` command
+
+The steps for this command are as follows:
+1. Enter the clear command by typing `clear` into the input box.
+2. Press enter
+3. The result box will show "Address book has been cleared"![](https://i.imgur.com/taII762.png)
+4. The resident list will now be empty ![](https://i.imgur.com/fUTbPZJ.png)
+
+
+
+### 6.8 Exiting the application : `exit`
+
+You can exit the application by using the `exit` command
+
+The steps for this command are as follows:
+1. Enter the exit command by typing `exit` into the input box.
+2. Press enter
+3. The application should now be closed
+
+### 6.9 Saving the data
+
+Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 --------------------------------------------------------------------------------------------------------------------
 
