@@ -2,10 +2,33 @@
 layout: page
 title: User Guide
 ---
-
 # Hall-y User Guide
 
-Hall-y is a **desktop app for managing hall residents, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hall-y will allow you to add, edit, view, and delete hall residents' records faster than traditional GUI apps.
+## 1 Introduction
+
+### 1.1 Welcome
+
+Welcome to the Hall-y User Guide!
+
+Hall-y (pronounced _hall-ee_) is a desktop application designed to help you manage hall residents and events.
+
+It features a simple text interface, also known as Command Line Interface (CLI), as well as visual representations of your hall residents and events using a Graphical User Interface (GUI).
+
+If you can type fast, Hall-y will allow you to manage hall residents and events more efficiently than traditional GUI applications.
+
+Interested? You can jump straight to the [Getting Started](#4-Getting-Started) guide and start trying Hall-y now! Alternatively, you can check out Hall-y's feature list [here](#6-Features).
+
+### 1.2 Purpose of Document
+
+The purpose of this document is to teach you how to start up Hall-y, and to provide information necessary to understand how to use this application.
+It will provide the commands used in Hall-y and tell you how to use them.
+
+### 1.3 Target Audience
+
+The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who is responsible for managing residents in hall.
+This includes keeping track of their information, such as the rooms they stay in, their student group, their matriculation number and contact information.
+
+--------------------------------------------------------------------------------------------------------------------
 
 * Table of Contents
 {:toc}
@@ -21,6 +44,81 @@ Format | Definition, Examples
 `code` | Represent a command or part of a command. <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X`
 UPPER_CASE | Represent a parameter to be supplied by the user. <br> e.g. `n/NAME` can be used as `n/John Doe`
 [item] | Represent an optional parameter to be supplied by the user. <br> e.g. `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## 3 About This Document
+
+The following table explains the formatting used in this guide and its definition.
+
+Format | Definition, Examples
+--------|------------------
+`code` | Represent a command or part of a command. <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X`
+UPPER_CASE | Represent a parameter to be supplied by the user. <br> e.g. `n/NAME` can be used as `n/John Doe`
+[item] | Represent an optional parameter to be supplied by the user. <br> e.g. `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## 4 Getting Started
+
+You can get Hall-y up and running within 5 minutes. Just follow the steps below:
+
+1. Ensure you have Java 11 or above installed in your Computer
+2. Download the latest `hall-y.jar` file from [here](https://github.com/AY2021S1-CS2103T-T11-2/tp/releases/)
+3. Copy the downloaded file and paste it into the folder you want to use as the home folder for your application
+4. Double-click on `hall-y.jar` to start the application
+5. You should see a similar GUI to the one below - notice that the application comes with some sample data:
+![Initial load](https://i.imgur.com/wK8eZdd.png)
+
+Congratulations! You now have Hall-y running on your Computer.
+
+Now, suppose you want to add a resident called Timmy Tan. He is one of your new residents with the following details:
+
+Category | Details
+-------- | ------
+Email    | first@example.com
+Address  | Blk 10, Bedok St 1, #02-01
+Block and Room | A100
+Gender | Male
+Matriculation Number | A2000000X
+
+Here is how you can add him into Hall-y:
+
+1. Type the following command into the input box:
+`add n/Timmy Tan p/91234567 e/first@example.com a/Blk 10, Bedok St 1, #02-01 br/A100 g/M m/A2000000X`
+2. You should see the application update, like so:
+![Add new resident](https://i.imgur.com/ixYwySO.png)
+3. Scroll down to see the resident you have just added, like so:
+![Scroll down to see resident](https://i.imgur.com/4j23ZAa.png)
+
+Congratulations! You have just added a resident called Timmy Tan.
+
+You can continue experimenting with some of the commands below:
+
+- `list`: lists all the residents currently in the application
+- `delete 1`: deletes the first resident shown in the application
+- `clear`: deletes all the contacts in the application
+- `exit`: exits the application
+
+Alternatively, you can check out Hall-y's feature list [here](#6-Features) for more commands.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## 5 Application Interface
+
+You can refer to the diagram below to understand how Hall-y looks like:
+
+![Hall-y's Interface](https://i.imgur.com/59MxOwe.png)
+
+The table below shows a brief explanation of each section:
+
+Section        | Explanation
+-------------- | -----------
+Input box      | You should input your command here.
+Result box     | You can see the results of your command here.<br />If there is an error in your command, you can see it here too.
+Blocks list    | This is the list of blocks present in your hall.<br />You should only use these blocks and rooms in your inputs.
+Residents list | This is the list of residents based on your latest command. <br />When you first launch, this is the full list of residents in Hall-y.
+Events list | This is the list of events currently stored in Hall-y.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -278,6 +376,31 @@ The steps for this command are as follows:
 ### 6.9 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+
+### 6.11 Adding a hall event : `add-event`
+
+You can add a hall event by using the `add-event` command.
+
+The steps for this command are as follows:
+
+1. Enter the add event command by typing `add-event n/NAME d/DESCRIPTION` into the input box
+2. Press enter
+3. The result box will show the new event created:
+![New event added](https://i.imgur.com/70Va3Dt.png)
+4. The events list will show the newly added event:
+<img src="https://i.imgur.com/mNjKNOT.png" width="250"/>
+
+
+### 6.12 Deleting a hall event : `delete-event`
+
+You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
+
+The steps for this command are as follows:
+1. Enter the delete event command by typing `delete-event INDEX` into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
+2. Press enter
+3. The result box will show 'Deleted Event:' and the details of the deleted event: 
+![TODO: Placeholder](https://i.imgur.com/oCRZHbD.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
