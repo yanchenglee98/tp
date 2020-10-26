@@ -10,7 +10,17 @@ Hall-y is a **desktop app for managing hall residents, optimized for use via a C
 
 --------------------------------------------------------------------------------------------------------------------
 
+## 3 About This Document
 
+The following table explains the formatting used in this guide and its definition.
+
+Format | Definition, Examples
+--------|------------------
+`code` | Represent a command or part of a command. <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X`
+UPPER_CASE | Represent a parameter to be supplied by the user. <br> e.g. `n/NAME` can be used as `n/John Doe`
+[item] | Represent an optional parameter to be supplied by the user. <br> e.g. `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## 1 Features
 
@@ -29,7 +39,7 @@ Hall-y is a **desktop app for managing hall residents, optimized for use via a C
 
 </div>
 
-### 1.1 Viewing help : `help`
+### 1.1 Viewing help: `help`
 
 Shows a message explaining how to access the help page.
 
@@ -52,13 +62,13 @@ Examples:
 *   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/A104 g/M m/A0199242X`
 *   `add n/Mary Dill p/98236802 e/marryd@example.com a/Jane street, block 29, #02-01 r/B205 g/F m/A0192352T`
 
-### 1.3 Listing all residents : `list`
+### 1.3 Listing all residents: `list`
 
 Shows a list of all residents registered in Hall-y.
 
 Format: `list`
 
-### 1.4 Editing a resident : `edit`
+### 1.4 Editing a resident: `edit`
 
 Edits an existing resident in Hall-y.
 
@@ -90,7 +100,7 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-### 1.6 Deleting a resident : `delete`
+### 1.6 Deleting a resident: `delete`
 
 Deletes the specified resident from Hall-y.
 
@@ -104,13 +114,13 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 * `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
 
-### 1.7 Clearing all entries : `clear`
+### 1.7 Clearing all entries: `clear`
 
 Clears all entries from Hall-y.
 
 Format: `clear`
 
-### 1.8 Exiting the program : `exit`
+### 1.8 Exiting the program: `exit`
 
 Exits the program.
 
@@ -120,11 +130,21 @@ Format: `exit`
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### 1.10 Exporting of email : `export`
+### 1.10 Exporting of email: `export`
 
 Exports the email address of all entries in Hall-y as a .txt file.
 
 Format: `export`
+
+### 6.14 Listing all student groups: `list-group`
+
+You can list all student groups by using the `list-group` command.
+
+The steps for this command are as follows:
+1. Enter the list group command by typing `list-group` into the input box
+2. Press enter
+3. The result box will display all the student groups: 
+![result for 'list-group'](images/listGroup.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -147,3 +167,13 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Export** | `export`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Appendix A: Glossary
+
+* **Command Line Interface (CLI)**: Text interface to interact with the application by typing the command
+* **Graphical User Interface (GUI)**: Visual interface to interact with the application
+* **Hall admin**: An administrative staff to handle hall-related matters
+* **Matriculation number**: Unique identification for NUS students, which they will obtain when they matriculate into NUS
+* **Student group**: An interest group for the hall residents to conduct extracurricular activities
