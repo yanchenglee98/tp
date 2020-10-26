@@ -14,6 +14,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROOM;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_GROUP_BASKETBALL;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_GROUP_DANCE;
+import static seedu.address.testutil.TypicalEvents.getTypicalEvents;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -80,13 +81,6 @@ public class TypicalPersons {
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
-    public static final Event LUNCH = new EventBuilder()
-            .withEventName("Hall Lunch")
-            .withDescription("Eat lunch together")
-            .withLocation("Dining Hall")
-            .withDate("01/01/2020 15:00")
-            .build();
-
     private TypicalPersons() {} // prevents instantiation
 
     /**
@@ -119,7 +113,5 @@ public class TypicalPersons {
         }
         return studentGroupSet.stream().sorted().collect(Collectors.toList());
     }
-    public static List<Event> getTypicalEvents() {
-        return new ArrayList<>(Arrays.asList(LUNCH));
-    }
+
 }
