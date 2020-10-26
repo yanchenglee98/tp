@@ -175,5 +175,5 @@ Action | Format, Examples
 * **Command Line Interface (CLI)**: Text interface to interact with the application by typing the command
 * **Graphical User Interface (GUI)**: Visual interface to interact with the application
 * **Hall admin**: An administrative staff to handle hall-related matters
-* **Matriculation number**: Unique identification for NUS students, which they will obtain when they matriculate into NUS 
+* **Matriculation number**: Unique identification for NUS students, which they will obtain when they matriculate into NUS
 * **Student group**: An interest group for the hall residents to conduct extracurricular activities
