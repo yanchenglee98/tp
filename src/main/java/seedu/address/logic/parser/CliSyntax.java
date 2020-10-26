@@ -20,5 +20,7 @@ public class CliSyntax {
     /* Prefix definitions - for events */
     public static final Prefix PREFIX_EVENT_NAME = PREFIX_NAME;
     public static final Prefix PREFIX_EVENT_DESC = new Prefix("d/");
+    public static final Prefix PREFIX_EVENT_LOCATION = new Prefix("l/");
+    public static final Prefix PREFIX_EVENT_DATE = new Prefix("dt/");
 
 }

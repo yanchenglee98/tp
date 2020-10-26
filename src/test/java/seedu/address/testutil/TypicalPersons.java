@@ -83,6 +83,8 @@ public class TypicalPersons {
     public static final Event LUNCH = new EventBuilder()
             .withEventName("Hall Lunch")
             .withDescription("Eat lunch together")
+            .withLocation("Dining Hall")
+            .withDate("01/01/2020 15:00")
             .build();
 
     private TypicalPersons() {} // prevents instantiation
