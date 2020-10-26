@@ -3,6 +3,8 @@ layout: page
 title: User Guide
 ---
 
+# Hall-y User Guide
+
 Hall-y is a **desktop app for managing hall residents, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hall-y will allow you to add, edit, view, and delete hall residents' records faster than traditional GUI apps.
 
 * Table of Contents
@@ -41,9 +43,14 @@ UPPER_CASE | Represent a parameter to be supplied by the user. <br> e.g. `n/NAME
 
 ### 1.1 Viewing help: `help`
 
-Shows a message explaining how to access the help page.
+You can request for help if you are unfamiliar with the commands. You can copy the URL and view an online copy of our user guide by using the `help` command.
 
-![help message](images/helpMessage.png)
+The steps for this command are as follows:
+1. Enter the help command by typing `help` into the input box
+2. Press enter
+3. The result box will show 'Opened help window.' <br> ![](https://i.imgur.com/QiH0mzl.png)
+4. The help window will pop out <br> ![](https://i.imgur.com/Tw8tt6j.png)
+5. Copy the URL and paste it into a browser of your choice to view the online user guide
 
 Format: `help`
 
@@ -64,7 +71,13 @@ Examples:
 
 ### 1.3 Listing all residents: `list`
 
-Shows a list of all residents registered in Hall-y.
+You can list all added residents by using the `list` command.
+
+The steps for this command are as follows:
+1. Enter the list command by typing `list` into the input box
+2. Press enter
+3. The result box will show 'Listed all persons' <br> ![](https://i.imgur.com/uuuSfMx.png)
+4. The residents list will then show the list of residents <br> ![](https://i.imgur.com/FtWzW7m.png)
 
 Format: `list`
 
@@ -102,11 +115,17 @@ Examples:
 
 ### 1.6 Deleting a resident: `delete`
 
-Deletes the specified resident from Hall-y.
+You can delete a resident specified at an index by using the `delete` command followed with the index.
+
+The steps for this command are as follows:
+1. Enter the delete command by typing `delete INDEX` into the input box. <br> With `INDEX` being the corresponding index of the specified resident as seen on the list <br> ![](https://i.imgur.com/2CxJT5Z.png)
+2. Press enter
+3. The result box will show 'Deleted Person:' and the details of the deleted resident <br> ![](https://i.imgur.com/RGPaiyk.png)
+4. The resident list will be updated <br> ![](https://i.imgur.com/jl6bnGf.png)
 
 Format: `delete INDEX`
 
-* Deletes the resident at the specified `INDEX`.
+Note:
 * The index refers to the index number shown in the displayed resident list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
@@ -132,9 +151,34 @@ Hall-y's data is saved in the hard disk automatically after any command that cha
 
 ### 1.10 Exporting of email: `export`
 
-Exports the email address of all entries in Hall-y as a .txt file.
+You can export the email address of all added entries as a .txt file by using the `export` command.
+
+The steps for this command are as follows:
+1. Enter the `export` command with `email` as follows `export email` into the input box
+2. Press enter
+3. The result box will show 'List of emails exported' <br> ![](https://i.imgur.com/cJchdRv.png)
+4. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
+5. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
 
 Format: `export`
+
+### 6.13 Assigning a resident to a hall event: `assign`
+
+You can assign a resident to a hall event by using the `assign` command followed by the index of the resident and event.
+
+The steps for this command are as follows:
+1. Enter the assign command by typing `assign RESIDENT_INDEX EVENT_INDEX` into the input box. <br>with `RESIDENT_INDEX` being the corresponding index of the specified resident as seen on the residents list.
+And `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br> ![](https://i.imgur.com/R4YBYlH.png)
+2. Press enter
+3. The result box will show 'Assigned resident to event' <br> ![](https://i.imgur.com/kJ2tiao.png)
+4. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/vC6Vxzp.png)
+
+Note:
+* Both indices refers to the index number shown in the displayed resident and event list respectively.
+* Both indices **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `assign 1 1` assigns the 1st resident to the 1st event
 
 ### 6.14 Listing all student groups: `list-group`
 
@@ -160,13 +204,14 @@ The steps for this command are as follows:
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/A104 g/M m/A0199242X`
+**Assign resident** | `assign RESIDENT_INDEX EVENT_INDEX` <br> e.g. `assign 1 1`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER]…​​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com r/A210`
+**Export** | `export`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
-**Export** | `export`
 
 --------------------------------------------------------------------------------------------------------------------
 
