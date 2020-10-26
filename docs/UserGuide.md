@@ -390,7 +390,7 @@ The steps for this command are as follows:
 1. Enter the delete event command by typing `delete-event INDEX` into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
 2. Press enter
 3. The result box will show 'Deleted Event:' and the details of the deleted event: 
-![TODO: Placeholder](https://i.imgur.com/oCRZHbD.png)
+![Event deleted](https://i.imgur.com/DIRx3Zx.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
