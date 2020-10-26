@@ -3,6 +3,8 @@ layout: page
 title: User Guide
 ---
 
+# Hall-y User Guide
+
 Hall-y is a **desktop app for managing hall residents, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hall-y will allow you to add, edit, view, and delete hall residents' records faster than traditional GUI apps.
 
 * Table of Contents
