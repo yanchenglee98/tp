@@ -2,12 +2,15 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
 
 /**
@@ -40,6 +43,18 @@ public class DeleteCommand extends Command {
         }
 
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
+
+        // check event list for any occurrences of the person to be deleted and remove them
+        model.getEventList().forEach(event -> {
+            if (event.getAttendeesList().contains(personToDelete)) {
+                Set<Person> attendeesList = new HashSet<>(event.getAttendeesList());
+                attendeesList.remove(personToDelete);
+                Event editedEvent = new Event(event.getName(), event.getEventDate(), event.getLocation(),
+                        event.getDescription(), attendeesList);
+                model.setEvent(event, editedEvent);
+            }
+        } );
+
         model.deletePerson(personToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }
