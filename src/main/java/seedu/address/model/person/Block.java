@@ -3,6 +3,7 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Block {
     }
 
     public static List<String> getBlockList() {
-        return blockPref;
+        return new ArrayList<>(blockPref);
     }
 
     public static String getMessageConstraints() {

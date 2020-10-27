@@ -17,7 +17,7 @@ public class BlockSetting {
     }
 
     public String getFloors() {
-        return Room.getFLoorRange();
+        return Room.getFloorRange();
     }
 
     public String getRooms() {

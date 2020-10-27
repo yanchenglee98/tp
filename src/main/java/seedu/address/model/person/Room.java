@@ -43,7 +43,7 @@ public class Room {
         return isFloorValid && isRoomValid;
     }
 
-    public static String getFLoorRange() {
+    public static String getFloorRange() {
         return "Floors : " + minFloorNumber + " to " + maxFloorNumber;
     }
 
