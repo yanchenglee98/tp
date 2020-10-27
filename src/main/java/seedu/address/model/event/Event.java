@@ -15,15 +15,19 @@ import seedu.address.model.person.Person;
  */
 public class Event {
     private final EventName eventName;
+    private final EventDate eventDate;
+    private final Location location;
     private final Description description;
     private final Set<Person> attendeesList;
 
     /**
      * Every field must be present and not null.
      */
-    public Event(EventName eventName, Description description) {
-        requireAllNonNull(eventName, description);
+    public Event(EventName eventName, EventDate eventDate, Location location, Description description) {
+        requireAllNonNull(eventName, eventDate, location, description);
         this.eventName = eventName;
+        this.eventDate = eventDate;
+        this.location = location;
         this.description = description;
         this.attendeesList = new HashSet<>();
     }
@@ -31,15 +35,26 @@ public class Event {
     /**
      * Every field must be present and not null.
      */
-    public Event (EventName eventName, Description description, Set<Person> personSet) {
-        requireAllNonNull(eventName, description);
+    public Event (EventName eventName, EventDate eventDate,
+                  Location location, Description description, Set<Person> personSet) {
+        requireAllNonNull(eventName, eventDate, location, description, personSet);
         this.eventName = eventName;
+        this.eventDate = eventDate;
+        this.location = location;
         this.description = description;
         this.attendeesList = personSet;
     }
 
     public EventName getName() {
         return eventName;
+    }
+
+    public EventDate getEventDate() {
+        return eventDate;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     public Description getDescription() {
@@ -51,7 +66,7 @@ public class Event {
     }
 
     /**
-     * Returns true if both events have the same name and description.
+     * Returns true if both events have the same name, location, eventDate and description.
      */
     public boolean isSameEvent(Event otherEvent) {
         if (otherEvent == this) {
@@ -60,7 +75,9 @@ public class Event {
 
         return otherEvent != null
                 && otherEvent.getName().equals(getName())
-                && otherEvent.getDescription().equals(getDescription());
+                && otherEvent.getDescription().equals(getDescription())
+                && otherEvent.getLocation().equals(getLocation())
+                && otherEvent.getEventDate().equals(getEventDate());
     }
 
     /**
@@ -80,18 +97,24 @@ public class Event {
         Event otherEvent = (Event) other;
         return otherEvent.getName().equals(getName())
                 && otherEvent.getDescription().equals(getDescription())
+                && otherEvent.getEventDate().equals(getEventDate())
+                && otherEvent.getLocation().equals(getLocation())
                 && attendeesList.equals(otherEvent.attendeesList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventName, description, attendeesList);
+        return Objects.hash(eventName, description, eventDate, location, attendeesList);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
+                .append("\nEvent Date: ")
+                .append(getEventDate())
+                .append("\nLocation: ")
+                .append(getLocation())
                 .append("\nDescription: ")
                 .append(getDescription());
         return builder.toString();
