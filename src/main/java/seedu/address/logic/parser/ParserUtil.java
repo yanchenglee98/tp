@@ -22,6 +22,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gender;
+import seedu.address.model.person.GenderMatchPredicate;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.MatriculationNumberMatchPredicate;
 import seedu.address.model.person.Name;
@@ -331,9 +332,20 @@ public class ParserUtil {
     public static MatriculationNumberMatchPredicate parseMatriculationNumberMatchPredicate(
             String matriculationNumberString) throws ParseException {
         logger.log(Level.INFO, "parsing MatriculationNumberMatchPredicate");
-        requireNonNull(matriculationNumberString);
-        MatriculationNumber matriculationNUmber = parseMatriculationNumber(matriculationNumberString);
-        return new MatriculationNumberMatchPredicate(matriculationNUmber);
+        MatriculationNumber matriculationNumber = parseMatriculationNumber(matriculationNumberString);
+        return new MatriculationNumberMatchPredicate(matriculationNumber);
+    }
+
+
+    /**
+     * Parses a {@code String gender} into a {@code GenderMatchPredicate}.
+     *
+     * @throws ParseException if the given {@code gender} is invalid.
+     */
+    public static GenderMatchPredicate parseGenderMatchPredicate(String gender) throws ParseException {
+        logger.log(Level.INFO, "parsing GenderMatchPredicate");
+        Gender predicateGender = parseGender(gender);
+        return new GenderMatchPredicate(predicateGender);
     }
 
 }

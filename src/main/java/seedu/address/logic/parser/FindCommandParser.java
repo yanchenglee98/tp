@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FLOOR;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROOM_NUMBER;
@@ -40,7 +41,7 @@ public class FindCommandParser implements Parser<FindCommand> {
         requireNonNull(args);
         logger.log(Level.INFO, "going to start parsing find command");
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME,
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_GENDER,
                         PREFIX_BLOCK, PREFIX_STUDENT_GROUP, PREFIX_FLOOR,
                         PREFIX_ROOM_NUMBER, PREFIX_MATRICULATION_NUMBER);
 
@@ -71,21 +72,15 @@ public class FindCommandParser implements Parser<FindCommand> {
 
     /**
      * Parses {@code ArgumentMultimap argMultimap} into a {@code List<Predicate<Person>>}.
-     * @throws ParseException if {@code list of predicates} are empty.
+     * @throws ParseException if {@code list of predicates} is empty or if parsing each argument throws an exception.
      */
     private List<Predicate<Person>> parsePredicates(ArgumentMultimap argMultimap) throws ParseException {
-        List<Predicate<Person>> predicates = new ArrayList<>();
+        List<Predicate<Person>> predicates = parseRoomPredicates(argMultimap);
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             predicates.add(ParserUtil.parseNameContainsKeywordPredicate(argMultimap.getValue(PREFIX_NAME).get()));
         }
-        if (argMultimap.getValue(PREFIX_BLOCK).isPresent()) {
-            predicates.add(ParserUtil.parseRoomInBlockPredicate(argMultimap.getValue(PREFIX_BLOCK).get()));
-        }
-        if (argMultimap.getValue(PREFIX_FLOOR).isPresent()) {
-            predicates.add(ParserUtil.parseRoomInFloorPredicate(argMultimap.getValue(PREFIX_FLOOR).get()));
-        }
-        if (argMultimap.getValue(PREFIX_ROOM_NUMBER).isPresent()) {
-            predicates.add(ParserUtil.parseRoomMatchesNumberPredicate(argMultimap.getValue(PREFIX_ROOM_NUMBER).get()));
+        if (argMultimap.getValue(PREFIX_GENDER).isPresent()) {
+            predicates.add(ParserUtil.parseGenderMatchPredicate(argMultimap.getValue(PREFIX_GENDER).get()));
         }
         if (argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).isPresent()) {
             predicates.add(ParserUtil.parseMatriculationNumberMatchPredicate(
@@ -98,5 +93,24 @@ public class FindCommandParser implements Parser<FindCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
         return predicates;
+    }
+
+    /**
+     * Takes room related predicates from {@code ArgumentMultimap argMultimap} and returns
+     * a {@code List<Predicate<Person>> roomPredicates} of room-related predicates.
+     * @throws ParseException if parsing each argument throws an exception.
+     */
+    private List<Predicate<Person>> parseRoomPredicates(ArgumentMultimap argMultimap) throws ParseException {
+        List<Predicate<Person>> roomPredicates = new ArrayList<>();
+        if (argMultimap.getValue(PREFIX_BLOCK).isPresent()) {
+            roomPredicates.add(ParserUtil.parseRoomInBlockPredicate(argMultimap.getValue(PREFIX_BLOCK).get()));
+        }
+        if (argMultimap.getValue(PREFIX_FLOOR).isPresent()) {
+            roomPredicates.add(ParserUtil.parseRoomInFloorPredicate(argMultimap.getValue(PREFIX_FLOOR).get()));
+        }
+        if (argMultimap.getValue(PREFIX_ROOM_NUMBER).isPresent()) {
+            roomPredicates.add(ParserUtil.parseRoomMatchesNumberPredicate(argMultimap.getValue(PREFIX_ROOM_NUMBER).get()));
+        }
+        return roomPredicates;
     }
 }
