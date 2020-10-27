@@ -5,6 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * Represents an Event's occurrence date in the address book.
@@ -40,7 +41,7 @@ public class EventDate {
         try {
             LocalDateTime.parse(test, VALIDATION_FORMATTER);
             return true;
-        } catch (Exception e) {
+        } catch (DateTimeParseException e) {
             return false;
         }
     }
