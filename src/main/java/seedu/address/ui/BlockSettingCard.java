@@ -14,16 +14,11 @@ public class BlockSettingCard extends UiPart<Region> {
     private Label blockName;
 
     @FXML
-    private Label level1Rooms;
+    private Label floors;
 
     @FXML
-    private Label level2Rooms;
+    private Label rooms;
 
-    @FXML
-    private Label level3Rooms;
-
-    @FXML
-    private Label level4Rooms;
 
     /**
      * Creates a {@code BlockSettingCard} with the given {@code BlockSetting}.
@@ -33,10 +28,9 @@ public class BlockSettingCard extends UiPart<Region> {
         this.blockSetting = blockSetting;
 
         blockName.setText(blockSetting.getBlockName());
-        level1Rooms.setText(blockSetting.getLevel(1));
-        level2Rooms.setText(blockSetting.getLevel(2));
-        level3Rooms.setText(blockSetting.getLevel(3));
-        level4Rooms.setText(blockSetting.getLevel(4));
+        floors.setText(blockSetting.getFloors());
+        rooms.setText(blockSetting.getRooms());
+
     }
 
     @Override

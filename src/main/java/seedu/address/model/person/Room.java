@@ -43,9 +43,18 @@ public class Room {
         return isFloorValid && isRoomValid;
     }
 
+    public static String getFloorRange() {
+        return "Floors : " + minFloorNumber + " to " + maxFloorNumber;
+    }
+
+    public static String getRoomRange() {
+        return "Rooms : " + minFloorNumber + String.format("%02d", minRoomNumber) + " to "
+                + maxFloorNumber + maxRoomNumber;
+    }
+
     public static String getMessageConstraints() {
         return MESSAGE_CONSTRAINTS + "\nFloor : " + minFloorNumber + " to " + maxFloorNumber
-                + "\nRoom: " + minRoomNumber + " to " + maxRoomNumber;
+                + "\nRoom: " + minRoomNumber + " - " + maxRoomNumber;
     }
 
     public static void setRoomPref(int minRoom, int maxRoom, int minFloor, int maxFloor) {
