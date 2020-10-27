@@ -21,6 +21,7 @@ import seedu.address.model.event.Event;
 import seedu.address.model.event.EventDate;
 import seedu.address.model.event.EventName;
 import seedu.address.model.event.Location;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
 
 /**
@@ -30,6 +31,7 @@ public class JsonAdaptedEvent {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Event %s field is missing";
     public static final String PERSON_NOT_FOUND_FORMAT = "Resident with matriculation number %s was not found";
+    public static final String PERSON_FIELD_INVALID_FORMAT = "%s is not a valid matriculation number";
     public static final String PERSON_REPEATED_FORMAT =
             "Resident with matriculation number %s appeared twice in the list";
 
@@ -118,16 +120,22 @@ public class JsonAdaptedEvent {
         }
         final Set<Person> modelAttendees = new HashSet<>();
         for (String matriculationNumber : attendees) {
+            if (!MatriculationNumber.isValidMatriculationNumber(matriculationNumber)) {
+                logger.warning(String.format(PERSON_FIELD_INVALID_FORMAT, matriculationNumber));
+                logger.warning(String.format("Omitting %s from the attendees list", matriculationNumber));
+                continue;
+            }
+
             if (!personMap.containsKey(matriculationNumber)) {
-                logger.info(String.format(PERSON_NOT_FOUND_FORMAT, matriculationNumber));
-                logger.info(String.format("Omitting %s from the attendees list", matriculationNumber));
+                logger.warning(String.format(PERSON_NOT_FOUND_FORMAT, matriculationNumber));
+                logger.warning(String.format("Omitting %s from the attendees list", matriculationNumber));
                 continue;
             }
 
             boolean hasAddedPerson = modelAttendees.add(personMap.get(matriculationNumber));
             if (!hasAddedPerson) {
-                logger.info(String.format(PERSON_REPEATED_FORMAT, matriculationNumber));
-                logger.info(String.format("%s will be only added once", matriculationNumber));
+                logger.warning(String.format(PERSON_REPEATED_FORMAT, matriculationNumber));
+                logger.warning(String.format("%s will be only added once", matriculationNumber));
             }
         }
 
