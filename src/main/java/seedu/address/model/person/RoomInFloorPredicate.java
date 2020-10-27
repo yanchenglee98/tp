@@ -10,10 +10,10 @@ import java.util.function.Predicate;
  */
 public class RoomInLevelPredicate implements Predicate<Person> {
     public static final String MESSAGE_CONSTRAINTS =
-            "Level should have only one number inside!";
+            "Level should have only one number inside, ranging from 1 to 4!";
 
 
-    public static final String VALIDATION_REGEX = "\\b[1-9]\\b";
+    public static final String VALIDATION_REGEX = "\\d";
     private final String level;
 
     /**
@@ -31,7 +31,8 @@ public class RoomInLevelPredicate implements Predicate<Person> {
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidLevel(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX)
+            &&;
     }
 
     @Override
