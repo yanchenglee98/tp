@@ -11,8 +11,14 @@ import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
 
 public class FilterEventCommand extends Command {
-    public static final String MESSAGE_INVALID_EVENT = "The event index provided is invalid";
     public static final String COMMAND_WORD = "filter-event";
+    public static final String MESSAGE_FILTER_SUCCESS = "Displaying residents attending event %s";
+    public static final String MESSAGE_INVALID_EVENT = "The event index provided is invalid";
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Displays the residents attending "
+            + "the event specified by the index number used in the displayed event list.\n"
+            + "Parameters: EVENT_INDEX\n"
+            + "Example: " + COMMAND_WORD + " 1 ";
 
     private final Index eventIndex;
 
@@ -32,7 +38,7 @@ public class FilterEventCommand extends Command {
 
         FilterEventPredicate predicate = new FilterEventPredicate(event.getAttendeesList());
         model.updateFilteredPersonList(predicate);
-        return new CommandResult("Success");
+        return new CommandResult(String.format(MESSAGE_FILTER_SUCCESS, event.getName()));
     }
 
     private static class FilterEventPredicate implements Predicate<Person> {

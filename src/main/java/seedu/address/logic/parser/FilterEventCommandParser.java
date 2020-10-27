@@ -13,8 +13,8 @@ public class FilterEventCommandParser implements Parser<FilterEventCommand> {
             Index eventIndex = ParserUtil.parseIndex(userInput);
             return new FilterEventCommand(eventIndex);
         } catch (ParseException e) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, userInput)
-                    + " event index should be a number");
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterEventCommand.MESSAGE_USAGE), e);
         }
     }
 }
