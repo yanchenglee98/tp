@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 public class BlockSettingTest {
     private static final String BLOCK_A_NAME = "A";
-    private static final String LEVEL_1_ROOMS = "Level 1: 100 to 120";
-    private static final String LEVEL_2_ROOMS = "Level 2: 200 to 220";
+    private static final String BLOCK_A_FLOORS = "Floors : 1 to 4";
+    private static final String BLOCK_A_ROOMS = "Rooms : 1 to 20";
 
     private static final BlockSetting BLOCK_A = new BlockSetting(BLOCK_A_NAME);
 
@@ -26,7 +26,7 @@ public class BlockSettingTest {
     @Test
     public void blockSetting_getLevels_correctRoomRangeString() {
         BlockSetting blockA = new BlockSetting(BLOCK_A_NAME);
-        assertEquals(LEVEL_1_ROOMS, blockA.getLevel(1));
-        assertEquals(LEVEL_2_ROOMS, blockA.getLevel(2));
+        assertEquals(BLOCK_A_ROOMS, blockA.getRooms());
+        assertEquals(BLOCK_A_FLOORS, blockA.getFloors());
     }
 }

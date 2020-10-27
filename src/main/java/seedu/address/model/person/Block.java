@@ -30,6 +30,10 @@ public class Block {
         value = block.toUpperCase();
     }
 
+    public static List<String> getBlockList() {
+        return blockPref;
+    }
+
     public static String getMessageConstraints() {
         StringBuilder blockConstraints = new StringBuilder();
         blockConstraints.append(" ");

@@ -43,6 +43,14 @@ public class Room {
         return isFloorValid && isRoomValid;
     }
 
+    public static String getFLoorRange() {
+        return "Floors : " + minFloorNumber + " to " + maxFloorNumber;
+    }
+
+    public static String getRoomRange() {
+        return "Rooms : " + minRoomNumber + " to " + maxRoomNumber;
+    }
+
     public static String getMessageConstraints() {
         return MESSAGE_CONSTRAINTS + "\nFloor : " + minFloorNumber + " to " + maxFloorNumber
                 + "\nRoom: " + minRoomNumber + " to " + maxRoomNumber;
