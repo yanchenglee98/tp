@@ -2,12 +2,17 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.event.Description;
 import seedu.address.model.event.EventDate;
@@ -19,8 +24,12 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
+import seedu.address.model.person.RoomInBlockPredicate;
+import seedu.address.model.person.RoomInFloorPredicate;
+import seedu.address.model.person.RoomMatchesNumberPredicate;
 import seedu.address.model.studentgroup.StudentGroup;
 
 /**
@@ -29,7 +38,7 @@ import seedu.address.model.studentgroup.StudentGroup;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
-
+    private static final Logger logger = LogsCenter.getLogger(ParserUtil.class);
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
@@ -243,5 +252,74 @@ public class ParserUtil {
             throw new ParseException(Location.MESSAGE_CONSTRAINTS);
         }
         return new Location(trimmedLocation);
+    }
+
+    /**
+     * Parses a {@code String block} into a {@code RoomInBlockPredicate}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code description} is invalid.
+     */
+    public static RoomInBlockPredicate parseRoomInBlockPredicate(String block) throws ParseException {
+        logger.log(Level.INFO, "getting block predicate");
+        requireNonNull(block);
+        String trimmedBlock = block.trim();
+        Block searchedBlock = parseBlock(trimmedBlock);
+        return new RoomInBlockPredicate(searchedBlock);
+    }
+
+    /**
+     * Parses a {@code String floor} into a {@code RoomInFloorPredicate}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code description} is invalid.
+     */
+    public static RoomInFloorPredicate parseRoomInFloorPredicate(String floor) throws ParseException {
+        logger.log(Level.INFO, "getting level predicate");
+        requireNonNull(floor);
+        String trimmedFloor = floor.trim();
+        if (!RoomInFloorPredicate.isValidFloorNumber(trimmedFloor)) {
+            throw new ParseException(RoomInFloorPredicate.MESSAGE_CONSTRAINTS);
+        }
+        return new RoomInFloorPredicate(trimmedFloor);
+    }
+
+    /**
+     * Parses {@code String keywords} into a {@code NameContainsKeywordsPredicate}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the {@code keywords} are empty.
+     */
+    public static NameContainsKeywordsPredicate parseNameContainsKeywordPredicate(
+            String keywords) throws ParseException {
+        logger.log(Level.INFO, "adding name keywords to filter");
+        requireNonNull(keywords);
+        String trimmedKeywords = keywords.trim();
+        if (trimmedKeywords.isEmpty()) {
+            logger.log(Level.WARNING, "empty keywords for name");
+            throw new ParseException(FindCommand.MESSAGE_EMPTY_KEYWORD);
+        }
+        String[] nameKeywords = trimmedKeywords.split("\\s+");
+        assert nameKeywords.length > 0 : "there should be some keywords";
+        return new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords));
+    }
+
+    /**
+     * Parses {@code String roomNumber} into a {@code NameContainsKeywordsPredicate}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code roomNumber} is invalid.
+     */
+    public static RoomMatchesNumberPredicate parseRoomMatchesNumberPredicate(String roomNumber) throws ParseException {
+        logger.log(Level.INFO, "parsing roomMatchesNumber Predicate");
+        requireNonNull(roomNumber);
+        String trimmedRoomNumber = roomNumber.trim();
+        if (!RoomMatchesNumberPredicate.isValidRoomNumber(trimmedRoomNumber)) {
+            throw new ParseException(RoomMatchesNumberPredicate.MESSAGE_CONSTRAINTS);
+        }
+        if (!RoomMatchesNumberPredicate.isValidRoomNumber(trimmedRoomNumber)) {
+            throw new ParseException(RoomMatchesNumberPredicate.MESSAGE_CONSTRAINTS);
+        }
+        return new RoomMatchesNumberPredicate(trimmedRoomNumber);
     }
 }

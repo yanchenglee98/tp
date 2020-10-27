@@ -2,7 +2,9 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
-import static seedu.address.model.person.Room.isFloorNoValid;
+import static seedu.address.model.person.Room.getFloorNumRange;
+import static seedu.address.model.person.Room.getFloorRange;
+import static seedu.address.model.person.Room.isFloorWithinRange;
 
 import java.util.function.Predicate;
 
@@ -11,8 +13,8 @@ import java.util.function.Predicate;
  */
 public class RoomInFloorPredicate implements Predicate<Person> {
     public static final String MESSAGE_CONSTRAINTS =
-            "Floor should have only one number inside, ranging from 1 to 4!";
-
+            "Floor should have one number inside.\n"
+            + "It should also be within " + getFloorNumRange() + ".";
 
     public static final String VALIDATION_REGEX = "\\d";
     private final String floor;
@@ -24,19 +26,19 @@ public class RoomInFloorPredicate implements Predicate<Person> {
      */
     public RoomInFloorPredicate(String floor) {
         requireNonNull(floor);
-        checkArgument(isValidFloor(floor), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidFloorNumber(floor), MESSAGE_CONSTRAINTS);
         this.floor = floor;
     }
 
     /**
-     * Returns true if a given string is a valid name.
+     * Returns true if a given string is a valid floor number.
      */
-    public static boolean isValidFloor(String test) {
+    public static boolean isValidFloorNumber(String test) {
         if (!test.matches(VALIDATION_REGEX)) {
             return false;
         }
         int floorNo = Integer.parseInt(test);
-        return isFloorNoValid(floorNo);
+        return isFloorWithinRange(floorNo);
     }
 
     @Override

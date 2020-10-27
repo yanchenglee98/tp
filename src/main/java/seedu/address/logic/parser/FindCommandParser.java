@@ -5,11 +5,10 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FLOOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROOM_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
-import static seedu.address.logic.parser.ParserUtil.parseBlock;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -21,21 +20,16 @@ import java.util.logging.Logger;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Block;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.RoomInBlockPredicate;
-import seedu.address.model.person.RoomInFloorPredicate;
 import seedu.address.model.person.StudentGroupPredicate;
 import seedu.address.model.studentgroup.StudentGroup;
-import seedu.address.storage.JsonAddressBookStorage;
 
 /**
  * Parses input arguments and creates a new FindCommand object
  */
 public class FindCommandParser implements Parser<FindCommand> {
 
-    private static final Logger logger = LogsCenter.getLogger(JsonAddressBookStorage.class);
+    private static final Logger logger = LogsCenter.getLogger(FindCommandParser.class);
     /**
      * Parses the given {@code String} of arguments in the context of the FindCommand
      * and returns a FindCommand object for execution.
@@ -45,37 +39,11 @@ public class FindCommandParser implements Parser<FindCommand> {
         requireNonNull(args);
         logger.log(Level.INFO, "going to start parsing find command");
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_BLOCK, PREFIX_STUDENT_GROUP, PREFIX_FLOOR);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME,
+                        PREFIX_BLOCK, PREFIX_STUDENT_GROUP, PREFIX_FLOOR, PREFIX_ROOM_NUMBER);
 
         List<Predicate<Person>> predicates = parsePredicates(argMultimap);
         return new FindCommand(predicates);
-    }
-
-    private Predicate<Person> getBlockPredicate(String block) throws ParseException {
-        logger.log(Level.INFO, "getting block predicate");
-        Block searchedBlock = parseBlock(block);
-        return new RoomInBlockPredicate(searchedBlock);
-    }
-
-    private Predicate<Person> getLevelPredicate(String level) throws ParseException {
-        logger.log(Level.INFO, "getting level predicate");
-        String trimmedLevel = level.trim();
-        if (!RoomInFloorPredicate.isValidFloor(trimmedLevel)) {
-            throw new ParseException(RoomInFloorPredicate.MESSAGE_CONSTRAINTS);
-        }
-        return new RoomInFloorPredicate(level.trim());
-    }
-
-    private Predicate<Person> getNameKeywordPredicate(String keywords) throws ParseException {
-        logger.log(Level.INFO, "adding name keywords to filter");
-        String trimmedKeywords = keywords.trim();
-        if (trimmedKeywords.isEmpty()) {
-            logger.log(Level.WARNING, "empty keywords for name");
-            throw new ParseException(FindCommand.MESSAGE_EMPTY_KEYWORD);
-        }
-        String[] nameKeywords = trimmedKeywords.split("\\s+");
-        assert nameKeywords.length > 0 : "there should be some keywords";
-        return new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords));
     }
 
     private Predicate<Person> getStudentGroupPredicate(Collection<String> studentGroups) throws ParseException {
@@ -106,13 +74,16 @@ public class FindCommandParser implements Parser<FindCommand> {
     private List<Predicate<Person>> parsePredicates(ArgumentMultimap argMultimap) throws ParseException {
         List<Predicate<Person>> predicates = new ArrayList<>();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            predicates.add(getNameKeywordPredicate(argMultimap.getValue(PREFIX_NAME).get()));
+            predicates.add(ParserUtil.parseNameContainsKeywordPredicate(argMultimap.getValue(PREFIX_NAME).get()));
         }
         if (argMultimap.getValue(PREFIX_BLOCK).isPresent()) {
-            predicates.add(getBlockPredicate(argMultimap.getValue(PREFIX_BLOCK).get()));
+            predicates.add(ParserUtil.parseRoomInBlockPredicate(argMultimap.getValue(PREFIX_BLOCK).get()));
         }
         if (argMultimap.getValue(PREFIX_FLOOR).isPresent()) {
-            predicates.add(getLevelPredicate(argMultimap.getValue(PREFIX_FLOOR).get()));
+            predicates.add(ParserUtil.parseRoomInFloorPredicate(argMultimap.getValue(PREFIX_FLOOR).get()));
+        }
+        if (argMultimap.getValue(PREFIX_ROOM_NUMBER).isPresent()) {
+            predicates.add(ParserUtil.parseRoomMatchesNumberPredicate(argMultimap.getValue(PREFIX_ROOM_NUMBER).get()));
         }
         if (!argMultimap.getAllValues(PREFIX_STUDENT_GROUP).isEmpty()) {
             predicates.add(getStudentGroupPredicate(argMultimap.getAllValues(PREFIX_STUDENT_GROUP)));
