@@ -2,49 +2,53 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+import static seedu.address.model.person.Room.isFloorNoValid;
 
 import java.util.function.Predicate;
 
 /**
- * Tests that a {@code Person}'s {@code Room} is in the current level.
+ * Tests that a {@code Person}'s {@code Room} is in the current floor.
  */
-public class RoomInLevelPredicate implements Predicate<Person> {
+public class RoomInFloorPredicate implements Predicate<Person> {
     public static final String MESSAGE_CONSTRAINTS =
-            "Level should have only one number inside, ranging from 1 to 4!";
+            "Floor should have only one number inside, ranging from 1 to 4!";
 
 
     public static final String VALIDATION_REGEX = "\\d";
-    private final String level;
+    private final String floor;
 
     /**
-     * Constructs a {@code RoomInLevelPredicate}.
+     * Constructs a {@code RoomInFloorPredicate}.
      *
-     * @param level A valid Level.
+     * @param floor A valid floor.
      */
-    public RoomInLevelPredicate(String level) {
-        requireNonNull(level);
-        checkArgument(isValidLevel(level), MESSAGE_CONSTRAINTS);
-        this.level = level;
+    public RoomInFloorPredicate(String floor) {
+        requireNonNull(floor);
+        checkArgument(isValidFloor(floor), MESSAGE_CONSTRAINTS);
+        this.floor = floor;
     }
 
     /**
      * Returns true if a given string is a valid name.
      */
-    public static boolean isValidLevel(String test) {
-        return test.matches(VALIDATION_REGEX)
-            &&;
+    public static boolean isValidFloor(String test) {
+        if (!test.matches(VALIDATION_REGEX)) {
+            return false;
+        }
+        int floorNo = Integer.parseInt(test);
+        return isFloorNoValid(floorNo);
     }
 
     @Override
     public boolean test(Person person) {
-        return person.getRoom().value.startsWith(level);
+        return person.getRoom().value.startsWith(floor);
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof RoomInLevelPredicate // instanceof handles nulls
-                && level.equals(((RoomInLevelPredicate) other).level)); // state check
+                || (other instanceof RoomInFloorPredicate // instanceof handles nulls
+                && floor.equals(((RoomInFloorPredicate) other).floor)); // state check
     }
 
 }

@@ -39,8 +39,11 @@ public class Room {
         int roomNo = room % 100;
         int floorNo = Math.floorDiv(room, 100);
         boolean isRoomValid = (roomNo <= maxRoomNumber) && (roomNo >= minRoomNumber);
-        boolean isFloorValid = (floorNo <= maxFloorNumber) && (floorNo >= minFloorNumber);
-        return isFloorValid && isRoomValid;
+        return isFloorNoValid(floorNo) && isRoomValid;
+    }
+
+    public static boolean isFloorNoValid(int floorNo) {
+        return (floorNo <= maxFloorNumber) && (floorNo >= minFloorNumber);
     }
 
     public static String getFloorRange() {
@@ -80,5 +83,4 @@ public class Room {
     public int hashCode() {
         return value.hashCode();
     }
-
 }
