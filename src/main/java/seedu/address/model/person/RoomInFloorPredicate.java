@@ -3,7 +3,6 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 import static seedu.address.model.person.Room.getFloorNumRange;
-import static seedu.address.model.person.Room.getFloorRange;
 import static seedu.address.model.person.Room.isFloorWithinRange;
 
 import java.util.function.Predicate;

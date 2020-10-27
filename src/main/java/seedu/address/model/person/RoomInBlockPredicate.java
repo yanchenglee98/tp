@@ -1,5 +1,7 @@
 package seedu.address.model.person;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.function.Predicate;
 
 /**
@@ -8,7 +10,13 @@ import java.util.function.Predicate;
 public class RoomInBlockPredicate implements Predicate<Person> {
     private final Block block;
 
+    /**
+     * Constructs a {@code RoomInBlockPredicate}.
+     *
+     * @param block A block to check with people's block.
+     */
     public RoomInBlockPredicate(Block block) {
+        requireNonNull(block);
         this.block = block;
     }
 
