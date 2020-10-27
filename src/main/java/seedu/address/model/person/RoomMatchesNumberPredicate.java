@@ -22,9 +22,9 @@ public class RoomMatchesNumberPredicate implements Predicate<Person> {
     private final String room;
 
     /**
-     * Constructs a {@code RoomInFloorPredicate}.
+     * Constructs a {@code RoomMatchesNumberPredicate}.
      *
-     * @param room A valid floor.
+     * @param room A valid room.
      */
     public RoomMatchesNumberPredicate(String room) {
         requireNonNull(room);
