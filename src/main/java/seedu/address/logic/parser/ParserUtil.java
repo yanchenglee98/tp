@@ -23,6 +23,7 @@ import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gender;
 import seedu.address.model.person.MatriculationNumber;
+import seedu.address.model.person.MatriculationNumberMatchPredicate;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Phone;
@@ -258,13 +259,11 @@ public class ParserUtil {
      * Parses a {@code String block} into a {@code RoomInBlockPredicate}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code description} is invalid.
+     * @throws ParseException if the given {@code block} is invalid.
      */
     public static RoomInBlockPredicate parseRoomInBlockPredicate(String block) throws ParseException {
-        logger.log(Level.INFO, "getting block predicate");
-        requireNonNull(block);
-        String trimmedBlock = block.trim();
-        Block searchedBlock = parseBlock(trimmedBlock);
+        logger.log(Level.INFO, "parsing RoomInBlockPredicate");
+        Block searchedBlock = parseBlock(block);
         return new RoomInBlockPredicate(searchedBlock);
     }
 
@@ -272,10 +271,10 @@ public class ParserUtil {
      * Parses a {@code String floor} into a {@code RoomInFloorPredicate}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code description} is invalid.
+     * @throws ParseException if the given {@code floor} is invalid.
      */
     public static RoomInFloorPredicate parseRoomInFloorPredicate(String floor) throws ParseException {
-        logger.log(Level.INFO, "getting level predicate");
+        logger.log(Level.INFO, "parsing RoomInFloorPredicate");
         requireNonNull(floor);
         String trimmedFloor = floor.trim();
         if (!RoomInFloorPredicate.isValidFloorNumber(trimmedFloor)) {
@@ -310,8 +309,9 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code roomNumber} is invalid.
      */
-    public static RoomMatchesNumberPredicate parseRoomMatchesNumberPredicate(String roomNumber) throws ParseException {
-        logger.log(Level.INFO, "parsing roomMatchesNumber Predicate");
+    public static RoomMatchesNumberPredicate parseRoomMatchesNumberPredicate(
+            String roomNumber) throws ParseException {
+        logger.log(Level.INFO, "parsing RoomMatchesNumberPredicate");
         requireNonNull(roomNumber);
         String trimmedRoomNumber = roomNumber.trim();
         if (!RoomMatchesNumberPredicate.isValidRoomNumber(trimmedRoomNumber)) {
@@ -322,4 +322,18 @@ public class ParserUtil {
         }
         return new RoomMatchesNumberPredicate(trimmedRoomNumber);
     }
+
+    /**
+     * Parses a {@code String matriculationNumberString} into a {@code MatriculationNumberMatchPredicate}.
+     *
+     * @throws ParseException if the given {@code matriculationNumberString} is invalid.
+     */
+    public static MatriculationNumberMatchPredicate parseMatriculationNumberMatchPredicate(
+            String matriculationNumberString) throws ParseException {
+        logger.log(Level.INFO, "parsing MatriculationNumberMatchPredicate");
+        requireNonNull(matriculationNumberString);
+        MatriculationNumber matriculationNUmber = parseMatriculationNumber(matriculationNumberString);
+        return new MatriculationNumberMatchPredicate(matriculationNUmber);
+    }
+
 }

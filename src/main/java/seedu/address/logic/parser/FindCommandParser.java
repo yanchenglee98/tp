@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FLOOR;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROOM_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
@@ -40,7 +41,8 @@ public class FindCommandParser implements Parser<FindCommand> {
         logger.log(Level.INFO, "going to start parsing find command");
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME,
-                        PREFIX_BLOCK, PREFIX_STUDENT_GROUP, PREFIX_FLOOR, PREFIX_ROOM_NUMBER);
+                        PREFIX_BLOCK, PREFIX_STUDENT_GROUP, PREFIX_FLOOR,
+                        PREFIX_ROOM_NUMBER, PREFIX_MATRICULATION_NUMBER);
 
         List<Predicate<Person>> predicates = parsePredicates(argMultimap);
         return new FindCommand(predicates);
@@ -84,6 +86,10 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
         if (argMultimap.getValue(PREFIX_ROOM_NUMBER).isPresent()) {
             predicates.add(ParserUtil.parseRoomMatchesNumberPredicate(argMultimap.getValue(PREFIX_ROOM_NUMBER).get()));
+        }
+        if (argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).isPresent()) {
+            predicates.add(ParserUtil.parseMatriculationNumberMatchPredicate(
+                    argMultimap.getValue(PREFIX_MATRICULATION_NUMBER).get()));
         }
         if (!argMultimap.getAllValues(PREFIX_STUDENT_GROUP).isEmpty()) {
             predicates.add(getStudentGroupPredicate(argMultimap.getAllValues(PREFIX_STUDENT_GROUP)));
