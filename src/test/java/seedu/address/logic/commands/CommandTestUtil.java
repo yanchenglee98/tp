@@ -6,6 +6,10 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EVENT_DATE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EVENT_DESC;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EVENT_LOCATION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EVENT_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -77,6 +81,23 @@ public class CommandTestUtil {
     public static final String INVALID_MATRICULATION_NUMBER_DESC = " " + PREFIX_MATRICULATION_NUMBER
             + "C0123456B"; // should start with 'A'
     public static final String INVALID_BLOCK = " " + PREFIX_BLOCK + "A2"; // number not allowed in block
+
+    public static final String VALID_NAME_LUNCH = "Hall Lunch! @ Eusoff";
+    public static final String VALID_DESC_LUNCH = "Some description text for lunch";
+    public static final String VALID_DATE_LUNCH = "01/02/2013 01:56";
+    public static final String VALID_LOCATION_LUNCH = "Dining Hall@Eusoff / UTown";
+
+    public static final String EVENT_NAME_DESC_LUNCH = " " + PREFIX_EVENT_NAME + VALID_NAME_LUNCH;
+    public static final String EVENT_DESC_DESC_LUNCH = " " + PREFIX_EVENT_DESC + VALID_DESC_LUNCH;
+    public static final String EVENT_DATE_DESC_LUNCH = " " + PREFIX_EVENT_DATE + VALID_DATE_LUNCH;
+    public static final String EVENT_LOCATION_DESC_LUNCH = " " + PREFIX_EVENT_LOCATION + VALID_LOCATION_LUNCH;
+
+    public static final String INVALID_EVENT_NAME = " " + PREFIX_EVENT_NAME; // empty string not allowed
+    public static final String INVALID_EVENT_DESC = " " + PREFIX_EVENT_DESC; // empty string not allowed
+    public static final String INVALID_EVENT_LOCATION = " " + PREFIX_EVENT_LOCATION; // empty string not allowed
+    public static final String INVALID_EVENT_DATE_FORMAT = " " + PREFIX_EVENT_DATE + "2020/01/01 15:00";
+    public static final String INVALID_EVENT_DATE_RANGE = " " + PREFIX_EVENT_DATE + "32/01/2020 15:00";
+    public static final String INVALID_EVENT_DATE = " " + PREFIX_EVENT_DATE;
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
