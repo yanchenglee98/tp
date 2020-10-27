@@ -53,7 +53,7 @@ public class DeleteCommand extends Command {
                         event.getDescription(), attendeesList);
                 model.setEvent(event, editedEvent);
             }
-        } );
+        });
 
         model.deletePerson(personToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
