@@ -26,27 +26,25 @@ public class FilterEventCommand extends Command {
         if (eventIndex.getZeroBased() >= eventList.size()) {
             throw new CommandException(MESSAGE_INVALID_EVENT);
         }
-        FilterEventPredicate predicate = new FilterEventPredicate(eventList);
+
+        // get event from event list
+        Event event = eventList.get(eventIndex.getZeroBased());
+
+        FilterEventPredicate predicate = new FilterEventPredicate(event.getAttendeesList());
         model.updateFilteredPersonList(predicate);
         return new CommandResult("Success");
     }
 
     private static class FilterEventPredicate implements Predicate<Person> {
-        private final List<Event> eventList;
+        private final Set<Person> attendeeList;
 
-        public FilterEventPredicate(List<Event> eventList) {
-            this.eventList = eventList;
+        public FilterEventPredicate(Set<Person> attendeeList) {
+            this.attendeeList = attendeeList;
         }
 
         @Override
         public boolean test(Person person) {
-            for (Event e: eventList) {
-                Set<Person> attendeeList = e.getAttendeesList();
-                if (attendeeList.contains(person)) {
-                    return true;
-                }
-            }
-            return false;
+            return attendeeList.contains(person);
         }
     }
 }
