@@ -65,7 +65,7 @@ public class FindCommandParserTest {
         Set<StudentGroup> studentGroupSet = new HashSet<>();
         studentGroupSet.add(new StudentGroup("badminton"));
         FindCommand expectedCombinedFindCommand =
-                new FindCommand(List.of(namePredicate, new RoomInBlockPredicate(new Block("B")),
+                new FindCommand(List.of(new RoomInBlockPredicate(new Block("B")), namePredicate,
                     new StudentGroupPredicate(studentGroupSet)));
 
         // test parsing of multiple fields

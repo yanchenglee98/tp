@@ -109,7 +109,8 @@ public class FindCommandParser implements Parser<FindCommand> {
             roomPredicates.add(ParserUtil.parseRoomInFloorPredicate(argMultimap.getValue(PREFIX_FLOOR).get()));
         }
         if (argMultimap.getValue(PREFIX_ROOM_NUMBER).isPresent()) {
-            roomPredicates.add(ParserUtil.parseRoomMatchesNumberPredicate(argMultimap.getValue(PREFIX_ROOM_NUMBER).get()));
+            roomPredicates
+                    .add(ParserUtil.parseRoomMatchesNumberPredicate(argMultimap.getValue(PREFIX_ROOM_NUMBER).get()));
         }
         return roomPredicates;
     }
