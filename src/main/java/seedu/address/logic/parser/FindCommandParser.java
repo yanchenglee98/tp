@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_LEVEL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 import static seedu.address.logic.parser.ParserUtil.parseBlock;
@@ -24,6 +25,7 @@ import seedu.address.model.person.Block;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.RoomInBlockPredicate;
+import seedu.address.model.person.RoomInLevelPredicate;
 import seedu.address.model.person.StudentGroupPredicate;
 import seedu.address.model.studentgroup.StudentGroup;
 import seedu.address.storage.JsonAddressBookStorage;
@@ -43,26 +45,9 @@ public class FindCommandParser implements Parser<FindCommand> {
         requireNonNull(args);
         logger.log(Level.INFO, "going to start parsing find command");
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_BLOCK, PREFIX_STUDENT_GROUP);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_BLOCK, PREFIX_STUDENT_GROUP, PREFIX_LEVEL);
 
-        List<Predicate<Person>> predicates = new ArrayList<>();
-
-        if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            predicates.add(getNameKeywordPredicate(argMultimap.getValue(PREFIX_NAME).get()));
-        }
-
-        if (argMultimap.getValue(PREFIX_BLOCK).isPresent()) {
-            predicates.add(getBlockPredicate(argMultimap.getValue(PREFIX_BLOCK).get()));
-        }
-
-        if (!argMultimap.getAllValues(PREFIX_STUDENT_GROUP).isEmpty()) {
-            predicates.add(getStudentGroupPredicate(argMultimap.getAllValues(PREFIX_STUDENT_GROUP)));
-        }
-
-        if (predicates.isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
-        }
-
+        List<Predicate<Person>> predicates = parsePredicates(argMultimap);
         return new FindCommand(predicates);
     }
 
@@ -70,6 +55,15 @@ public class FindCommandParser implements Parser<FindCommand> {
         logger.log(Level.INFO, "getting block predicate");
         Block searchedBlock = parseBlock(block);
         return new RoomInBlockPredicate(searchedBlock);
+    }
+
+    private Predicate<Person> getLevelPredicate(String level) throws ParseException {
+        logger.log(Level.INFO, "getting level predicate");
+        String trimmedLevel = level.trim();
+        if (!RoomInLevelPredicate.isValidLevel(trimmedLevel)) {
+            throw new ParseException(RoomInLevelPredicate.MESSAGE_CONSTRAINTS);
+        }
+        return new RoomInLevelPredicate(level.trim());
     }
 
     private Predicate<Person> getNameKeywordPredicate(String keywords) throws ParseException {
@@ -103,5 +97,29 @@ public class FindCommandParser implements Parser<FindCommand> {
         Collection<String> studentGroupNames = studentGroups.size() == 1 && studentGroups.contains("")
             ? Collections.emptySet() : studentGroups;
         return ParserUtil.parseStudentGroups(studentGroupNames);
+    }
+
+    /**
+     * Parses {@code ArgumentMultimap argMultimap} into a {@code List<Predicate<Person>>}.
+     * @throws ParseException if {@code list of predicates} are empty.
+     */
+    private List<Predicate<Person>> parsePredicates(ArgumentMultimap argMultimap) throws ParseException {
+        List<Predicate<Person>> predicates = new ArrayList<>();
+        if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
+            predicates.add(getNameKeywordPredicate(argMultimap.getValue(PREFIX_NAME).get()));
+        }
+        if (argMultimap.getValue(PREFIX_BLOCK).isPresent()) {
+            predicates.add(getBlockPredicate(argMultimap.getValue(PREFIX_BLOCK).get()));
+        }
+        if (argMultimap.getValue(PREFIX_LEVEL).isPresent()) {
+            predicates.add(getLevelPredicate(argMultimap.getValue(PREFIX_LEVEL).get()));
+        }
+        if (!argMultimap.getAllValues(PREFIX_STUDENT_GROUP).isEmpty()) {
+            predicates.add(getStudentGroupPredicate(argMultimap.getAllValues(PREFIX_STUDENT_GROUP)));
+        }
+        if (predicates.isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        }
+        return predicates;
     }
 }
