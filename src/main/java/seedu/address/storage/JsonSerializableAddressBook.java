@@ -1,7 +1,11 @@
 package seedu.address.storage;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -60,8 +64,9 @@ class JsonSerializableAddressBook {
             addressBook.addPerson(person);
         }
 
+        Map<String, Person> personMap = getMatriculationNumberMap(addressBook.getPersonList());
         for (JsonAdaptedEvent jsonAdaptedEvent : events) {
-            Event event = jsonAdaptedEvent.toModelType();
+            Event event = jsonAdaptedEvent.toModelType(personMap);
             if (addressBook.hasEvent(event)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_EVENT);
             }
@@ -69,6 +74,19 @@ class JsonSerializableAddressBook {
         }
 
         return addressBook;
+    }
+
+    private Map<String, Person> getMatriculationNumberMap(List<Person> personList) {
+        requireNonNull(personList);
+        Map<String, Person> personsMap = new HashMap<>();
+
+        for (Person person : personList) {
+            assert person != null : "null was included in the personList";
+            String matriculationNumber = person.getMatriculationNumber().value;
+            personsMap.put(matriculationNumber, person);
+        }
+
+        return personsMap;
     }
 
 }
