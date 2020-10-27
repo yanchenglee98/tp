@@ -48,12 +48,13 @@ public class Room {
     }
 
     public static String getRoomRange() {
-        return "Rooms : " + minRoomNumber + " to " + maxRoomNumber;
+        return "Rooms : " + minFloorNumber + String.format("%02d", minRoomNumber) + " to "
+                + maxFloorNumber + maxRoomNumber;
     }
 
     public static String getMessageConstraints() {
         return MESSAGE_CONSTRAINTS + "\nFloor : " + minFloorNumber + " to " + maxFloorNumber
-                + "\nRoom: " + minRoomNumber + " to " + maxRoomNumber;
+                + "\nRoom: " + minRoomNumber + " - " + maxRoomNumber;
     }
 
     public static void setRoomPref(int minRoom, int maxRoom, int minFloor, int maxFloor) {
