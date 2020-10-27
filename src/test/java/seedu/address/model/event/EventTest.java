@@ -118,13 +118,13 @@ class EventTest {
     }
 
     @Test
-    public void hashCode_validInput_success() {
+    public void hashCode_sameInput() {
         int testHashCode = new EventBuilder(LUNCH).build().hashCode();
         assertEquals(testHashCode, LUNCH.hashCode());
     }
 
     @Test
-    public void toString_validInput_success() {
+    public void toString_sameInput() {
         String testString = "Hall Lunch\nEvent Date: 01/01/2020 15:00\n"
             + "Location: Dining Hall\nDescription: Eat lunch together";
         System.out.println(LUNCH.toString());
