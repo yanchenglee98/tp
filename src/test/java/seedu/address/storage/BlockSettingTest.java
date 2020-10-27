@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class BlockSettingTest {
     private static final String BLOCK_A_NAME = "A";
     private static final String BLOCK_A_FLOORS = "Floors : 1 to 4";
-    private static final String BLOCK_A_ROOMS = "Rooms : 1 to 20";
+    private static final String BLOCK_A_ROOMS = "Rooms : 101 to 420";
 
     private static final BlockSetting BLOCK_A = new BlockSetting(BLOCK_A_NAME);
 
