@@ -11,7 +11,7 @@ import seedu.address.model.event.Event;
 import seedu.address.model.person.Person;
 
 public class FilterEventCommand extends Command {
-    public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
+    public static final String MESSAGE_INVALID_EVENT = "The event index provided is invalid";
     public static final String COMMAND_WORD = "filter-event";
 
     private final Index eventIndex;
