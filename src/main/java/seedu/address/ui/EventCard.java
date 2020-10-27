@@ -31,6 +31,8 @@ public class EventCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
+    private Label eventDateLocation;
+    @FXML
     private Label description;
     @FXML
     private FlowPane tags;
@@ -43,6 +45,7 @@ public class EventCard extends UiPart<Region> {
         this.event = event;
         id.setText(displayedIndex + ". ");
         name.setText(event.getName().eventName);
+        eventDateLocation.setText(event.getEventDate().toString() + " @ " + event.getLocation().toString());
         description.setText(event.getDescription().description);
         event.getAttendeesList()
                 .forEach(person -> tags.getChildren()
