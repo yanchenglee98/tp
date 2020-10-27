@@ -76,7 +76,8 @@
       "eventName": "Hall Lunch",
       "eventDate": "01/01/2020 15:00",
       "location": "Dining Hall",
-      "description": "Eat lunch together"
+      "description": "Eat lunch together",
+      "attendees": []
     }
   ]
 }

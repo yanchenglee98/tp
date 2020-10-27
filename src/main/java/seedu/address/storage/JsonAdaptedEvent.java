@@ -3,15 +3,25 @@ package seedu.address.storage;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import seedu.address.MainApp;
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.event.Description;
 import seedu.address.model.event.Event;
 import seedu.address.model.event.EventDate;
 import seedu.address.model.event.EventName;
 import seedu.address.model.event.Location;
+import seedu.address.model.person.Person;
 
 /**
  * Jackson-friendly version of {@link Event}
@@ -19,11 +29,17 @@ import seedu.address.model.event.Location;
 public class JsonAdaptedEvent {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Event %s field is missing";
+    public static final String PERSON_NOT_FOUND_FORMAT = "Resident with matriculation number %s was not found";
+    public static final String PERSON_REPEATED_FORMAT =
+            "Resident with matriculation number %s appeared twice in the list";
+
+    private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
     private final String eventName;
     private final String eventDate;
     private final String location;
     private final String description;
+    private final List<String> attendees;
 
     /**
      * Constructs a {@code JsonAdaptedEvent} with the given event details.
@@ -32,12 +48,14 @@ public class JsonAdaptedEvent {
     public JsonAdaptedEvent(@JsonProperty("eventName") String eventName,
                             @JsonProperty("eventDate") String eventDate,
                             @JsonProperty("location") String location,
-                            @JsonProperty("description") String description) {
-        requireAllNonNull(eventName, eventDate, location, description);
+                            @JsonProperty("description") String description,
+                            @JsonProperty("attendees") List<String> attendees) {
+        requireAllNonNull(eventName, eventDate, location, description, attendees);
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.location = location;
         this.description = description;
+        this.attendees = attendees;
     }
 
     /**
@@ -49,13 +67,15 @@ public class JsonAdaptedEvent {
         this.eventDate = event.getEventDate().toString();
         this.location = event.getLocation().location;
         this.description = event.getDescription().description;
+        this.attendees = event.getAttendeesList().stream().map(person ->
+                person.getMatriculationNumber().value).collect(Collectors.toList());
     }
 
     /**
      * Converts this Jackson-friendly adapted event into the model's {@code Event} object.
      *
      */
-    public Event toModelType() throws IllegalValueException {
+    public Event toModelType(Map<String, Person> personMap) throws IllegalValueException {
         if (eventName == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     EventName.class.getSimpleName()));
@@ -92,7 +112,26 @@ public class JsonAdaptedEvent {
         }
         final Description modelDescription = new Description(description);
 
-        return new Event(modelName, modelDate, modelLocation, modelDescription);
+        if (attendees == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    "attendees"));
+        }
+        final Set<Person> modelAttendees = new HashSet<>();
+        for (String matriculationNumber : attendees) {
+            if (!personMap.containsKey(matriculationNumber)) {
+                logger.info(String.format(PERSON_NOT_FOUND_FORMAT, matriculationNumber));
+                logger.info(String.format("Omitting %s from the attendees list", matriculationNumber));
+                continue;
+            }
+
+            boolean hasAddedPerson = modelAttendees.add(personMap.get(matriculationNumber));
+            if (!hasAddedPerson) {
+                logger.info(String.format(PERSON_REPEATED_FORMAT, matriculationNumber));
+                logger.info(String.format("%s will be only added once", matriculationNumber));
+            }
+        }
+
+        return new Event(modelName, modelDate, modelLocation, modelDescription, modelAttendees);
     }
 
 }
