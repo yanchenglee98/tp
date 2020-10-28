@@ -40,7 +40,7 @@ public class MatriculationNumberMatchPredicateTest {
     }
 
     @Test
-    public void test_nameContainsKeywords_returnsTrue() {
+    public void test_matriculationNumber_returnsTrue() {
         // same matriculation number -> returns true
         MatriculationNumberMatchPredicate predicate =
                 new MatriculationNumberMatchPredicate(new MatriculationNumber(VALID_MATRICULATION_NUMBER_AMY));

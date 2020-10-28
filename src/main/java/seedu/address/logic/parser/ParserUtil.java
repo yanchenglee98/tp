@@ -318,9 +318,6 @@ public class ParserUtil {
         if (!RoomMatchesNumberPredicate.isValidRoomNumber(trimmedRoomNumber)) {
             throw new ParseException(RoomMatchesNumberPredicate.MESSAGE_CONSTRAINTS);
         }
-        if (!RoomMatchesNumberPredicate.isValidRoomNumber(trimmedRoomNumber)) {
-            throw new ParseException(RoomMatchesNumberPredicate.MESSAGE_CONSTRAINTS);
-        }
         return new RoomMatchesNumberPredicate(trimmedRoomNumber);
     }
 
