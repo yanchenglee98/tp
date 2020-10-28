@@ -18,6 +18,14 @@ If you can type fast, Hall-y will allow you to manage hall residents and events 
 
 Interested? You can jump straight to the [Getting Started](#4-Getting-Started) guide and start trying Hall-y now! Alternatively, you can check out Hall-y's feature list [here](#6-Features).
 
+### 1.2 Purpose of Document
+
+The purpose of this document is to teach you how to start up Hall-y, and to provide information necessary to understand how to use this application. It will provide the commands used in Hall-y and tell you how to use them.
+
+### 1.3 Target Audience
+
+The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who is responsible for managing residents in hall. This includes keeping track of their information, such as the rooms they stay in, their student group, their matriculation number and contact information.
+
 --------------------------------------------------------------------------------------------------------------------
 
 * Table of Contents
@@ -112,7 +120,7 @@ Events list | This is the list of events currently stored in Hall-y.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 1 Features
+## 6 Features
 
 <div markdown="block" class="alert alert-info">
 
@@ -129,7 +137,7 @@ Events list | This is the list of events currently stored in Hall-y.
 
 </div>
 
-### 1.1 Viewing help: `help`
+### 6.1 Viewing help : `help`
 
 You can request for help if you are unfamiliar with the commands. You can copy the URL and view an online copy of our user guide by using the `help` command.
 
@@ -140,7 +148,6 @@ The steps for this command are as follows:
 4. The help window will pop out <br> ![](https://i.imgur.com/Tw8tt6j.png)
 5. Copy the URL and paste it into a browser of your choice to view the online user guide
 
-Format: `help`
 
 
 ### 1.2 Adding a resident: `add`
@@ -341,6 +348,36 @@ Edits the phone number, email address and room number of the 1st resident to be 
 * `edit 2 n/Betsy Crower p/87652103`   
 Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
 
+### 6.5 Locating residents by characteristics: `find`
+
+You can find all persons whose characteristics match the given arguments and keywords. The residents list will automatically display these residents.
+
+The steps for this command are as follows:
+
+1. Enter the find command by typing `find [n/KEYWORDS [MORE KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]` into the input box.
+2. Press enter.
+3. The result box will show how many residents fit the inputted characteristics. <br> ![Result box of find](https://i.imgur.com/TAiW2DU.png)
+4. The residents list will be updated with the residents who fit the inputted characteristics. <br> ![Residents list of find](https://i.imgur.com/0ZUuAn8.png)
+
+
+#### Note:
+Please take note of the format required:
+* `ROOM_NUMBER`:  The last 2 digits of the room numbers, e.g. 05, 12, 15, etc.
+* `FLOOR`:  The number of the floor of the resident you want to find, e.g. 1, 2, 3 and so on.
+* `BLOCK`: The alphabetical name of the block, e.g. A, B, C, or D
+* `GENDER`:  M for male, F for female
+* `KEYWORDS`: refers to any part of a resident's name, e.g. `Carl` is a keyword from `Carl Kurz`
+
+### Tips
+* The search is case-insensitive. e.g `hans` will match `Hans`
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* When searching with names, residents matching at least one keyword with names will be returned (i.e. `OR` search).
+  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* For the rest of the parameters, like block and floor, residents matching all of them will be returned (i.e. `AND` search, where the returned resident will live on this floor AND in this block)
+
+Examples:
+* `find n/John` returns `john` and `John Doe`
+* `find l/3 s/badminton` returns `Alice Pauline`, `Fiona Kunz` who live on the third floor and are in the `Badminton` student group. <br> ![Example 2](https://i.imgur.com/hAmEOib.png)
 
 ### 6.7 Clearing all entries : `clear`
 
@@ -367,7 +404,6 @@ The steps for this command are as follows:
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-
 ### 6.11 Adding a hall event : `add-event`
 
 You can add a hall event by using the `add-event` command.
@@ -381,7 +417,6 @@ The steps for this command are as follows:
 4. The events list will show the newly added event:
 <img src="https://i.imgur.com/mNjKNOT.png" width="250"/>
 
-
 ### 6.12 Deleting a hall event : `delete-event`
 
 You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
@@ -394,14 +429,23 @@ The steps for this command are as follows:
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 2 FAQ
+## 7 FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
+**Q**: How do I transfer my data to another computer?
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Hall-y home folder.
+
+**Q**: Where is all my save data stored?
+**A**: They are stored in the `data` folder that in the Hall-y home folder
+
+**Q**: How do I make backups of my data in Hall-y?
+**A**: Copy and paste the `data` folder located in the Hall-y home folder somewhere safe. To restore the backup. Copy it back into the same home folder.
+
+**Q**: How do I delete all my data in Hall-y?
+**A**: Delete the `data` folder located in the Hall-y home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 3 Command summary
+## 8 Command Summary
 
 Action | Format, Examples
 --------|------------------
@@ -411,8 +455,7 @@ Action | Format, Examples
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER]…​​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com r/A210`
 **Export** | `export`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
+**Find** | `find [n/KEYWORDS [MORE KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]`<br> e.g. `find b/B l/2 g/F`
 **Help** | `help`
 
 --------------------------------------------------------------------------------------------------------------------
