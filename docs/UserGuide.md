@@ -64,6 +64,7 @@ Now, suppose you want to add a resident called Timmy Tan. He is one of your new 
 
 Category | Details
 -------- | ------
+Phone    | 91234567
 Email    | first@example.com
 Address  | Blk 10, Bedok St 1, #02-01
 Block and Room | A101
