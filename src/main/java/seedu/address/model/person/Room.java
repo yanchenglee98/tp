@@ -38,18 +38,32 @@ public class Room {
         int room = Integer.parseInt(test);
         int roomNo = room % 100;
         int floorNo = Math.floorDiv(room, 100);
-        boolean isRoomValid = (roomNo <= maxRoomNumber) && (roomNo >= minRoomNumber);
-        boolean isFloorValid = (floorNo <= maxFloorNumber) && (floorNo >= minFloorNumber);
-        return isFloorValid && isRoomValid;
+        return isFloorWithinRange(floorNo) && isRoomWithinRange(roomNo);
+    }
+
+    public static boolean isRoomWithinRange(int roomNo) {
+        return (roomNo <= maxRoomNumber) && (roomNo >= minRoomNumber);
+    }
+
+    public static boolean isFloorWithinRange(int floorNo) {
+        return (floorNo <= maxFloorNumber) && (floorNo >= minFloorNumber);
     }
 
     public static String getFloorRange() {
         return "Floors : " + minFloorNumber + " to " + maxFloorNumber;
     }
 
+    public static String getFloorNumRange() {
+        return minFloorNumber + " - " + maxFloorNumber;
+    }
+
     public static String getRoomRange() {
         return "Rooms : " + minFloorNumber + String.format("%02d", minRoomNumber) + " to "
                 + maxFloorNumber + maxRoomNumber;
+    }
+
+    public static String getRoomNumRange() {
+        return String.format("%02d", minRoomNumber) + " - " + maxFloorNumber;
     }
 
     public static String getMessageConstraints() {
@@ -80,5 +94,4 @@ public class Room {
     public int hashCode() {
         return value.hashCode();
     }
-
 }
