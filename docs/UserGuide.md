@@ -126,18 +126,7 @@ Events list | This is the list of events currently stored in Hall-y.
 
 </div>
 
-### 6.1 Viewing help : `help`
-
-You can request for help if you are unfamiliar with the commands. You can copy the URL and view an online copy of our user guide by using the `help` command.
-
-The steps for this command are as follows:
-1. Enter the help command by typing `help` into the input box
-2. Press enter
-3. The result box will show 'Opened help window.' <br> ![](https://i.imgur.com/QiH0mzl.png)
-4. The help window will pop out <br> ![](https://i.imgur.com/Tw8tt6j.png)
-5. Copy the URL and paste it into a browser of your choice to view the online user guide
-
-### 6.2 Listing all residents: `list`
+### 6.1 Listing all residents : `list`
 
 You can list all added residents by using the `list` command.
 
@@ -147,83 +136,8 @@ The steps for this command are as follows:
 3. The result box will show 'Listed all residents' <br> ![](https://i.imgur.com/RuRPnAq.png)
 4. The residents list will then show the list of residents <br> ![](https://i.imgur.com/qkR7DTG.png)
 
+### 6.2 Adding a resident: `add`
 
-### 6.6 Deleting a resident: `delete`
-
-You can delete a resident specified at an index by using the `delete` command followed with the index.
-
-The steps for this command are as follows:
-1. Enter the delete command by typing `delete INDEX` into the input box. <br> With `INDEX` being the corresponding index of the specified resident as seen on the list <br> ![](https://i.imgur.com/koD3cte.png)
-2. Press enter
-3. The result box will show 'Deleted Person:' and the details of the deleted resident <br> ![](https://i.imgur.com/1JOAAFM.png)
-4. The resident list will be updated <br> ![](https://i.imgur.com/DCVZiEt.png)
-
-Note:
-* The index refers to the index number shown in the displayed resident list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
-* `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
-
-### 6.7 Clearing all entries: `clear`
-
-Clears all entries from Hall-y.
-
-Format: `clear`
-
-### 6.8 Exiting the program: `exit`
-
-Exits the program.
-
-Format: `exit`
-
-### 6.9 Saving the data
-
-Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
-
-### 6.10 Exporting of email: `export`
-
-You can export the email address of all added entries as a .txt file by using the `export` command.
-
-The steps for this command are as follows:
-1. Enter the `export` command with `email` as follows `export email` into the input box
-2. Press enter
-3. The result box will show 'List of emails exported' <br> ![](https://i.imgur.com/cJchdRv.png)
-4. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
-5. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
-
-Format: `export`
-
-### 6.11 Assigning a resident to a hall event: `assign`
-
-You can assign a resident to a hall event by using the `assign` command followed by the index of the resident and event.
-
-The steps for this command are as follows:
-1. Enter the assign command by typing `assign RESIDENT_INDEX EVENT_INDEX` into the input box. <br>with `RESIDENT_INDEX` being the corresponding index of the specified resident as seen on the residents list.
-And `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br> ![](https://i.imgur.com/D2dDf0n.png)
-2. Press enter
-3. The result box will show 'Assigned resident to event' <br> ![](https://i.imgur.com/gs3jTTM.png)
-4. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/NmfcXzX.png)
-
-Note:
-* Both indices refers to the index number shown in the displayed resident and event list respectively.
-* Both indices **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `assign 1 1` assigns the 1st resident to the 1st event
-
-### 6.12 Listing all student groups: `list-group`
-
-You can list all student groups by using the `list-group` command.
-
-The steps for this command are as follows:
-1. Enter the list group command by typing `list-group` into the input box
-2. Press enter
-3. The result box will display all the student groups: 
-![result for 'list-group'](images/listGroup.png)
-  
-### 6.13 Adding a resident: `add`
 
 You can add a new resident to Hall-y by using the `add` command.
 
@@ -245,8 +159,8 @@ Examples:
 *   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/soccer`
 *   `add n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/badminton s/dance`
 
-  
-### 6.14 Editing a resident : `edit`
+
+### 6.3 Editing a resident : `edit`
 
 You can edit an existing resident to Hall-y by using the `edit` command.
 
@@ -269,7 +183,104 @@ Edits the phone number, email address and room number of the 1st resident to be 
 * `edit 2 n/Betsy Crower p/87652103`   
 Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
 
-### 6.15 Locating residents by characteristics: `find`
+### 6.4 Deleting a resident : `delete`
+
+You can delete a resident specified at an index by using the `delete` command followed with the index.
+
+The steps for this command are as follows:
+1. Enter the delete command by typing `delete INDEX` into the input box. <br> With `INDEX` being the corresponding index of the specified resident as seen on the list <br> ![](https://i.imgur.com/koD3cte.png)
+2. Press enter
+3. The result box will show 'Deleted Person:' and the details of the deleted resident <br> ![](https://i.imgur.com/1JOAAFM.png)
+4. The resident list will be updated <br> ![](https://i.imgur.com/DCVZiEt.png)
+
+### 6.5 Listing all student groups : `list-group`
+
+You can list all student groups by using the `list-group` command.
+
+The steps for this command are as follows:
+1. Enter the list group command by typing `list-group` into the input box
+2. Press enter
+3. The result box will display all the student groups: 
+![TODO: Placeholder](https://i.imgur.com/oCRZHbD.png)
+
+### 6.6 Adding a hall event : `add-event`
+
+You can add a hall event by using the `add-event` command.
+
+The steps for this command are as follows:
+
+1. Enter the add event command by typing `add-event n/NAME d/DESCRIPTION` into the input box
+2. Press enter
+3. The result box will show the new event created:
+![New event added](https://i.imgur.com/70Va3Dt.png)
+4. The events list will show the newly added event:
+<img src="https://i.imgur.com/mNjKNOT.png" width="250"/>
+
+### 6.7 Deleting a hall event : `delete-event`
+
+You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
+
+The steps for this command are as follows:
+1. Enter the delete event command by typing `delete-event INDEX` into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
+2. Press enter
+3. The result box will show 'Deleted Event:' and the details of the deleted event: 
+![](https://i.imgur.com/DIRx3Zx.png)
+
+### 6.8 Assigning a resident to a hall event: `assign`
+
+You can assign a resident to a hall event by using the `assign` command followed by the index of the resident and event.
+
+The steps for this command are as follows:
+1. Enter the assign command by typing `assign RESIDENT_INDEX EVENT_INDEX` into the input box. <br>with `RESIDENT_INDEX` being the corresponding index of the specified resident as seen on the residents list.
+And `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br> ![](https://i.imgur.com/D2dDf0n.png)
+2. Press enter
+3. The result box will show 'Assigned resident to event' <br> ![](https://i.imgur.com/gs3jTTM.png)
+4. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/NmfcXzX.png)
+
+Note:
+* Both indices refers to the index number shown in the displayed resident and event list respectively.
+* Both indices **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `assign 1 1` assigns the 1st resident to the 1st event
+
+### 6.9 Clearing attendee list of event: `clear-event`
+
+You can clear the attendee list of an event by using the `clear-event` command followed by the index of the event.
+
+The steps for this command are as follows:
+1. Enter the clear event command by typing `clear-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
+2. Press enter
+3. The result box will show 'Cleared attendee list of Event:' followed by the details of the event <br> ![](https://i.imgur.com/7TxhF41.png)
+4. The event list will then be updated to show the cleared event <br> ![](https://i.imgur.com/sFGxyMY.png)
+
+
+Note:
+* Event index refers to the index number shown in the displayed event list respectively.
+* Event index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `clear-event 1` clears the attendee list of the 1st event
+
+### 6.10 Filtering residents by event: `filter-event`
+
+You can filter residents by event by using the `filter-event` command followed by the index of the event.
+
+The steps for this command are as follows:
+1. Enter the filter event command by typing `filter-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
+2. Press enter
+3. The result box will show 'Displaying residents attending event' followed by the name of the event <br> ![](https://i.imgur.com/aY4uzhd.png)
+4. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/6bzwmjV.png)
+
+
+Note:
+* Event index refers to the index number shown in the displayed event list respectively.
+* Event index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `filter-event 1` shows the residents that are attending the 1st event
+
+### 6.11 Locating residents by characteristics: `find`
 
 You can find all persons whose characteristics match the given arguments and keywords. The residents list will automatically display these residents.
 
@@ -279,6 +290,7 @@ The steps for this command are as follows:
 2. Press enter.
 3. The result box will show how many residents fit the inputted characteristics. <br> ![Result box of find](https://i.imgur.com/TAiW2DU.png)
 4. The residents list will be updated with the residents who fit the inputted characteristics. <br> ![Residents list of find](https://i.imgur.com/0ZUuAn8.png)
+
 
 #### Note:
 Please take note of the format required:
@@ -299,17 +311,48 @@ Examples:
 * `find n/John` returns `john` and `John Doe`
 * `find l/3 s/badminton` returns `Alice Pauline`, `Fiona Kunz` who live on the third floor and are in the `Badminton` student group. <br> ![Example 2](https://i.imgur.com/hAmEOib.png)
 
-### 6.16 Clearing all entries : `clear`
+
+Note:
+* The index refers to the index number shown in the displayed resident list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
+* `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
+
+### 6.12 Exporting of email : `export`
+
+You can export the email address of all added entries as a .txt file by using the `export` command.
+
+The steps for this command are as follows:
+1. Enter the `export` command with `email` as follows `export email` into the input box
+2. Press enter
+3. The result box will show 'List of emails exported' <br> ![](https://i.imgur.com/cJchdRv.png)
+4. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
+5. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
+
+### 6.13 Clearing all entries : `clear`
 
 You can clear all residents in Hall-y by using the `clear` command
 
 The steps for this command are as follows:
 1. Enter the clear command by typing `clear` into the input box.
 2. Press enter
-3. The result box will show "Address book has been cleared"![](https://i.imgur.com/taII762.png)
+3. The result box will show "Address book has been cleared"<br> ![](https://i.imgur.com/taII762.png)
 4. The resident list will now be empty ![](https://i.imgur.com/fUTbPZJ.png)
 
-### 6.17 Exiting the application : `exit`
+### 6.14 Viewing help : `help`
+
+You can request for help if you are unfamiliar with the commands. You can copy the URL and view an online copy of our user guide by using the `help` command.
+
+The steps for this command are as follows:
+1. Enter the help command by typing `help` into the input box
+2. Press enter
+3. The result box will show 'Opened help window.' <br> ![](https://i.imgur.com/QiH0mzl.png)
+4. The help window will pop out <br> ![](https://i.imgur.com/Tw8tt6j.png)
+5. Copy the URL and paste it into a browser of your choice to view the online user guide
+
+### 6.15 Exiting the application : `exit`
 
 You can exit the application by using the `exit` command
 
@@ -318,68 +361,9 @@ The steps for this command are as follows:
 2. Press enter
 3. The application should now be closed
 
-### 6.18 Saving the data
+### 6.16 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
-
-### 6.19 Adding a hall event : `add-event`
-
-You can add a hall event by using the `add-event` command.
-
-The steps for this command are as follows:
-
-1. Enter the add event command by typing `add-event n/NAME d/DESCRIPTION` into the input box
-2. Press enter
-3. The result box will show the new event created:\
-![New event added](https://i.imgur.com/70Va3Dt.png)
-4. The events list will show the newly added event:\
-<img src="https://i.imgur.com/mNjKNOT.png" width="250"/>
-
-### 6.20 Deleting a hall event : `delete-event`
-
-You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
-
-The steps for this command are as follows:
-1. Enter the delete event command by typing `delete-event INDEX` into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
-2. Press enter
-3. The result box will show 'Deleted Event:' and the details of the deleted event: 
-![Event deleted](https://i.imgur.com/DIRx3Zx.png)
-
-### 6.21 Clearing attendee list of event: `clear-event`
-
-You can clear the attendee list of an event by using the `clear-event` command followed by the index of the event.
-
-The steps for this command are as follows:
-1. Enter the clear event command by typing `clear-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
-2. Press enter
-3. The result box will show 'Cleared attendee list of Event:' followed by the details of the event <br> ![](https://i.imgur.com/7TxhF41.png)
-4. The event list will then be updated to show the cleared event <br> ![](https://i.imgur.com/sFGxyMY.png)
-
-
-Note:
-* Event index refers to the index number shown in the displayed event list respectively.
-* Event index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `clear-event 1` clears the attendee list of the 1st event
-
-### 6.22 Filtering residents by event: `filter-event`
-
-You can filter residents by event by using the `filter-event` command followed by the index of the event.
-
-The steps for this command are as follows:
-1. Enter the filter event command by typing `filter-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
-2. Press enter
-3. The result box will show 'Displaying residents attending event' followed by the name of the event <br> ![](https://i.imgur.com/aY4uzhd.png)
-4. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/6bzwmjV.png)
-
-
-Note:
-* Event index refers to the index number shown in the displayed event list respectively.
-* Event index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `filter-event 1` shows the residents that are attending the 1st event
 
 --------------------------------------------------------------------------------------------------------------------
 
