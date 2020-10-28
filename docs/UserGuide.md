@@ -56,7 +56,7 @@ You can get Hall-y up and running within 5 minutes. Just follow the steps below:
 3. Copy the downloaded file and paste it into the folder you want to use as the home folder for your application
 4. Double-click on `hall-y.jar` to start the application
 5. You should see a similar GUI to the one below - notice that the application comes with some sample data:
-![Initial load](https://i.imgur.com/wK8eZdd.png)
+![Initial load](https://i.imgur.com/nYAiX49.png)
 
 Congratulations! You now have Hall-y running on your Computer.
 
@@ -66,18 +66,18 @@ Category | Details
 -------- | ------
 Email    | first@example.com
 Address  | Blk 10, Bedok St 1, #02-01
-Block and Room | A100
+Block and Room | A101
 Gender | Male
 Matriculation Number | A2000000X
 
 Here is how you can add him into Hall-y:
 
 1. Type the following command into the input box:
-`add n/Timmy Tan p/91234567 e/first@example.com a/Blk 10, Bedok St 1, #02-01 br/A100 g/M m/A2000000X`
+`add n/Timmy Tan p/91234567 e/first@example.com a/Blk 10, Bedok St 1, #02-01 br/A101 g/M m/A2000000X`
 2. You should see the application update, like so:
-![Add new resident](https://i.imgur.com/ixYwySO.png)
+![Add new resident](https://i.imgur.com/EaXkXD5.png)
 3. Scroll down to see the resident you have just added, like so:
-![Scroll down to see resident](https://i.imgur.com/4j23ZAa.png)
+![Scroll down to see resident](https://i.imgur.com/JNjrMIN.png)
 
 Congratulations! You have just added a resident called Timmy Tan.
 
@@ -96,7 +96,7 @@ Alternatively, you can check out Hall-y's feature list [here](#6-Features) for m
 
 You can refer to the diagram below to understand how Hall-y looks like:
 
-![Hall-y's Interface](https://i.imgur.com/59MxOwe.png)
+![Hall-y's Interface](https://i.imgur.com/Awmyti6.png)
 
 The table below shows a brief explanation of each section:
 
