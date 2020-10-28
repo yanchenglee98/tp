@@ -1,8 +1,7 @@
 ---
 layout: page
-title: User Guide
+title: Hall-y User Guide
 ---
-# Hall-y User Guide
 
 ## 1 Introduction
 
@@ -28,20 +27,9 @@ The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who 
 
 --------------------------------------------------------------------------------------------------------------------
 
-* Table of Contents
+## 2 Table of Contents
+
 {:toc}
-
---------------------------------------------------------------------------------------------------------------------
-
-## 3 About This Document
-
-The following table explains the formatting used in this guide and its definition.
-
-Format | Definition, Examples
---------|------------------
-`code` | Represent a command or part of a command. <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X`
-UPPER_CASE | Represent a parameter to be supplied by the user. <br> e.g. `n/NAME` can be used as `n/John Doe`
-[item] | Represent an optional parameter to be supplied by the user. <br> e.g. `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -148,23 +136,7 @@ The steps for this command are as follows:
 4. The help window will pop out <br> ![](https://i.imgur.com/Tw8tt6j.png)
 5. Copy the URL and paste it into a browser of your choice to view the online user guide
 
-
-
-### 1.2 Adding a resident: `add`
-
-Adds a resident to Hall-y.
-
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER`
-
-* ROOM_NUMBER is in the format \<Block\>\<Room Number\>, e.g. B505, C201, etc
-* GENDER: either M for male or F for female
-
-Examples:
-
-*   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/A104 g/M m/A0199242X`
-*   `add n/Mary Dill p/98236802 e/marryd@example.com a/Jane street, block 29, #02-01 r/B205 g/F m/A0192352T`
-
-### 1.3 Listing all residents: `list`
+### 6.2 Listing all residents: `list`
 
 You can list all added residents by using the `list` command.
 
@@ -176,39 +148,12 @@ The steps for this command are as follows:
 
 Format: `list`
 
-### 1.4 Editing a resident: `edit`
-
-Edits an existing resident in Hall-y.
-
-Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER]…​`
-
-* Edits the resident at the specified `INDEX`. The index refers to the index number shown in the displayed resident list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-
-Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com r/B402` Edits the phone number, email address and room number of the 1st resident to be 91234567, johndoe@example.com and B402 respectively.
-*  `edit 2 n/Betsy Crower p/87652103` Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
-
-### 1.5 Locating residents by name: `find`
-
-Finds residents whose names contain any of the given keywords.
-
-Format: `find KEYWORD [MORE_KEYWORDS]`
-
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Residents matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-
 Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-### 1.6 Deleting a resident: `delete`
+### 6.6 Deleting a resident: `delete`
 
 You can delete a resident specified at an index by using the `delete` command followed with the index.
 
@@ -228,23 +173,23 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 * `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
 
-### 1.7 Clearing all entries: `clear`
+### 6.7 Clearing all entries: `clear`
 
 Clears all entries from Hall-y.
 
 Format: `clear`
 
-### 1.8 Exiting the program: `exit`
+### 6.8 Exiting the program: `exit`
 
 Exits the program.
 
 Format: `exit`
 
-### 1.9 Saving the data
+### 6.9 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### 1.10 Exporting of email: `export`
+### 6.10 Exporting of email: `export`
 
 You can export the email address of all added entries as a .txt file by using the `export` command.
 
@@ -256,7 +201,6 @@ The steps for this command are as follows:
 5. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
 
 Format: `export`
-
 
 <div markdown="block" class="alert alert-info">
 
@@ -273,7 +217,7 @@ Format: `export`
 
 </div>
 
-### 6.13 Assigning a resident to a hall event: `assign`
+### 6.11 Assigning a resident to a hall event: `assign`
 
 You can assign a resident to a hall event by using the `assign` command followed by the index of the resident and event.
 
@@ -291,7 +235,7 @@ Note:
 Examples:
 * `assign 1 1` assigns the 1st resident to the 1st event
 
-### 6.14 Listing all student groups: `list-group`
+### 6.12 Listing all student groups: `list-group`
 
 You can list all student groups by using the `list-group` command.
 
@@ -301,8 +245,7 @@ The steps for this command are as follows:
 3. The result box will display all the student groups: 
 ![result for 'list-group'](images/listGroup.png)
   
-  
-### 6.2 Adding a resident: `add`
+### 6.13 Adding a resident: `add`
 
 You can add a new resident to Hall-y by using the `add` command.
 
@@ -325,7 +268,7 @@ Examples:
 *   `add n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/badminton s/dance`
 
   
-### 6.4 Editing a resident : `edit`
+### 6.14 Editing a resident : `edit`
 
 You can edit an existing resident to Hall-y by using the `edit` command.
 
@@ -348,7 +291,7 @@ Edits the phone number, email address and room number of the 1st resident to be 
 * `edit 2 n/Betsy Crower p/87652103`   
 Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
 
-### 6.5 Locating residents by characteristics: `find`
+### 6.15 Locating residents by characteristics: `find`
 
 You can find all persons whose characteristics match the given arguments and keywords. The residents list will automatically display these residents.
 
@@ -358,7 +301,6 @@ The steps for this command are as follows:
 2. Press enter.
 3. The result box will show how many residents fit the inputted characteristics. <br> ![Result box of find](https://i.imgur.com/TAiW2DU.png)
 4. The residents list will be updated with the residents who fit the inputted characteristics. <br> ![Residents list of find](https://i.imgur.com/0ZUuAn8.png)
-
 
 #### Note:
 Please take note of the format required:
@@ -379,7 +321,7 @@ Examples:
 * `find n/John` returns `john` and `John Doe`
 * `find l/3 s/badminton` returns `Alice Pauline`, `Fiona Kunz` who live on the third floor and are in the `Badminton` student group. <br> ![Example 2](https://i.imgur.com/hAmEOib.png)
 
-### 6.7 Clearing all entries : `clear`
+### 6.16 Clearing all entries : `clear`
 
 You can clear all residents in Hall-y by using the `clear` command
 
@@ -389,9 +331,7 @@ The steps for this command are as follows:
 3. The result box will show "Address book has been cleared"![](https://i.imgur.com/taII762.png)
 4. The resident list will now be empty ![](https://i.imgur.com/fUTbPZJ.png)
 
-
-
-### 6.8 Exiting the application : `exit`
+### 6.17 Exiting the application : `exit`
 
 You can exit the application by using the `exit` command
 
@@ -400,11 +340,11 @@ The steps for this command are as follows:
 2. Press enter
 3. The application should now be closed
 
-### 6.9 Saving the data
+### 6.18 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### 6.11 Adding a hall event : `add-event`
+### 6.19 Adding a hall event : `add-event`
 
 You can add a hall event by using the `add-event` command.
 
@@ -414,10 +354,10 @@ The steps for this command are as follows:
 2. Press enter
 3. The result box will show the new event created:
 ![New event added](https://i.imgur.com/70Va3Dt.png)
-4. The events list will show the newly added event:
+4. The events list will show the newly added event:\
 <img src="https://i.imgur.com/mNjKNOT.png" width="250"/>
 
-### 6.12 Deleting a hall event : `delete-event`
+### 6.20 Deleting a hall event : `delete-event`
 
 You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
 
@@ -431,16 +371,16 @@ The steps for this command are as follows:
 
 ## 7 FAQ
 
-**Q**: How do I transfer my data to another computer?
+**Q**: How do I transfer my data to another computer?\
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Hall-y home folder.
 
-**Q**: Where is all my save data stored?
+**Q**: Where is all my save data stored?\
 **A**: They are stored in the `data` folder that in the Hall-y home folder
 
-**Q**: How do I make backups of my data in Hall-y?
+**Q**: How do I make backups of my data in Hall-y?\
 **A**: Copy and paste the `data` folder located in the Hall-y home folder somewhere safe. To restore the backup. Copy it back into the same home folder.
 
-**Q**: How do I delete all my data in Hall-y?
+**Q**: How do I delete all my data in Hall-y?\
 **A**: Delete the `data` folder located in the Hall-y home folder.
 
 --------------------------------------------------------------------------------------------------------------------
