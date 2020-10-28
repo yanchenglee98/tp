@@ -30,7 +30,7 @@ public class AddCommand extends Command {
             + PREFIX_GENDER + "GENDER "
             + PREFIX_BLOCKROOM + "BLOCKROOM "
             + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER "
-            + "[" + PREFIX_STUDENT_GROUP + "STUDENT_GROUP]...\n"
+            + "[" + PREFIX_STUDENT_GROUP + "STUDENT_GROUP...]\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
