@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hall-y User Guide
+title: User Guide
 ---
 
 ## 1 Introduction
@@ -353,7 +353,7 @@ The steps for this command are as follows:
 
 1. Enter the add event command by typing `add-event n/NAME d/DESCRIPTION` into the input box
 2. Press enter
-3. The result box will show the new event created:
+3. The result box will show the new event created:\
 ![New event added](https://i.imgur.com/70Va3Dt.png)
 4. The events list will show the newly added event:\
 <img src="https://i.imgur.com/mNjKNOT.png" width="250"/>
@@ -390,14 +390,18 @@ The steps for this command are as follows:
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/A104 g/M m/A0199242X`
-**Assign resident** | `assign RESIDENT_INDEX EVENT_INDEX` <br> e.g. `assign 1 1`
+**Add event** | `add-event n/NAME d/DESCRIPTION`
+**Add resident** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP]…` <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/badminton`
+**Assign resident** | `assign RESIDENT_INDEX EVENT_INDEX`
 **Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER]…​​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com r/A210`
+**Delete event** | `delete-event INDEX`
+**Delete resident** | `delete INDEX`<br> e.g. `delete 3`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER][s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
 **Export** | `export`
 **Find** | `find [n/KEYWORDS [MORE KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]`<br> e.g. `find b/B l/2 g/F`
 **Help** | `help`
+**List all residents** | `list`
+**List all student groups** | `list-group`
 
 --------------------------------------------------------------------------------------------------------------------
 
