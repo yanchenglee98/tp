@@ -202,7 +202,7 @@ The steps for this command are as follows:
 1. Enter the list group command by typing `list-group` into the input box
 2. Press enter
 3. The result box will display all the student groups: 
-![TODO: Placeholder](https://i.imgur.com/oCRZHbD.png)
+![List all student groups](images/listGroup.png)
 
 ### 6.6 Adding a hall event : `add-event`
 
