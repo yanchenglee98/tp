@@ -2,6 +2,7 @@
 layout: page
 title: User Guide
 ---
+# Hall-y User Guide
 
 ## 1 Introduction
 
