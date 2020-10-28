@@ -21,7 +21,7 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a resident to the address book. "
             + "\nParameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
@@ -30,7 +30,7 @@ public class AddCommand extends Command {
             + PREFIX_GENDER + "GENDER "
             + PREFIX_BLOCKROOM + "BLOCKROOM "
             + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER "
-            + "[" + PREFIX_STUDENT_GROUP + "STUDENT_GROUP]...\n"
+            + "[" + PREFIX_STUDENT_GROUP + "STUDENT_GROUP...]\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
@@ -42,8 +42,8 @@ public class AddCommand extends Command {
             + PREFIX_STUDENT_GROUP + "basketball "
             + PREFIX_STUDENT_GROUP + "hackers ";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "New resident added: %1$s";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This resident already exists in the address book";
 
     private final Person toAdd;
 
