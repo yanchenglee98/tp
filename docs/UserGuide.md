@@ -210,14 +210,26 @@ You can add a hall event by using the `add-event` command.
 
 The steps for this command are as follows:
 
-1. Enter the add event command by typing `add-event n/NAME d/DESCRIPTION` into the input box
+1. Enter the add event command by typing `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION` into the input box
 2. Press enter
-3. The result box will show the new event created:
-![New event added](https://i.imgur.com/70Va3Dt.png)
-4. The events list will show the newly added event:
-<img src="https://i.imgur.com/mNjKNOT.png" width="250"/>
+3. The result box will show the new event created:\
+![](https://i.imgur.com/L774mDy.png)
+4. The events list will show the newly added event:\
+![](https://i.imgur.com/HZJgK3F.png)
 
-### 6.7 Deleting a hall event : `delete-event`
+### 6.7 Editing a hall event : `edit-event`
+
+You can edit a hall event by using the `edit-event` command.
+
+The steps for this command are as follows:
+
+1. Enter the edit event command by typing `edit-event INDEX [n/NAME] [dt/DATE] [l/LOCATION] [d/DESCRIPTION]`
+into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
+2. Press enter
+3. The result box will show the edited event:\
+![](https://i.imgur.com/XV4CSap.png)
+
+### 6.8 Deleting a hall event : `delete-event`
 
 You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
 
@@ -225,9 +237,9 @@ The steps for this command are as follows:
 1. Enter the delete event command by typing `delete-event INDEX` into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
 2. Press enter
 3. The result box will show 'Deleted Event:' and the details of the deleted event: 
-![](https://i.imgur.com/DIRx3Zx.png)
+![](https://i.imgur.com/jo5YIr7.png)
 
-### 6.8 Assigning a resident to a hall event: `assign`
+### 6.9 Assigning a resident to a hall event: `assign`
 
 You can assign a resident to a hall event by using the `assign` command followed by the index of the resident and event.
 
@@ -245,7 +257,7 @@ Note:
 Examples:
 * `assign 1 1` assigns the 1st resident to the 1st event
 
-### 6.9 Clearing attendee list of event: `clear-event`
+### 6.10 Clearing attendee list of event: `clear-event`
 
 You can clear the attendee list of an event by using the `clear-event` command followed by the index of the event.
 
@@ -263,7 +275,7 @@ Note:
 Examples:
 * `clear-event 1` clears the attendee list of the 1st event
 
-### 6.10 Filtering residents by event: `filter-event`
+### 6.11 Filtering residents by event: `filter-event`
 
 You can filter residents by event by using the `filter-event` command followed by the index of the event.
 
@@ -281,7 +293,7 @@ Note:
 Examples:
 * `filter-event 1` shows the residents that are attending the 1st event
 
-### 6.11 Locating residents by characteristics: `find`
+### 6.12 Locating residents by characteristics: `find`
 
 You can find all persons whose characteristics match the given arguments and keywords. The residents list will automatically display these residents.
 
@@ -321,7 +333,7 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 * `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
 
-### 6.12 Exporting of email : `export`
+### 6.13 Exporting of email : `export`
 
 You can export the email address of all added entries as a .txt file by using the `export` command.
 
@@ -332,7 +344,7 @@ The steps for this command are as follows:
 4. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
 5. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
 
-### 6.13 Clearing all entries : `clear`
+### 6.14 Clearing all entries : `clear`
 
 You can clear all residents in Hall-y by using the `clear` command
 
@@ -342,7 +354,7 @@ The steps for this command are as follows:
 3. The result box will show "Address book has been cleared"<br> ![](https://i.imgur.com/taII762.png)
 4. The resident list will now be empty ![](https://i.imgur.com/fUTbPZJ.png)
 
-### 6.14 Viewing help : `help`
+### 6.15 Viewing help : `help`
 
 You can request for help if you are unfamiliar with the commands. You can copy the URL and view an online copy of our user guide by using the `help` command.
 
@@ -353,7 +365,7 @@ The steps for this command are as follows:
 4. The help window will pop out <br> ![](https://i.imgur.com/Tw8tt6j.png)
 5. Copy the URL and paste it into a browser of your choice to view the online user guide
 
-### 6.15 Exiting the application : `exit`
+### 6.16 Exiting the application : `exit`
 
 You can exit the application by using the `exit` command
 
@@ -362,7 +374,7 @@ The steps for this command are as follows:
 2. Press enter
 3. The application should now be closed
 
-### 6.16 Saving the data
+### 6.17 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
