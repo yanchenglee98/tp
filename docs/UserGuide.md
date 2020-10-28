@@ -144,27 +144,19 @@ You can list all added residents by using the `list` command.
 The steps for this command are as follows:
 1. Enter the list command by typing `list` into the input box
 2. Press enter
-3. The result box will show 'Listed all persons' <br> ![](https://i.imgur.com/uuuSfMx.png)
-4. The residents list will then show the list of residents <br> ![](https://i.imgur.com/FtWzW7m.png)
+3. The result box will show 'Listed all residents' <br> ![](https://i.imgur.com/RuRPnAq.png)
+4. The residents list will then show the list of residents <br> ![](https://i.imgur.com/qkR7DTG.png)
 
-Format: `list`
-
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 ### 6.6 Deleting a resident: `delete`
 
 You can delete a resident specified at an index by using the `delete` command followed with the index.
 
 The steps for this command are as follows:
-1. Enter the delete command by typing `delete INDEX` into the input box. <br> With `INDEX` being the corresponding index of the specified resident as seen on the list <br> ![](https://i.imgur.com/2CxJT5Z.png)
+1. Enter the delete command by typing `delete INDEX` into the input box. <br> With `INDEX` being the corresponding index of the specified resident as seen on the list <br> ![](https://i.imgur.com/koD3cte.png)
 2. Press enter
-3. The result box will show 'Deleted Person:' and the details of the deleted resident <br> ![](https://i.imgur.com/RGPaiyk.png)
-4. The resident list will be updated <br> ![](https://i.imgur.com/jl6bnGf.png)
-
-Format: `delete INDEX`
+3. The result box will show 'Deleted Person:' and the details of the deleted resident <br> ![](https://i.imgur.com/1JOAAFM.png)
+4. The resident list will be updated <br> ![](https://i.imgur.com/DCVZiEt.png)
 
 Note:
 * The index refers to the index number shown in the displayed resident list.
@@ -209,10 +201,10 @@ You can assign a resident to a hall event by using the `assign` command followed
 
 The steps for this command are as follows:
 1. Enter the assign command by typing `assign RESIDENT_INDEX EVENT_INDEX` into the input box. <br>with `RESIDENT_INDEX` being the corresponding index of the specified resident as seen on the residents list.
-And `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br> ![](https://i.imgur.com/R4YBYlH.png)
+And `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br> ![](https://i.imgur.com/D2dDf0n.png)
 2. Press enter
-3. The result box will show 'Assigned resident to event' <br> ![](https://i.imgur.com/kJ2tiao.png)
-4. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/vC6Vxzp.png)
+3. The result box will show 'Assigned resident to event' <br> ![](https://i.imgur.com/gs3jTTM.png)
+4. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/NmfcXzX.png)
 
 Note:
 * Both indices refers to the index number shown in the displayed resident and event list respectively.
@@ -353,6 +345,42 @@ The steps for this command are as follows:
 3. The result box will show 'Deleted Event:' and the details of the deleted event: 
 ![Event deleted](https://i.imgur.com/DIRx3Zx.png)
 
+### 6.21 Clearing attendee list of event: `clear-event`
+
+You can clear the attendee list of an event by using the `clear-event` command followed by the index of the event.
+
+The steps for this command are as follows:
+1. Enter the clear event command by typing `clear-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
+2. Press enter
+3. The result box will show 'Cleared attendee list of Event:' followed by the details of the event <br> ![](https://i.imgur.com/7TxhF41.png)
+4. The event list will then be updated to show the cleared event <br> ![](https://i.imgur.com/sFGxyMY.png)
+
+
+Note:
+* Event index refers to the index number shown in the displayed event list respectively.
+* Event index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `clear-event 1` clears the attendee list of the 1st event
+
+### 6.22 Filtering residents by event: `filter-event`
+
+You can filter residents by event by using the `filter-event` command followed by the index of the event.
+
+The steps for this command are as follows:
+1. Enter the filter event command by typing `filter-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
+2. Press enter
+3. The result box will show 'Displaying residents attending event' followed by the name of the event <br> ![](https://i.imgur.com/aY4uzhd.png)
+4. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/6bzwmjV.png)
+
+
+Note:
+* Event index refers to the index number shown in the displayed event list respectively.
+* Event index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `filter-event 1` shows the residents that are attending the 1st event
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## 7 FAQ
@@ -377,13 +405,15 @@ Action | Format, Examples
 --------|------------------
 **Add event** | `add-event n/NAME d/DESCRIPTION`
 **Add resident** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP]…` <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/badminton`
-**Assign resident** | `assign RESIDENT_INDEX EVENT_INDEX`
+**Assign resident** | `assign RESIDENT_INDEX EVENT_INDEX` <br> e.g. `assign 1 1`
 **Clear** | `clear`
+**Clear event** | `clear-event EVENT_INDEX` <br> e.g. `clear-event 1`
 **Delete event** | `delete-event INDEX`
 **Delete resident** | `delete INDEX`<br> e.g. `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER][s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
 **Export** | `export`
 **Find** | `find [n/KEYWORDS [MORE KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]`<br> e.g. `find b/B l/2 g/F`
+**Filter event** | `filter-event EVENT_INDEX` <br> e.g. `filter-event 1`
 **Help** | `help`
 **List all residents** | `list`
 **List all student groups** | `list-group`
