@@ -29,6 +29,7 @@ The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who 
 
 ## 2 Table of Contents
 
+* TOC
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
