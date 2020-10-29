@@ -12,32 +12,8 @@ title: User Guide
 
 ## Table of Contents
 
-- [1 Introduction](#1-Introduction)
-  - [1.1 Welcome](#11-Welcome)
-  - [1.2 Purpose of Document](#12-Purpose-of-Document)
-  - [1.3 Target Audience](#13-Target-Audience)
-- [2 About This Document](#2-About-This-Document)
-- [3 Getting Started](#3-Getting-Started)
-- [4 Application Interface](#4-Application-Interface)
-- [5 Features](#5-Features)
-  - [5.1 Viewing help](#51-Viewing-help--help)
-  - [5.2 Adding a resident](#52-Adding-a-resident-add)
-  - [5.3 Listing all residents](#53-Listing-all-residents--list)
-  - [5.4 Editing a resident](#54-Editing-a-resident--edit)
-  - [5.5 Locating residents by name](##55-Locating-residents-by-name-find)
-  - [5.6 Deleting a resident](#56-Deleting-a-resident--delete)
-  - [5.7 Clearing all entries](#57-Clearing-all-entries--clear)
-  - [5.8 Exiting the application](#58-Exiting-the-application-exit)
-  - [5.9 Saving the data](#59-Saving-the-data)
-  - [5.10 Exporting of email](##510-Exporting-of-email--export)
-  - [5.11 Adding a hall event](#511-Adding-a-hall-event--add-event)
-  - [5.12 Deleting a hall event](#512-Deleting-a-hall-event--delete-event)
-  - [5.13 Assigning a resident to a hall event](#513-Assigning-a-resident-to-a-hall-event-assign)
-  - [5.14 Listing all student groups](#514-Listing-all-student-groups--list-group)
-- [6 Advanced Features](#6-Advanced-Features)
-- [7 FAQ](#7-FAQ)
-- [8 Command Summary](#8-Command-Summary)
-- [9 Appendix A: Glossary](#Appendix-A-Glossary)
+* Table of Contents	--------------------------------------------------------------------------------------------------------------------
+{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
