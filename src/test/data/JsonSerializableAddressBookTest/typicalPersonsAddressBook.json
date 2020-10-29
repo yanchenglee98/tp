@@ -6,7 +6,7 @@
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
     "block" : "A",
-    "room" : "405",
+    "room" : "315",
     "gender" : "F",
     "matriculationNumber": "A0123456B",
     "studentGroups" : [ "badminton" ]
@@ -16,7 +16,7 @@
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
     "block" : "C",
-    "room" : "405",
+    "room" : "410",
     "gender" : "M",
     "matriculationNumber": "A0123456C",
     "studentGroups" : [ "hackers", "soccer" ]
@@ -26,7 +26,7 @@
     "email" : "heinz@example.com",
     "address" : "wall street",
     "block" : "B",
-    "room" : "405",
+    "room" : "119",
     "gender" : "M",
     "matriculationNumber": "A0123456D",
     "studentGroups" : [  ]
@@ -36,7 +36,7 @@
     "email" : "cornelia@example.com",
     "address" : "10th street",
     "block" : "A",
-    "room" : "405",
+    "room" : "201",
     "gender" : "M",
     "matriculationNumber": "A0123456E",
     "studentGroups" : [ "dance" ]
@@ -46,7 +46,7 @@
     "email" : "werner@example.com",
     "address" : "michegan ave",
     "block" : "D",
-    "room" : "405",
+    "room" : "118",
     "gender" : "F",
     "matriculationNumber": "A0123456F",
     "studentGroups" : [  ]
@@ -56,7 +56,7 @@
     "email" : "lydia@example.com",
     "address" : "little tokyo",
     "block" : "C",
-    "room" : "405",
+    "room" : "301",
     "gender" : "F",
     "matriculationNumber": "A0123456G",
     "studentGroups" : [ "badminton" ]
@@ -66,7 +66,7 @@
     "email" : "anna@example.com",
     "address" : "4th street",
     "block" : "B",
-    "room" : "405",
+    "room" : "310",
     "gender" : "M",
     "matriculationNumber": "A0123456H",
     "studentGroups" : [ "basketball" ]
@@ -74,7 +74,10 @@
   "events": [
     {
       "eventName": "Hall Lunch",
-      "description": "Eat lunch together"
+      "eventDate": "01/01/2020 15:00",
+      "location": "Dining Hall",
+      "description": "Eat lunch together",
+      "attendees": []
     }
   ]
 }

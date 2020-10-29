@@ -1,5 +1,7 @@
 package seedu.address.storage;
 
+import seedu.address.model.person.Room;
+
 /**
  * Represents a block with its settings.
  */
@@ -14,13 +16,12 @@ public class BlockSetting {
         return blockName;
     }
 
-    /**
-     * Returns a string containing the rooms present on that level.
-     * @param level the level to retrieve for.
-     * @return Range of rooms present on that level.
-     */
-    public String getLevel(int level) {
-        return "Level " + level + ": " + level + "00 to " + level + "20";
+    public String getFloors() {
+        return Room.getFloorRange();
+    }
+
+    public String getRooms() {
+        return Room.getRoomRange();
     }
 
     @Override

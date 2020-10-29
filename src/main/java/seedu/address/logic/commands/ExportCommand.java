@@ -38,11 +38,11 @@ public class ExportCommand extends Command {
         String message;
         switch (extractType) {
         case "email":
-            handleEmail(model.getAddressBook().getPersonList());
+            handleEmail(model.getFilteredPersonList());
             message = MESSAGE_EMAIL_SUCCESS;
             break;
         case "phone":
-            handlePhone(model.getAddressBook().getPersonList());
+            handlePhone(model.getFilteredPersonList());
             message = MESSAGE_PHONE_SUCCESS;
             break;
         default:

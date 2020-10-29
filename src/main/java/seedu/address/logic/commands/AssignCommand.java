@@ -85,7 +85,8 @@ public class AssignCommand extends Command {
 
         // add person to event's attendee list
         attendeesList.add(personToAdd);
-        Event editedEvent = new Event(event.getName(), event.getDescription(), attendeesList);
+        Event editedEvent = new Event(event.getName(), event.getEventDate(), event.getLocation(),
+                event.getDescription(), attendeesList);
 
         // update model
         model.setEvent(event, editedEvent);

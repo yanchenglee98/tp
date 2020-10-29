@@ -9,14 +9,12 @@
     <Insets top="5" right="5" bottom="5" left="5" />
   </padding>
 
-  <Label fx:id="blockName" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.rowSpan="4" styleClass="blockName">
+  <Label fx:id="blockName" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.rowSpan="2" styleClass="blockName">
     <padding>
       <Insets right="10" left="5" />
     </padding>
   </Label>
 
-  <Label fx:id="level1Rooms" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-  <Label fx:id="level2Rooms" GridPane.rowIndex="1" GridPane.columnIndex="1" />
-  <Label fx:id="level3Rooms" GridPane.rowIndex="2" GridPane.columnIndex="1" />
-  <Label fx:id="level4Rooms" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+  <Label fx:id="floors" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+  <Label fx:id="rooms" GridPane.rowIndex="1" GridPane.columnIndex="1" />
 </GridPane>

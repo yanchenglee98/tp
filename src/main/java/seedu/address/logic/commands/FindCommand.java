@@ -2,7 +2,11 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FLOOR;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROOM_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 
 import java.util.List;
@@ -20,12 +24,16 @@ public class FindCommand extends Command {
 
     public static final String COMMAND_WORD = "find";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names contain any of "
-            + "the specified keywords (case-insensitive) and who stays in the specified block"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose characteristics match the"
+            + " given keywords and parameters"
             + " and displays them as a list with index numbers.\n"
             + "Parameters: "
-            + "[" + PREFIX_NAME + "KEYWORDS [MORE KEYWORDS] " + "]"
-            + "[" + PREFIX_BLOCK + "BLOCK " + "]"
+            + "[" + PREFIX_NAME + "KEYWORDS [MORE KEYWORDS]" + "] "
+            + "[" + PREFIX_BLOCK + "BLOCK" + "] "
+            + "[" + PREFIX_FLOOR + "FLOOR" + "]"
+            + "[" + PREFIX_ROOM_NUMBER + "ROOM_NUMBER" + "] "
+            + "[" + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER" + "] "
+            + "[" + PREFIX_GENDER + "GENDER" + "] "
             + "[" + PREFIX_STUDENT_GROUP + "STUDENT_GROUP " + "]"
             + "...\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice bob charlie " + PREFIX_BLOCK + "B";
