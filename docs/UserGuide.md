@@ -211,10 +211,6 @@ The steps for this command are as follows:
 4. The events list will show the newly added event:  
 ![](https://i.imgur.com/HZJgK3F.png)
 
-Note:
-* Event index refers to the index number shown in the displayed event list respectively.
-* Event index **must be a positive integer** 1, 2, 3, …​
-
 ### 5.7 Editing a hall event : `edit-event`
 
 You can edit a hall event by using the `edit-event` command.
