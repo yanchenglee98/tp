@@ -141,7 +141,7 @@ The steps for this command are as follows:
 ![](https://i.imgur.com/PPahQcr.png)
 
 
-#### Note:
+Note:
 Please take note of the format required:
 * `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
 * `GENDER`:  M for male, F for female
@@ -165,7 +165,7 @@ The steps for this command are as follows:
 ![](https://i.imgur.com/BJAWQ3y.png)
 
 
-#### Note:
+Note:
 Please take note of the format required:
 * `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
 * `GENDER`:  M for male, F for female
@@ -310,7 +310,7 @@ The steps for this command are as follows:
 4. The residents list will be updated with the residents who fit the inputted characteristics. <br> ![Residents list of find](https://i.imgur.com/aq1YmhQ.png)
 
 
-#### Note:
+Note:
 Please take note of the format required:
 * `ROOM_NUMBER`:  The last 2 digits of the room numbers, e.g. 05, 12, 15, etc.
 * `FLOOR`:  The number of the floor of the resident you want to find, e.g. 1, 2, 3 and so on.
@@ -318,7 +318,7 @@ Please take note of the format required:
 * `GENDER`:  M for male, F for female
 * `KEYWORDS`: refers to any part of a resident's name, e.g. `Carl` is a keyword from `Carl Kurz`
 
-### Tips
+Tips
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * When searching with names, residents matching at least one keyword with names will be returned (i.e. `OR` search).
