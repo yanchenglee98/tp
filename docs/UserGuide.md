@@ -10,8 +10,6 @@ Hall-y User Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Table of Contents
-
 * TOC
 {:toc}
 
@@ -137,8 +135,10 @@ You can add a new resident to Hall-y by using the `add` command.
 The steps for this command are as follows:
 
 1. Enter the add command by typing `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` into the input box, followed by enter to execute the command
-2. The result box will show the details of the added resident![](https://i.imgur.com/5dSSf4h.png)
-3. Scroll down to the bottom of the residents list to view the newly added resident![](https://i.imgur.com/PPahQcr.png)
+2. The result box will show the details of the added resident  
+![](https://i.imgur.com/5dSSf4h.png)
+3. Scroll down to the bottom of the residents list to view the newly added resident  
+![](https://i.imgur.com/PPahQcr.png)
 
 
 #### Note:
@@ -159,8 +159,10 @@ You can edit an existing resident to Hall-y by using the `edit` command.
 The steps for this command are as follows:
 
 1. Enter the edit command by typing `edit [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER] [s/STUDENT_GROUP...]` into the input box, followed by enter to execute the command
-3. The result box will show the details of the edited resident![](https://i.imgur.com/sgWw2sz.png)
-4. Scroll to the specified index of the resident list to view the update resident![](https://i.imgur.com/BJAWQ3y.png)
+3. The result box will show the details of the edited resident  
+![](https://i.imgur.com/sgWw2sz.png)
+4. Scroll to the specified index of the resident list to view the update resident  
+![](https://i.imgur.com/BJAWQ3y.png)
 
 
 #### Note:
@@ -191,7 +193,7 @@ You can list all student groups by using the `list-group` command.
 The steps for this command are as follows:
 1. Enter the list group command by typing `list-group` into the input box
 2. Press enter
-3. The result box will display all the student groups: 
+3. The result box will display all the student groups:   
 ![](https://i.imgur.com/BOa35Ql.png)
 
 
@@ -203,9 +205,9 @@ The steps for this command are as follows:
 
 1. Enter the add event command by typing `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION` into the input box
 2. Press enter
-3. The result box will show the new event created:
+3. The result box will show the new event created:  
 ![](https://i.imgur.com/L774mDy.png)
-4. The events list will show the newly added event:
+4. The events list will show the newly added event:  
 ![](https://i.imgur.com/HZJgK3F.png)
 
 Note:
@@ -355,7 +357,7 @@ The steps for this command are as follows:
 1. Enter the clear command by typing `clear` into the input box.
 2. Press enter
 3. The result box will show "Address book has been cleared"<br> ![](https://i.imgur.com/taII762.png)
-4. The resident list will now be empty ![](https://i.imgur.com/TLAwDc4.png)
+4. The resident list will now be empty.<br> ![](https://i.imgur.com/TLAwDc4.png)
 
 
 ### 5.14 Viewing help : `help`
