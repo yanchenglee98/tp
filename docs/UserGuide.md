@@ -3,8 +3,10 @@ layout: page
 title: User Guide
 ---
 
-![](https://i.imgur.com/O63Idc0.png)  
+<img src="https://i.imgur.com/O63Idc0.png" width="250">
+
 Hall-y User Guide
+{: style="text-align: center"}
 
 <div style="page-break-after: always;"></div>
 
