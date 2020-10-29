@@ -27,7 +27,7 @@ It features a simple text interface, also known as Command Line Interface (CLI),
 
 If you can type fast, Hall-y will allow you to manage hall residents and events more efficiently than traditional GUI applications.
 
-Interested? You can jump straight to the [Getting Started](#4-Getting-Started) guide and start trying Hall-y now! Alternatively, you can check out Hall-y's feature list [here](#6-Features).
+Interested? You can jump straight to the [Getting Started](#3-getting-started) guide and start trying Hall-y now! Alternatively, you can check out Hall-y's feature list [here](#5-features).
 
 ### 1.2 Purpose of Document
 
@@ -69,7 +69,7 @@ Now, suppose you want to add a resident called Timmy Tan. He is one of your new 
 Category | Details
 -------- | ------
 Phone    | 91234567
-Email    | first@example.com
+Email    | <span>first@example.com</span>
 Address  | Blk 10, Bedok St 1, #02-01
 Block and Room | A101
 Gender | Male
@@ -93,7 +93,7 @@ You can continue experimenting with some of the commands below:
 - `clear`: deletes all the contacts in the application
 - `exit`: exits the application
 
-Alternatively, you can check out Hall-y's feature list [here](#6-Features) for more commands.
+Alternatively, you can check out Hall-y's feature list [here](#5-features) for more commands.
 
 --------------------------------------------------------------------------------------------------------------------
 
