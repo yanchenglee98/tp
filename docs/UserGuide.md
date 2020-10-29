@@ -3,8 +3,8 @@ layout: page
 title: User Guide
 ---
 
-![](https://i.imgur.com/O63Idc0.png)
-# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hall-y User Guide
+![](https://i.imgur.com/O63Idc0.png)  
+Hall-y User Guide
 
 <div style="page-break-after: always;"></div>
 
