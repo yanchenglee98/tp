@@ -151,7 +151,7 @@ The steps for this command are as follows:
 4. Scroll down to the bottom of the residents list to view the newly added resident
 ![](https://i.imgur.com/FGmNSKv.png)
 
-#### Note:
+#### Note
 Please take note of the format required:
 * `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
 * `GENDER`:  M for male, F for female
@@ -174,7 +174,7 @@ The steps for this command are as follows:
 4. Scroll to the specified index of the resident list to view the update resident
 ![To update](https://i.imgur.com/FGmNSKv.png)
 
-#### Note:
+#### Note
 Please take note of the format required:
 * `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
 * `GENDER`:  M for male, F for female
@@ -251,7 +251,7 @@ And `EVENT_INDEX` being the corresponding index of the specified event as seen o
 3. The result box will show 'Assigned resident to event' <br> ![](https://i.imgur.com/gs3jTTM.png)
 4. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/NmfcXzX.png)
 
-Note:
+Note
 * Both indices refers to the index number shown in the displayed resident and event list respectively.
 * Both indices **must be a positive integer** 1, 2, 3, …​
 
@@ -269,7 +269,7 @@ The steps for this command are as follows:
 4. The event list will then be updated to show the cleared event <br> ![](https://i.imgur.com/sFGxyMY.png)
 
 
-Note:
+Note
 * Event index refers to the index number shown in the displayed event list respectively.
 * Event index **must be a positive integer** 1, 2, 3, …​
 
@@ -287,7 +287,7 @@ The steps for this command are as follows:
 4. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/6bzwmjV.png)
 
 
-Note:
+Note
 * Event index refers to the index number shown in the displayed event list respectively.
 * Event index **must be a positive integer** 1, 2, 3, …​
 
@@ -306,7 +306,7 @@ The steps for this command are as follows:
 4. The residents list will be updated with the residents who fit the inputted characteristics. <br> ![Residents list of find](https://i.imgur.com/0ZUuAn8.png)
 
 
-#### Note:
+#### Note
 Please take note of the format required:
 * `ROOM_NUMBER`:  The last 2 digits of the room numbers, e.g. 05, 12, 15, etc.
 * `FLOOR`:  The number of the floor of the resident you want to find, e.g. 1, 2, 3 and so on.
@@ -326,7 +326,7 @@ Examples:
 * `find l/3 s/badminton` returns `Alice Pauline`, `Fiona Kunz` who live on the third floor and are in the `Badminton` student group. <br> ![Example 2](https://i.imgur.com/hAmEOib.png)
 
 
-Note:
+Note
 * The index refers to the index number shown in the displayed resident list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
@@ -410,7 +410,7 @@ Action | Format, Examples
 **Delete resident** | `delete INDEX`<br> e.g. `delete 3`
 **Edit event** | `edit INDEX [n/NAME] [dt/EVENT_DATE] [l/LOCATION] [d/DESCRIPTION] `<br> e.g.`edit 2 n/Hall Lunch for Semester 1`
 **Edit resident** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER][s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
-**Export** | `export`
+**Export** | `export` <br> e.g. `export email`
 **Find** | `find [n/KEYWORDS [MORE KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]`<br> e.g. `find b/B l/2 g/F`
 **Filter event** | `filter-event EVENT_INDEX` <br> e.g. `filter-event 1`
 **Help** | `help`
