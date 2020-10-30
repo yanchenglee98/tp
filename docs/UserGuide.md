@@ -394,9 +394,10 @@ Hall-y's data is saved in the hard disk automatically after any command that cha
 Want to add an additional block or change the room numbers? You can modify the settings file directly by following the steps below:
 
 1) Exit Hall-y by using the `exit` command
-2) Open up the `preferences.json` file which resides in the same folder as 'hall-y.jar' ![](https://i.imgur.com/4yexKNC.png)
+2) Open up the `preferences.json` file which resides in the same folder as 'hall-y.jar'   
+![](https://i.imgur.com/4yexKNC.png)
 3) Edit the block and room settings as required.   
-The default settings specifies 4 blocks(A, B, C, D), 4 floors(1 - 4) and 20 rooms(1 - 20).
+The default settings specifies 4 blocks(A, B, C, D), 4 floors(1 - 4) and 20 rooms(1 - 20).  
 ![](https://i.imgur.com/PiFpKJb.png)
 3) Save the file and relaunch Hall-y.
 
