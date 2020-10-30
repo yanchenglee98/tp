@@ -370,7 +370,7 @@ The current displayed resident list can be exported using the following format:
 Format: `export email` 
 
 Here’s a step by step guide:
-1. Type the following command into the input box `export email` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/zvm3r5v.png)
+1. Type the following command into the input box `export email` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/jMP6o6w.png)
 2. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
 3. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
 
