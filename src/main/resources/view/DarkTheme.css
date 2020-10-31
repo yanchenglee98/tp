@@ -26,7 +26,7 @@
 
 .label-section-header {
     -fx-font-size: 24pt;
-    -fx-font-style: italic;
+    -fx-font-style: normal;
     -fx-text-fill: white;
     -fx-opacity: 1;
     -fx-background-color: #1e5f74;
