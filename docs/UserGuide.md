@@ -177,15 +177,22 @@ Edits the phone number, email address and room number of the 1st resident to be 
 * `edit 2 n/Betsy Crower p/87652103`   
 Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
 
-### 5.4 Deleting a resident : `delete`
+### 5.4 Deleting a resident : `delete` - Lee Yan Cheng
 
-You can delete a resident specified at an index by using the `delete` command followed with the index.
+This command helps you delete a resident from Hall-y.
 
-The steps for this command are as follows:
-1. Enter the delete command by typing `delete INDEX` into the input box. <br> With `INDEX` being the corresponding index of the specified resident as seen on the list <br> ![](https://i.imgur.com/koD3cte.png)
-2. Press enter
-3. The result box will show 'Deleted Person:' and the details of the deleted resident <br> ![](https://i.imgur.com/1JOAAFM.png)
-4. The resident list will be updated <br> ![](https://i.imgur.com/DCVZiEt.png)
+Let's say a resident Alex Yeoh has left the hall recently, and you wish to remove his details. Assume that Alex Yeoh is the first resident in the resident list.
+
+Parameters | Details
+-------- | ------
+RESIDENT_INDEX | Index of resident in the resident list
+
+You can remove him from Hall-y by typing in the command with these parameters using the following format:`
+
+
+Here’s a step by step guide:
+1. Type the following command into the input box `delete 1` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/CcVhFWK.png)
+2. The resident list will be updated to reflect the deleted resident. <br> ![](https://i.imgur.com/myogQWb.png)
 
 ### 5.5 Listing all student groups : `list-group`
 
@@ -241,16 +248,24 @@ Note:
 * Event index refers to the index number shown in the displayed event list respectively.
 * Event index **must be a positive integer** 1, 2, 3, …​
 
-### 5.9 Assigning a resident to a hall event: `assign`
+### 5.9 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
 
-You can assign a resident to a hall event by using the `assign` command followed by the index of the resident and event.
+This command helps you assign a resident to an event.
 
-The steps for this command are as follows:
-1. Enter the assign command by typing `assign RESIDENT_INDEX EVENT_INDEX` into the input box. <br>with `RESIDENT_INDEX` being the corresponding index of the specified resident as seen on the residents list.
-And `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br> ![](https://i.imgur.com/D2dDf0n.png)
-2. Press enter
-3. The result box will show 'Assigned resident to event' <br> ![](https://i.imgur.com/gs3jTTM.png)
-4. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/NmfcXzX.png)
+Let's say resident Alex Yeoh will be attending the Hall Lunch event. Assume Alex Yeoh is the first resident in the resident list and Hall Lunch is the first event in the event list.
+
+Parameters | Details
+-------- | ------
+RESIDENT_INDEX | Index of resident in the resident list
+EVENT_INDEX | Index of event in the event list
+
+You can add him into Hall-y by typing in the command with these parameters using the following format:
+
+Format: `assign RESIDENT_INDEX EVENT_INDEX` 
+
+Here’s a step by step guide:
+1. Type the following command into the input box `assign 1 1` and press <kbd>Enter</kbd> to execute the command. ![](https://i.imgur.com/XXmm8FI.png)
+2. The event list will then be updated to show the newly assigned resident <br> ![](https://i.imgur.com/3JFM1sk.png)
 
 Note:
 * Both indices refers to the index number shown in the displayed resident and event list respectively.
@@ -277,15 +292,25 @@ Note:
 Examples:
 * `clear-event 1` clears the attendee list of the 1st event
 
-### 5.11 Filtering residents by event: `filter-event`
+### 5.11 Filtering residents by event: `filter-event` - Lee Yan Cheng
 
-You can filter residents by event by using the `filter-event` command followed by the index of the event.
+This command helps you to filter the resident list by event.
 
-The steps for this command are as follows:
-1. Enter the filter event command by typing `filter-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
-2. Press enter
-3. The result box will show 'Displaying residents attending event' followed by the name of the event <br> ![](https://i.imgur.com/aY4uzhd.png)
-4. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/6bzwmjV.png)
+Let’s say you want to get the details of the residents attending the event Hall Lunch. You can filter them by using this command. Suppose that the event is the first event on the event list.
+
+Parameters | Details
+-------- | ------
+EVENT_INDEX | Index of event on the event list
+
+
+You can filter residents by event by typing in the command with these parameters using the following format:
+
+Format: `filter-event EVENT_INDEX` 
+
+Here’s a step by step guide:
+1. Type the following command into the input box `filter-event 1` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/xnTRZJL.png)
+2. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/iKSFteY.png)
+
 
 
 Note:
@@ -335,16 +360,19 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 * `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
 
-### 5.13 Exporting of email : `export`
+### 5.13 Exporting of email : `export` - Lee Yan Cheng
 
-You can export the email address of all added entries as a .txt file by using the `export` command.
+This command helps you to export the list of residents' emails.
 
-The steps for this command are as follows:
-1. Enter the `export` command with `email` as follows `export email` into the input box
-2. Press enter
-3. The result box will show 'List of emails exported' <br> ![](https://i.imgur.com/cJchdRv.png)
-4. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
-5. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
+Let’s say you need to send out details of the latest circular to all residents! You can export the list of emails as a .txt file using this command. 
+
+The current displayed resident list can be exported using the following format:
+Format: `export email` 
+
+Here’s a step by step guide:
+1. Type the following command into the input box `export email` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/jMP6o6w.png)
+2. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
+3. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
 
 ### 5.14 Clearing all entries : `clear`
 
@@ -357,15 +385,19 @@ The steps for this command are as follows:
 4. The resident list will now be empty.<br> ![](https://i.imgur.com/TLAwDc4.png)
 
 
-### 5.15 Viewing help : `help`
+### 5.15 Viewing help : `help` - Lee Yan Cheng
 
-You can request for help if you are unfamiliar with the commands. You can copy the URL and view an online copy of our user guide by using the `help` command.
+This command helps you to access the online user guide of Hall-y.
 
-The steps for this command are as follows:
-1. Enter the help command by typing `help` into the input box
-2. Press enter
-3. The result box will show 'Opened help window.' <br> ![](https://i.imgur.com/QiH0mzl.png)
-4. The help window will pop out <br> ![](https://i.imgur.com/Tw8tt6j.png)
+Let’s say you forgot a command. You can refresh your memory by using this command. 
+
+You can request for help if you are unfamiliar with the commands. You can copy the URL and view an online copy of our user guide by using the following format.
+
+Format: `help`
+
+Here’s a step by step guide:
+1.  Type the following command into the input box `help` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/SvtfPqe.png)
+4. The help window will pop out <br> ![](https://i.imgur.com/HJTJNgM.png)
 5. Copy the URL and paste it into a browser of your choice to view the online user guide
 
 ### 5.16 Exiting the application : `exit`
