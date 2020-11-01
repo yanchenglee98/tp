@@ -15,7 +15,7 @@ public class Block {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Block should only contain alphabets";
+            "Block should be 1 of the following alphabets";
     public static final String VALIDATION_REGEX = "[a-zA-Z]";
     private static List<String> blockPref = Arrays.asList("A", "B", "C", "D");
     public final String value;
