@@ -63,18 +63,30 @@ public class AddressBookParser {
             return new DeleteCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            }
             return new ClearCommand();
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            }
             return new ListCommand();
 
         case ExitCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            }
             return new ExitCommand();
 
         case HelpCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            }
             return new HelpCommand();
 
         case ExportCommand.COMMAND_WORD:
@@ -96,6 +108,9 @@ public class AddressBookParser {
             return new ClearEventCommandParser().parse(arguments);
 
         case ListGroupCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            }
             return new ListGroupCommand();
 
         case FilterEventCommand.COMMAND_WORD:
