@@ -45,8 +45,11 @@ public class EventCard extends UiPart<Region> {
         this.event = event;
         id.setText(displayedIndex + ". ");
         name.setText(event.getName().eventName);
+        name.setWrapText(true);
         eventDateLocation.setText(event.getEventDate().toString() + " @ " + event.getLocation().toString());
+        eventDateLocation.setWrapText(true);
         description.setText(event.getDescription().description);
+        description.setWrapText(true);
         event.getAttendeesList()
                 .forEach(person -> tags.getChildren()
                 .add(new Label(person.getName().toString())));
