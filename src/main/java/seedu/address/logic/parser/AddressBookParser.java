@@ -99,7 +99,7 @@ public class AddressBookParser {
             return new ListGroupCommand();
 
         case ListEventAttendeesCommand.COMMAND_WORD:
-            return new FilterEventCommandParser().parse(arguments);
+            return new ListEventAttendeesCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

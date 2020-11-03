@@ -6,7 +6,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.ListEventAttendeesCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-public class FilterEventCommandParser implements Parser<ListEventAttendeesCommand> {
+public class ListEventAttendeesCommandParser implements Parser<ListEventAttendeesCommand> {
     @Override
     public ListEventAttendeesCommand parse(String userInput) throws ParseException {
         try {
