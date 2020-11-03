@@ -294,7 +294,7 @@ Here are some other examples you can try, assuming you have at least one event s
 
 This command helps you delete an event from Hall-y.
 
-Let's say Hallo-ween has been cancelled, and you wish to remove it from Hall-y.
+Let's say Hall-oween has been cancelled, and you wish to remove it from Hall-y.
 
 Let’s also assume that based on the current events list as shown below, Hall-oween has the event index of 1.
 ![](https://i.imgur.com/5j6PgZ1.png)
