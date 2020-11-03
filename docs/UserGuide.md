@@ -204,49 +204,120 @@ The steps for this command are as follows:
 3. The result box will display all the student groups:   
 ![](https://i.imgur.com/BOa35Ql.png)
 
+### 5.6 Adding a hall event : `add-event` - Low Jie Feng
 
-### 5.6 Adding a hall event : `add-event`
+This command helps you add an event into Hall-y.
 
-You can add a hall event by using the `add-event` command.
+Let's say you are holding a new event called Hall-oween. You can add it into Hall-y using this command. Suppose that it has the following details:
 
-The steps for this command are as follows:
+Parameters | Details
+---------- | -------
+Name | Hall-oween
+Date | 30/10/2020 20:00
+Location | Dining Hall
+Description | Halloween celebration at Eusoff Hall.
 
-1. Enter the add event command by typing `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION` into the input box
-2. Press enter
-3. The result box will show the new event created:  
-![](https://i.imgur.com/L774mDy.png)
-4. The events list will show the newly added event:  
-![](https://i.imgur.com/HZJgK3F.png)
+You can add it into Hall-y by typing in the command with these parameters using the following format:
 
-### 5.7 Editing a hall event : `edit-event`
+Format: `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION`
 
-You can edit a hall event by using the `edit-event` command.
+<div markdown="block" class="alert alert-info">
 
-The steps for this command are as follows:
+**:information_source: Notes about the command:**<br>
 
-1. Enter the edit event command by typing `edit-event INDEX [n/NAME] [dt/DATE] [l/LOCATION] [d/DESCRIPTION]`. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
-into the input box.
-2. Press enter
-3. The result box will show the edited event:
-![](https://i.imgur.com/XV4CSap.png)
+* `DATE` should be formatted as DD/MM/YYYY HH:mm.<br>
+  e.g. 20/10/2020 15:00, 01/11/2020 09:00, 01/01/2001 18:00.
+  
+* `NAME` and `LOCATION` must only contain letters or numbers. It cannot contain symbols such as `/` and `@`.
+  
+* You can use Hall-y to save events which are already over for recording purposes.
 
-Note:
-* Event index refers to the index number shown in the displayed event list respectively.
-* Event index **must be a positive integer** 1, 2, 3, …​
+* You cannot save duplicate events in Hall-y. Hall-y regards 2 events to be the same if they have the same name, date and location.
 
-### 5.8 Deleting a hall event : `delete-event`
+</div>
 
-You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
+Here's a step by step guide:
+1. Type the following command into the input box:
+`add-event n/Hall-oween dt/30/10/2020 20:00 l/Dining Hall d/Halloween celebration at Eusoff Hall.` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/eIKFbJR.png)
+2. The events list will be updated to reflect the new event
+![](https://i.imgur.com/0iwDXgV.png)
 
-The steps for this command are as follows:
-1. Enter the delete event command by typing `delete-event INDEX` into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
-2. Press enter
-3. The result box will show 'Deleted Event:' and the details of the deleted event: 
-![](https://i.imgur.com/jo5YIr7.png)
+Here are some other examples you can try:
+* add-event n/Hall DnD dt/15/12/2020 19:00 l/Dining Hall d/End of year Dinner and Dance.
+* add-event n/Hall Dinner dt/01/01/2020 15:00 l/Dining Hall d/The yearly Eusoff Hall Dinner.
 
-Note:
-* Event index refers to the index number shown in the displayed event list respectively.
-* Event index **must be a positive integer** 1, 2, 3, …​
+
+### 5.7 Editing a hall event : `edit-event` - Low Jie Feng
+
+This command helps you to edit an event’s details.
+
+Let's say an event called Hall-oween has been changed to start at 21:00 instead. These are the fields you want to change:
+
+New Parameters | Details
+-------- | ------
+Date | 30/10/2020 21:00
+
+Let’s also assume that based on the current events list as shown below, Hall-oween has the event index of 1.
+![](https://i.imgur.com/5j6PgZ1.png)
+
+You can edit the event's details by typing in the command with these parameters using the following format:
+
+Format: `edit-event EVENT_INDEX [n/NAME] [dt/DATE] [l/LOCATION] [d/DESCRIPTION]`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* You will need to take note of the same pointers as the add-event command.
+
+* You cannot edit an event if by editing it, you cause Hall-y to save 2 events with the same name, location and date.
+
+* Event index refers to the index number shown in the displayed event list.
+
+* Event index **must be a positive integer** 1, 2, 3, …
+
+</div>
+
+Here’s a step by step guide:
+1. Type the following command into the input box:
+`edit-event 1 dt/30/10/2020 21:00` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/k09z5w3.png)
+2. The events list will be updated to reflect the new event
+![](https://i.imgur.com/w4PS7zN.png)
+
+Here are some other examples you can try, assuming you have at least one event saved in Hall-y:
+* edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.
+* edit-event 1 l/UTown
+
+### 5.7 Deleting a hall event : `delete-event` - Low Jie Feng
+
+This command helps you delete an event from Hall-y.
+
+Let's say Hallo-ween has been cancelled, and you wish to remove it from Hall-y.
+
+Let’s also assume that based on the current events list as shown below, Hall-oween has the event index of 1.
+![](https://i.imgur.com/5j6PgZ1.png)
+
+You can delete the event by typing in the command with the event index using the following format:
+
+Format: `delete-event EVENT_INDEX`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* Event index refers to the index number shown in the displayed event list.
+
+* Event index **must be a positive integer** 1, 2, 3, …
+
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box: `delete-event 1` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/iGi5XAJ.png)
+2. The events list will be updated to reflect the deleted event
+![](https://i.imgur.com/QMaYoUD.png)
 
 ### 5.9 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
 
