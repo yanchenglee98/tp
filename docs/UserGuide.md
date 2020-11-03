@@ -282,7 +282,7 @@ Format: `edit-event EVENT_INDEX [n/NAME] [dt/DATE] [l/LOCATION] [d/DESCRIPTION]`
 Here’s a step by step guide:
 1. Type the following command into the input box:
 `edit-event 1 dt/30/10/2020 21:00` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/k09z5w3.png)
+![](https://i.imgur.com/x6sVmmg.png)
 2. The events list will be updated to reflect the new event
 ![](https://i.imgur.com/w4PS7zN.png)
 
@@ -315,7 +315,7 @@ Format: `delete-event EVENT_INDEX`
 
 Here's a step by step guide:
 1. Type the following command into the input box: `delete-event 1` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/iGi5XAJ.png)
+![](https://i.imgur.com/iuGKbL1.png)
 2. The events list will be updated to reflect the deleted event
 ![](https://i.imgur.com/QMaYoUD.png)
 
