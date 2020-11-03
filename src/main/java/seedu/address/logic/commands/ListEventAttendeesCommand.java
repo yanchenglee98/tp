@@ -38,4 +38,11 @@ public class ListEventAttendeesCommand extends Command {
         model.updateFilteredPersonList(predicate);
         return new CommandResult(String.format(MESSAGE_FILTER_SUCCESS, event.getName()));
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this == obj
+                || (obj instanceof ListEventAttendeesCommand)
+                && eventIndex.equals(((ListEventAttendeesCommand) obj).eventIndex);
+    }
 }
