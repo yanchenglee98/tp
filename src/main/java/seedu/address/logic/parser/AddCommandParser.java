@@ -1,6 +1,5 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_BLOCK_ROOM_LENGTH;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
@@ -56,7 +55,7 @@ public class AddCommandParser implements Parser<AddCommand> {
                 .getAllValues(PREFIX_STUDENT_GROUP));
         String blockRoomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("");
         if (blockRoomString.length() != 4) {
-            throw new ParseException(MESSAGE_INVALID_BLOCK_ROOM_LENGTH);
+            throw new ParseException(Block.getMessageConstraints() + "\n" + Room.getMessageConstraints());
         }
         String blockString = blockRoomString.substring(0, 1);
         String roomString = blockRoomString.substring(1);

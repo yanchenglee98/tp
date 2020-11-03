@@ -20,6 +20,8 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Block;
+import seedu.address.model.person.Room;
 import seedu.address.model.studentgroup.StudentGroup;
 
 /**
@@ -59,8 +61,12 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         }
         if (argMultimap.getValue(PREFIX_BLOCKROOM).isPresent()) {
-            String blockString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(0, 1);
-            String roomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(1);
+            String blockRoomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("");
+            if (blockRoomString.length() != 4) {
+                throw new ParseException(Block.getMessageConstraints() + "\n" + Room.getMessageConstraints());
+            }
+            String blockString = blockRoomString.substring(0, 1);
+            String roomString = blockRoomString.substring(1);
             editPersonDescriptor.setBlock(ParserUtil.parseBlock(blockString));
             editPersonDescriptor.setRoom(ParserUtil.parseRoom(roomString));
         }

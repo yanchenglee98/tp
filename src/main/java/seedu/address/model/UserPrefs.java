@@ -117,7 +117,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     public void setMinFloorSettings(int minFloorSettings) {
         requireNonNull(minFloorSettings);
-        if (minFloorSettings < MAX_ALLOWED_FLOORS && minFloorSettings > MIN_ALLOWED_FLOORS) {
+        if (minFloorSettings <= MAX_ALLOWED_FLOORS && minFloorSettings >= MIN_ALLOWED_FLOORS) {
             this.minFloorSettings = minFloorSettings;
         } else {
             this.minFloorSettings = DEFAULT_MIN_FLOOR_SETTINGS;
@@ -130,7 +130,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     public void setMaxFloorSettings(int maxFloorSettings) {
         requireNonNull(maxFloorSettings);
-        if (maxFloorSettings < MAX_ALLOWED_FLOORS && maxFloorSettings > MIN_ALLOWED_FLOORS) {
+        if (maxFloorSettings <= MAX_ALLOWED_FLOORS && maxFloorSettings >= MIN_ALLOWED_FLOORS) {
             this.maxFloorSettings = maxFloorSettings;
         } else {
             this.maxFloorSettings = DEFAULT_MAX_FLOOR_SETTINGS;
