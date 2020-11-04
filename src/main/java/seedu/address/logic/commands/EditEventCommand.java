@@ -48,7 +48,7 @@ public class EditEventCommand extends Command {
     private final EditEventDescriptor editEventDescriptor;
 
     /**
-     * @param index               index of the event in the events list
+     * @param index index of the event in the events list
      * @param editEventDescriptor details to edit the event with
      */
     public EditEventCommand(Index index, EditEventDescriptor editEventDescriptor) {
