@@ -9,7 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Room {
     public static final String MESSAGE_CONSTRAINTS =
-            "Room numbers should only contain numbers, and it should be 3 digits long";
+            "Room number should be 3 digits long, "
+                    + "the 1st digit represents the floor, the 2nd and 3rd refers to the room no.";
     public static final String VALIDATION_REGEX = "\\d{3}";
     private static int minFloorNumber = 1;
     private static int minRoomNumber = 1;
@@ -67,8 +68,8 @@ public class Room {
     }
 
     public static String getMessageConstraints() {
-        return MESSAGE_CONSTRAINTS + "\nFloor : " + minFloorNumber + " to " + maxFloorNumber
-                + "\nRoom: " + minRoomNumber + " - " + maxRoomNumber;
+        return MESSAGE_CONSTRAINTS + "\nFloors : " + minFloorNumber + " to " + maxFloorNumber
+                + "\nRooms: " + minRoomNumber + " - " + maxRoomNumber;
     }
 
     public static void setRoomPref(int minRoom, int maxRoom, int minFloor, int maxFloor) {
