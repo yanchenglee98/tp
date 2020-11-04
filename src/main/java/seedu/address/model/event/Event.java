@@ -66,7 +66,7 @@ public class Event {
     }
 
     /**
-     * Returns true if both events have the same name, location, eventDate and description.
+     * Returns true if both events have the same name, location and date.
      */
     public boolean isSameEvent(Event otherEvent) {
         if (otherEvent == this) {
@@ -75,7 +75,6 @@ public class Event {
 
         return otherEvent != null
                 && otherEvent.getName().equals(getName())
-                && otherEvent.getDescription().equals(getDescription())
                 && otherEvent.getLocation().equals(getLocation())
                 && otherEvent.getEventDate().equals(getEventDate());
     }

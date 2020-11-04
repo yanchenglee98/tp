@@ -118,15 +118,25 @@ Events list | This is the list of events currently stored in Hall-y.
 
 ## 5 Features
 
-### 5.1 Listing all residents : `list`
+### 5.1 Listing all residents : `list` - Lee Yan Cheng
 
-You can list all added residents by using the `list` command.
+This command helps you list all residents.
 
-The steps for this command are as follows:
-1. Enter the list command by typing `list` into the input box
-2. Press enter
-3. The result box will show 'Listed all residents' <br> ![](https://i.imgur.com/RuRPnAq.png)
-4. The residents list will then show the list of residents <br> ![](https://i.imgur.com/qkR7DTG.png)
+Let's say that you want to view all the residents added to Hall-y.
+
+You can view the list of residents by using the following format:
+
+Format: `list` 
+
+Here’s a step by step guide:
+1. Type the following command into the input box `list` and press <kbd>Enter</kbd> to execute the command. ![](https://i.imgur.com/5Bl7cLs.png)
+2. The event list will then be updated to display all residents <br> ![](https://i.imgur.com/UN26FyE.png)
+
+Note:
+* If no residents are in the list, an empty list will be displayed
+
+Examples:
+* `list` 
 
 ### 5.2 Adding a resident: `add`
 
@@ -204,51 +214,123 @@ The steps for this command are as follows:
 3. The result box will display all the student groups:   
 ![](https://i.imgur.com/BOa35Ql.png)
 
+### 5.6 Adding a hall event : `add-event` - Low Jie Feng
 
-### 5.6 Adding a hall event : `add-event`
+This command helps you add an event into Hall-y.
 
-You can add a hall event by using the `add-event` command.
+Let's say you are holding a new event called Hall-oween. You can add it into Hall-y using this command. Suppose that it has the following details:
 
-The steps for this command are as follows:
+Parameters | Details
+---------- | -------
+Name | Hall-oween
+Date | 30/10/2020 20:00
+Location | Dining Hall
+Description | Halloween celebration at Eusoff Hall.
 
-1. Enter the add event command by typing `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION` into the input box
-2. Press enter
-3. The result box will show the new event created:  
-![](https://i.imgur.com/L774mDy.png)
-4. The events list will show the newly added event:  
-![](https://i.imgur.com/HZJgK3F.png)
+You can add it into Hall-y by typing in the command with these parameters using the following format:
 
-### 5.7 Editing a hall event : `edit-event`
+Format: `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION`
 
-You can edit a hall event by using the `edit-event` command.
+<div markdown="block" class="alert alert-info">
 
-The steps for this command are as follows:
+**:information_source: Notes about the command:**<br>
 
-1. Enter the edit event command by typing `edit-event INDEX [n/NAME] [dt/DATE] [l/LOCATION] [d/DESCRIPTION]`. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
-into the input box.
-2. Press enter
-3. The result box will show the edited event:
-![](https://i.imgur.com/XV4CSap.png)
+* `DATE` should be formatted as DD/MM/YYYY HH:mm.<br>
+  e.g. 20/10/2020 15:00, 01/11/2020 09:00, 01/01/2001 18:00.
+  
+* `NAME` and `LOCATION` must only contain letters or numbers. It cannot contain symbols such as `/` and `@`.
+  
+* You can use Hall-y to save events which are already over for recording purposes.
 
-Note:
-* Event index refers to the index number shown in the displayed event list respectively.
-* Event index **must be a positive integer** 1, 2, 3, …​
+* You cannot save duplicate events in Hall-y. Hall-y regards 2 events to be the same if, ignoring case considerations, they have the same name, date and location.
+  e.g. An event called Hall Dinner, happening in the Dining Hall on 01/01/2020 15:00 is the same as an event called hall dinner, happening in the dining hall on 01/01/2020 15:00.
+  
+</div>
 
-### 5.8 Deleting a hall event : `delete-event`
+Here's a step by step guide:
+1. Type the following command into the input box:
+`add-event n/Hall-oween dt/30/10/2020 20:00 l/Dining Hall d/Halloween celebration at Eusoff Hall.` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/eIKFbJR.png)
+2. The events list will be updated to reflect the new event
+![](https://i.imgur.com/0iwDXgV.png)
 
-You can delete a hall event specified at an index by using the `delete-event` command followed by the index.
+Here are some other examples you can try:
+* add-event n/Hall DnD dt/15/12/2020 19:00 l/Dining Hall d/End of year Dinner and Dance.
+* add-event n/Hall Dinner dt/01/01/2020 15:00 l/Dining Hall d/The yearly Eusoff Hall Dinner.
 
-The steps for this command are as follows:
-1. Enter the delete event command by typing `delete-event INDEX` into the input box. <br>with `INDEX` being the corresponding index of the specified event as seen on the events list
-2. Press enter
-3. The result box will show 'Deleted Event:' and the details of the deleted event: 
-![](https://i.imgur.com/jo5YIr7.png)
 
-Note:
-* Event index refers to the index number shown in the displayed event list respectively.
-* Event index **must be a positive integer** 1, 2, 3, …​
+### 5.7 Editing a hall event : `edit-event` - Low Jie Feng
 
-### 5.9 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
+This command helps you to edit an event’s details.
+
+Let's say an event called Hall-oween has been changed to start at 21:00 instead. These are the fields you want to change:
+
+New Parameters | Details
+-------- | ------
+Date | 30/10/2020 21:00
+
+Let’s also assume that based on the current events list as shown below, Hall-oween has the event index of 1.
+![](https://i.imgur.com/5j6PgZ1.png)
+
+You can edit the event's details by typing in the command with these parameters using the following format:
+
+Format: `edit-event EVENT_INDEX [n/NAME] [dt/DATE] [l/LOCATION] [d/DESCRIPTION]`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* You will need to take note of the same pointers as the add-event command.
+
+* You cannot edit an event if by editing it, you cause Hall-y to save 2 events with the same name, location and date.
+
+* Event index refers to the index number shown in the displayed event list.
+
+* Event index **must be a positive integer** 1, 2, 3, …
+
+</div>
+
+Here’s a step by step guide:
+1. Type the following command into the input box:
+`edit-event 1 dt/30/10/2020 21:00` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/x6sVmmg.png)
+2. The events list will be updated to reflect the new event
+![](https://i.imgur.com/w4PS7zN.png)
+
+Here are some other examples you can try, assuming you have at least one event saved in Hall-y:
+* edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.
+* edit-event 1 l/UTown
+
+### 5.7 Deleting a hall event : `delete-event` - Low Jie Feng
+
+This command helps you delete an event from Hall-y.
+
+Let's say Hall-oween has been cancelled, and you wish to remove it from Hall-y.
+
+Let’s also assume that based on the current events list as shown below, Hall-oween has the event index of 1.
+![](https://i.imgur.com/5j6PgZ1.png)
+
+You can delete the event by typing in the command with the event index using the following format:
+
+Format: `delete-event EVENT_INDEX`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* Event index refers to the index number shown in the displayed event list.
+
+* Event index **must be a positive integer** 1, 2, 3, …
+
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box: `delete-event 1` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/iuGKbL1.png)
+2. The events list will be updated to reflect the deleted event
+![](https://i.imgur.com/QMaYoUD.png)
+
+### 5.8 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
 
 This command helps you assign a resident to an event.
 
@@ -274,25 +356,32 @@ Note:
 Examples:
 * `assign 1 1` assigns the 1st resident to the 1st event
 
-### 5.10 Clearing attendee list of event: `clear-event`
+### 5.9 Clearing attendee list of event: `clear-event` - Lee Yan Cheng
 
-You can clear the attendee list of an event by using the `clear-event` command followed by the index of the event.
+This command helps you clear the attendee list of an event.
 
-The steps for this command are as follows:
-1. Enter the clear event command by typing `clear-event EVENT_INDEX` into the input box. <br> with `EVENT_INDEX` being the corresponding index of the specified event as seen on the events list. <br>![](https://i.imgur.com/det13Su.png)
-2. Press enter
-3. The result box will show 'Cleared attendee list of Event:' followed by the details of the event <br> ![](https://i.imgur.com/7TxhF41.png)
-4. The event list will then be updated to show the cleared event <br> ![](https://i.imgur.com/sFGxyMY.png)
+Let's say you want to clear the attendee list of the Hall Lunch event. Assume the event Hall Lunch is the first event in the event list.
 
+Parameters | Details
+-------- | ------
+EVENT_INDEX | Index of event in the event list
+
+You can clear the attendee list of the event Hall Lunch from Hall-y by typing in the command with these parameters using the following format:
+
+Format: `clear-event EVENT_INDEX` 
+
+Here’s a step by step guide:
+1. Type the following command into the input box `clear-event 1` and press <kbd>Enter</kbd> to execute the command. ![](https://i.imgur.com/XXmm8FI.png)
+2. The event list will then be updated to show that the event's attendee list is cleared <br> ![](https://i.imgur.com/XfjEryN.png)
 
 Note:
-* Event index refers to the index number shown in the displayed event list respectively.
+* Event index refers to the index number shown in the displayed event list.
 * Event index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `clear-event 1` clears the attendee list of the 1st event
 
-### 5.11 Filtering residents by event: `filter-event` - Lee Yan Cheng
+### 5.10 Filtering residents by event: `filter-event` - Lee Yan Cheng
 
 This command helps you to filter the resident list by event.
 
@@ -320,7 +409,7 @@ Note:
 Examples:
 * `filter-event 1` shows the residents that are attending the 1st event
 
-### 5.12 Locating residents by characteristics: `find`
+### 5.11 Locating residents by characteristics: `find`
 
 You can find all persons whose characteristics match the given arguments and keywords. The residents list will automatically display these residents.
 
@@ -360,7 +449,7 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 * `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
 
-### 5.13 Exporting of email : `export` - Lee Yan Cheng
+### 5.12 Exporting of email : `export` - Lee Yan Cheng
 
 This command helps you to export the list of residents' emails.
 
@@ -374,7 +463,7 @@ Here’s a step by step guide:
 2. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
 3. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
 
-### 5.14 Clearing all entries : `clear`
+### 5.13 Clearing all entries : `clear`
 
 You can clear all residents in Hall-y by using the `clear` command
 
@@ -385,7 +474,7 @@ The steps for this command are as follows:
 4. The resident list will now be empty.<br> ![](https://i.imgur.com/TLAwDc4.png)
 
 
-### 5.15 Viewing help : `help` - Lee Yan Cheng
+### 5.14 Viewing help : `help` - Lee Yan Cheng
 
 This command helps you to access the online user guide of Hall-y.
 
@@ -400,7 +489,7 @@ Here’s a step by step guide:
 4. The help window will pop out <br> ![](https://i.imgur.com/HJTJNgM.png)
 5. Copy the URL and paste it into a browser of your choice to view the online user guide
 
-### 5.16 Exiting the application : `exit`
+### 5.15 Exiting the application : `exit`
 
 You can exit the application by using the `exit` command
 
@@ -408,7 +497,7 @@ The steps for this command are as follows:
 1. Enter the exit command by typing `exit` into the input box, followed by enter to execute the command.
 3. The application should now be closed
 
-### 5.17 Saving the data
+### 5.16 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 

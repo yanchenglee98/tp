@@ -122,7 +122,9 @@ public class Person {
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getGender().equals(getGender())
                 && otherPerson.getStudentGroups().equals(getStudentGroups())
-                && otherPerson.getMatriculationNumber().equals(getMatriculationNumber());
+                && otherPerson.getMatriculationNumber().equals(getMatriculationNumber())
+                && otherPerson.getRoom().equals(getRoom())
+                && otherPerson.getBlock().equals(getBlock());
     }
 
     @Override
