@@ -22,7 +22,6 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Block;
-import seedu.address.model.person.Room;
 import seedu.address.model.studentgroup.StudentGroup;
 
 /**
