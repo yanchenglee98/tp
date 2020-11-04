@@ -232,8 +232,9 @@ Format: `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION`
   
 * You can use Hall-y to save events which are already over for recording purposes.
 
-* You cannot save duplicate events in Hall-y. Hall-y regards 2 events to be the same if they have the same name, date and location.
-
+* You cannot save duplicate events in Hall-y. Hall-y regards 2 events to be the same if, ignoring case considerations, they have the same name, date and location.
+  e.g. An event called Hall Dinner, happening in the Dining Hall on 01/01/2020 15:00 is the same as an event called hall dinner, happening in the dining hall on 01/01/2020 15:00.
+  
 </div>
 
 Here's a step by step guide:

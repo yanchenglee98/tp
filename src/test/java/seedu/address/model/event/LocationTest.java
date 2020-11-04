@@ -3,6 +3,7 @@ package seedu.address.model.event;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -55,6 +56,14 @@ class LocationTest {
         assertFalse(Location.isValidLocation(LOCATION_WITH_CAROT));
         assertFalse(Location.isValidLocation(LOCATION_WITH_AT));
         assertFalse(Location.isValidLocation(LOCATION_WITH_SLASH));
+
+        assertTrue(Location.isValidLocation(VALID_LOCATION));
+    }
+
+    @Test
+    void testEquals() {
+        assertEquals(new Location(VALID_LOCATION), new Location(VALID_LOCATION.toUpperCase()));
+        assertEquals(new Location(VALID_LOCATION), new Location(VALID_LOCATION.toLowerCase()));
     }
 
     @Test

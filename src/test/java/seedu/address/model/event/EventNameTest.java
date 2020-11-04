@@ -3,6 +3,7 @@ package seedu.address.model.event;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -55,6 +56,15 @@ class EventNameTest {
         assertFalse(EventName.isValidEventName(NAME_WITH_CAROT));
         assertFalse(EventName.isValidEventName(NAME_WITH_AT));
         assertFalse(EventName.isValidEventName(NAME_WITH_SLASH));
+
+        // valid event name -> returns true
+        assertTrue(EventName.isValidEventName(VALID_NAME));
+    }
+
+    @Test
+    void testEquals() {
+        assertEquals(new EventName(VALID_NAME), new EventName(VALID_NAME.toUpperCase()));
+        assertEquals(new EventName(VALID_NAME), new EventName(VALID_NAME.toLowerCase()));
     }
 
     @Test

@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class EventName {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Locations should only contain alphanumeric characters and spaces, and it should not be blank";
+            "Event names should only contain alphanumeric characters and spaces, and it should not be blank";
 
     /*
      * The first character of the location must not be a whitespace,
@@ -48,7 +48,7 @@ public class EventName {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof EventName // instanceof handles nulls
-                && eventName.equals(((EventName) other).eventName)); // state check
+                && eventName.equalsIgnoreCase(((EventName) other).eventName)); // state check
     }
 
     @Override
