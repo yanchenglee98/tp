@@ -381,7 +381,7 @@ Note:
 Examples:
 * `clear-event 1` clears the attendee list of the 1st event
 
-### 5.10 Filtering residents by event: `filter-event` - Lee Yan Cheng
+### 5.10 Filtering residents by event: `list-event-attendees` - Lee Yan Cheng
 
 This command helps you to filter the resident list by event.
 
@@ -394,10 +394,10 @@ EVENT_INDEX | Index of event on the event list
 
 You can filter residents by event by typing in the command with these parameters using the following format:
 
-Format: `filter-event EVENT_INDEX` 
+Format: `list-event-attendees EVENT_INDEX` 
 
 Here’s a step by step guide:
-1. Type the following command into the input box `filter-event 1` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/xnTRZJL.png)
+1. Type the following command into the input box `list-event-attendees 1` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/xnTRZJL.png)
 2. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/iKSFteY.png)
 
 
@@ -407,7 +407,7 @@ Note:
 * Event index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `filter-event 1` shows the residents that are attending the 1st event
+* `list-event-attendees 1` shows the residents that are attending the 1st event
 
 ### 5.11 Locating residents by characteristics: `find`
 
