@@ -64,7 +64,7 @@ public class Room {
     }
 
     public static String getRoomNumRange() {
-        return String.format("%02d", minRoomNumber) + " - " + maxFloorNumber;
+        return String.format("%02d", minRoomNumber) + " - " + maxRoomNumber;
     }
 
     public static String getMessageConstraints() {
