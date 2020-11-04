@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_BLOCK_ROOM_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
@@ -63,9 +64,12 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_BLOCKROOM).isPresent()) {
             String blockRoomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("");
             if (blockRoomString.length() != 4) {
-                throw new ParseException(Block.getMessageConstraints() + "\n" + Room.getMessageConstraints());
+                throw new ParseException(MESSAGE_INVALID_BLOCK_ROOM_FORMAT);
             }
             String blockString = blockRoomString.substring(0, 1);
+            if (!blockString.matches(Block.VALIDATION_REGEX)) {
+                throw new ParseException(MESSAGE_INVALID_BLOCK_ROOM_FORMAT);
+            }
             String roomString = blockRoomString.substring(1);
             editPersonDescriptor.setBlock(ParserUtil.parseBlock(blockString));
             editPersonDescriptor.setRoom(ParserUtil.parseRoom(roomString));

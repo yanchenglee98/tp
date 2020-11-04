@@ -95,6 +95,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
             this.minRoomSettings = minRoomSettings;
         } else {
             this.minRoomSettings = DEFAULT_MIN_ROOM_SETTINGS;
+            this.maxRoomSettings = DEFAULT_MAX_ROOM_SETTINGS;
         }
     }
 
@@ -107,6 +108,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         if (maxRoomSettings <= MAX_ALLOWED_ROOMS && maxRoomSettings >= MIN_ALLOWED_ROOMS) {
             this.maxRoomSettings = maxRoomSettings;
         } else {
+            this.minRoomSettings = DEFAULT_MIN_ROOM_SETTINGS;
             this.maxRoomSettings = DEFAULT_MAX_ROOM_SETTINGS;
         }
     }
@@ -121,6 +123,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
             this.minFloorSettings = minFloorSettings;
         } else {
             this.minFloorSettings = DEFAULT_MIN_FLOOR_SETTINGS;
+            this.maxFloorSettings = DEFAULT_MAX_FLOOR_SETTINGS;
         }
     }
 
@@ -133,6 +136,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         if (maxFloorSettings <= MAX_ALLOWED_FLOORS && maxFloorSettings >= MIN_ALLOWED_FLOORS) {
             this.maxFloorSettings = maxFloorSettings;
         } else {
+            this.minFloorSettings = DEFAULT_MIN_FLOOR_SETTINGS;
             this.maxFloorSettings = DEFAULT_MAX_FLOOR_SETTINGS;
         }
     }
