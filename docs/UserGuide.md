@@ -204,6 +204,9 @@ Here’s a step by step guide:
 1. Type the following command into the input box `delete 1` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/CcVhFWK.png)
 2. The resident list will be updated to reflect the deleted resident. <br> ![](https://i.imgur.com/myogQWb.png)
 
+Examples:
+* `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
+
 ### 5.5 Listing all student groups : `list-group`
 
 You can list all student groups by using the `list-group` command.
@@ -401,7 +404,6 @@ Here’s a step by step guide:
 2. The resident list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/iKSFteY.png)
 
 
-
 Note:
 * Event index refers to the index number shown in the displayed event list respectively.
 * Event index **must be a positive integer** 1, 2, 3, …​
@@ -446,7 +448,6 @@ Note:
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 * `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
 
 ### 5.12 Exporting of email : `export` - Lee Yan Cheng
