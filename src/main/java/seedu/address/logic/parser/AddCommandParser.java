@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_BLOCK_ROOM_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
@@ -53,8 +54,15 @@ public class AddCommandParser implements Parser<AddCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<StudentGroup> studentGroupList = ParserUtil.parseStudentGroups(argMultimap
                 .getAllValues(PREFIX_STUDENT_GROUP));
-        String blockString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(0, 1);
-        String roomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("").substring(1);
+        String blockRoomString = argMultimap.getValue(PREFIX_BLOCKROOM).orElse("");
+        if (blockRoomString.length() != 4) {
+            throw new ParseException(MESSAGE_INVALID_BLOCK_ROOM_FORMAT);
+        }
+        String blockString = blockRoomString.substring(0, 1);
+        if (!blockString.matches(Block.VALIDATION_REGEX)) {
+            throw new ParseException(MESSAGE_INVALID_BLOCK_ROOM_FORMAT);
+        }
+        String roomString = blockRoomString.substring(1);
         Block block = ParserUtil.parseBlock(blockString);
         Room room = ParserUtil.parseRoom(roomString);
         Gender gender = ParserUtil.parseGender(argMultimap.getValue(PREFIX_GENDER).get());
