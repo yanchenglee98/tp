@@ -16,6 +16,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalEvents.DINNER;
+import static seedu.address.testutil.TypicalEvents.LUNCH;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +29,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
+import seedu.address.testutil.EditEventDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -82,10 +85,10 @@ public class CommandTestUtil {
             + "C0123456B"; // should start with 'A'
     public static final String INVALID_BLOCK = " " + PREFIX_BLOCK + "A2"; // number not allowed in block
 
-    public static final String VALID_NAME_LUNCH = "Hall Lunch! @ Eusoff";
+    public static final String VALID_NAME_LUNCH = "Hall Lunch at Eusoff";
     public static final String VALID_DESC_LUNCH = "Some description text for lunch";
     public static final String VALID_DATE_LUNCH = "01/02/2013 01:56";
-    public static final String VALID_LOCATION_LUNCH = "Dining Hall@Eusoff / UTown";
+    public static final String VALID_LOCATION_LUNCH = "Dining Hall at Eusoff or UTown";
 
     public static final String EVENT_NAME_DESC_LUNCH = " " + PREFIX_EVENT_NAME + VALID_NAME_LUNCH;
     public static final String EVENT_DESC_DESC_LUNCH = " " + PREFIX_EVENT_DESC + VALID_DESC_LUNCH;
@@ -104,6 +107,8 @@ public class CommandTestUtil {
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
+    public static final EditEventCommand.EditEventDescriptor DESC_LUNCH;
+    public static final EditEventCommand.EditEventDescriptor DESC_DINNER;
 
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
@@ -114,6 +119,9 @@ public class CommandTestUtil {
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withMatriculationNumber(VALID_MATRICULATION_NUMBER_BOB)
                 .withStudentGroups(VALID_STUDENT_GROUP_DANCE, VALID_STUDENT_GROUP_BASKETBALL).build();
+
+        DESC_LUNCH = new EditEventDescriptorBuilder(LUNCH).withDescription("I'm the changed description!").build();
+        DESC_DINNER = new EditEventDescriptorBuilder(DINNER).withDate("01/01/1999 15:00").build();
     }
 
     /**
@@ -122,7 +130,7 @@ public class CommandTestUtil {
      * - the {@code actualModel} matches {@code expectedModel}
      */
     public static void assertCommandSuccess(Command command, Model actualModel, CommandResult expectedCommandResult,
-            Model expectedModel) {
+                                            Model expectedModel) {
         try {
             CommandResult result = command.execute(actualModel);
             assertEquals(expectedCommandResult, result);
@@ -137,7 +145,7 @@ public class CommandTestUtil {
      * that takes a string {@code expectedMessage}.
      */
     public static void assertCommandSuccess(Command command, Model actualModel, String expectedMessage,
-            Model expectedModel) {
+                                            Model expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
@@ -158,6 +166,7 @@ public class CommandTestUtil {
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
     }
+
     /**
      * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
      * {@code model}'s address book.

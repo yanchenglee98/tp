@@ -48,7 +48,7 @@ public class EditEventCommand extends Command {
     private final EditEventDescriptor editEventDescriptor;
 
     /**
-     * @param index index of the event in the events list
+     * @param index               index of the event in the events list
      * @param editEventDescriptor details to edit the event with
      */
     public EditEventCommand(Index index, EditEventDescriptor editEventDescriptor) {
@@ -77,6 +77,21 @@ public class EditEventCommand extends Command {
         return new CommandResult(String.format(MESSAGE_EDIT_EVENT_SUCCESS, editedEvent));
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof EditEventCommand)) {
+            return false;
+        }
+
+        EditEventCommand command = (EditEventCommand) obj;
+        return index.equals(command.index)
+                && editEventDescriptor.equals(command.editEventDescriptor);
+    }
+
     private Event createEditedEvent(Event eventToEdit, EditEventDescriptor editEventDescriptor) {
         assert eventToEdit != null;
         assert editEventDescriptor != null;
@@ -92,7 +107,7 @@ public class EditEventCommand extends Command {
     /**
      * Class that stores the details to edit the event with. Each non-empty field will replace
      * the corresponding field of the event.
-     *
+     * <p>
      * Note that attendees cannot be edited through this. That field will be directly copied from the original.
      */
     public static class EditEventDescriptor {
@@ -101,7 +116,8 @@ public class EditEventCommand extends Command {
         private Location location;
         private Description description;
 
-        public EditEventDescriptor() {}
+        public EditEventDescriptor() {
+        }
 
         /**
          * Copy using the constructor by calling each field's setter.
