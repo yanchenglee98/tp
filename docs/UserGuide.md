@@ -157,6 +157,8 @@ Please take note of the format required:
 * `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
 * `GENDER`:  M for male, F for female
 
+Note: Room numbers and matriculation numbers must be unique, i.e. there should be no duplicate room numbers or matriculation numbers.
+
 Examples:
 
 *   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/soccer`
@@ -180,6 +182,8 @@ Note:
 Please take note of the format required:
 * `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
 * `GENDER`:  M for male, F for female
+
+Note: Room numbers and matriculation numbers must be unique, i.e. there should be no duplicate room numbers or matriculation numbers.
 
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com br/B402`   

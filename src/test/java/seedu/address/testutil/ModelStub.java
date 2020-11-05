@@ -9,7 +9,10 @@ import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.event.Event;
+import seedu.address.model.person.Block;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Room;
 
 /**
  * A default model stub that have all of the methods failing.
@@ -67,6 +70,16 @@ public class ModelStub implements Model {
 
     @Override
     public boolean hasPerson(Person person) {
+        throw new AssertionError("This method should not be called.");
+    }
+
+    @Override
+    public boolean hasBlockRoom(Block block, Room room) {
+        throw new AssertionError("This method should not be called.");
+    }
+
+    @Override
+    public boolean hasMatriculationNumber(MatriculationNumber matriculationNumber) {
         throw new AssertionError("This method should not be called.");
     }
 
