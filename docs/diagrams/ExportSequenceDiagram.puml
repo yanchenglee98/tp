@@ -10,15 +10,14 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
-participant ":ReadOnlyAddressBook" as ReadOnlyAddressBook MODEL_COLOR
 end box
-[-> LogicManager : execute(export)
+[-> LogicManager : execute("export email")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand(export)
+LogicManager -> AddressBookParser : parseCommand("export email")
 activate AddressBookParser
 
-AddressBookParser -> ExportCommandParser : parse(export)
+AddressBookParser -> ExportCommandParser : parse("email")
 activate ExportCommandParser
 
 create ExportCommand
@@ -40,17 +39,11 @@ deactivate AddressBookParser
 LogicManager -> ExportCommand : execute()
 activate ExportCommand
 
-ExportCommand -> Model : getAddressBook()
+ExportCommand -> Model : getFilteredPersonList()
 activate Model
 
-Model --> ExportCommand : addressBook
+Model --> ExportCommand : FilteredPersonList
 deactivate Model
-
-ExportCommand -> ReadOnlyAddressBook: getPersonList()
-activate ReadOnlyAddressBook
-
-ReadOnlyAddressBook --> ExportCommand: personList
-deactivate ReadOnlyAddressBook
 
 ExportCommand -> ExportCommand: handleEmail()
 activate ExportCommand

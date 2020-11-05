@@ -9,13 +9,14 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Location {
 
-    public static final String MESSAGE_CONSTRAINTS = "Event locations can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Locations should only contain alphanumeric characters and spaces, and it should not be blank";
 
     /*
      * The first character of the location must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
     public final String location;
 
@@ -47,7 +48,7 @@ public class Location {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Location // instanceof handles nulls
-                && location.equals(((Location) other).location)); // state check
+                && location.equalsIgnoreCase(((Location) other).location)); // state check
     }
 
     @Override

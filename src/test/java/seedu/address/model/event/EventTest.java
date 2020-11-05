@@ -78,15 +78,15 @@ class EventTest {
 
         editedLunch = new EventBuilder(LUNCH).withLocation("Cool Spot").build();
         assertFalse(LUNCH.isSameEvent(editedLunch));
-
-        editedLunch = new EventBuilder(LUNCH).withDescription("Blah blah blah").build();
-        assertFalse(LUNCH.isSameEvent(editedLunch));
     }
 
     @Test
     public void equals_sameEvent_returnTrue() {
         Event editedLunch = new EventBuilder(LUNCH).build();
         assertTrue(LUNCH.equals(editedLunch));
+
+        editedLunch = new EventBuilder(LUNCH).withDescription("Blah blah blah").build();
+        assertTrue(LUNCH.isSameEvent(editedLunch));
     }
 
     @Test
