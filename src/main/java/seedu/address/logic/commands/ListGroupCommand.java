@@ -22,6 +22,9 @@ public class ListGroupCommand extends Command {
 
     public static final String COMMAND_WORD = "list-group";
 
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Lists all student groups.\n"
+        + "Example: " + COMMAND_WORD;
+
     public static final String MESSAGE_SUCCESS = "Listed all student groups";
 
     private static final Logger logger = Logger.getLogger(ListGroupCommand.class.getName());

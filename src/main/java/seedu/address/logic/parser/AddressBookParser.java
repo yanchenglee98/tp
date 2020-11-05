@@ -1,9 +1,6 @@
 
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +22,8 @@ import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListGroupCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+
+import static seedu.address.commons.core.Messages.*;
 
 /**
  * Parses user input.
@@ -64,7 +63,7 @@ public class AddressBookParser {
 
         case ClearCommand.COMMAND_WORD:
             if (!arguments.isEmpty()) {
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ClearCommand.MESSAGE_USAGE));
             }
             return new ClearCommand();
 
@@ -73,19 +72,19 @@ public class AddressBookParser {
 
         case ListCommand.COMMAND_WORD:
             if (!arguments.isEmpty()) {
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ListCommand.MESSAGE_USAGE));
             }
             return new ListCommand();
 
         case ExitCommand.COMMAND_WORD:
             if (!arguments.isEmpty()) {
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ExitCommand.MESSAGE_USAGE));
             }
             return new ExitCommand();
 
         case HelpCommand.COMMAND_WORD:
             if (!arguments.isEmpty()) {
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, HelpCommand.MESSAGE_USAGE));
             }
             return new HelpCommand();
 
@@ -109,7 +108,7 @@ public class AddressBookParser {
 
         case ListGroupCommand.COMMAND_WORD:
             if (!arguments.isEmpty()) {
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ListGroupCommand.MESSAGE_USAGE));
             }
             return new ListGroupCommand();
 
