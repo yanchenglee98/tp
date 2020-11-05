@@ -1,6 +1,7 @@
 
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_EXTRA_PARAMETER;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
@@ -63,18 +64,30 @@ public class AddressBookParser {
             return new DeleteCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ClearCommand.MESSAGE_USAGE));
+            }
             return new ClearCommand();
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ListCommand.MESSAGE_USAGE));
+            }
             return new ListCommand();
 
         case ExitCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ExitCommand.MESSAGE_USAGE));
+            }
             return new ExitCommand();
 
         case HelpCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, HelpCommand.MESSAGE_USAGE));
+            }
             return new HelpCommand();
 
         case ExportCommand.COMMAND_WORD:
@@ -96,6 +109,9 @@ public class AddressBookParser {
             return new ClearEventCommandParser().parse(arguments);
 
         case ListGroupCommand.COMMAND_WORD:
+            if (!arguments.isEmpty()) {
+                throw new ParseException(String.format(MESSAGE_EXTRA_PARAMETER, ListGroupCommand.MESSAGE_USAGE));
+            }
             return new ListGroupCommand();
 
         case ListEventAttendeesCommand.COMMAND_WORD:
