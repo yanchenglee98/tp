@@ -446,13 +446,8 @@ Examples:
 * `find n/John` returns `john` and `John Doe`
 * `find l/3 s/badminton` returns `Alice Pauline`, `Fiona Kunz` who live on the third floor and are in the `Badminton` student group. <br> ![Example 2](https://i.imgur.com/hAmEOib.png)
 
-
-Note:
-* The index refers to the index number shown in the displayed resident list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
 Examples:
-* `find Betsy` followed by `delete 1` deletes the 1st resident in the results of the `find` command.
+* `find n/Betsy` followed by `delete 1` deletes the 1st resident who has Betsy in her name in the results of the `find` command.
 
 ### 5.12 Exporting of email : `export` - Lee Yan Cheng
 
