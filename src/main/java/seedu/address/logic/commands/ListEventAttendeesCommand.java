@@ -15,7 +15,7 @@ public class ListEventAttendeesCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Displays the residents attending "
             + "the event specified by the index number used in the displayed event list.\n"
-            + "Parameters: EVENT_INDEX (must be positive integer) \n"
+            + "Parameters: EVENT_INDEX (must be positive integer from 1 to 2147483647) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
     private final Index eventIndex;
