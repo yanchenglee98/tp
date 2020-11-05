@@ -14,8 +14,8 @@ We are a team based in the [School of Computing, National University of Singapor
 [[github](http://github.com/schoolex)]
 [[portfolio](team/pangbiaoyi.md)]
 
-* Role: Developer
-* Responsibilities: Documentation
+- Role: Developer
+- Responsibilities: Documentation
 
 ### Tee Kok Siang
 
@@ -24,8 +24,8 @@ We are a team based in the [School of Computing, National University of Singapor
 [[github](http://github.com/teekoksiang)]
 [[portfolio](team/teekoksiang.md)]
 
-* Role: Developer
-* Responsibilities: Deliverables and Deadlines
+- Role: Developer
+- Responsibilities: Deliverables and Deadlines
 
 ### Lee Yan Cheng
 
@@ -34,8 +34,8 @@ We are a team based in the [School of Computing, National University of Singapor
 [[github](http://github.com/yanchenglee98)]
 [[portfolio](team/yanchenglee98.md)]
 
-* Role: Developer
-* Responsibilities: Scheduling, Tracking and Code quality
+- Role: Developer
+- Responsibilities: Scheduling, Tracking and Code quality
 
 ### Aung Thuya Oo
 
@@ -44,15 +44,15 @@ We are a team based in the [School of Computing, National University of Singapor
 [[github](http://github.com/athuyaoo)]
 [[portfolio](team/aungthuyaoo.md)]
 
-* Role: Developer
-* Responsibilities: Git expert and Integration
+- Role: Developer
+- Responsibilities: Git expert and Integration
 
 ### Low Jie Feng
 
 <img src="images/lowjiefeng1998.png" width="200px">
 
 [[github](http://github.com/lowjiefeng1998)]
-[[portfolio](team/lowjiefeng.md)]
+[[portfolio](team/lowjiefeng1998.md)]
 
-* Role: Developer
-* Responsibilities: Testing
+- Role: Developer
+- Responsibilities: Testing
