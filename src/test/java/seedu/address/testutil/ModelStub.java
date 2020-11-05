@@ -8,6 +8,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.MatriculationNumber;
@@ -25,6 +26,11 @@ public class ModelStub implements Model {
 
     @Override
     public ReadOnlyUserPrefs getUserPrefs() {
+        throw new AssertionError("This method should not be called.");
+    }
+
+    @Override
+    public UserPrefs getModifiableUserPrefs() {
         throw new AssertionError("This method should not be called.");
     }
 
