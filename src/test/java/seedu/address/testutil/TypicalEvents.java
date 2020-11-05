@@ -19,7 +19,7 @@ public class TypicalEvents {
             .withDate("01/02/2020 15:00").build();
 
     public static List<Event> getTypicalEvents() {
-        return new ArrayList<>(Arrays.asList(LUNCH));
+        return new ArrayList<>(Arrays.asList(LUNCH, DINNER));
     }
 
 }
