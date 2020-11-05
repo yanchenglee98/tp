@@ -33,7 +33,7 @@ class DescriptionTest {
         assertNotNull(new Description(DESC_WITH_CAROT));
         assertNotNull(new Description(DESC_WITH_AT));
         assertNotNull(new Description(DESC_WITH_SLASH));
-        assertNotNull(new EventName(DESC_WITH_TRAILING_SPACES));
+        assertNotNull(new Description(DESC_WITH_TRAILING_SPACES));
     }
 
     @Test
@@ -42,11 +42,11 @@ class DescriptionTest {
 
         assertFalse(Description.isValidDescription(""));
         assertFalse(Description.isValidDescription(" "));
-        assertFalse(EventName.isValidEventName(DESC_WITH_LEADING_SPACES));
+        assertFalse(Description.isValidDescription(DESC_WITH_LEADING_SPACES));
 
         assertTrue(Description.isValidDescription(DESC_WITH_CAROT));
         assertTrue(Description.isValidDescription(DESC_WITH_AT));
         assertTrue(Description.isValidDescription(DESC_WITH_SLASH));
-        assertTrue(EventName.isValidEventName(DESC_WITH_TRAILING_SPACES));
+        assertTrue(Description.isValidDescription(DESC_WITH_TRAILING_SPACES));
     }
 }

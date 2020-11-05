@@ -212,7 +212,7 @@ Given below is a step-by-step usage scenario of how the `export` feature works:
 4. The person list is then passed to `ExportCommand#handlEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
 
 The following sequence diagram shows how the export operation works:
-![](https://i.imgur.com/bbOtDI2.png)
+![Export Sequence Diagram](images/ExportSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> 
 If the current person list is empty, an empty hally.txt file will be created.
