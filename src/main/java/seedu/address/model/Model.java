@@ -26,6 +26,11 @@ public interface Model {
     ReadOnlyUserPrefs getUserPrefs();
 
     /**
+     * Returns the modifiable user prefs.
+     */
+    UserPrefs getModifiableUserPrefs();
+
+    /**
      * Returns the user prefs' GUI settings.
      */
     GuiSettings getGuiSettings();

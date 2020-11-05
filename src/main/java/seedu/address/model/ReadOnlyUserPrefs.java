@@ -13,12 +13,8 @@ public interface ReadOnlyUserPrefs {
     Path getAddressBookFilePath();
     String[] getBlockSettings();
     int getMinRoomSettings();
-    void setMinRoomSettings(int minRoomSettings);
     int getMaxRoomSettings();
-    void setMaxRoomSettings(int maxRoomSettings);
     int getMinFloorSettings();
-    void setMinFloorSettings(int minFloorSettings);
     int getMaxFloorSettings();
-    void setMaxFloorSettings(int maxFloorSettings);
 
 }

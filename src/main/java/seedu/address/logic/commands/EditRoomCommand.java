@@ -4,7 +4,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 
 /**
@@ -61,7 +60,7 @@ public class EditRoomCommand extends Command {
             throw new CommandException(MESSAGE_INVALID_ROOM_RANGE);
         }
 
-        ReadOnlyUserPrefs userPrefs = model.getUserPrefs();
+        UserPrefs userPrefs = model.getModifiableUserPrefs();
         userPrefs.setMinRoomSettings(minRoomSettings);
         userPrefs.setMaxRoomSettings(maxRoomSettings);
 

@@ -56,6 +56,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public UserPrefs getModifiableUserPrefs() {
+        return userPrefs;
+    }
+
+    @Override
     public GuiSettings getGuiSettings() {
         return userPrefs.getGuiSettings();
     }
