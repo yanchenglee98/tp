@@ -108,16 +108,16 @@ public class AddCommandTest {
         public boolean hasBlockRoom(Block block, Room room) {
             requireAllNonNull(block, room);
             return personsAdded
-                    .stream()
-                    .anyMatch(person -> person.getBlock().equals(block) && person.getRoom().equals(room));
+                .stream()
+                .anyMatch(person -> person.getBlock().equals(block) && person.getRoom().equals(room));
         }
 
         @Override
         public boolean hasMatriculationNumber(MatriculationNumber matriculationNumber) {
             requireNonNull(matriculationNumber);
             return personsAdded
-                    .stream()
-                    .anyMatch(person -> person.getMatriculationNumber().equals(matriculationNumber));
+                .stream()
+                .anyMatch(person -> person.getMatriculationNumber().equals(matriculationNumber));
         }
 
 
