@@ -20,7 +20,7 @@ public class AddEventCommand extends Command {
             + PREFIX_EVENT_LOCATION + "LOCATION "
             + PREFIX_EVENT_DESC + "DESCRIPTION\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_EVENT_NAME + "Hall Dinner@Dining Room "
+            + PREFIX_EVENT_NAME + "Hall Dinner at Dining Room "
             + PREFIX_EVENT_DATE + "01/01/2020 15:00 "
             + PREFIX_EVENT_LOCATION + "Dining Hall "
             + PREFIX_EVENT_DESC + "The yearly Eusoff Hall Dinner.";
