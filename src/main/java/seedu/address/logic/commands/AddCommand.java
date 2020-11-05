@@ -43,7 +43,12 @@ public class AddCommand extends Command {
             + PREFIX_STUDENT_GROUP + "hackers ";
 
     public static final String MESSAGE_SUCCESS = "New resident added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This resident already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This resident already exists in Hall-y.";
+    public static final String MESSAGE_DUPLICATE_MATRICULATION_NUMBER =
+            "An existing resident already has this matriculation number in Hall-y";
+    public static final String MESSAGE_DUPLICATE_BLOCK_ROOM =
+            "An existing resident is already staying in this room in Hall-y";
+
 
     private final Person toAdd;
 
@@ -61,6 +66,14 @@ public class AddCommand extends Command {
 
         if (model.hasPerson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        if (model.hasMatriculationNumber(toAdd.getMatriculationNumber())) {
+            throw new CommandException(MESSAGE_DUPLICATE_MATRICULATION_NUMBER);
+        }
+
+        if (model.hasBlockRoom(toAdd.getBlock(), toAdd.getRoom())) {
+            throw new CommandException(MESSAGE_DUPLICATE_BLOCK_ROOM);
         }
 
         model.addPerson(toAdd);
