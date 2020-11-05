@@ -12,7 +12,10 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.event.Event;
+import seedu.address.model.person.Block;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Room;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -93,6 +96,25 @@ public class ModelManager implements Model {
     public boolean hasPerson(Person person) {
         requireNonNull(person);
         return addressBook.hasPerson(person);
+    }
+
+    @Override
+    public boolean hasMatriculationNumber(MatriculationNumber matriculationNumber) {
+        requireNonNull(matriculationNumber);
+        return addressBook
+                .getPersonList()
+                .stream()
+                .anyMatch(person -> person.getMatriculationNumber().equals(matriculationNumber));
+    }
+
+
+    @Override
+    public boolean hasBlockRoom(Block block, Room room) {
+        requireAllNonNull(block, room);
+        return addressBook
+                .getPersonList()
+                .stream()
+                .anyMatch(person -> person.getBlock().equals(block) && person.getRoom().equals(room));
     }
 
     @Override

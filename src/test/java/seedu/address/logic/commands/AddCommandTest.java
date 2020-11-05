@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -14,7 +15,10 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.person.Block;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Room;
 import seedu.address.testutil.ModelStub;
 import seedu.address.testutil.PersonBuilder;
 
@@ -69,6 +73,7 @@ public class AddCommandTest {
         assertFalse(addAliceCommand.equals(addBobCommand));
     }
 
+
     /**
      * A Model stub that contains a single person.
      */
@@ -98,6 +103,23 @@ public class AddCommandTest {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePerson);
         }
+
+        @Override
+        public boolean hasBlockRoom(Block block, Room room) {
+            requireAllNonNull(block, room);
+            return personsAdded
+                    .stream()
+                    .anyMatch(person -> person.getBlock().equals(block) && person.getRoom().equals(room));
+        }
+
+        @Override
+        public boolean hasMatriculationNumber(MatriculationNumber matriculationNumber) {
+            requireNonNull(matriculationNumber);
+            return personsAdded
+                    .stream()
+                    .anyMatch(person -> person.getMatriculationNumber().equals(matriculationNumber));
+        }
+
 
         @Override
         public void addPerson(Person person) {
