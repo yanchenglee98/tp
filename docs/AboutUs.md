@@ -42,7 +42,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/athuyaoo.png" width="200px">
 
 [[github](http://github.com/athuyaoo)]
-[[portfolio](team/aungthuyaoo.md)]
+[[portfolio](team/athuyaoo.md)]
 
 * Role: Developer
 * Responsibilities: Git expert and Integration
