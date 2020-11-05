@@ -466,13 +466,13 @@ Here’s a step by step guide:
 
 ### 5.13 Clearing all entries : `clear`
 
-You can clear all residents in Hall-y by using the `clear` command
+You can clear all residents and events in Hall-y by using the `clear` command.
 
 The steps for this command are as follows:
 1. Enter the clear command by typing `clear` into the input box.
 2. Press enter
 3. The result box will show "Address book has been cleared"<br> ![](https://i.imgur.com/taII762.png)
-4. The resident list will now be empty.<br> ![](https://i.imgur.com/TLAwDc4.png)
+4. The resident list and event list will now be empty.<br> ![](https://i.imgur.com/3E0YfVv.png)
 
 
 ### 5.14 Viewing help : `help` - Lee Yan Cheng
