@@ -19,9 +19,9 @@ public class EditRoomCommandTest {
 
     @Test
     public void execute_validRoomRange_success() throws CommandException {
-        CommandResult commandResult = new EditRoomCommand(1, 20).execute(model);
+        CommandResult commandResult = new EditRoomCommand(1, 1000).execute(model);
         // compare output
-        assertEquals(String.format(EditRoomCommand.MESSAGE_EDIT_ROOM_SUCCESS, 1, 20),
+        assertEquals(String.format(EditRoomCommand.MESSAGE_EDIT_ROOM_SUCCESS, 1, 1000),
             commandResult.getFeedbackToUser());
     }
 

@@ -17,6 +17,8 @@ public interface ReadOnlyUserPrefs {
     int getMaxRoomSettings();
     void setMaxRoomSettings(int maxRoomSettings);
     int getMinFloorSettings();
+    void setMinFloorSettings(int minFloorSettings);
     int getMaxFloorSettings();
+    void setMaxFloorSettings(int maxFloorSettings);
 
 }
