@@ -32,7 +32,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/yanchenglee98.png" width="200px">
 
 [[github](http://github.com/yanchenglee98)]
-[[portfolio](team/leeyancheng.md)]
+[[portfolio](team/yanchenglee98.md)]
 
 * Role: Developer
 * Responsibilities: Scheduling, Tracking and Code quality
@@ -52,7 +52,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/lowjiefeng1998.png" width="200px">
 
 [[github](http://github.com/lowjiefeng1998)]
-[[portfolio](team/lowjiefeng.md)]
+[[portfolio](team/lowjiefeng1998.md)]
 
 * Role: Developer
 * Responsibilities: Testing

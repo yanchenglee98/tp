@@ -6,7 +6,10 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.event.Event;
+import seedu.address.model.person.Block;
+import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Room;
 
 /**
  * The API of the Model component.
@@ -62,6 +65,17 @@ public interface Model {
      * Returns true if a person with the same identity as {@code person} exists in the address book.
      */
     boolean hasPerson(Person person);
+
+
+    /**
+     * Returns true if a person with the given {@code matriculationNumber} already exists in the address book.
+     */
+    boolean hasMatriculationNumber(MatriculationNumber matriculationNumber);
+
+    /**
+     * Returns true if a person with the given {@code block} and {@code room} already exists in the address book.
+     */
+    boolean hasBlockRoom(Block block, Room room);
 
     /**
      * Deletes the given person.

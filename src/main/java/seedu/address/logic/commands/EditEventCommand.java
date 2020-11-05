@@ -31,7 +31,7 @@ public class EditEventCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the event identified "
             + "by the index number used in the displayed events list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: INDEX (must be a positive integer from 1 to 2147483647) "
             + "[" + PREFIX_EVENT_NAME + "NAME] "
             + "[" + PREFIX_EVENT_DATE + "DATE] "
             + "[" + PREFIX_EVENT_LOCATION + "LOCATION] "
@@ -77,6 +77,21 @@ public class EditEventCommand extends Command {
         return new CommandResult(String.format(MESSAGE_EDIT_EVENT_SUCCESS, editedEvent));
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof EditEventCommand)) {
+            return false;
+        }
+
+        EditEventCommand command = (EditEventCommand) obj;
+        return index.equals(command.index)
+                && editEventDescriptor.equals(command.editEventDescriptor);
+    }
+
     private Event createEditedEvent(Event eventToEdit, EditEventDescriptor editEventDescriptor) {
         assert eventToEdit != null;
         assert editEventDescriptor != null;
@@ -92,7 +107,7 @@ public class EditEventCommand extends Command {
     /**
      * Class that stores the details to edit the event with. Each non-empty field will replace
      * the corresponding field of the event.
-     *
+     * <p>
      * Note that attendees cannot be edited through this. That field will be directly copied from the original.
      */
     public static class EditEventDescriptor {
@@ -101,7 +116,8 @@ public class EditEventCommand extends Command {
         private Location location;
         private Description description;
 
-        public EditEventDescriptor() {}
+        public EditEventDescriptor() {
+        }
 
         /**
          * Copy using the constructor by calling each field's setter.

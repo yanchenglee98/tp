@@ -43,7 +43,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the resident identified "
             + "by the index number used in the displayed residents list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: INDEX (must be a positive integer from 1 to 2147483647) "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
@@ -59,6 +59,10 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Resident: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This resident already exists in Hall-y.";
+    public static final String MESSAGE_DUPLICATE_MATRICULATION_NUMBER =
+            "An existing resident already has this matriculation number in Hall-y";
+    public static final String MESSAGE_DUPLICATE_BLOCK_ROOM =
+            "An existing resident is already staying in this room in Hall-y";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -89,6 +93,17 @@ public class EditCommand extends Command {
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        if (!personToEdit.getMatriculationNumber().equals(editedPerson.getMatriculationNumber())
+                && model.hasMatriculationNumber(editedPerson.getMatriculationNumber())) {
+            throw new CommandException(MESSAGE_DUPLICATE_MATRICULATION_NUMBER);
+        }
+
+        if (!personToEdit.getRoom().equals(editedPerson.getRoom())
+                && !personToEdit.getBlock().equals(editedPerson.getBlock())
+                && model.hasBlockRoom(editedPerson.getBlock(), editedPerson.getRoom())) {
+            throw new CommandException(MESSAGE_DUPLICATE_BLOCK_ROOM);
         }
 
         model.setPerson(personToEdit, editedPerson);
