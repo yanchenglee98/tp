@@ -188,7 +188,7 @@ Email   | timmy@example.com
 
 
 Let’s also assume that based on the current residents list as shown below, Timmy Tan has index 2.  
-![](https://i.imgur.com/DF7ww3B.png)
+![](https://i.imgur.com/tnmoZ5T.png)
 
 You can edit his details by typing in the command with these parameters using the following format:
 
