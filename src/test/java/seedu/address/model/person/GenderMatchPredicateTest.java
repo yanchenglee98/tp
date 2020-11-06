@@ -39,7 +39,7 @@ public class GenderMatchPredicateTest {
     }
 
     @Test
-    public void test_genderMatch() {
+    public void test() {
         // same gender -> returns true
         GenderMatchPredicate predicate =
                 new GenderMatchPredicate(new Gender(VALID_GENDER_AMY));

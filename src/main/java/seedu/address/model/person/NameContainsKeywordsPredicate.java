@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 
 import seedu.address.commons.util.StringUtil;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
  */
@@ -12,6 +14,7 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
     private final List<String> keywords;
 
     public NameContainsKeywordsPredicate(List<String> keywords) {
+        requireNonNull(keywords);
         this.keywords = keywords;
     }
 

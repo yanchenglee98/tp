@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATION_NUMBER_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATION_NUMBER_BOB;
+import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,12 @@ import seedu.address.testutil.PersonBuilder;
 
 
 public class MatriculationNumberMatchPredicateTest {
+
+    @Test
+    public void constructor_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new MatriculationNumberMatchPredicate(null));
+    }
+
     @Test
     public void equals() {
         MatriculationNumber firstMatriculationNumber = new MatriculationNumber(VALID_MATRICULATION_NUMBER_AMY);
@@ -40,7 +47,7 @@ public class MatriculationNumberMatchPredicateTest {
     }
 
     @Test
-    public void test_matriculationNumberMatches() {
+    public void test() {
         // same matriculation number -> returns true
         MatriculationNumberMatchPredicate predicate =
                 new MatriculationNumberMatchPredicate(new MatriculationNumber(VALID_MATRICULATION_NUMBER_AMY));

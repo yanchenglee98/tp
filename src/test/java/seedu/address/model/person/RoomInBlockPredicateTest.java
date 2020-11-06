@@ -4,12 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BLOCK_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BLOCK_BOB;
+import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.testutil.PersonBuilder;
 
 public class RoomInBlockPredicateTest {
+
+    @Test
+    public void constructor_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new RoomInBlockPredicate(null));
+    }
 
     @Test
     public void equals() {
@@ -40,7 +46,7 @@ public class RoomInBlockPredicateTest {
     }
 
     @Test
-    public void test_roomInBlock() {
+    public void test() {
         // same block -> returns true
         RoomInBlockPredicate predicate =
                 new RoomInBlockPredicate(new Block(VALID_BLOCK_AMY));
