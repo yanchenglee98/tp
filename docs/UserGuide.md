@@ -262,8 +262,8 @@ Here's a step by step guide:
 ![](https://i.imgur.com/0iwDXgV.png)
 
 Here are some other examples you can try:
-* add-event n/Hall DnD dt/15/12/2020 19:00 l/Dining Hall d/End of year Dinner and Dance.
-* add-event n/Hall Dinner dt/01/01/2020 15:00 l/Dining Hall d/The yearly Eusoff Hall Dinner.
+* `add-event n/Hall DnD dt/15/12/2020 19:00 l/Dining Hall d/End of year Dinner and Dance.` adds an event called Hall DnD, happening on 15/12/2020 19:00 at the Dining Hall with the corresponding description.
+* `add-event n/Hall Dinner dt/01/01/2020 15:00 l/Dining Hall d/The yearly Eusoff Hall Dinner.` adds an event called Hall Dinner, happening on 01/01/2020 15:00 at the Dining Hall with the corresponding description.
 
 
 ### 5.7 Editing a hall event : `edit-event` - Low Jie Feng
@@ -305,8 +305,8 @@ Here’s a step by step guide:
 ![](https://i.imgur.com/w4PS7zN.png)
 
 Here are some other examples you can try, assuming you have at least one event saved in Hall-y:
-* edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.
-* edit-event 1 l/UTown
+* `edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.` edits an event with the event index 1 with a new name, date and description.
+* `edit-event 1 l/UTown` edits an event with the event index 1 with a new location.
 
 ### 5.7 Deleting a hall event : `delete-event` - Low Jie Feng
 
