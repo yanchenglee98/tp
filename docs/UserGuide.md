@@ -569,16 +569,16 @@ The default settings specifies 4 blocks(A, B, C, D), 4 floors(1 - 4) and 20 room
 
 ## 7 FAQ
 
-**Q**: How do I transfer my data to another computer?
+**Q**: How do I transfer my data to another computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Hall-y home folder.
 
-**Q**: Where is all my save data stored?
+**Q**: Where is all my save data stored?<br>
 **A**: They are stored in the `data` folder that in the Hall-y home folder
 
-**Q**: How do I make backups of my data in Hall-y?
+**Q**: How do I make backups of my data in Hall-y?<br>
 **A**: Copy and paste the `data` folder located in the Hall-y home folder somewhere safe. To restore the backup. Copy it back into the same home folder.
 
-**Q**: How do I delete all my data in Hall-y?
+**Q**: How do I delete all my data in Hall-y?<br>
 **A**: Delete the `data` folder located in the Hall-y home folder.
 
 --------------------------------------------------------------------------------------------------------------------
