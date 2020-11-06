@@ -127,7 +127,14 @@ public class UniquePersonList implements Iterable<Person> {
     private boolean personsAreUnique(List<Person> persons) {
         for (int i = 0; i < persons.size() - 1; i++) {
             for (int j = i + 1; j < persons.size(); j++) {
-                if (persons.get(i).isSamePerson(persons.get(j))) {
+                Person currentPerson = persons.get(i);
+                Person otherPerson = persons.get(j);
+                boolean isSamePerson = currentPerson.isSamePerson(otherPerson);
+                boolean hasSameMatriculationNumber = currentPerson
+                        .getMatriculationNumber().equals(otherPerson.getMatriculationNumber());
+                boolean hasSameRoom = currentPerson.getRoom().equals(otherPerson.getRoom())
+                        && currentPerson.getBlock().equals(otherPerson.getBlock());
+                if (isSamePerson || hasSameMatriculationNumber || hasSameRoom) {
                     return false;
                 }
             }
