@@ -35,12 +35,12 @@ public class MatriculationNumberMatchPredicateTest {
         // null -> returns false
         assertFalse(firstPredicate.equals(null));
 
-        // different person -> returns false
+        // different matriculation number -> returns false
         assertFalse(firstPredicate.equals(secondPredicate));
     }
 
     @Test
-    public void test_matriculationNumber_returnsTrue() {
+    public void test_matriculationNumberMatches() {
         // same matriculation number -> returns true
         MatriculationNumberMatchPredicate predicate =
                 new MatriculationNumberMatchPredicate(new MatriculationNumber(VALID_MATRICULATION_NUMBER_AMY));

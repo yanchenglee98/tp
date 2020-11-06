@@ -35,12 +35,12 @@ public class RoomInBlockPredicateTest {
         // null -> returns false
         assertFalse(firstPredicate.equals(null));
 
-        // different person -> returns false
+        // different block -> returns false
         assertFalse(firstPredicate.equals(secondPredicate));
     }
 
     @Test
-    public void test_matriculationNumber_returnsTrue() {
+    public void test_roomInBlock() {
         // same block -> returns true
         RoomInBlockPredicate predicate =
                 new RoomInBlockPredicate(new Block(VALID_BLOCK_AMY));
