@@ -55,6 +55,8 @@ public class CommandTestUtil {
     public static final String VALID_ROOM_BOB = "301";
     public static final String VALID_FLOOR_AMY = "4";
     public static final String VALID_FLOOR_BOB = "3";
+    public static final String VALID_ROOM_NUMBER_AMY = "20";
+    public static final String VALID_ROOM_NUMBER_BOB = "01";
     public static final String VALID_MATRICULATION_NUMBER_AMY = "A0123456K";
     public static final String VALID_MATRICULATION_NUMBER_BOB = "A0123456L";
 
