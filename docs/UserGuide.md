@@ -198,7 +198,7 @@ Here’s a step by step guide:
 
 1. Type the following command into the input box
 `edit 1 p/91234567 e/first@example.com` and press <kbd>Enter</kbd> to execute the command.  
-![](https://i.imgur.com/eCkTRPc.png)
+![](https://i.imgur.com/pRoSIDZ.png)
 2. The resident list will be updated to reflect the edited info.  
 ![](https://i.imgur.com/QcjqpaB.png)
 
