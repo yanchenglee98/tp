@@ -3,8 +3,19 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_BLOCK;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_STUDENT_GROUP_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_BLOCK_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_FLOOR_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_FLOOR_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GENDER_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATION_NUMBER_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROOM_NUMBER_AMY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FLOOR;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GENDER;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROOM_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_GROUP;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -20,9 +31,15 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.model.person.Block;
+import seedu.address.model.person.Gender;
+import seedu.address.model.person.GenderMatchPredicate;
+import seedu.address.model.person.MatriculationNumber;
+import seedu.address.model.person.MatriculationNumberMatchPredicate;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.RoomInBlockPredicate;
+import seedu.address.model.person.RoomInFloorPredicate;
+import seedu.address.model.person.RoomMatchesNumberPredicate;
 import seedu.address.model.person.StudentGroupPredicate;
 import seedu.address.model.studentgroup.StudentGroup;
 
@@ -65,11 +82,22 @@ public class FindCommandParserTest {
         Set<StudentGroup> studentGroupSet = new HashSet<>();
         studentGroupSet.add(new StudentGroup("badminton"));
         FindCommand expectedCombinedFindCommand =
-                new FindCommand(List.of(new RoomInBlockPredicate(new Block("B")), namePredicate,
+                new FindCommand(List.of(
+                    new RoomInBlockPredicate(new Block(VALID_BLOCK_BOB)),
+                    new RoomInFloorPredicate(VALID_FLOOR_AMY),
+                    new RoomMatchesNumberPredicate(VALID_ROOM_NUMBER_AMY),
+                    namePredicate,
+                    new GenderMatchPredicate(new Gender(VALID_GENDER_AMY)),
+                    new MatriculationNumberMatchPredicate(new MatriculationNumber(VALID_MATRICULATION_NUMBER_AMY)),
                     new StudentGroupPredicate(studentGroupSet)));
 
         // test parsing of multiple fields
         assertParseSuccess(parser, " " + PREFIX_NAME + " \n Alice \n \t Bob  \t"
-                + " " + PREFIX_BLOCK + 'B' + " " + PREFIX_STUDENT_GROUP + "badminton", expectedCombinedFindCommand);
+                + " " + PREFIX_BLOCK + VALID_BLOCK_BOB + " " + PREFIX_STUDENT_GROUP + "badminton" + " "
+                + PREFIX_MATRICULATION_NUMBER + VALID_MATRICULATION_NUMBER_AMY + " "
+                + PREFIX_ROOM_NUMBER + VALID_ROOM_NUMBER_AMY + " "
+                + PREFIX_FLOOR + VALID_FLOOR_AMY + " "
+                + PREFIX_GENDER + VALID_GENDER_AMY,
+                expectedCombinedFindCommand);
     }
 }

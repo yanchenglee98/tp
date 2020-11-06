@@ -2,6 +2,9 @@ package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_GENDER;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GENDER_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GENDER_BOB;
 import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
@@ -16,6 +19,8 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Gender;
+import seedu.address.model.person.GenderMatchPredicate;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.studentgroup.StudentGroup;
@@ -195,5 +200,41 @@ public class ParserUtilTest {
                 .asList(new StudentGroup(VALID_STUDENT_GROUP_1), new StudentGroup(VALID_STUDENT_GROUP_2)));
 
         assertEquals(expectedStudentGroupSet, actualStudentGroupSet);
+    }
+
+    @Test
+    public void parseGender_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseGender(null));
+    }
+
+    @Test
+    public void parseGender_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseGender(INVALID_GENDER));
+    }
+
+    @Test
+    public void parseGender_validValueWithoutWhitespace_returnsGender() throws Exception {
+        Gender expectedGender = new Gender(VALID_GENDER_BOB);
+        assertEquals(expectedGender, ParserUtil.parseGender(VALID_GENDER_BOB));
+    }
+
+    @Test
+    public void parseGender_validValueWithWhitespace_returnsTrimmedGender() throws Exception {
+        String genderWithWhitespace = WHITESPACE + VALID_GENDER_BOB + WHITESPACE;
+        Gender expectedGender = new Gender(VALID_GENDER_BOB);
+        assertEquals(expectedGender, ParserUtil.parseGender(genderWithWhitespace));
+    }
+
+    @Test
+    public void parseGenderMatchPredicate_maleGender() throws Exception {
+        GenderMatchPredicate expectedGenderMatchPredicate = new GenderMatchPredicate(new Gender(VALID_GENDER_BOB));
+        assertEquals(ParserUtil.parseGenderMatchPredicate(VALID_GENDER_BOB), expectedGenderMatchPredicate);
+    }
+
+
+    @Test
+    public void parseGenderMatchPredicate_femaleGender() throws Exception {
+        GenderMatchPredicate expectedGenderMatchPredicate = new GenderMatchPredicate(new Gender(VALID_GENDER_AMY));
+        assertEquals(ParserUtil.parseGenderMatchPredicate(VALID_GENDER_AMY), expectedGenderMatchPredicate);
     }
 }
