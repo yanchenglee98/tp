@@ -68,7 +68,7 @@ public class TypicalPersons {
             .withBlock("A").withRoom("420").withGender("M").build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
             .withEmail("hans@example.com").withAddress("chicago ave").withMatriculationNumber("A0123456J")
-            .withBlock("A").withRoom("420").withGender("F").build();
+            .withBlock("B").withRoom("320").withGender("F").build();
 
 
     // Manually added - Person's details found in {@code CommandTestUtil}
