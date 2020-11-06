@@ -2,7 +2,8 @@ package seedu.address.testutil;
 
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_BLOCK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_BLOCK_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_BLOCK_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GENDER_AMY;
@@ -13,7 +14,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROOM;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROOM_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROOM_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_GROUP_BASKETBALL;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_GROUP_DANCE;
 import static seedu.address.testutil.TypicalEvents.getTypicalEvents;
@@ -74,13 +76,13 @@ public class TypicalPersons {
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withStudentGroups(VALID_STUDENT_GROUP_BASKETBALL)
-            .withGender(VALID_GENDER_AMY).withBlock(VALID_BLOCK).withRoom(VALID_ROOM)
+            .withGender(VALID_GENDER_AMY).withBlock(VALID_BLOCK_AMY).withRoom(VALID_ROOM_AMY)
             .withMatriculationNumber(VALID_MATRICULATION_NUMBER_AMY).build();
     public static final Person BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
             .withStudentGroups(VALID_STUDENT_GROUP_DANCE, VALID_STUDENT_GROUP_BASKETBALL).withGender(VALID_GENDER_BOB)
             .withMatriculationNumber(VALID_MATRICULATION_NUMBER_BOB)
-            .withBlock(VALID_BLOCK).withRoom(VALID_ROOM).build();
+            .withBlock(VALID_BLOCK_BOB).withRoom(VALID_ROOM_BOB).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
