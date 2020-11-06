@@ -444,7 +444,7 @@ Note:
 Examples:
 * `list-event-attendees 1` shows the residents that are attending the 1st event
 
-### 5.11 Locating residents by characteristics: `find`
+### 5.11 Locating residents by characteristics: `find` - Aung Thuya Oo
 
 You can find all persons whose characteristics match the given arguments and keywords. The residents list will automatically display these residents.
 
