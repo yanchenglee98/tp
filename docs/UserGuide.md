@@ -577,11 +577,11 @@ The default settings specifies 4 blocks(A, B, C, D), 4 floors(1 - 4) and 20 room
 ![](https://i.imgur.com/PiFpKJb.png)
 4) Save the file and relaunch Hall-y.
 
-### 6.2 Editing the blocks configuration : `edit-block-range` - Tee Kok Siang
+### 6.2 Editing the block configuration : `edit-block-range` - Tee Kok Siang
 
-This command helps you to edit the blocks configuration.
+This command helps you to edit the block configuration.
 
-Does your hall have block A, B, C, D and E which are different than the default block A, B, C and D? Fret not, you can edit it by using this command. Suppose that it has the following details:
+Does your hall have blocks A, B, C, D and E which are different from the default blocks A, B, C and D? Fret not! You can edit it by using this command. Suppose that it has the following details:
 
 Parameters | Details
 ---------- | -------
@@ -613,14 +613,14 @@ Here's a step by step guide:
 
 Here are some other examples you can try:
 
-* `edit-block-range F J` edits the blocks configuration to allow block F, G, H, I and J only.
-* `edit-block-range K O` edits the blocks configuration to allow block K, L, M, N and O only.
+* `edit-block-range F J` edits the block configuration to allow blocks F, G, H, I and J only.
+* `edit-block-range K O` edits the block configuration to allow blocks K, L, M, N and O only.
 
-### 6.3 Changing the floors configuration : `edit-floor-range` - Tee Kok Siang
+### 6.3 Editing the floor configuration : `edit-floor-range` - Tee Kok Siang
 
-This command helps you to edit the floors configuration.
+This command helps you to edit the floor configuration.
 
-Does your hall have floor number from 1 to 5 which is different than the default floor number from 1 to 4? Fret not, you can edit it by using this command. Suppose that it has the following details:
+Does your hall have floor number from 1 to 5 which is different from the default floor number from 1 to 4? Fret not! You can edit it by using this command. Suppose that it has the following details:
 
 Parameters | Details
 ---------- | -------
@@ -652,14 +652,14 @@ Here's a step by step guide:
 
 Here are some other examples you can try:
 
-* `edit-floor-range 1 8` edits the floors configuration to allow floor number from 1 to 8 only.
-* `edit-floor-range 1 10` edits the floors configuration to allow floor number from 1 to 10 only.
+* `edit-floor-range 1 8` edits the floor configuration to allow floor number from 1 to 8 only.
+* `edit-floor-range 1 10` edits the floor configuration to allow floor number from 1 to 10 only.
 
-### 6.4 Changing the rooms configuration : `edit-room-range` - Tee Kok Siang
+### 6.4 Editing the room configuration : `edit-room-range` - Tee Kok Siang
 
-This command helps you to edit the rooms configuration.
+This command helps you to edit the room configuration.
 
-Does your hall have room number 1 to 10 which is different than the default room number 1 to 20? Fret not, you can edit it by using this command. Suppose that it has the following details:
+Does your hall have room number 1 to 10 which is different from the default room number 1 to 20? Fret not! You can edit it by using this command. Suppose that it has the following details:
 
 Parameters | Details
 ---------- | -------
@@ -691,8 +691,8 @@ Here's a step by step guide:
 
 Here are some other examples you can try:
 
-* `edit-room-range 1 30` edits the rooms configuration to allow room number from 1 to 30 only.
-* `edit-room-range 1 50` edits the rooms configuration to allow room number from 1 to 50 only.
+* `edit-room-range 1 30` edits the room configuration to allow room number from 1 to 30 only.
+* `edit-room-range 1 50` edits the room configuration to allow room number from 1 to 50 only.
 
 --------------------------------------------------------------------------------------------------------------------
 
