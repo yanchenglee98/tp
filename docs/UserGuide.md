@@ -30,9 +30,9 @@ License: `MIT`
 
 ## 1 Introduction
 
-### 1.1 Welcome
-
 Welcome to the Hall-y User Guide!
+
+### 1.1 Welcome
 
 Hall-y (pronounced _hall-ee_) is a desktop application designed to help you manage hall residents and events.
 
@@ -57,7 +57,7 @@ The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who 
 
 You can refer to the diagram below to understand how Hall-y looks like:
 
-![Hall-y's Interface](https://i.imgur.com/Awmyti6.png)
+![](https://i.imgur.com/dthdQee.png)
 
 The table below shows a brief explanation of each section:
 
@@ -836,8 +836,8 @@ You can refer to the table below for a summary on the various commands for manag
 Action | Format, Examples
 --------|------------------
 **Add resident** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP]…` <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/badminton`
-**Delete resident** | `delete INDEX`<br> e.g. `delete 3`
-**Edit resident** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER][s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
+**Delete resident** | `delete RESIDENT_INDEX`<br> e.g. `delete 3`
+**Edit resident** | `edit RESIDENT_INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER][s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
 **List all residents** | `list`
 **List all student groups** | `list-group`
 
@@ -850,8 +850,8 @@ Action | Format, Examples
 **Add event** | `add-event n/NAME dt/EVENT_DATE l/LOCATION d/DESCRIPTION` <br />e.g. `add-event n/Night Cycling dt/30/10/2020 18:00 l/Meet at Hall Entrance d/A night cycling event held every semester.`
 **Assign resident** | `assign RESIDENT_INDEX EVENT_INDEX` <br> e.g. `assign 1 1`
 **Clear event attendees** | `clear-event-attendees EVENT_INDEX` <br> e.g. `clear-event-attendees 1`
-**Delete event** | `delete-event INDEX`<br> e.g. `delete-event 2`
-**Edit event** | `edit INDEX [n/NAME] [dt/EVENT_DATE] [l/LOCATION] [d/DESCRIPTION] `<br> e.g.`edit 2 n/Hall Lunch for Semester 1`
+**Delete event** | `delete-event EVENT_INDEX`<br> e.g. `delete-event 2`
+**Edit event** | `edit EVENT_INDEX [n/NAME] [dt/EVENT_DATE] [l/LOCATION] [d/DESCRIPTION] `<br> e.g.`edit 2 n/Hall Lunch for Semester 1`
 **List event attendees** | `list-event-attendees EVENT_INDEX` <br> e.g. `list-event-attendees 1`
 
 ### 7.3 Utility commands
@@ -873,7 +873,9 @@ Action | Format, Examples
 
 ## Appendix A: Glossary
 
-* **Command Line Interface (CLI)**: Text interface to interact with the application by typing the command
+Below are some common terms used in Hall-y and in the User Guide:
+
+* **Command Line Interface (CLI)**: Text interface to interact with the application by typing in various commands
 * **Graphical User Interface (GUI)**: Visual interface to interact with the application
 * **Hall**: A residential living area that is populated by students
 * **Hall admin**: An administrative staff to handle hall-related matters
