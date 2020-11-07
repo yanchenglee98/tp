@@ -477,14 +477,13 @@ Format: `find [n/NAME_KEYWORDS [MORE NAME_KEYWORDS]] [m/MATRICULATION_NUMBER] [g
 Here's a step by step guide:
 1. Type the following command into the input box:
 `find g/F b/A f/3 s/hackers` and press <kbd>Enter</kbd> to execute the command
-![]()
-2. The user list will be updated to show the residents matching those characteristics.
-![]()
+![](https://i.imgur.com/ss2RN8x.png)
+2. The user list will be updated to show the residents matching those characteristics, and the result box will show the number of residents matching those characteristics.
+![](https://i.imgur.com/Tpp9lSu.png)
 
 Here are some other examples you can try:
-* `find n/John` returns `john` and `John Doe`
-* `find l/3 s/badminton` returns `Alice Pauline`, `Fiona Kunz`
-who live on the third floor and are in the `Badminton` student group.
+* `find n/John` returns all residents with "John" in their name
+* `find l/3 s/badminton` returns all residents who stay on level 3 and are in the student group "badminton".
 
 Tips
 * The search is case-insensitive. e.g `hans` will match `Hans`
