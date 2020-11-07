@@ -14,9 +14,9 @@ import seedu.address.model.person.Block;
  */
 public class UserPrefs implements ReadOnlyUserPrefs {
 
-    public static final int MAX_ALLOWED_ROOMS = 1000;
+    public static final int MAX_ALLOWED_ROOMS = 99;
     public static final int MIN_ALLOWED_ROOMS = 1;
-    public static final int MAX_ALLOWED_FLOORS = 100;
+    public static final int MAX_ALLOWED_FLOORS = 9;
     public static final int MIN_ALLOWED_FLOORS = 1;
 
     public static final int DEFAULT_MIN_ROOM_SETTINGS = 1;
