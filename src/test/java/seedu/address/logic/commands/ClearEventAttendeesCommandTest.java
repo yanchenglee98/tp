@@ -30,7 +30,7 @@ public class ClearEventAttendeesCommandTest {
         Event event = model.getEventList().get(INDEX_FIRST_EVENT.getZeroBased());
         String expectedMessage = String.format(MESSAGE_CLEAR_EVENT_SUCCESS, event);
 
-        // execute clear event command
+        // execute clear event attendees command
         CommandResult commandResult = new ClearEventAttendeesCommand(INDEX_FIRST_EVENT).execute(model);
 
         // compare output
@@ -46,7 +46,7 @@ public class ClearEventAttendeesCommandTest {
         Event event = model.getEventList().get(INDEX_FIRST_EVENT.getZeroBased());
         String expectedMessage = String.format(MESSAGE_CLEAR_EVENT_SUCCESS, event);
 
-        // execute clear event command
+        // execute clear event attendees command
         CommandResult commandResult = new ClearEventAttendeesCommand(INDEX_FIRST_EVENT).execute(model);
 
         // compare output

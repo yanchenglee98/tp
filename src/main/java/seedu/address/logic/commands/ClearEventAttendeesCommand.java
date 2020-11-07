@@ -29,7 +29,7 @@ public class ClearEventAttendeesCommand extends Command {
     private final Index targetIndex;
 
     /**
-     * Creates a {@code DeleteEventCommand} with the given {@code targetIndex}.
+     * Creates a {@code ClearEventAttendeesCommand} with the given {@code targetIndex}.
      */
     public ClearEventAttendeesCommand(Index targetIndex) {
         requireNonNull(targetIndex);
