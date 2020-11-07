@@ -89,14 +89,14 @@ UPPER_CASE | Represent a parameter to be supplied by the user. <br> e.g. `n/NAME
 
 You can get Hall-y up and running within 5 minutes. Just follow the steps below:
 
-1. Ensure you have Java 11 or above installed in your Computer
+1. Ensure you have Java 11 or above installed in your computer
 2. Download the latest `hall-y.jar` file from [here](https://github.com/AY2021S1-CS2103T-T11-2/tp/releases/)
 3. Copy the downloaded file and paste it into the folder you want to use as the home folder for your application
 4. Double-click on `hall-y.jar` to start the application
 5. You should see a similar GUI to the one below - notice that the application comes with some sample data:
 ![Initial load](https://i.imgur.com/hMsQ4rL.png)
 
-Congratulations! You now have Hall-y running on your Computer.
+Congratulations! You now have Hall-y running on your computer.
 
 Now, suppose you want to add a resident called Timmy Tan. He is one of your new residents with the following details:
 
