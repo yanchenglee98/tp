@@ -58,7 +58,8 @@ public class ClearEventAttendeesCommandTest {
 
     @Test
     public void execute_invalidIndex_throwCommandException() throws ParseException {
-        ClearEventAttendeesCommand clearEventAttendeesCommand = new ClearEventAttendeesCommand(ParserUtil.parseIndex("10"));
+        ClearEventAttendeesCommand clearEventAttendeesCommand =
+                new ClearEventAttendeesCommand(ParserUtil.parseIndex("10"));
 
         assertThrows(CommandException.class,
                 Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX, () -> clearEventAttendeesCommand.execute(model));
