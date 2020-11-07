@@ -332,6 +332,8 @@ Due to time constraints, we decided to use **Alternative 1** as **Alternative 2*
 #### 3.4.1 Implementation
 The listing all student groups feature is facilitated by `ListGroupCommand`. It extends `Command` and overrides `Command#execute()` to list all student groups.
 
+The key idea is that we will iterate through the resident list and store the resident's student groups in a `Set` to avoid storing duplicate student groups. We will then output the student groups' name in the result box.
+
 Given below is a step-by-step usage scenario and how the listing all student groups feature works:
 
 1. The user launches the application and types `list-group` into the input box.
@@ -343,7 +345,11 @@ Given below is a step-by-step usage scenario and how the listing all student gro
 7. The `UI` displays the result in the result box.
 
 The following sequence diagram shows how the listing all student groups operation works:
-![Listing Student Groups Sequence Diagram](images/ListGroupSequenceDiagram.png)  
+![List Student Groups Sequence Diagram](images/ListGroupSequenceDiagram.png)  
+
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> 
+If there is no resident or student group, an empty list will be displayed.
+</div>
 
 ### 3.5 Finding Students
 
@@ -390,6 +396,28 @@ We decided to use **Alternative 2** as it increases testability by making it sim
 For **Alternative 1**, it is difficult to compare 2 predicates as they have been merged together. 
 With **Alternative 2**, it is easier to compare each equality of each element in the list of predicates instead to check whether the `FindCommand` objects are equal. 
 As testing is important to ensuring that programs run correctly, we decided to use alternative 2.
+
+### 3.6 Editing Floor settings
+
+#### 3.6.1 Implementation
+The editing floor settings feature is facilitated by `EditFloorCommand`. It extends `Command` and overrides `Command#execute()` to edit floor settings.
+
+The key idea is that we will pass the user’s input into the `AddressBookParser#parseCommand()`. It will then call `EditFloorCommandParser#parse()` to create an `EditFloorCommand` with the user’s inputs. When `EditFloorCommand#execute()` is called, it will set the floor settings through `UserPrefs`. The floor settings changes will take effect after restarting Hall-y.
+
+Given below is a step-by-step usage scenario and how the editing floor settings feature works:
+
+1. The user launches the application and types `edit-floor-range 1 5` into the input box.
+2. The `UI` handles the input and calls `LogicManager#execute()` to execute it.
+3. The `AddressBookParser#parseCommand()` is called to parse the input.
+4. The `EditFloorCommandParser#parse()` is then called to parse the input and returns a `EditFloorCommand`.
+5. The `EditFloorCommand` calls `EditFloorCommand#execute()` to do a validation check to ensure `minFloorSettings` and `maxFloorSettings` are valid.
+6. After the validation check, the `EditFloorCommand#execute()` calls `UserPrefs#setMinFloorSettings()` and `UserPrefs#setMaxFloorSettings` to set the floor settings.   
+7. The `UI` displays the edited floor settings in the result box.
+8. The floor settings changes will take effect after restarting Hall-y.
+
+The following sequence diagram shows how the editing floor settings operation works:
+![Edit Floor Settings Sequence Diagram](images/EditFloorSequenceDiagram.png)  
+
 
 --------------------------------------------------------------------------------------------------------------------
 

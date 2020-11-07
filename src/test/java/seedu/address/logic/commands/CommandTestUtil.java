@@ -49,8 +49,14 @@ public class CommandTestUtil {
     public static final String VALID_GENDER_BOB = "M";
     public static final String VALID_STUDENT_GROUP_DANCE = "dance";
     public static final String VALID_STUDENT_GROUP_BASKETBALL = "basketball";
-    public static final String VALID_BLOCK = "A";
-    public static final String VALID_ROOM = "420";
+    public static final String VALID_BLOCK_AMY = "A";
+    public static final String VALID_BLOCK_BOB = "B";
+    public static final String VALID_ROOM_AMY = "420";
+    public static final String VALID_ROOM_BOB = "301";
+    public static final String VALID_FLOOR_AMY = "4";
+    public static final String VALID_FLOOR_BOB = "3";
+    public static final String VALID_ROOM_NUMBER_AMY = "20";
+    public static final String VALID_ROOM_NUMBER_BOB = "01";
     public static final String VALID_MATRICULATION_NUMBER_AMY = "A0123456K";
     public static final String VALID_MATRICULATION_NUMBER_BOB = "A0123456L";
 
@@ -67,8 +73,8 @@ public class CommandTestUtil {
     public static final String STUDENT_GROUP_DESC_BASKETBALL = " " + PREFIX_STUDENT_GROUP
             + VALID_STUDENT_GROUP_BASKETBALL;
     public static final String STUDENT_GROUP_DESC_DANCE = " " + PREFIX_STUDENT_GROUP + VALID_STUDENT_GROUP_DANCE;
-    public static final String BLOCKROOM_DESC_AMY = " " + PREFIX_BLOCKROOM + VALID_BLOCK + VALID_ROOM;
-    public static final String BLOCKROOM_DESC_BOB = " " + PREFIX_BLOCKROOM + VALID_BLOCK + VALID_ROOM;
+    public static final String BLOCKROOM_DESC_AMY = " " + PREFIX_BLOCKROOM + VALID_BLOCK_AMY + VALID_ROOM_AMY;
+    public static final String BLOCKROOM_DESC_BOB = " " + PREFIX_BLOCKROOM + VALID_BLOCK_BOB + VALID_ROOM_BOB;
     public static final String MATRICULATION_NUMBER_DESC_AMY = " " + PREFIX_MATRICULATION_NUMBER
             + VALID_MATRICULATION_NUMBER_AMY;
     public static final String MATRICULATION_NUMBER_DESC_BOB = " " + PREFIX_MATRICULATION_NUMBER
