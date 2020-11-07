@@ -333,7 +333,7 @@ Here are some other examples you can try, assuming you have at least one event s
 * `edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.` edits an event with the event index 1 with a new name, date and description.
 * `edit-event 1 l/UTown` edits an event with the event index 1 with a new location.
 
-### 5.7 Deleting a hall event : `delete-event` - Low Jie Feng 
+### 5.7 Deleting a hall event : `delete-event` - Low Jie Feng
 
 This command helps you delete an event from Hall-y.
 
