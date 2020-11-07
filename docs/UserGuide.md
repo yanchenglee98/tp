@@ -240,15 +240,28 @@ Here’s a step by step guide:
 Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 
-### 5.5 Listing all student groups : `list-group`
+### 5.5 Listing all student groups : `list-group` - Tee Kok Siang
 
-You can list all student groups by using the `list-group` command.
+This command helps you to list all student groups.
 
-The steps for this command are as follows:
-1. Enter the list group command by typing `list-group` into the input box
-2. Press enter
-3. The result box will display all the student groups:   
-![](https://i.imgur.com/BOa35Ql.png)
+Let's say you want to find out all the student groups in your hall.
+
+You can list all of them by using the following format:
+
+Format: `list-group`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* If there is no resident or student group, an empty list will be displayed.
+
+</div>
+
+Here's a step by step guide:
+
+1. Type the following command into the input box: `list-group` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/Fgw8L0Q.png)
+2. The result box will be updated to display all student groups <br> ![](https://i.imgur.com/W1H5mAw.png)
 
 ### 5.6 Adding a hall event : `add-event` - Low Jie Feng
 
@@ -564,6 +577,122 @@ The default settings specifies 4 blocks(A, B, C, D), 4 floors(1 - 4) and 20 room
 ![](https://i.imgur.com/PiFpKJb.png)
 4) Save the file and relaunch Hall-y.
 
+### 6.2 Editing the block configuration : `edit-block-range` - Tee Kok Siang
+
+This command helps you to edit the block configuration.
+
+Does your hall have blocks A, B, C, D and E which are different from the default blocks A, B, C and D? Fret not! You can edit it by using this command. Suppose that it has the following details:
+
+Parameters | Details
+---------- | -------
+First Block Letter | A
+Last Block Letter | E
+
+You can edit it by typing in the command with these parameters using the following format:
+
+Format: `edit-block-range FIRST_BLOCK_LETTER LAST_BLOCK_LETTER`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* `FIRST_BLOCK_LETTER` and `LAST_BLOCK_LETTER` must be a capital letter. It can be any capital letter from 'A' to 'Z'. However, `FIRST_BLOCK_LETTER` can only before or equal to `LAST_BLOCK_LETTER`.
+
+* You need to restart Hall-y for the configuration changes to take effect.
+
+* It will erase the existing data if the resident's block is no longer within the allowed block letters after updating the configuration.
+  
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box:
+`edit-block-range A E` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/PxrRubO.png)
+1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
+![](https://i.imgur.com/gbNaU1c.png)
+
+Here are some other examples you can try:
+
+* `edit-block-range F J` edits the block configuration to allow blocks F, G, H, I and J only.
+* `edit-block-range K O` edits the block configuration to allow blocks K, L, M, N and O only.
+
+### 6.3 Editing the floor configuration : `edit-floor-range` - Tee Kok Siang
+
+This command helps you to edit the floor configuration.
+
+Does your hall have floor number from 1 to 5 which is different from the default floor number from 1 to 4? Fret not! You can edit it by using this command. Suppose that it has the following details:
+
+Parameters | Details
+---------- | -------
+Minimum Floor Number | 1
+Maximum Floor Number | 5
+
+You can edit it by typing in the command with these parameters using the following format:
+
+Format: `edit-floor-range MIN_FLOOR_NUMBER MAX_FLOOR_NUMBER`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* `MIN_FLOOR_NUMBER` and `MAX_FLOOR_NUMBER` must be a positive integer. It can be any positive integer from 1 to 100. However, `MIN_FLOOR_NUMBER` can only less than or equal to `MAX_FLOOR_NUMBER`.
+
+* You need to restart Hall-y for the configuration changes to take effect.
+
+* It will erase the existing data if the resident's floor number is no longer within the allowed floor numbers after updating the configuration.
+  
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box:
+`edit-floor-range 1 5` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/qeNtW8H.png)
+1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
+![](https://i.imgur.com/gbNaU1c.png)
+
+Here are some other examples you can try:
+
+* `edit-floor-range 1 8` edits the floor configuration to allow floor number from 1 to 8 only.
+* `edit-floor-range 1 10` edits the floor configuration to allow floor number from 1 to 10 only.
+
+### 6.4 Editing the room configuration : `edit-room-range` - Tee Kok Siang
+
+This command helps you to edit the room configuration.
+
+Does your hall have room number from 1 to 10 which is different from the default room number from 1 to 20? Fret not! You can edit it by using this command. Suppose that it has the following details:
+
+Parameters | Details
+---------- | -------
+Minimum Room Number | 1
+Maximum Room Number | 10
+
+You can edit it by typing in the command with these parameters using the following format:
+
+Format: `edit-room-range MIN_ROOM_NUMBER MAX_ROOM_NUMBER`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* `MIN_ROOM_NUMBER` and `MAX_ROOM_NUMBER` must be a positive integer. It can be any positive integer from 1 to 1000. However, `MIN_ROOM_NUMBER` can only less than or equal to `MAX_ROOM_NUMBER`.
+
+* You need to restart Hall-y for the configuration changes to take effect.
+
+* It will erase the existing data if the resident's room number is no longer within the allowed room numbers after updating the configuration.
+  
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box:
+`edit-room-range 1 10` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/o5k8N1g.png)
+1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
+![](https://i.imgur.com/MwVPp5U.png)
+
+Here are some other examples you can try:
+
+* `edit-room-range 1 30` edits the room configuration to allow room number from 1 to 30 only.
+* `edit-room-range 1 50` edits the room configuration to allow room number from 1 to 50 only.
 
 --------------------------------------------------------------------------------------------------------------------
 
