@@ -24,7 +24,7 @@ public class FindCommand extends Command {
 
     public static final String COMMAND_WORD = "find";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose characteristics match the"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all residents whose characteristics match the"
             + " given keywords and parameters"
             + " and displays them as a list with index numbers.\n"
             + "Parameters: "
