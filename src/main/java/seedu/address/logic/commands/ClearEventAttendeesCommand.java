@@ -12,11 +12,11 @@ import seedu.address.model.Model;
 import seedu.address.model.event.Event;
 
 /**
- * Deletes an event identified using its displayed index from the events list.
+ * clears an event's attendee list identified using its displayed index from the events list.
  */
-public class ClearEventCommand extends Command {
+public class ClearEventAttendeesCommand extends Command {
 
-    public static final String COMMAND_WORD = "clear-event";
+    public static final String COMMAND_WORD = "clear-event-attendees";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Clears the attendee list of the "
@@ -29,9 +29,9 @@ public class ClearEventCommand extends Command {
     private final Index targetIndex;
 
     /**
-     * Creates a {@code DeleteEventCommand} with the given {@code targetIndex}.
+     * Creates a {@code ClearEventAttendeesCommand} with the given {@code targetIndex}.
      */
-    public ClearEventCommand(Index targetIndex) {
+    public ClearEventAttendeesCommand(Index targetIndex) {
         requireNonNull(targetIndex);
         this.targetIndex = targetIndex;
     }
@@ -57,7 +57,7 @@ public class ClearEventCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof ClearEventCommand // instanceof handles null
-                && targetIndex.equals(((ClearEventCommand) other).targetIndex)); // state check
+                || (other instanceof ClearEventAttendeesCommand // instanceof handles null
+                && targetIndex.equals(((ClearEventAttendeesCommand) other).targetIndex)); // state check
     }
 }
