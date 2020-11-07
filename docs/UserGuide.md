@@ -30,34 +30,35 @@ License: `MIT`
 
 ## 1 Introduction
 
-### 1.1 Welcome
-
 Welcome to the Hall-y User Guide!
+
+### 1.1 Welcome
 
 Hall-y (pronounced _hall-ee_) is a desktop application designed to help you manage hall residents and events.
 
-It features a simple text interface, also known as Command Line Interface (CLI), as well as visual representations of your hall residents and events using a Graphical User Interface (GUI).
+It features a Command Line Interface (CLI), which means you operate Hall-y by typing various commands.
+It also features a Graphical User Interface (GUI), meaning you can easily view your hall residents and events, with their respective details.
 
 If you can type fast, Hall-y will allow you to manage hall residents and events more efficiently than traditional GUI applications.
 
-This User Guide is tailored to users of different technical levels:
+Check out the list below on how to use this User Guide:
 - If you are new here, you can jump straight to the [Getting Started](#3-getting-started) guide to setup Hall-y on your computer
 - If you are interested in what features Hall-y has to offer, you can check out Hall-y's feature list [here](#4-features)
-- If you are already familiar with Hall-y, you can get a quick refresher using the [command summary](#8-Command-Summary)
+- If you are already familiar with Hall-y, you can get a quick refresher using the [command summary](#7-command-summary)
 
-### 1.2 Purpose of Document
+### 1.2 Purpose of document
 
 The purpose of this document is to teach you how to start up Hall-y, and to provide information necessary to understand how to use this application. It will provide the commands used in Hall-y and tell you how to use them.
 
-### 1.3 Target Audience
+### 1.3 Target audience
 
 The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who is responsible for managing residents in hall. This includes keeping track of their information, such as the rooms they stay in, their student group, their matriculation number and contact information.
 
-### 1.4 Application Interface
+### 1.4 Interface
 
 You can refer to the diagram below to understand how Hall-y looks like:
 
-![Hall-y's Interface](https://i.imgur.com/Awmyti6.png)
+![](https://i.imgur.com/dthdQee.png)
 
 The table below shows a brief explanation of each section:
 
@@ -103,7 +104,7 @@ Category | Details
 -------- | ------
 Name     | Timmy Tan
 Phone    | 91234567
-Email    | <span>first@example.com</span>
+Email    | first@example.com
 Address  | Blk 10, Bedok St 1, #02-01
 Block and Room | A101
 Gender | Male
@@ -144,14 +145,17 @@ This section is broken down into 3 parts:
 
 **:information_source: Note:**<br>
 
-* If any parameters are repeated, the last one will be used
+* In most of the commands, you will need to provide several parameters.
+
+* If any parameters are repeated, the last one will be used.
   
 </div>
 
-## 4.1 Resident related features
-This section will cover features related to residents.
+### 4.1 Resident related features
 
-### 4.1.1 Listing all residents : `list` - Lee Yan Cheng
+This section will cover various commands to manage residents.
+
+#### 4.1.1 Listing all residents : `list` - Lee Yan Cheng
 
 This command helps you list all residents.
 
@@ -174,7 +178,7 @@ Here’s a step by step guide:
 2. The residents list will be updated to display all residents <br> ![](https://i.imgur.com/dS6Iavr.png)
 
 
-### 4.1.2 Adding a resident: `add` - Pang Biao Yi
+#### 4.1.2 Adding a resident: `add` - Pang Biao Yi
 
 This command helps you add a resident into Hall-y.
 
@@ -231,7 +235,7 @@ Here are some other examples:
 *   `add n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`
 
 
-### 4.1.3 Editing a resident : `edit` - Pang Biao Yi
+#### 4.1.3 Editing a resident : `edit` - Pang Biao Yi
 
 This command helps you edit a resident’s details.
 
@@ -283,7 +287,7 @@ Here are some other examples:
 *   `edit 1 s/soccer`
 *   `edit 2 n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`
 
-### 4.1.4 Deleting a resident : `delete` - Lee Yan Cheng
+#### 4.1.4 Deleting a resident : `delete` - Lee Yan Cheng
 
 This command helps you delete a resident from Hall-y.
 
@@ -309,7 +313,7 @@ Here’s a step by step guide:
 Here are some other examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y
 
-### 4.1.5 Listing all student groups : `list-group` - Tee Kok Siang
+#### 4.1.5 Listing all student groups : `list-group` - Tee Kok Siang
 
 This command helps you list all student groups.
 
@@ -333,11 +337,11 @@ Here's a step by step guide:
 2. The result box will be updated to display all student groups <br> ![](https://i.imgur.com/W1H5mAw.png)
 
 
-## 4.2 Event related features
+### 4.2 Event related features
 
-This section will cover features related to events.
+This section will cover various commands to manage events.
 
-### 4.2.1 Adding a hall event : `add-event` - Low Jie Feng
+#### 4.2.1 Adding a hall event : `add-event` - Low Jie Feng
 
 This command helps you add an event into Hall-y.
 
@@ -386,7 +390,7 @@ Here are some other examples:
 * `add-event n/Hall Dinner dt/01/01/2020 15:00 l/Dining Hall d/The yearly Eusoff Hall Dinner.`
 
 
-### 4.2.2 Editing a hall event : `edit-event` - Low Jie Feng
+#### 4.2.2 Editing a hall event : `edit-event` - Low Jie Feng
 
 This command helps you edit an event’s details.
 
@@ -430,7 +434,7 @@ Here are some other examples you can try, assuming you have at least one event s
 * `edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.` 
 * `edit-event 1 l/UTown`
 
-### 4.2.3 Deleting a hall event : `delete-event` - Low Jie Feng
+#### 4.2.3 Deleting a hall event : `delete-event` - Low Jie Feng
 
 This command helps you delete an event from Hall-y.
 
@@ -457,7 +461,7 @@ Here's a step by step guide:
 2. The events list will be updated to reflect the deleted event
 ![](https://i.imgur.com/QMaYoUD.png)
 
-### 4.2.4 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
+#### 4.2.4 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
 
 This command helps you assign a resident to an event.
 
@@ -484,7 +488,7 @@ Here’s a step by step guide:
 Here are some other examples:
 * `assign 1 2` 
 
-### 4.2.5 Clearing attendee list of event: `clear-event-attendees` - Lee Yan Cheng
+#### 4.2.5 Clearing attendee list of event: `clear-event-attendees` - Lee Yan Cheng
 
 This command helps you clear the attendee list of an event.
 
@@ -512,7 +516,7 @@ Here’s a step by step guide:
 Here are some other examples:
 * `clear-event-attendees 3` 
 
-### 4.2.6 Listing attendees by event: `list-event-attendees` - Lee Yan Cheng
+#### 4.2.6 Listing attendees by event: `list-event-attendees` - Lee Yan Cheng
 
 This command helps you get a list of the attendees of a particular event.
 
@@ -540,11 +544,11 @@ Here’s a step by step guide:
 Here are some other examples:
 * `list-event-attendees 4`
 
-## 4.3 Utility related features
+### 4.3 Utility related features
 
-This section will cover utility features.
+This section will cover other utility commands.
 
-### 4.3.1 Locating residents by characteristics: `find` - Aung Thuya Oo
+#### 4.3.1 Locating residents by characteristics: `find` - Aung Thuya Oo
 
 This command helps you find all residents whose characteristics match the given arguments and keywords.
 
@@ -604,7 +608,7 @@ Tips:
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 * For the rest of the parameters, like block and floor, residents matching all of them will be returned
 
-### 4.3.2 Exporting of email : `export` - Lee Yan Cheng
+#### 4.3.2 Exporting of email : `export` - Lee Yan Cheng
 
 This command helps you export a list of residents' emails.
 
@@ -620,7 +624,7 @@ Here’s a step by step guide:
 3. Click the folder and the list of emails will be in the file named `hally.txt` <br> ![](https://i.imgur.com/FkPSfoq.png)
 
 
-### 4.3.3 Clearing all residents and events : `clear` - Pang Biao Yi
+#### 4.3.3 Clearing all residents and events : `clear` - Pang Biao Yi
 
 You can delete all residents and events in Hall-y by using the `clear` command.
 
@@ -631,7 +635,7 @@ Here’s a step by step guide:
 ![](https://i.imgur.com/DiLFzS5.png)
 
 
-### 4.3.4 Viewing help : `help` - Lee Yan Cheng
+#### 4.3.4 Viewing help : `help` - Lee Yan Cheng
 
 You can get a link to our user guide by using the `help` command.
 
@@ -640,7 +644,7 @@ Here’s a step by step guide:
 3. The help window will pop out <br> ![](https://i.imgur.com/zNpioyy.png)
 4. Copy the URL and paste it into a browser of your choice to view the online user guide
 
-### 4.3.5 Exiting the application : `exit` - Pang Biao Yi
+#### 4.3.5 Exiting the application : `exit` - Pang Biao Yi
 
 You can exit the application by using the `exit` command.
 
@@ -649,7 +653,7 @@ Here’s a step by step guide:
 ![](https://i.imgur.com/vSccpnr.png)
 2. The application should now be closed
 
-### 4.3.6 Saving the data
+#### 4.3.6 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
@@ -664,7 +668,7 @@ In this section, you will learn how to edit the blocks, floors and rooms configu
 
 **:exclamation: Caution:**<br>
 
-* All of Hall-y's data (including residents and events) if the resident's block or room is no longer within the allowed range after updating the configuration.
+- All of Hall-y's data (including residents and events) will be deleted if the resident's block or room is no longer within the allowed range after updating the configuration.
 
 - This feature is for advanced users only! Please ensure that you know what you are doing before proceeding.
 
@@ -830,32 +834,32 @@ This section gives a summarised view of the commands available in Hall-y.
 
 ### 7.1 Resident related commands
 
-You can refer to the table below for the various commands to manage residents.
+You can refer to the table below for a summary on the various commands for managing residents.
 
 Action | Format, Examples
 --------|------------------
 **Add resident** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP]…` <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/badminton`
-**Delete resident** | `delete INDEX`<br> e.g. `delete 3`
-**Edit resident** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER][s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
+**Delete resident** | `delete RESIDENT_INDEX`<br> e.g. `delete 3`
+**Edit resident** | `edit RESIDENT_INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER] [s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
 **List all residents** | `list`
 **List all student groups** | `list-group`
 
 ### 7.2 Event related commands
 
-You can refer to the table below for the various commands to manage events.
+You can refer to the table below for a summary on the various commands for managing events.
 
 Action | Format, Examples
 --------|------------------
 **Add event** | `add-event n/NAME dt/EVENT_DATE l/LOCATION d/DESCRIPTION` <br />e.g. `add-event n/Night Cycling dt/30/10/2020 18:00 l/Meet at Hall Entrance d/A night cycling event held every semester.`
 **Assign resident** | `assign RESIDENT_INDEX EVENT_INDEX` <br> e.g. `assign 1 1`
 **Clear event attendees** | `clear-event-attendees EVENT_INDEX` <br> e.g. `clear-event-attendees 1`
-**Delete event** | `delete-event INDEX`<br> e.g. `delete-event 2`
-**Edit event** | `edit INDEX [n/NAME] [dt/EVENT_DATE] [l/LOCATION] [d/DESCRIPTION] `<br> e.g.`edit 2 n/Hall Lunch for Semester 1`
+**Delete event** | `delete-event EVENT_INDEX`<br> e.g. `delete-event 2`
+**Edit event** | `edit EVENT_INDEX [n/NAME] [dt/EVENT_DATE] [l/LOCATION] [d/DESCRIPTION] `<br> e.g.`edit 2 n/Hall Lunch for Semester 1`
 **List event attendees** | `list-event-attendees EVENT_INDEX` <br> e.g. `list-event-attendees 1`
 
 ### 7.3 Utility commands
 
-You can refer to the table below for the other utility commands.
+You can refer to the table below for a summary on the other utility commands.
 
 Action | Format, Examples
 --------|------------------
@@ -872,7 +876,9 @@ Action | Format, Examples
 
 ## Appendix A: Glossary
 
-* **Command Line Interface (CLI)**: Text interface to interact with the application by typing the command
+Below are some common terms used in Hall-y and in the User Guide:
+
+* **Command Line Interface (CLI)**: Text interface to interact with the application by typing in various commands
 * **Graphical User Interface (GUI)**: Visual interface to interact with the application
 * **Hall**: A residential living area that is populated by students
 * **Hall admin**: An administrative staff to handle hall-related matters
