@@ -43,7 +43,7 @@ If you can type fast, Hall-y will allow you to manage hall residents and events 
 This User Guide is tailored to users of different technical levels:
 - If you are new here, you can jump straight to the [Getting Started](#3-getting-started) guide to setup Hall-y on your computer
 - If you are interested in what features Hall-y has to offer, you can check out Hall-y's feature list [here](#4-features)
-- If you are already familiar with Hall-y, you can get a quick refresher using the [command summary](#8-Command-Summary)
+- If you are already familiar with Hall-y, you can get a quick refresher using the [command summary](#7-command-summary)
 
 ### 1.2 Purpose of document
 
@@ -103,7 +103,7 @@ Category | Details
 -------- | ------
 Name     | Timmy Tan
 Phone    | 91234567
-Email    | <span>first@example.com</span>
+Email    | first@example.com
 Address  | Blk 10, Bedok St 1, #02-01
 Block and Room | A101
 Gender | Male
@@ -149,7 +149,8 @@ This section is broken down into 3 parts:
 </div>
 
 ### 4.1 Resident related features
-This section will cover features related to residents.
+
+This section will cover various commands to manage residents.
 
 #### 4.1.1 Listing all residents : `list` - Lee Yan Cheng
 
@@ -335,7 +336,7 @@ Here's a step by step guide:
 
 ### 4.2 Event related features
 
-This section will cover features related to events.
+This section will cover various commands to manage events.
 
 #### 4.2.1 Adding a hall event : `add-event` - Low Jie Feng
 
@@ -542,7 +543,7 @@ Here are some other examples:
 
 ### 4.3 Utility related features
 
-This section will cover utility features.
+This section will cover other utility commands.
 
 #### 4.3.1 Locating residents by characteristics: `find` - Aung Thuya Oo
 
@@ -830,7 +831,7 @@ This section gives a summarised view of the commands available in Hall-y.
 
 ### 7.1 Resident related commands
 
-You can refer to the table below for the various commands to manage residents.
+You can refer to the table below for a summary on the various commands to manage residents.
 
 Action | Format, Examples
 --------|------------------
@@ -842,7 +843,7 @@ Action | Format, Examples
 
 ### 7.2 Event related commands
 
-You can refer to the table below for the various commands to manage events.
+You can refer to the table below for a summary on the various commands to manage events.
 
 Action | Format, Examples
 --------|------------------
@@ -855,7 +856,7 @@ Action | Format, Examples
 
 ### 7.3 Utility commands
 
-You can refer to the table below for the other utility commands.
+You can refer to the table below for a summary on the other utility commands.
 
 Action | Format, Examples
 --------|------------------
