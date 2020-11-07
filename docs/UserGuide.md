@@ -138,58 +138,87 @@ Note:
 Examples:
 * `list` 
 
-### 5.2 Adding a resident: `add`
+### 5.2 Adding a resident: `add` - Pang Biao Yi
+
+This command helps you to add a resident into Hall-y.
+
+Let’s say a new freshman has come into your hall! You can add them into Hall-y using this command. Suppose that the resident is called Timmy Tan. He has the following details:
+
+Parameters | Details
+-------- | ------
+Name | Timmy Tan
+Phone    | 91234567
+Email    | first@example.com
+Address  | Blk 10, Bedok St 1, #02-01
+Block and Room | A101
+Gender | M (for male)
+Matriculation Number | A2000000X
+Student Group | basketball
+
+You can add him into Hall-y by typing in the command with these parameters using the following format:
+
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` 
 
 
-You can add a new resident to Hall-y by using the `add` command.
+Here’s a step by step guide:
 
-The steps for this command are as follows:
-
-1. Enter the add command by typing `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` into the input box, followed by enter to execute the command
-2. The result box will show the details of the added resident  
-![](https://i.imgur.com/5dSSf4h.png)
-3. Scroll down to the bottom of the residents list to view the newly added resident  
-![](https://i.imgur.com/PPahQcr.png)
+1. Type the following command into the input box:
+`add n/Timmy Tan p/91234567 e/first@example.com a/Blk 10, Bedok St 1, #02-01 br/A101 g/M m/A2000000X s/basketball` and press <kbd>Enter</kbd> to execute the command  
+![](https://i.imgur.com/VXLvMvQ.png)
+2. The resident list will be updated to reflect the newly added resident
+![](https://i.imgur.com/iybGy7j.png)
 
 
-Note:
-Please take note of the format required:
-* `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
-* `GENDER`:  M for male, F for female
-
-Note: Room numbers and matriculation numbers must be unique, i.e. there should be no duplicate room numbers or matriculation numbers.
-
-Examples:
+Here are some other examples:
 
 *   `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X s/soccer`
 *   `add n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`
 
 
-### 5.3 Editing a resident : `edit`
+### 5.3 Editing a resident : `edit` - Pang Biao Yi
 
-You can edit an existing resident to Hall-y by using the `edit` command.
+This command helps you to edit a resident’s details.
 
-The steps for this command are as follows:
+Let’s say Timmy Tan changed his phone number and email address. These are the fields you want to change:
 
-1. Enter the edit command by typing `edit [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER] [s/STUDENT_GROUP...]` into the input box, followed by enter to execute the command
-3. The result box will show the details of the edited resident  
-![](https://i.imgur.com/sgWw2sz.png)
-4. Scroll to the specified index of the resident list to view the update resident  
-![](https://i.imgur.com/BJAWQ3y.png)
+New Parameters | Details
+-------- | ------
+Phone | 91234567
+Email   | timmy@example.com
 
 
-Note:
-Please take note of the format required:
-* `ROOM_NUMBER`:  \<Block\>\<Room Number\>, e.g. B505, C201
-* `GENDER`:  M for male, F for female
+Let’s also assume that based on the current residents list as shown below, Timmy Tan has index 2.  
+![](https://i.imgur.com/tnmoZ5T.png)
 
-Note: Room numbers and matriculation numbers must be unique, i.e. there should be no duplicate room numbers or matriculation numbers.
+You can edit his details by typing in the command with these parameters using the following format:
 
-Examples:
-* `edit 1 p/91234567 e/johndoe@example.com br/B402`   
-Edits the phone number, email address and room number of the 1st resident to be 91234567, johndoe@example.com and B402 respectively.
-* `edit 2 n/Betsy Crower p/87652103`   
-Edits the name of the 2nd resident and phone number to be `Betsy Crower` and 87652103 respectively.
+Format: `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/MATRICULATION_NUMBER [s/STUDENT_GROUP...]` 
+
+Here’s a step by step guide:
+
+1. Type the following command into the input box
+`edit 1 p/91234567 e/first@example.com` and press <kbd>Enter</kbd> to execute the command.  
+![](https://i.imgur.com/pRoSIDZ.png)
+2. The resident list will be updated to reflect the edited info.  
+![](https://i.imgur.com/QcjqpaB.png)
+
+  
+<div markdown="block" class="alert alert-info">
+
+:information_source: <b>Note:</b>  
+When editing student groups, the existing student groups of the person will be removed i.e adding of student groups is not cumulative.
+You can remove all the person’s student groups by typing s/ without specifying any student groups after it.
+Old data will be overridden
+</div>
+
+Here are some other examples:
+
+*   `edit 1 s/soccer`
+*   `edit n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`
+
+
+
+
 
 ### 5.4 Deleting a resident : `delete` - Lee Yan Cheng
 
@@ -211,15 +240,28 @@ Here’s a step by step guide:
 Examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y.
 
-### 5.5 Listing all student groups : `list-group`
+### 5.5 Listing all student groups : `list-group` - Tee Kok Siang
 
-You can list all student groups by using the `list-group` command.
+This command helps you to list all student groups.
 
-The steps for this command are as follows:
-1. Enter the list group command by typing `list-group` into the input box
-2. Press enter
-3. The result box will display all the student groups:   
-![](https://i.imgur.com/BOa35Ql.png)
+Let's say you want to find out all the student groups in your hall.
+
+You can list all of them by using the following format:
+
+Format: `list-group`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* If there is no resident or student group, an empty list will be displayed.
+
+</div>
+
+Here's a step by step guide:
+
+1. Type the following command into the input box: `list-group` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/Fgw8L0Q.png)
+2. The result box will be updated to display all student groups <br> ![](https://i.imgur.com/W1H5mAw.png)
 
 ### 5.6 Adding a hall event : `add-event` - Low Jie Feng
 
@@ -463,15 +505,18 @@ Here’s a step by step guide:
 2. A data folder which contains the .txt file will be created in the same location as your Hall-y application 
 3. Click the folder and the list of emails will be in the file named hally.txt <br> ![](https://i.imgur.com/CEYx5J8.png)
 
-### 5.13 Clearing all entries : `clear`
+### 5.13 Clearing all residents : `clear` - Pang Biao Yi
 
-You can clear all residents and events in Hall-y by using the `clear` command.
+This command helps you to delete all residents in Hall-y.
+
+Let’s say you want to start afresh. You can clear everything using this command
 
 The steps for this command are as follows:
-1. Enter the clear command by typing `clear` into the input box.
-2. Press enter
-3. The result box will show "Address book has been cleared"<br> ![](https://i.imgur.com/taII762.png)
-4. The resident list and event list will now be empty.<br> ![](https://i.imgur.com/3E0YfVv.png)
+1. Type the following command into the input box `clear` and press <kbd>Enter</kbd> to execute the command. <br>
+![](https://i.imgur.com/X39aQXf.png)
+2. The resident list and event list will now be empty.<br> 
+![](https://i.imgur.com/Dgz1sDu.png)
+
 
 
 ### 5.14 Viewing help : `help` - Lee Yan Cheng
@@ -486,16 +531,17 @@ Format: `help`
 
 Here’s a step by step guide:
 1.  Type the following command into the input box `help` and press <kbd>Enter</kbd> to execute the command. <br> ![](https://i.imgur.com/SvtfPqe.png)
-4. The help window will pop out <br> ![](https://i.imgur.com/HJTJNgM.png)
-5. Copy the URL and paste it into a browser of your choice to view the online user guide
+2. The help window will pop out <br> ![](https://i.imgur.com/HJTJNgM.png)
+3. Copy the URL and paste it into a browser of your choice to view the online user guide
 
-### 5.15 Exiting the application : `exit`
+### 5.15 Exiting the application : `exit` - Pang Biao Yi
 
 You can exit the application by using the `exit` command
 
 The steps for this command are as follows:
-1. Enter the exit command by typing `exit` into the input box, followed by enter to execute the command.
-3. The application should now be closed
+1. Type the following command into the input box `exit` into the input box, and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/vSccpnr.png)
+2. The application should now be closed
 
 ### 5.16 Saving the data
 
@@ -508,20 +554,145 @@ Hall-y's data is saved in the hard disk automatically after any command that cha
 ### 6.1 Changing the blocks and rooms configuration
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Important note: <br> This feature is for advanced users only! Please ensure that you know what you are doing before proceeding.**
+:information_source: <b>Note:</b> <br><br> 1) This feature is for advanced users only! Please ensure that you know what you are doing before proceeding. <br>
+2) Please ensure that the changed values are within the specified range, otherwise the application will reset them to the default values. <br>
+<br>
+Setting | Allowed Range | Default values
+-------- | ------ | ------
+minRoomSettings | 1 - 1000 | 1
+maxRoomSettings | 1 - 1000 | 1000
+minFloorSettings | 1 - 100 | 1
+minFloorSettings | 1 - 100 | 100
+
 
 </div>
 
 Want to add an additional block or change the room numbers? You can modify the settings file directly by following the steps below:
 
-1) Exit Hall-y by using the `exit` command
+1) Exit Hall-y by using the `exit` command  
 2) Open up the `preferences.json` file which resides in the same folder as 'hall-y.jar'   
 ![](https://i.imgur.com/4yexKNC.png)
 3) Edit the block and room settings as required.   
 The default settings specifies 4 blocks(A, B, C, D), 4 floors(1 - 4) and 20 rooms(1 - 20).  
 ![](https://i.imgur.com/PiFpKJb.png)
-3) Save the file and relaunch Hall-y.
+4) Save the file and relaunch Hall-y.
 
+### 6.2 Editing the block configuration : `edit-block-range` - Tee Kok Siang
+
+This command helps you to edit the block configuration.
+
+Does your hall have blocks A, B, C, D and E which are different from the default blocks A, B, C and D? Fret not! You can edit it by using this command. Suppose that it has the following details:
+
+Parameters | Details
+---------- | -------
+First Block Letter | A
+Last Block Letter | E
+
+You can edit it by typing in the command with these parameters using the following format:
+
+Format: `edit-block-range FIRST_BLOCK_LETTER LAST_BLOCK_LETTER`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* `FIRST_BLOCK_LETTER` and `LAST_BLOCK_LETTER` must be a capital letter. It can be any capital letter from 'A' to 'Z'. However, `FIRST_BLOCK_LETTER` can only before or equal to `LAST_BLOCK_LETTER`.
+
+* You need to restart Hall-y for the configuration changes to take effect.
+
+* It will erase the existing data if the resident's block is no longer within the allowed block letters after updating the configuration.
+  
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box:
+`edit-block-range A E` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/PxrRubO.png)
+1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
+![](https://i.imgur.com/gbNaU1c.png)
+
+Here are some other examples you can try:
+
+* `edit-block-range F J` edits the block configuration to allow blocks F, G, H, I and J only.
+* `edit-block-range K O` edits the block configuration to allow blocks K, L, M, N and O only.
+
+### 6.3 Editing the floor configuration : `edit-floor-range` - Tee Kok Siang
+
+This command helps you to edit the floor configuration.
+
+Does your hall have floor number from 1 to 5 which is different from the default floor number from 1 to 4? Fret not! You can edit it by using this command. Suppose that it has the following details:
+
+Parameters | Details
+---------- | -------
+Minimum Floor Number | 1
+Maximum Floor Number | 5
+
+You can edit it by typing in the command with these parameters using the following format:
+
+Format: `edit-floor-range MIN_FLOOR_NUMBER MAX_FLOOR_NUMBER`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* `MIN_FLOOR_NUMBER` and `MAX_FLOOR_NUMBER` must be a positive integer. It can be any positive integer from 1 to 100. However, `MIN_FLOOR_NUMBER` can only less than or equal to `MAX_FLOOR_NUMBER`.
+
+* You need to restart Hall-y for the configuration changes to take effect.
+
+* It will erase the existing data if the resident's floor number is no longer within the allowed floor numbers after updating the configuration.
+  
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box:
+`edit-floor-range 1 5` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/qeNtW8H.png)
+1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
+![](https://i.imgur.com/gbNaU1c.png)
+
+Here are some other examples you can try:
+
+* `edit-floor-range 1 8` edits the floor configuration to allow floor number from 1 to 8 only.
+* `edit-floor-range 1 10` edits the floor configuration to allow floor number from 1 to 10 only.
+
+### 6.4 Editing the room configuration : `edit-room-range` - Tee Kok Siang
+
+This command helps you to edit the room configuration.
+
+Does your hall have room number from 1 to 10 which is different from the default room number from 1 to 20? Fret not! You can edit it by using this command. Suppose that it has the following details:
+
+Parameters | Details
+---------- | -------
+Minimum Room Number | 1
+Maximum Room Number | 10
+
+You can edit it by typing in the command with these parameters using the following format:
+
+Format: `edit-room-range MIN_ROOM_NUMBER MAX_ROOM_NUMBER`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* `MIN_ROOM_NUMBER` and `MAX_ROOM_NUMBER` must be a positive integer. It can be any positive integer from 1 to 1000. However, `MIN_ROOM_NUMBER` can only less than or equal to `MAX_ROOM_NUMBER`.
+
+* You need to restart Hall-y for the configuration changes to take effect.
+
+* It will erase the existing data if the resident's room number is no longer within the allowed room numbers after updating the configuration.
+  
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box:
+`edit-room-range 1 10` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/o5k8N1g.png)
+1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
+![](https://i.imgur.com/MwVPp5U.png)
+
+Here are some other examples you can try:
+
+* `edit-room-range 1 30` edits the room configuration to allow room number from 1 to 30 only.
+* `edit-room-range 1 50` edits the room configuration to allow room number from 1 to 50 only.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -570,4 +741,3 @@ Action | Format, Examples
 * **Hall admin**: An administrative staff to handle hall-related matters
 * **Matriculation number**: Unique identification for NUS students, which they will obtain when they matriculate into NUS 
 * **Student group**: An interest group for the hall residents to conduct extracurricular activities
-
