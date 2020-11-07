@@ -19,9 +19,9 @@ public class EditFloorCommandTest {
 
     @Test
     public void execute_validFloorRange_success() throws CommandException {
-        CommandResult commandResult = new EditFloorCommand(1, 100).execute(model);
+        CommandResult commandResult = new EditFloorCommand(1, 9).execute(model);
         // compare output
-        assertEquals(String.format(EditFloorCommand.MESSAGE_EDIT_FLOOR_SUCCESS, 1, 100),
+        assertEquals(String.format(EditFloorCommand.MESSAGE_EDIT_FLOOR_SUCCESS, 1, 9),
             commandResult.getFeedbackToUser());
     }
 
@@ -36,7 +36,7 @@ public class EditFloorCommandTest {
 
     @Test
     public void execute_invalidMaxFloor_throwsCommandException() {
-        EditFloorCommand editFloorCommand = new EditFloorCommand(1, 101);
+        EditFloorCommand editFloorCommand = new EditFloorCommand(1, 12);
 
         assertThrows(CommandException.class,
             String.format(EditFloorCommand.MESSAGE_INVALID_MAX_FLOOR, UserPrefs.MIN_ALLOWED_FLOORS,

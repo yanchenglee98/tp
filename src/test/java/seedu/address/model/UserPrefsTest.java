@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class UserPrefsTest {
 
     public static final int VALID_MIN_FLOOR_SETTINGS = 1;
-    public static final int VALID_MAX_FLOOR_SETTINGS = 10;
+    public static final int VALID_MAX_FLOOR_SETTINGS = 9;
     public static final int VALID_MIN_ROOM_SETTINGS = 1;
     public static final int VALID_MAX_ROOM_SETTINGS = 20;
 

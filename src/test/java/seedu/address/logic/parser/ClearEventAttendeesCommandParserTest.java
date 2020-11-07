@@ -6,27 +6,27 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.ClearEventCommand;
+import seedu.address.logic.commands.ClearEventAttendeesCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-public class ClearEventCommandParserTest {
-    private ClearEventCommandParser parser = new ClearEventCommandParser();
+public class ClearEventAttendeesCommandParserTest {
+    private ClearEventAttendeesCommandParser parser = new ClearEventAttendeesCommandParser();
 
     @Test
-    public void parse_validArgs_returnsClearEventCommand() throws ParseException {
+    public void parse_validArgs_returnsClearEventAttendeesCommand() throws ParseException {
         assertParseSuccess(parser, " 1",
-                new ClearEventCommand(ParserUtil.parseIndex("1")));
+                new ClearEventAttendeesCommand(ParserUtil.parseIndex("1")));
     }
 
     @Test
-    public void parse_validArgsWithSpace_returnsClearEventCommand() throws ParseException {
+    public void parse_validArgsWithSpace_returnsClearEventAttendeesCommand() throws ParseException {
         assertParseSuccess(parser, "     1        ",
-                new ClearEventCommand(ParserUtil.parseIndex("1")));
+                new ClearEventAttendeesCommand(ParserUtil.parseIndex("1")));
     }
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
         assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                ClearEventCommand.MESSAGE_USAGE));
+                ClearEventAttendeesCommand.MESSAGE_USAGE));
     }
 }
