@@ -36,11 +36,12 @@ Welcome to the Hall-y User Guide!
 
 Hall-y (pronounced _hall-ee_) is a desktop application designed to help you manage hall residents and events.
 
-It features a simple text interface, also known as Command Line Interface (CLI), as well as visual representations of your hall residents and events using a Graphical User Interface (GUI).
+It features a Command Line Interface (CLI), which means you operate Hall-y by typing various commands.
+It also features a Graphical User Interface (GUI), meaning you can easily view your hall residents and events, with their respective details.
 
 If you can type fast, Hall-y will allow you to manage hall residents and events more efficiently than traditional GUI applications.
 
-This User Guide is tailored to users of different technical levels:
+Check out the list below on how to use this User Guide:
 - If you are new here, you can jump straight to the [Getting Started](#3-getting-started) guide to setup Hall-y on your computer
 - If you are interested in what features Hall-y has to offer, you can check out Hall-y's feature list [here](#4-features)
 - If you are already familiar with Hall-y, you can get a quick refresher using the [command summary](#7-command-summary)
@@ -144,7 +145,9 @@ This section is broken down into 3 parts:
 
 **:information_source: Note:**<br>
 
-* If any parameters are repeated, the last one will be used
+* In most of the commands, you will need to provide several parameters.
+
+* If any parameters are repeated, the last one will be used.
   
 </div>
 
