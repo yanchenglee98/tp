@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.logic.commands.ClearEventCommand.MESSAGE_CLEAR_EVENT_SUCCESS;
+import static seedu.address.logic.commands.ClearEventAttendeesCommand.MESSAGE_CLEAR_EVENT_SUCCESS;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
@@ -20,7 +20,7 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.event.Event;
 
-public class ClearEventCommandTest {
+public class ClearEventAttendeesCommandTest {
     private static final Index INDEX_FIRST_EVENT = Index.fromOneBased(1);
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
@@ -31,7 +31,7 @@ public class ClearEventCommandTest {
         String expectedMessage = String.format(MESSAGE_CLEAR_EVENT_SUCCESS, event);
 
         // execute clear event command
-        CommandResult commandResult = new ClearEventCommand(INDEX_FIRST_EVENT).execute(model);
+        CommandResult commandResult = new ClearEventAttendeesCommand(INDEX_FIRST_EVENT).execute(model);
 
         // compare output
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
@@ -47,7 +47,7 @@ public class ClearEventCommandTest {
         String expectedMessage = String.format(MESSAGE_CLEAR_EVENT_SUCCESS, event);
 
         // execute clear event command
-        CommandResult commandResult = new ClearEventCommand(INDEX_FIRST_EVENT).execute(model);
+        CommandResult commandResult = new ClearEventAttendeesCommand(INDEX_FIRST_EVENT).execute(model);
 
         // compare output
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
@@ -57,11 +57,11 @@ public class ClearEventCommandTest {
     }
 
     @Test
-    public void execute_invalidIndex_throwCommandException() throws CommandException, ParseException {
-        ClearEventCommand clearEventCommand = new ClearEventCommand(ParserUtil.parseIndex("10"));
+    public void execute_invalidIndex_throwCommandException() throws ParseException {
+        ClearEventAttendeesCommand clearEventAttendeesCommand = new ClearEventAttendeesCommand(ParserUtil.parseIndex("10"));
 
         assertThrows(CommandException.class,
-                Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX, () -> clearEventCommand.execute(model));
+                Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX, () -> clearEventAttendeesCommand.execute(model));
 
     }
 
