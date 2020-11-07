@@ -12,7 +12,7 @@ import seedu.address.model.Model;
 import seedu.address.model.event.Event;
 
 /**
- * Deletes an event identified using its displayed index from the events list.
+ * clears an event's attendee list identified using its displayed index from the events list.
  */
 public class ClearEventAttendeesCommand extends Command {
 
