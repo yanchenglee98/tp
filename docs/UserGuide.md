@@ -45,15 +45,15 @@ This User Guide is tailored to users of different technical levels:
 - If you are interested in what features Hall-y has to offer, you can check out Hall-y's feature list [here](#4-features)
 - If you are already familiar with Hall-y, you can get a quick refresher using the [command summary](#8-Command-Summary)
 
-### 1.2 Purpose of Document
+### 1.2 Purpose of document
 
 The purpose of this document is to teach you how to start up Hall-y, and to provide information necessary to understand how to use this application. It will provide the commands used in Hall-y and tell you how to use them.
 
-### 1.3 Target Audience
+### 1.3 Target audience
 
 The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who is responsible for managing residents in hall. This includes keeping track of their information, such as the rooms they stay in, their student group, their matriculation number and contact information.
 
-### 1.4 Application Interface
+### 1.4 Interface
 
 You can refer to the diagram below to understand how Hall-y looks like:
 
