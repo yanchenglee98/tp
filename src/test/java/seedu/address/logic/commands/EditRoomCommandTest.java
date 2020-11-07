@@ -19,9 +19,9 @@ public class EditRoomCommandTest {
 
     @Test
     public void execute_validRoomRange_success() throws CommandException {
-        CommandResult commandResult = new EditRoomCommand(1, 1000).execute(model);
+        CommandResult commandResult = new EditRoomCommand(1, 99).execute(model);
         // compare output
-        assertEquals(String.format(EditRoomCommand.MESSAGE_EDIT_ROOM_SUCCESS, 1, 1000),
+        assertEquals(String.format(EditRoomCommand.MESSAGE_EDIT_ROOM_SUCCESS, 1, 99),
             commandResult.getFeedbackToUser());
     }
 
@@ -36,7 +36,7 @@ public class EditRoomCommandTest {
 
     @Test
     public void execute_invalidMaxRoom_throwsCommandException() {
-        EditRoomCommand editRoomCommand = new EditRoomCommand(1, 1001);
+        EditRoomCommand editRoomCommand = new EditRoomCommand(1, 101);
 
         assertThrows(CommandException.class,
             String.format(EditRoomCommand.MESSAGE_INVALID_MAX_ROOM, UserPrefs.MIN_ALLOWED_ROOMS,
