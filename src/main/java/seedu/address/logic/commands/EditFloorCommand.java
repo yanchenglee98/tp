@@ -15,7 +15,7 @@ public class EditFloorCommand extends Command {
 
     public static final String COMMAND_NOTES = "Notes: Please restart the application for the floor "
         + "settings changes to take effect. This command will erase the existing data "
-        + "if the resident's floor number is not longer valid after updating the floor settings.";
+        + "if the resident's floor number is no longer valid after updating the floor settings.";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the range of floor number "
         + "by specifying the minimum and maximum floor number.\n"

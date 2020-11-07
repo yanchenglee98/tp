@@ -15,7 +15,7 @@ public class EditRoomCommand extends Command {
 
     public static final String COMMAND_NOTES = "Notes: Please restart the application for the room "
         + "settings changes to take effect. This command will erase the existing data "
-        + "if the resident's room number is not longer valid after updating the room settings.";
+        + "if the resident's room number is no longer valid after updating the room settings.";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the range of room number "
         + "by specifying the minimum and maximum room number.\n"
