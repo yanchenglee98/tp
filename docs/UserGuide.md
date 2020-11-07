@@ -659,7 +659,7 @@ Here are some other examples you can try:
 
 This command helps you to edit the room configuration.
 
-Does your hall have room number 1 to 10 which is different from the default room number 1 to 20? Fret not! You can edit it by using this command. Suppose that it has the following details:
+Does your hall have room number from 1 to 10 which is different from the default room number from 1 to 20? Fret not! You can edit it by using this command. Suppose that it has the following details:
 
 Parameters | Details
 ---------- | -------
