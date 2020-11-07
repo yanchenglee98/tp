@@ -15,7 +15,7 @@ public class EditBlockCommand extends Command {
 
     public static final String COMMAND_NOTES = "Notes: Please restart the application for the block "
         + "settings changes to take effect. This command will erase the existing data "
-        + "if the resident's block letter is not longer valid after updating the block settings.";
+        + "if the resident's block letter is no longer valid after updating the block settings.";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the range of block letter "
         + "by specifying the first and last block letter.\n"
