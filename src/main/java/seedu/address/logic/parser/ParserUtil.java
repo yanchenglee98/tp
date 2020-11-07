@@ -305,7 +305,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code String roomNumber} into a {@code NameContainsKeywordsPredicate}.
+     * Parses {@code String roomNumber} into a {@code RoomMatchesNumberPredicate}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code roomNumber} is invalid.
