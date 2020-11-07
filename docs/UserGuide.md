@@ -148,10 +148,10 @@ This section is broken down into 3 parts:
   
 </div>
 
-## 4.1 Resident related features
+### 4.1 Resident related features
 This section will cover features related to residents.
 
-### 4.1.1 Listing all residents : `list` - Lee Yan Cheng
+#### 4.1.1 Listing all residents : `list` - Lee Yan Cheng
 
 This command helps you list all residents.
 
@@ -174,7 +174,7 @@ Here’s a step by step guide:
 2. The residents list will be updated to display all residents <br> ![](https://i.imgur.com/dS6Iavr.png)
 
 
-### 4.1.2 Adding a resident: `add` - Pang Biao Yi
+#### 4.1.2 Adding a resident: `add` - Pang Biao Yi
 
 This command helps you add a resident into Hall-y.
 
@@ -231,7 +231,7 @@ Here are some other examples:
 *   `add n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`
 
 
-### 4.1.3 Editing a resident : `edit` - Pang Biao Yi
+#### 4.1.3 Editing a resident : `edit` - Pang Biao Yi
 
 This command helps you edit a resident’s details.
 
@@ -283,7 +283,7 @@ Here are some other examples:
 *   `edit 1 s/soccer`
 *   `edit 2 n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`
 
-### 4.1.4 Deleting a resident : `delete` - Lee Yan Cheng
+#### 4.1.4 Deleting a resident : `delete` - Lee Yan Cheng
 
 This command helps you delete a resident from Hall-y.
 
@@ -309,7 +309,7 @@ Here’s a step by step guide:
 Here are some other examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y
 
-### 4.1.5 Listing all student groups : `list-group` - Tee Kok Siang
+#### 4.1.5 Listing all student groups : `list-group` - Tee Kok Siang
 
 This command helps you list all student groups.
 
@@ -333,11 +333,11 @@ Here's a step by step guide:
 2. The result box will be updated to display all student groups <br> ![](https://i.imgur.com/W1H5mAw.png)
 
 
-## 4.2 Event related features
+### 4.2 Event related features
 
 This section will cover features related to events.
 
-### 4.2.1 Adding a hall event : `add-event` - Low Jie Feng
+#### 4.2.1 Adding a hall event : `add-event` - Low Jie Feng
 
 This command helps you add an event into Hall-y.
 
@@ -386,7 +386,7 @@ Here are some other examples:
 * `add-event n/Hall Dinner dt/01/01/2020 15:00 l/Dining Hall d/The yearly Eusoff Hall Dinner.`
 
 
-### 4.2.2 Editing a hall event : `edit-event` - Low Jie Feng
+#### 4.2.2 Editing a hall event : `edit-event` - Low Jie Feng
 
 This command helps you edit an event’s details.
 
@@ -430,7 +430,7 @@ Here are some other examples you can try, assuming you have at least one event s
 * `edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.` 
 * `edit-event 1 l/UTown`
 
-### 4.2.3 Deleting a hall event : `delete-event` - Low Jie Feng
+#### 4.2.3 Deleting a hall event : `delete-event` - Low Jie Feng
 
 This command helps you delete an event from Hall-y.
 
@@ -457,7 +457,7 @@ Here's a step by step guide:
 2. The events list will be updated to reflect the deleted event
 ![](https://i.imgur.com/QMaYoUD.png)
 
-### 4.2.4 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
+#### 4.2.4 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
 
 This command helps you assign a resident to an event.
 
@@ -484,7 +484,7 @@ Here’s a step by step guide:
 Here are some other examples:
 * `assign 1 2` 
 
-### 4.2.5 Clearing attendee list of event: `clear-event-attendees` - Lee Yan Cheng
+#### 4.2.5 Clearing attendee list of event: `clear-event-attendees` - Lee Yan Cheng
 
 This command helps you clear the attendee list of an event.
 
@@ -512,7 +512,7 @@ Here’s a step by step guide:
 Here are some other examples:
 * `clear-event-attendees 3` 
 
-### 4.2.6 Listing attendees by event: `list-event-attendees` - Lee Yan Cheng
+#### 4.2.6 Listing attendees by event: `list-event-attendees` - Lee Yan Cheng
 
 This command helps you get a list of the attendees of a particular event.
 
@@ -540,11 +540,11 @@ Here’s a step by step guide:
 Here are some other examples:
 * `list-event-attendees 4`
 
-## 4.3 Utility related features
+### 4.3 Utility related features
 
 This section will cover utility features.
 
-### 4.3.1 Locating residents by characteristics: `find` - Aung Thuya Oo
+#### 4.3.1 Locating residents by characteristics: `find` - Aung Thuya Oo
 
 This command helps you find all residents whose characteristics match the given arguments and keywords.
 
@@ -604,7 +604,7 @@ Tips:
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 * For the rest of the parameters, like block and floor, residents matching all of them will be returned
 
-### 4.3.2 Exporting of email : `export` - Lee Yan Cheng
+#### 4.3.2 Exporting of email : `export` - Lee Yan Cheng
 
 This command helps you export a list of residents' emails.
 
@@ -620,7 +620,7 @@ Here’s a step by step guide:
 3. Click the folder and the list of emails will be in the file named `hally.txt` <br> ![](https://i.imgur.com/FkPSfoq.png)
 
 
-### 4.3.3 Clearing all residents and events : `clear` - Pang Biao Yi
+#### 4.3.3 Clearing all residents and events : `clear` - Pang Biao Yi
 
 You can delete all residents and events in Hall-y by using the `clear` command.
 
@@ -631,7 +631,7 @@ Here’s a step by step guide:
 ![](https://i.imgur.com/DiLFzS5.png)
 
 
-### 4.3.4 Viewing help : `help` - Lee Yan Cheng
+#### 4.3.4 Viewing help : `help` - Lee Yan Cheng
 
 You can get a link to our user guide by using the `help` command.
 
@@ -640,7 +640,7 @@ Here’s a step by step guide:
 3. The help window will pop out <br> ![](https://i.imgur.com/zNpioyy.png)
 4. Copy the URL and paste it into a browser of your choice to view the online user guide
 
-### 4.3.5 Exiting the application : `exit` - Pang Biao Yi
+#### 4.3.5 Exiting the application : `exit` - Pang Biao Yi
 
 You can exit the application by using the `exit` command.
 
@@ -649,7 +649,7 @@ Here’s a step by step guide:
 ![](https://i.imgur.com/vSccpnr.png)
 2. The application should now be closed
 
-### 4.3.6 Saving the data
+#### 4.3.6 Saving the data
 
 Hall-y's data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
