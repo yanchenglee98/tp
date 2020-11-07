@@ -28,7 +28,7 @@ public class FindCommand extends Command {
             + " given keywords and parameters"
             + " and displays them as a list with index numbers.\n"
             + "Parameters: "
-            + "[" + PREFIX_NAME + "KEYWORDS [MORE KEYWORDS]" + "] "
+            + "[" + PREFIX_NAME + "NAME_KEYWORDS..." + "] "
             + "[" + PREFIX_BLOCK + "BLOCK" + "] "
             + "[" + PREFIX_FLOOR + "FLOOR" + "]"
             + "[" + PREFIX_ROOM_NUMBER + "ROOM_NUMBER" + "] "
