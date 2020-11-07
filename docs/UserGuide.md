@@ -665,7 +665,7 @@ In this section, you will learn how to edit the blocks, floors and rooms configu
 
 **:exclamation: Caution:**<br>
 
-* All of Hall-y's data (including residents and events) if the resident's block or room is no longer within the allowed range after updating the configuration.
+- All of Hall-y's data (including residents and events) will be deleted if the resident's block or room is no longer within the allowed range after updating the configuration.
 
 - This feature is for advanced users only! Please ensure that you know what you are doing before proceeding.
 
@@ -831,7 +831,7 @@ This section gives a summarised view of the commands available in Hall-y.
 
 ### 7.1 Resident related commands
 
-You can refer to the table below for a summary on the various commands to manage residents.
+You can refer to the table below for a summary on the various commands for managing residents.
 
 Action | Format, Examples
 --------|------------------
@@ -843,7 +843,7 @@ Action | Format, Examples
 
 ### 7.2 Event related commands
 
-You can refer to the table below for a summary on the various commands to manage events.
+You can refer to the table below for a summary on the various commands for managing events.
 
 Action | Format, Examples
 --------|------------------
