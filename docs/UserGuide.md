@@ -216,10 +216,6 @@ Here are some other examples:
 *   `edit 1 s/soccer`
 *   `edit n/Lee Xiao Ming p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`
 
-
-
-
-
 ### 5.4 Deleting a resident : `delete` - Lee Yan Cheng
 
 This command helps you delete a resident from Hall-y.
@@ -457,39 +453,57 @@ Note:
 Examples:
 * `list-event-attendees 1` shows the residents that are attending the 1st event
 
-### 5.11 Locating residents by characteristics: `find`
+### 5.11 Locating residents by characteristics: `find` - Aung Thuya Oo
 
-You can find all persons whose characteristics match the given arguments and keywords. The residents list will automatically display these residents.
+This find all persons whose characteristics match the given arguments and keywords.
 
-The steps for this command are as follows:
+Let's say you are want to find all female resident who lives on the third floor in block 'A',
+they are in the student group 'hackers'. 
+You can find this person in Hall-y using this command.
+Suppose that it has the following details:
 
-1. Enter the find command by typing `find [n/KEYWORDS [MORE KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]` into the input box.
-2. Press enter.
-3. The result box will show how many residents fit the inputted characteristics. <br> ![Result box of find](https://i.imgur.com/gPMxpz9.png)
-4. The residents list will be updated with the residents who fit the inputted characteristics. <br> ![Residents list of find](https://i.imgur.com/aq1YmhQ.png)
+Parameters | Details
+---------- | -------
+Gender | Female
+Block | A
+Floor | 3
+Student Group | hackers
 
+You can find these residents by typing in the command with these parameters using the following format:
 
-Note:
-Please take note of the format required:
-* `ROOM_NUMBER`:  The last 2 digits of the room numbers, e.g. 05, 12, 15, etc.
-* `FLOOR`:  The number of the floor of the resident you want to find, e.g. 1, 2, 3 and so on.
-* `BLOCK`: The alphabetical name of the block, e.g. A, B, C, or D
-* `GENDER`:  M for male, F for female
-* `KEYWORDS`: refers to any part of a resident's name, e.g. `Carl` is a keyword from `Carl Kurz`
+Format: `find [n/NAME_KEYWORDS [MORE NAME_KEYWORDS]] [m/MATRICULATION_NUMBER] [g/GENDER] 
+[b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [s/STUDENT_GROUP...]`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command:**<br>
+
+* `ROOM_NUMBER` should be formatted as 2 digits within the room range.<br>e.g. 05, 12, 15.
+* `FLOOR` should a 1 digit number within the floor range.<br> e.g. 1, 2, 3.
+* `BLOCK` is a single alphabetical letter within the block range.<br> e.g. A, B, C.
+* `GENDER` should be M for male, F for female.
+* `NAME_KEYWORDS` should refer to any part of a resident's name<br>e.g. `Carl` is a keyword from `Carl Kurz`.
+* If no residents match the characteristics, an empty list will be displayed.
+
+</div>
+
+Here's a step by step guide:
+1. Type the following command into the input box:
+`find g/F b/A f/3 s/hackers` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/ss2RN8x.png)
+2. The user list will be updated to show the residents matching those characteristics, and the result box will show the number of residents matching those characteristics.
+![](https://i.imgur.com/Tpp9lSu.png)
+
+Here are some other examples you can try:
+* `find n/John` returns all residents with "John" in their name
+* `find l/3 s/badminton` returns all residents who stay on level 3 and are in the student group "badminton".
 
 Tips
 * The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* When searching with names, residents matching at least one keyword with names will be returned (i.e. `OR` search).
+* The order of the name keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* When searching with names, residents matching at least one keyword with names will be returned.
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-* For the rest of the parameters, like block and floor, residents matching all of them will be returned (i.e. `AND` search, where the returned resident will live on this floor AND in this block)
-
-Examples:
-* `find n/John` returns `john` and `John Doe`
-* `find l/3 s/badminton` returns `Alice Pauline`, `Fiona Kunz` who live on the third floor and are in the `Badminton` student group. <br> ![Example 2](https://i.imgur.com/hAmEOib.png)
-
-Examples:
-* `find n/Betsy` followed by `delete 1` deletes the 1st resident who has Betsy in her name in the results of the `find` command.
+* For the rest of the parameters, like block and floor, residents matching all of them will be returned.
 
 ### 5.12 Exporting of email : `export` - Lee Yan Cheng
 
@@ -698,16 +712,16 @@ Here are some other examples you can try:
 
 ## 7 FAQ
 
-**Q**: How do I transfer my data to another computer?
+**Q**: How do I transfer my data to another computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Hall-y home folder.
 
-**Q**: Where is all my save data stored?
+**Q**: Where is all my save data stored?<br>
 **A**: They are stored in the `data` folder that in the Hall-y home folder
 
-**Q**: How do I make backups of my data in Hall-y?
+**Q**: How do I make backups of my data in Hall-y?<br>
 **A**: Copy and paste the `data` folder located in the Hall-y home folder somewhere safe. To restore the backup. Copy it back into the same home folder.
 
-**Q**: How do I delete all my data in Hall-y?
+**Q**: How do I delete all my data in Hall-y?<br>
 **A**: Delete the `data` folder located in the Hall-y home folder.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -726,7 +740,7 @@ Action | Format, Examples
 **Edit event** | `edit INDEX [n/NAME] [dt/EVENT_DATE] [l/LOCATION] [d/DESCRIPTION] `<br> e.g.`edit 2 n/Hall Lunch for Semester 1`
 **Edit resident** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br/ROOM_NUMBER] [g/GENDER] [m/MATRICULATION_NUMBER][s/STUDENT_GROUP]…​​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com br/A210`
 **Export** | `export` <br> e.g. `export email`
-**Find** | `find [n/KEYWORDS [MORE KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]`<br> e.g. `find b/B l/2 g/F`
+**Find** | `find [n/NAME_KEYWORDS [MORE NAME_KEYWORDS]] [b/BLOCK] [f/FLOOR] [r/ROOM_NUMBER] [m/MATRICULATION_NUMBER] [g/GENDER] [s/STUDENT_GROUP...]`<br> e.g. `find b/B l/2 g/F`
 **Help** | `help`
 **List all residents** | `list`
 **List all student groups** | `list-group`
