@@ -7,13 +7,12 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.EditFloorCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
 
 public class EditFloorCommandParserTest {
     private EditFloorCommandParser parser = new EditFloorCommandParser();
 
     @Test
-    public void parse_validArgs_returnsEditFloorCommand() throws ParseException {
+    public void parse_validArgs_returnsEditFloorCommand() {
         assertParseSuccess(parser, " 1 1",
             new EditFloorCommand(1, 1));
         assertParseSuccess(parser, " 1 10",
