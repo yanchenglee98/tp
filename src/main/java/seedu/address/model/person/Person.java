@@ -87,7 +87,7 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons of the same name have at least one other identity field that is the same.
+     * Returns true if both persons have either the same email, phone number, matriculation number or room.
      * This defines a weaker notion of equality between two persons.
      */
     public boolean isSamePerson(Person otherPerson) {
@@ -99,7 +99,8 @@ public class Person {
             return false;
         }
 
-        return otherPerson.getName().equals(getName())
+        return otherPerson.getEmail().equals(getEmail())
+                || otherPerson.getPhone().equals(getPhone())
                 || otherPerson.getMatriculationNumber().equals(getMatriculationNumber())
                 || (otherPerson.getBlock().equals(getBlock()) && otherPerson.getRoom().equals(getRoom()));
     }

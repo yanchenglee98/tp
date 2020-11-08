@@ -13,8 +13,10 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Block;
+import seedu.address.model.person.Email;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
 
 /**
@@ -112,6 +114,23 @@ public class ModelManager implements Model {
                 .anyMatch(person -> person.getMatriculationNumber().equals(matriculationNumber));
     }
 
+    @Override
+    public boolean hasPhone(Phone phone) {
+        requireNonNull(phone);
+        return addressBook
+                .getPersonList()
+                .stream()
+                .anyMatch(person -> person.getPhone().equals(phone));
+    }
+
+    @Override
+    public boolean hasEmail(Email email) {
+        requireNonNull(email);
+        return addressBook
+                .getPersonList()
+                .stream()
+                .anyMatch(person -> person.getEmail().equals(email));
+    }
 
     @Override
     public boolean hasBlockRoom(Block block, Room room) {
