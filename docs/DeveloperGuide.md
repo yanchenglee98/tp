@@ -256,7 +256,7 @@ The following sequence diagram shows how the add event operation works:
 
 #### 3.2.2 Design consideration:
 
-#### Aspect: When to create the new `Event` class
+##### Aspect: When to create the new `Event` class
 
 * **Alternative 1 (current choice)**: Create the new `Event` in `AddressBookParser#parseCommand()`
 
