@@ -22,7 +22,7 @@ public class AssignCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON_ADDED = "Duplicate resident %s being added to event %s";
     public static final String MESSAGE_INVALID_EVENT = "The event provided is invalid";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Assigns the person identified by the index number used in the displayed person list"
+            + ": Assigns the resident identified by the index number used in the displayed person list"
             + " to the event specified by the index number used in the displayed event list.\n"
             + "Parameters: RESIDENT_INDEX EVENT_INDEX (both positive integers from 1 to 2147483647)\n"
             + "Example: " + COMMAND_WORD + " 1 1";

@@ -3,6 +3,7 @@ package seedu.address.ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
+import javafx.scene.text.TextAlignment;
 import seedu.address.storage.BlockSetting;
 
 public class BlockSettingCard extends UiPart<Region> {
@@ -28,6 +29,8 @@ public class BlockSettingCard extends UiPart<Region> {
         this.blockSetting = blockSetting;
 
         blockName.setText(blockSetting.getBlockName());
+        blockName.setMinWidth(40);
+        blockName.setTextAlignment(TextAlignment.LEFT);
         floors.setText(blockSetting.getFloors());
         rooms.setText(blockSetting.getRooms());
 
