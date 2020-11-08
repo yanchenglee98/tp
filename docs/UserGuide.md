@@ -857,7 +857,7 @@ Action | Format, Examples
 **Edit event** | `edit EVENT_INDEX [n/NAME] [dt/EVENT_DATE] [l/LOCATION] [d/DESCRIPTION] `<br> e.g.`edit 2 n/Hall Lunch for Semester 1`
 **List event attendees** | `list-event-attendees EVENT_INDEX` <br> e.g. `list-event-attendees 1`
 
-### 7.3 Utility commands
+### 7.3 Utility related commands
 
 You can refer to the table below for a summary on the other utility commands.
 
