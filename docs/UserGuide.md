@@ -291,7 +291,7 @@ Here are some other examples:
 
 This command helps you delete a resident from Hall-y.
 
-Let's say a resident Alex Yeoh has left the hall recently, and you wish to remove his details. Assume that Alex Yeoh is the first resident in the resident list.
+Let's say a resident Alex Yeoh has left the hall recently, and you wish to remove his details. Assume that Alex Yeoh is the first resident in the resident list, as shown in the image below.
 ![](https://i.imgur.com/ySRPLtS.png)
 
 You can remove him from Hall-y by typing in the command with these parameters using the following format:
@@ -465,7 +465,7 @@ Here's a step by step guide:
 
 This command helps you assign a resident to an event.
 
-Let's say resident Alex Yeoh will be attending the Hall Lunch event. Assume Alex Yeoh is the first resident in the residents list and Hall Lunch is the first event in the events list.
+Let's say resident Alex Yeoh will be attending the Hall Lunch event. Assume Alex Yeoh is the first resident in the residents list and Hall Lunch is the first event in the events list, as shown in the image below.
 
 ![](https://i.imgur.com/xQykAjR.png)
 
@@ -482,7 +482,7 @@ Format: `assign RESIDENT_INDEX EVENT_INDEX`
 </div>
 
 Here’s a step by step guide:
-1. Type the following command into the input box: `assign 1 1` and press <kbd>Enter</kbd> to execute the command![](https://i.imgur.com/LTyA3l6.png)
+1. Type the following command into the input box: `assign 1 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/LTyA3l6.png)
 2. The events list will be updated to show the newly assigned resident <br> ![](https://i.imgur.com/45b6obA.png)
 
 Here are some other examples:
@@ -492,7 +492,7 @@ Here are some other examples:
 
 This command helps you clear the attendee list of an event.
 
-Let's say you want to clear the attendee list of the Hall Lunch event. Assume the event Hall Lunch is the first event in the events list.
+Let's say you want to clear the attendee list of the Hall Lunch event. Assume the event Hall Lunch is the first event in the events list, as shown in the image below.
 
 ![](https://i.imgur.com/hlDnU8S.png)
 
@@ -511,7 +511,7 @@ Format: `clear-event-attendees EVENT_INDEX`
 Here’s a step by step guide:
 1. Type the following command into the input box: `clear-event-attendees 1` and press <kbd>Enter</kbd> to execute the command ![](https://i.imgur.com/vvushQv.png)
 
-2. The events list will be updated to show that the event's attendee list is cleared <br> ![](https://i.imgur.com/qHZ91Ww.png)
+2. The events list will be updated to show that the event's attendee list has been cleared <br> ![](https://i.imgur.com/qHZ91Ww.png)
 
 Here are some other examples:
 * `clear-event-attendees 3` 
@@ -520,7 +520,7 @@ Here are some other examples:
 
 This command helps you get a list of the attendees of a particular event.
 
-Let’s say you want to get the details of the residents attending the event Hall Lunch. You can get a list of them by using this command. Suppose that Hall Lunch is the first event on the events list.
+Let’s say you want to get the details of the residents attending the event Hall Lunch. You can get a list of them by using this command. Suppose that Hall Lunch is the first event on the events list, as shown in the image below.
 
 ![](https://i.imgur.com/x5lqxI3.png)
 
@@ -538,7 +538,7 @@ Format: `list-event-attendees EVENT_INDEX`
 </div>
 
 Here’s a step by step guide:
-1. Type the following command into the input box `list-event-attendees 1` and press <kbd>Enter</kbd> to execute the command. ![](https://i.imgur.com/Nl3GisY.png)
+1. Type the following command into the input box `list-event-attendees 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/Nl3GisY.png)
 2. The residents list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/ifWeBEm.png)
 
 Here are some other examples:
