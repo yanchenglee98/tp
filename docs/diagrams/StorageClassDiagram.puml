@@ -12,13 +12,17 @@ Class StorageManager
 Class JsonUserPrefsStorage
 Class JsonAddressBookStorage
 
-StorageManager .left.|> Storage
-StorageManager o-right-> UserPrefsStorage
-StorageManager o--> AddressBookStorage
+StorageManager .up.|> Storage
+StorageManager o-down-> UserPrefsStorage
+StorageManager o-down-> AddressBookStorage
 
-JsonUserPrefsStorage .left.|> UserPrefsStorage
-JsonAddressBookStorage .left.|> AddressBookStorage
-JsonAddressBookStorage .down.> JsonSerializableAddressBookStorage
-JsonSerializableAddressBookStorage .right.> JsonSerializablePerson
-JsonSerializablePerson .right.> JsonAdaptedTag
+JsonUserPrefsStorage .up.|> UserPrefsStorage
+
+JsonAddressBookStorage .up.|> AddressBookStorage
+JsonAddressBookStorage .down.> JsonSerializableAddressBook
+
+JsonSerializableAddressBook -down-> "*" JsonAdaptedPerson
+JsonAdaptedPerson -left-> "*" JsonAdaptedStudentGroup
+
+JsonSerializableAddressBook -down-> "*" JsonAdaptedEvent
 @enduml
