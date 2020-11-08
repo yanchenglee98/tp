@@ -19,9 +19,8 @@ public class ExportCommand extends Command {
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_EMAIL_SUCCESS = "List of emails exported";
     public static final String MESSAGE_PHONE_SUCCESS = "List of phone numbers exported";
-    public static final String MESSAGE_USAGE = "export: Exports the corresponding information to a text file\n"
-            + "Parameters: INFORMATION (e.g. email, phone)\n"
-            + "Example: export email";
+    public static final String MESSAGE_USAGE = "export email: Exports the emails of the"
+            + " current residents list to a text file\n";
     public static final String FILENAME = "./data/hally.txt";
     public static final String DIRECTORY_NAME = "./data/";
     private final String extractType;
