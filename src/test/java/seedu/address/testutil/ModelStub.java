@@ -11,8 +11,10 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Block;
+import seedu.address.model.person.Email;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
 
 /**
@@ -86,6 +88,16 @@ public class ModelStub implements Model {
 
     @Override
     public boolean hasMatriculationNumber(MatriculationNumber matriculationNumber) {
+        throw new AssertionError("This method should not be called.");
+    }
+
+    @Override
+    public boolean hasPhone(Phone phone) {
+        throw new AssertionError("This method should not be called.");
+    }
+
+    @Override
+    public boolean hasEmail(Email email) {
         throw new AssertionError("This method should not be called.");
     }
 
