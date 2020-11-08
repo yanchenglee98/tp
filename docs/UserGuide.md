@@ -58,7 +58,7 @@ The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who 
 
 You can refer to the diagram below to understand how Hall-y looks like:
 
-![](https://i.imgur.com/dthdQee.png)
+![](https://i.imgur.com/8PzWoXW.png)
 
 The table below shows a brief explanation of each section:
 
