@@ -4,6 +4,7 @@ skinparam arrowThickness 1.1
 skinparam arrowColor STORAGE_COLOR
 skinparam classBackgroundColor STORAGE_COLOR
 
+Package Storage <<Rectangle>> {
 Interface Storage <<Interface>>
 Interface UserPrefsStorage <<Interface>>
 Interface AddressBookStorage <<Interface>>
@@ -21,8 +22,9 @@ JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonAddressBookStorage .up.|> AddressBookStorage
 JsonAddressBookStorage .down.> JsonSerializableAddressBook
 
-JsonSerializableAddressBook -down-> "*" JsonAdaptedPerson
-JsonAdaptedPerson -left-> "*" JsonAdaptedStudentGroup
-
 JsonSerializableAddressBook -down-> "*" JsonAdaptedEvent
+
+JsonSerializableAddressBook -down-> "*" JsonAdaptedPerson
+JsonAdaptedPerson -down-> "*" JsonAdaptedStudentGroup
+
 @enduml
