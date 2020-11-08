@@ -377,7 +377,7 @@ The following sequence diagram shows how finding students works:
 
 #### 3.5.2 Design consideration:
 
-#### Aspect: When to convert list of predicates to a single predicate
+##### Aspect: When to convert list of predicates to a single predicate
 
 * **Alternative 1 (current choice)**: Create the predicate during `AddressBookParser#parseCommand()`
 
