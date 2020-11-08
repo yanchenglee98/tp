@@ -33,7 +33,7 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Gender gender, Set<StudentGroup> studentGroups,
-                Block block, Room room, MatriculationNumber matriculationNumber) {
+                  Block block, Room room, MatriculationNumber matriculationNumber) {
         requireAllNonNull(name, phone, email, address, gender, studentGroups, block, room, matriculationNumber);
         this.name = name;
         this.phone = phone;
@@ -95,10 +95,13 @@ public class Person {
             return true;
         }
 
-        return otherPerson != null
-                && otherPerson.getName().equals(getName())
-                && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail())
-                || otherPerson.getMatriculationNumber().equals(getMatriculationNumber()));
+        if (otherPerson == null) {
+            return false;
+        }
+
+        return otherPerson.getName().equals(getName())
+                || otherPerson.getMatriculationNumber().equals(getMatriculationNumber())
+                || (otherPerson.getBlock().equals(getBlock()) && otherPerson.getRoom().equals(getRoom()));
     }
 
     /**
