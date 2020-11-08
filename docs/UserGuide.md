@@ -94,7 +94,7 @@ You can get Hall-y up and running within 5 minutes. Just follow the steps below:
 3. Copy the downloaded file and paste it into the folder you want to use as the home folder for your application
 4. Double-click on `hall-y.jar` to start the application
 5. You should see a similar GUI to the one below - notice that the application comes with some sample data:
-![Initial load](https://i.imgur.com/hMsQ4rL.png)
+![Initial load](https://i.imgur.com/KcGIRyN.png)
 
 Congratulations! You now have Hall-y running on your computer.
 
@@ -139,7 +139,7 @@ In this section, you will learn how to use various features Hall-y offers with a
 This section is broken down into 3 parts:
 - Resident related commands
 - Event related commands
-- Utility commands
+- Utility related features
 
 <div markdown="block" class="alert alert-info">
 
