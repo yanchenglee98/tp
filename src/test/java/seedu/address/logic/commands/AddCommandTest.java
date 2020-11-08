@@ -52,8 +52,7 @@ public class AddCommandTest {
                 + CommandUtil.MESSAGE_DUPLICATE_MATRICULATION_NUMBER + "\n"
                 + CommandUtil.MESSAGE_DUPLICATE_BLOCK_ROOM + "\n"
                 + CommandUtil.MESSAGE_DUPLICATE_EMAIL + "\n"
-                + CommandUtil.MESSAGE_DUPLICATE_PHONE_NUMBER + "\n",
-                () -> addCommand.execute(modelStub));
+                + CommandUtil.MESSAGE_DUPLICATE_PHONE_NUMBER + "\n", () -> addCommand.execute(modelStub));
     }
 
     @Test

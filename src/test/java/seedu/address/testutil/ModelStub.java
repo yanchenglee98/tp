@@ -17,8 +17,6 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
 
-import static java.util.Objects.requireNonNull;
-
 /**
  * A default model stub that have all of the methods failing.
  */
