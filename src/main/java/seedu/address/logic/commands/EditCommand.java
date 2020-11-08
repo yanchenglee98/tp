@@ -22,6 +22,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.event.Event;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
@@ -105,6 +106,22 @@ public class EditCommand extends Command {
 
         if (hasEditedPersonRoomChanged && model.hasBlockRoom(editedPerson.getBlock(), editedPerson.getRoom())) {
             throw new CommandException(MESSAGE_DUPLICATE_BLOCK_ROOM);
+        }
+
+        // check for occurrence of resident in events list and also edit them
+        List<Event> eventList = model.getEventList();
+        for (Event event : eventList) {
+            Set<Person> attendeesList = event.getAttendeesList();
+            if (attendeesList.contains(personToEdit)) {
+                attendeesList.remove(personToEdit);
+                attendeesList.add(editedPerson);
+
+                Event editedEvent = new Event(event.getName(), event.getEventDate(), event.getLocation(),
+                        event.getDescription(), attendeesList);
+
+                // update model
+                model.setEvent(event, editedEvent);
+            }
         }
 
         model.setPerson(personToEdit, editedPerson);
