@@ -36,15 +36,15 @@ Welcome to the Hall-y User Guide!
 
 Hall-y (pronounced _hall-ee_) is a desktop application designed to help you manage hall residents and events.
 
-It features a Command Line Interface (CLI), which means you operate Hall-y by typing various commands.
+It features a Command Line Interface (CLI), which means you operate Hall-y by typing in various commands.
 It also features a Graphical User Interface (GUI), meaning you can easily view your hall residents and events, with their respective details.
 
 If you can type fast, Hall-y will allow you to manage hall residents and events more efficiently than traditional GUI applications.
 
 Check out the list below on how to use this User Guide:
-- If you are new here, you can jump straight to the [Getting Started](#3-getting-started) guide to setup Hall-y on your computer
-- If you are interested in what features Hall-y has to offer, you can check out Hall-y's feature list [here](#4-features)
-- If you are already familiar with Hall-y, you can get a quick refresher using the [command summary](#7-command-summary)
+- If you are new here, you can jump straight to the [Getting Started guide](#3-getting-started) to setup Hall-y on your computer
+- If you are interested in what features Hall-y has to offer, you can check out Hall-y's [feature list](#4-features)
+- If you are already familiar with Hall-y, you can get a quick refresher using the [Command Summary](#7-command-summary)
 
 ### 1.2 Purpose of document
 
@@ -78,7 +78,7 @@ The following table explains the formatting used in this guide, its definition, 
 
 Format | Definition, Examples
 --------|------------------
-`code` | Represent a command, part of a command or a file. <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X`, `hally-jar`, etc.
+`code` | Represent a command, part of a command, a folder or a file. <br> e.g. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 br/A104 g/M m/A0199242X`, `data`, `hall-y.jar`, etc.
 UPPER_CASE | Represent a parameter to be supplied by the user. <br> e.g. `n/NAME` can be used as `n/John Doe`
 [item] | Represent an optional parameter to be supplied by the user.<br> Parameters can be keyed in any order. <br> e.g. `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/91234567` or as `n/John Doe`
 `[s/STUDENT_GROUP]`…​ | Represent a parameter to be used multiple times including zero times.<br> e.g. `[s/STUDENT_GROUP]`… can be used as `s/hackers`, `s/hackers s/basketball`, etc.
@@ -98,28 +98,16 @@ You can get Hall-y up and running within 5 minutes. Just follow the steps below:
 
 Congratulations! You now have Hall-y running on your computer.
 
-Now, suppose you want to add a resident called Timmy Tan. He is one of your new residents with the following details:
-
-Category | Details
--------- | ------
-Name     | Timmy Tan
-Phone    | 91234567
-Email    | first@example.com
-Address  | Blk 10, Bedok St 1, #02-01
-Block and Room | A101
-Gender | Male
-Matriculation Number | A2000000X
-
-Here is how you can add him into Hall-y:
+Now, let's try running a command in Hall-y:
 
 1. Type the following command into the input box:
 `add n/Timmy Tan p/91234567 e/first@example.com a/Blk 10, Bedok St 1, #02-01 br/A101 g/M m/A2000000X`
 2. You should see the application update, like so:
-![Add new resident](https://i.imgur.com/EaXkXD5.png)
+![](https://i.imgur.com/09wAAER.png)
 3. Scroll down to see the resident you have just added, like so:
-![Scroll down to see resident](https://i.imgur.com/JNjrMIN.png)
+![](https://i.imgur.com/bReF6qg.png)
 
-Congratulations! You have just added a resident called Timmy Tan.
+Congratulations! You have just added a resident called Timmy Tan. If you were wondering what this command means, you can check the step-by-step guide for the add command [here](#412-Adding-a-resident-add---Pang-Biao-Yi).
 
 You can continue experimenting with some of the commands below:
 
@@ -128,7 +116,7 @@ You can continue experimenting with some of the commands below:
 - `clear`: deletes all the contacts in the application
 - `exit`: exits the application
 
-Alternatively, you can check out Hall-y's feature list [here](#4-features) for more commands.
+Alternatively, you can check out Hall-y's [feature list](#4-features) for more commands.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -137,17 +125,15 @@ Alternatively, you can check out Hall-y's feature list [here](#4-features) for m
 In this section, you will learn how to use various features Hall-y offers with a step-by-step guide. You will also learn of some things to take note of while using Hall-y.
 
 This section is broken down into 3 parts:
-- Resident related commands
-- Event related commands
+- Resident related features
+- Event related features
 - Utility related features
 
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
 
-* In most of the commands, you will need to provide several parameters.
-
-* If any parameters are repeated, the last one will be used.
+* In most of the commands, you will need to provide several parameters. If any parameters are repeated, the last one will be used.
   
 </div>
 
@@ -174,8 +160,9 @@ Format: `list`
 </div>
 
 Here’s a step by step guide:
-1. Type the following command into the input box: `list` and press <kbd>Enter</kbd> to execute the command ![](https://i.imgur.com/5Bl7cLs.png)
-2. The residents list will be updated to display all residents <br> ![](https://i.imgur.com/dS6Iavr.png)
+1. Type the following command into the input box: `list` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/BBWfdNA.png)
+2. The residents list will be updated to display all residents <br> ![](https://i.imgur.com/uRuPV6U.png) 
+
 
 
 #### 4.1.2 Adding a resident: `add` - Pang Biao Yi
@@ -212,9 +199,10 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/M
 * `STUDENT_GROUP` must be alphanumeric and cannot contain spaces.
 
 * Duplicate residents cannot be saved in Hall-y. Hall-y regards 2 residents to be the same if any of the following details are the same:
-    * `NAME`
+    * `PHONE_NUMBER`
+    * `EMAIL`
+    * `ROOM_NUMBER`
     * `MATRICULATION_NUMBER`
-    * `ROOM_NUMBER` 
 
     The correctness and uniqueness of the other fields will be left to the user.
   
@@ -224,9 +212,10 @@ Here’s a step by step guide:
 
 1. Type the following command into the input box:
 `add n/Timmy Tan p/91234567 e/first@example.com a/Blk 10, Bedok St 1, #02-01 br/A101 g/M m/A2000000X s/basketball` and press <kbd>Enter</kbd> to execute the command  
-![](https://i.imgur.com/VXLvMvQ.png)
-2. The resident list will be updated to reflect the newly added resident
-![](https://i.imgur.com/iybGy7j.png)
+![](https://i.imgur.com/inHnaoY.png)
+2. The residents list will be updated to reflect the newly added resident
+![](https://i.imgur.com/aBDyLKr.png)
+
 
 
 Here are some other examples:
@@ -243,11 +232,12 @@ Let’s say Timmy Tan changed his phone number and email address. These are the 
 
 Parameters | Details
 -------- | ------
-Phone | 91234567
+Phone | 84567123
 Email   | timmy@example.com
 
-Let’s also assume that based on the current residents list as shown below, Timmy Tan has index 2.  
-![](https://i.imgur.com/tnmoZ5T.png)
+Assume that Timmy Tan is the second resident in the residents list, as shown in the image below:  
+![](https://i.imgur.com/eIvtaS8.png)
+
 
 You can edit his details by typing in the command with these parameters using the following format:
 
@@ -257,7 +247,7 @@ Format: `edit RESIDENT_INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br
 
 **:information_source: Note:**<br>
 
-- The index refers to the index number shown in the displayed resident list. The index must be a positive integer between 1 and 2,147,483,647.
+- The index refers to the index number shown in the displayed residents list. The index must be a positive integer between 1 and 2,147,483,647.
 
 - You will need to take note of the same pointers as the add command.
 
@@ -265,9 +255,9 @@ Format: `edit RESIDENT_INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br
 
 - Existing values will be updated to the input values.
 
-- You cannot edit a resident that will result in 2 residents with the same matriculation number, name or room number.
+- You cannot edit a resident that will result in 2 residents with the same matriculation number, room number, phone number or email address.
 
-- When editing student groups, the existing student groups of the resident will be removed.<br>For example, if John has basketball as a student group and is at index 1. So the command `edit 1 s/choir` will result in `basketball` being removed and replaced with `choir`.
+- When editing student groups, the existing student groups of the resident will be removed.<br>For example, suppose John has basketball as a student group and is at index 1. The command `edit 1 s/choir` will result in `basketball` being removed and replaced with `choir`.
 
 - You can remove all the resident’s student groups by typing `s/` without specifying any student groups after it.
 Old data will be overridden.
@@ -277,10 +267,11 @@ Old data will be overridden.
 Here’s a step by step guide:
 
 1. Type the following command into the input box:
-`edit 2 p/91234567 e/first@example.com` and press <kbd>Enter</kbd> to execute the command  
-![](https://i.imgur.com/pRoSIDZ.png)
+`edit 2 p/84567123 e/timmy@example.com` and press <kbd>Enter</kbd> to execute the command  
+![](https://i.imgur.com/qeclL3v.png)
 2. The residents list will be updated to reflect the edited info  
-![](https://i.imgur.com/QcjqpaB.png)
+![](https://i.imgur.com/GgyWS9n.png)
+
 
 Here are some other examples:
 
@@ -291,8 +282,8 @@ Here are some other examples:
 
 This command helps you delete a resident from Hall-y.
 
-Let's say a resident Alex Yeoh has left the hall recently, and you wish to remove his details. Assume that Alex Yeoh is the first resident in the resident list, as shown in the image below.
-![](https://i.imgur.com/ySRPLtS.png)
+Let's say a resident Alex Yeoh has left the hall recently, and you wish to remove his details. Assume that Alex Yeoh is the first resident in the residents list, as shown in the image below:
+![](https://i.imgur.com/WyoRbxO.png)
 
 You can remove him from Hall-y by typing in the command with these parameters using the following format:
 
@@ -302,13 +293,13 @@ Format: `delete RESIDENT_INDEX`
 
 **:information_source: Note:**<br>
 
-- The index refers to the index number shown in the displayed resident list. The index must be a positive integer between 1 and 2,147,483,647.
+- The index refers to the index number shown in the displayed residents list. The index must be a positive integer between 1 and 2,147,483,647.
 
 </div>
 
 Here’s a step by step guide:
-1. Type the following command into the input box: `delete 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/WgzzpdO.png)
-2. The residents list will be updated to reflect the deleted resident <br> ![](https://i.imgur.com/IXZpEec.png)
+1. Type the following command into the input box: `delete 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/DE5VZTl.png)
+2. The residents list will be updated to reflect the deleted resident <br> ![](https://i.imgur.com/TEDJHbn.png)
 
 Here are some other examples:
 * `list` followed by `delete 2` deletes the 2nd resident in Hall-y
@@ -333,8 +324,8 @@ Format: `list-group`
 
 Here's a step by step guide:
 
-1. Type the following command into the input box: `list-group` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/Fgw8L0Q.png)
-2. The result box will be updated to display all student groups <br> ![](https://i.imgur.com/W1H5mAw.png)
+1. Type the following command into the input box: `list-group` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/2vAtOnw.png)
+2. The result box will be updated to display all student groups <br> ![](https://i.imgur.com/Es5HlcS.png)
 
 
 ### 4.2 Event related features
@@ -352,7 +343,7 @@ Parameters | Details
 Name | Halloween
 Date | 30/10/2020 20:00
 Location | Dining Hall
-Description | Halloween celebration at Eusoff Hall.
+Description | Halloween celebration at Eusoff Hall
 
 You can add it into Hall-y by typing in the command with these parameters using the following format:
 
@@ -380,7 +371,7 @@ Format: `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION`
 
 Here's a step by step guide:
 1. Type the following command into the input box:
-`add-event n/Halloween dt/30/10/2020 20:00 l/Dining Hall d/Halloween celebration at Eusoff Hall.` and press <kbd>Enter</kbd> to execute the command
+`add-event n/Halloween dt/30/10/2020 20:00 l/Dining Hall d/Halloween celebration at Eusoff Hall` and press <kbd>Enter</kbd> to execute the command
 ![](https://i.imgur.com/LOuk97V.png)
 2. The events list will be updated to reflect the new event
 ![](https://i.imgur.com/wysMP9S.png)
@@ -400,7 +391,7 @@ Parameters | Details
 -------- | ------
 Date | 30/10/2020 21:00
 
-Let’s also assume that based on the current events list as shown below, Halloween has the event index of 1.
+Assume that Halloween is the first event in the events list, as shown in the image below:
 ![](https://i.imgur.com/hSQhgN8.png)
 
 You can edit the event's details by typing in the command with these parameters using the following format:
@@ -430,7 +421,7 @@ Here’s a step by step guide:
 2. The events list will be updated to reflect the new event
 ![](https://i.imgur.com/netgrrM.png)
 
-Here are some other examples you can try, assuming you have at least one event saved in Hall-y:
+Here are some other examples:
 * `edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.` 
 * `edit-event 1 l/UTown`
 
@@ -440,7 +431,7 @@ This command helps you delete an event from Hall-y.
 
 Let's say Halloween has been cancelled, and you wish to remove it from Hall-y.
 
-Let’s also assume that based on the current events list as shown below, Halloween has the event index of 1.
+Assume that Halloween is the first event in the events list, as shown in the image below:
 ![](https://i.imgur.com/hSQhgN8.png)
 
 You can delete the event by typing in the command with the event index using the following format:
@@ -459,15 +450,13 @@ Here's a step by step guide:
 1. Type the following command into the input box: `delete-event 1` and press <kbd>Enter</kbd> to execute the command
 ![](https://i.imgur.com/e6s8ZQY.png)
 2. The events list will be updated to reflect the deleted event
-![](https://i.imgur.com/EdhbiZS.png)
+![](https://i.imgur.com/hdkVUE3.png)
 
 #### 4.2.4 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
 
 This command helps you assign a resident to an event.
 
-Let's say resident Alex Yeoh will be attending the Hall Lunch event. Assume Alex Yeoh is the first resident in the residents list and Hall Lunch is the first event in the events list, as shown in the image below.
-
-![](https://i.imgur.com/xQykAjR.png)
+Let's say resident Alex Yeoh will be attending the Hall Lunch event. Assume Alex Yeoh is the first resident in the residents list and Hall Lunch is the first event in the events list, as shown in the image below: <br> ![](https://i.imgur.com/1Az2iIP.png)
 
 You can assign him to Hall Lunch by typing in the command with these parameters using the following format:
 
@@ -479,11 +468,13 @@ Format: `assign RESIDENT_INDEX EVENT_INDEX`
 
 - Event index and resident index refers to the index number shown in the displayed events list and residents list respectively. Both indices must be a positive integer between 1 and 2,147,483,647.
 
+- The event GUI will only display the name of the resident. So if you assign two residents with the same name to the same event, that event GUI will show duplicate names.
+
 </div>
 
 Here’s a step by step guide:
-1. Type the following command into the input box: `assign 1 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/LTyA3l6.png)
-2. The events list will be updated to show the newly assigned resident <br> ![](https://i.imgur.com/45b6obA.png)
+1. Type the following command into the input box: `assign 1 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/Zm8mDo9.png)
+2. The events list will be updated to show the newly assigned resident <br> ![](https://i.imgur.com/yy6LFkG.png)
 
 Here are some other examples:
 * `assign 1 2` 
@@ -492,9 +483,9 @@ Here are some other examples:
 
 This command helps you clear the attendee list of an event.
 
-Let's say you want to clear the attendee list of the Hall Lunch event. Assume the event Hall Lunch is the first event in the events list, as shown in the image below.
+Let's say you want to clear the attendee list of the Hall Lunch event. Assume the event Hall Lunch is the first event in the events list, as shown in the image below:
 
-![](https://i.imgur.com/hlDnU8S.png)
+![](https://i.imgur.com/HQCeVcc.png)
 
 You can clear the attendee list of the event Hall Lunch from Hall-y by typing in the command with these parameters using the following format:
 
@@ -509,9 +500,8 @@ Format: `clear-event-attendees EVENT_INDEX`
 </div>
 
 Here’s a step by step guide:
-1. Type the following command into the input box: `clear-event-attendees 1` and press <kbd>Enter</kbd> to execute the command ![](https://i.imgur.com/vvushQv.png)
-
-2. The events list will be updated to show that the event's attendee list has been cleared <br> ![](https://i.imgur.com/qHZ91Ww.png)
+1. Type the following command into the input box: `clear-event-attendees 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/d5Obqq0.png)
+2. The events list will be updated to show that the event's attendee list has been cleared <br> ![](https://i.imgur.com/WaIPxBk.png)
 
 Here are some other examples:
 * `clear-event-attendees 3` 
@@ -520,9 +510,9 @@ Here are some other examples:
 
 This command helps you get a list of the attendees of a particular event.
 
-Let’s say you want to get the details of the residents attending the event Hall Lunch. You can get a list of them by using this command. Suppose that Hall Lunch is the first event on the events list, as shown in the image below.
+Let’s say you want to get the details of the residents attending the event Hall Lunch. You can get a list of them by using this command. Suppose that Hall Lunch is the first event on the events list, as shown in the image below: <br> ![](https://i.imgur.com/iYT1FcA.png)
 
-![](https://i.imgur.com/x5lqxI3.png)
+
 
 
 You can get a list of the attendees by event by typing in the command with these parameters using the following format:
@@ -538,23 +528,22 @@ Format: `list-event-attendees EVENT_INDEX`
 </div>
 
 Here’s a step by step guide:
-1. Type the following command into the input box `list-event-attendees 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/Nl3GisY.png)
-2. The residents list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/ifWeBEm.png)
+1. Type the following command into the input box: `list-event-attendees 1` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/h1N0DwN.png)
+2. The residents list will then be updated to show attendees of the event <br> ![](https://i.imgur.com/DGxVPLf.png)
 
 Here are some other examples:
 * `list-event-attendees 4`
 
 ### 4.3 Utility related features
 
-This section will cover other utility commands.
+This section will cover utility commands.
 
 #### 4.3.1 Locating residents by characteristics: `find` - Aung Thuya Oo
 
 This command helps you find all residents whose characteristics match the given arguments and keywords.
 
-Let's say you want to find all female residents who lives on the third floor of block 'A',
+Let's say you want to find all female residents who lives on the third floor of block 'A', and
 they are in the student group 'hackers'. 
-You can find these residents in Hall-y by using this command.
 Suppose that they have the following details:
 
 Parameters | Details
@@ -577,13 +566,13 @@ Format: `find [n/NAME_KEYWORDS...] [m/MATRICULATION_NUMBER] [g/GENDER]
 
 * `NAME_KEYWORDS` should refer to any part of a resident's name.<br>e.g. `Carl` is a keyword from the name `Carl Kurz`.
 
-* `BLOCK` is a single alphabetical letter within the block range.<br> e.g. A, B, C.
+* `BLOCK` is a single, upper case letter within the block range.<br> e.g. A, B, C, D.
 
-* `FLOOR` should a 1 digit number within the floor range.<br> e.g. 1, 2, 3.
+* `FLOOR` should a 1 digit number within the floor range.<br> e.g. 1, 2, 3, 4.
 
 * `ROOM_NUMBER` should be formatted as 2 digits within the room range.<br>e.g. 05, 12, 15.
 
-* `GENDER` must be either M (for male) and F (for female).
+* `GENDER` must be either M (for male) or F (for female).
 
 * If no residents match the characteristics, an empty list will be displayed.
 
@@ -593,36 +582,39 @@ Format: `find [n/NAME_KEYWORDS...] [m/MATRICULATION_NUMBER] [g/GENDER]
 Here's a step by step guide:
 1. Type the following command into the input box:
 `find g/F b/A f/3 s/hackers` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/ss2RN8x.png)
+![](https://i.imgur.com/gD9M4cH.png)
 2. The residents list will be updated to show the residents matching those characteristics, and the result box will show the number of residents matching those characteristics
-![](https://i.imgur.com/z7tGIRm.png)
+![](https://i.imgur.com/NYcLJTM.png)
 
 Here are some other examples:
 * `find n/John`
 * `find l/3 s/badminton`
 
 Tips:
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the name keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* When searching with names, residents matching at least one keyword with names will be returned.
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-* For the rest of the parameters, like block and floor, residents matching all of them will be returned
+* The search is case-insensitive<br>e.g `find n/hans` will find the resident with the name `Hans`
+* The order of the name keywords does not matter<br>e.g. `find n/Hans Bo` will find the resident with the name `Bo Hans`
+* When searching with names, residents matching at least one keyword with names will be returned<br>
+  e.g. `find n/Hans Bo` will return residents `Hans Gruber`, `Bo Yang`
+* For the rest of the parameters, like block and floor, residents matching all of the specifications will be returned<br> e.g. `find f/3 b/A` will find all residents who stay on the 3rd floor and in block 'A'
 
 #### 4.3.2 Exporting of email : `export` - Lee Yan Cheng
 
 This command helps you export a list of residents' emails.
 
-Let’s say you need to send out information to all residents! You can export the list of emails in a text file using this command. 
+Let’s say you need to send out information to all residents. You can export the list of emails in a text file using this command. 
 
 The current displayed residents list can be exported using the following format:
 
 Format: `export email` 
 
 Here’s a step by step guide:
-1. Type the following command into the input box: `export email` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/jMP6o6w.png)
-2. A data folder which contains the text file will be created in the same location as your Hall-y application <br> ![](https://i.imgur.com/RoIeseu.png)
-3. Click the folder and the list of emails will be in the file named `hally.txt` <br> ![](https://i.imgur.com/FkPSfoq.png)
+1. Type the following command into the input box: `export email` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/tnWmgf8.png)
+2. A `data` folder which contains the text file will be created in the same location as your Hall-y application <br> ![](https://i.imgur.com/os1H3gL.png)
+3. Open the folder and the list of emails will be in the file named `hally.txt` <br> ![](https://i.imgur.com/FkPSfoq.png)
 
+Here are some other examples:
+* `find b/A` followed by `export email` exports all the emails of the residents living in block 'A'
+* `list-event-attendees 1` followed by `export email` exports all the emails of the residents attending the first event in the events list
 
 #### 4.3.3 Clearing all residents and events : `clear` - Pang Biao Yi
 
@@ -630,9 +622,11 @@ You can delete all residents and events in Hall-y by using the `clear` command.
 
 Here’s a step by step guide:
 1. Type the following command into the input box: `clear` and press <kbd>Enter</kbd> to execute the command <br>
-![](https://i.imgur.com/WWflLJz.png)
+![](https://i.imgur.com/PAr9R6S.png)
 2. The residents list and events list will now be empty<br> 
-![](https://i.imgur.com/DiLFzS5.png)
+![](https://i.imgur.com/6pJU9I5.png)
+
+
 
 
 #### 4.3.4 Viewing help : `help` - Lee Yan Cheng
@@ -640,8 +634,8 @@ Here’s a step by step guide:
 You can get a link to our user guide by using the `help` command.
 
 Here’s a step by step guide:
-1.  Type the following command into the input box: `help` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/x8s2Hud.png)
-3. The help window will pop out <br> ![](https://i.imgur.com/zNpioyy.png)
+1.  Type the following command into the input box: `help` and press <kbd>Enter</kbd> to execute the command <br> ![](https://i.imgur.com/FM10i4W.png)
+3. The help window will pop out <br> ![](https://i.imgur.com/bzSst53.png)
 4. Copy the URL and paste it into a browser of your choice to view the online user guide
 
 #### 4.3.5 Exiting the application : `exit` - Pang Biao Yi
@@ -650,8 +644,8 @@ You can exit the application by using the `exit` command.
 
 Here’s a step by step guide:
 1. Type the following command into the input box: `exit` into the input box and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/vSccpnr.png)
-2. The application should now be closed
+![](https://i.imgur.com/YBv6Vk6.png)
+2. The application will now be closed
 
 #### 4.3.6 Saving the data
 
@@ -661,16 +655,16 @@ Hall-y's data is saved in the hard disk automatically after any command that cha
 
 ## 5 Advanced Features
 
-In this section, you will learn how to edit the blocks, floors and rooms configurations
+In this section, you will learn how to edit the blocks, floors and rooms configurations.
 
 
 <div markdown="block" class="alert alert-danger">
 
 **:exclamation: Caution:**<br>
 
-- All of Hall-y's data (including residents and events) will be deleted if the resident's block or room is no longer within the allowed range after updating the configuration.
-
 - This feature is for advanced users only! Please ensure that you know what you are doing before proceeding.
+
+- All of Hall-y's data (including residents and events) will be deleted if the resident's block or room is no longer within the allowed range after updating the configuration.
 
 - Please ensure that the changed values are within the specified range, otherwise the application will reset them to the default values. <br>
 
@@ -684,14 +678,14 @@ In this section, you will learn how to edit the blocks, floors and rooms configu
 
 </div>
 
-### 5.1 Changing the blocks and rooms configuration
+### 5.1 Changing the blocks and rooms configuration - Pang Biao Yi
 
 Let's say you want to add an additional block or change the configuration of the room numbers. You can modify the settings file directly by following the steps below:
 
-1. Exit Hall-y by using the `exit` command  
-2. Open up the `preferences.json` file which resides in the same folder as `hall-y.jar`
+1. Exit Hall-y by using the `exit` command
+2. Open the `preferences.json` file which resides in the same folder as `hall-y.jar`
 ![](https://i.imgur.com/4yexKNC.png)
-3. Edit the block and room settings as required.
+3. Edit the block and room settings as required
 ![](https://i.imgur.com/PiFpKJb.png)
 4. Save the file and relaunch Hall-y
 
@@ -714,7 +708,7 @@ Format: `edit-block-range FIRST_BLOCK_LETTER LAST_BLOCK_LETTER`
 
 **:information_source: Note:**<br>
 
-* `FIRST_BLOCK_LETTER` and `LAST_BLOCK_LETTER` must be a capital letter. It can be any capital letter from 'A' to 'Z'. However, `FIRST_BLOCK_LETTER` can only before or equal to `LAST_BLOCK_LETTER`.
+* `FIRST_BLOCK_LETTER` and `LAST_BLOCK_LETTER` must be a capital letter. It can be any capital letter from 'A' to 'Z'. However, `FIRST_BLOCK_LETTER` can only be before or equal to `LAST_BLOCK_LETTER`.
 
 * You need to restart Hall-y for the configuration changes to take effect.
   
@@ -723,9 +717,12 @@ Format: `edit-block-range FIRST_BLOCK_LETTER LAST_BLOCK_LETTER`
 Here's a step by step guide:
 1. Type the following command into the input box:
 `edit-block-range A E` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/PxrRubO.png)
-1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
-![](https://i.imgur.com/gbNaU1c.png)
+![](https://i.imgur.com/qLDx02u.png)
+2. The result box will show you that the command has been executed successfully, with the newly updated block range
+![](https://i.imgur.com/rZMD4aC.png)
+3. Restart Hall-y
+4. The blocks list will be updated to reflect the configuration changes
+![](https://i.imgur.com/ftiZ4pq.png)
 
 Here are some other examples:
 
@@ -736,7 +733,7 @@ Here are some other examples:
 
 This command helps you edit the floor configuration.
 
-Do the blocks in your hall have 5 floors (from 1 to 5) which is different from the default 4 floors (from 1 to 4)? Fret not! You can edit it by using this command. Suppose that it has the following details:
+Do the blocks in your hall have 5 floors (from 1 to 5) which are different from the default 4 floors (from 1 to 4)? Fret not! You can edit it by using this command. Suppose that it has the following details:
 
 Parameters | Details
 ---------- | -------
@@ -751,7 +748,7 @@ Format: `edit-floor-range MIN_FLOOR_NUMBER MAX_FLOOR_NUMBER`
 
 **:information_source: Note:**<br>
 
-* `MIN_FLOOR_NUMBER` and `MAX_FLOOR_NUMBER` must be a positive integer. It can be any positive integer from 1 to 9. However, `MIN_FLOOR_NUMBER` can only less than or equal to `MAX_FLOOR_NUMBER`.
+* `MIN_FLOOR_NUMBER` and `MAX_FLOOR_NUMBER` must be a positive integer from 1 to 9 inclusive. However, `MIN_FLOOR_NUMBER` can only be less than or equal to `MAX_FLOOR_NUMBER`.
 
 * You need to restart Hall-y for the configuration changes to take effect.
 
@@ -761,9 +758,12 @@ Format: `edit-floor-range MIN_FLOOR_NUMBER MAX_FLOOR_NUMBER`
 Here's a step by step guide:
 1. Type the following command into the input box:
 `edit-floor-range 1 5` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/qeNtW8H.png)
-1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
-![](https://i.imgur.com/gbNaU1c.png)
+![](https://i.imgur.com/pH11qm2.png)
+2. The result box will show you that the command has been executed successfully, with the newly updated floor range
+![](https://i.imgur.com/tYJlwSy.png)
+3. Restart Hall-y
+4. The blocks list will be updated to reflect the configuration changes
+![](https://i.imgur.com/ftiZ4pq.png)
 
 Here are some other examples:
 
@@ -774,7 +774,7 @@ Here are some other examples:
 
 This command helps you edit the room configuration.
 
-Does your hall have room number from 1 to 10 which is different from the default room number from 1 to 20? Fret not! You can edit it by using this command. Suppose that it has the following details:
+Does your hall have room numbers from 1 to 10 which are different from the default room numbers from 1 to 20? Fret not! You can edit it by using this command. Suppose that it has the following details:
 
 Parameters | Details
 ---------- | -------
@@ -789,7 +789,7 @@ Format: `edit-room-range MIN_ROOM_NUMBER MAX_ROOM_NUMBER`
 
 **:information_source: Note:**<br>
 
-* `MIN_ROOM_NUMBER` and `MAX_ROOM_NUMBER` must be a positive integer. It can be any positive integer from 1 to 99. However, `MIN_ROOM_NUMBER` can only less than or equal to `MAX_ROOM_NUMBER`.
+* `MIN_ROOM_NUMBER` and `MAX_ROOM_NUMBER` must be a positive integer from 1 to 99 inclusive. However, `MIN_ROOM_NUMBER` can only be less than or equal to `MAX_ROOM_NUMBER`.
 
 * You need to restart Hall-y for the configuration changes to take effect.
 
@@ -799,9 +799,12 @@ Format: `edit-room-range MIN_ROOM_NUMBER MAX_ROOM_NUMBER`
 Here's a step by step guide:
 1. Type the following command into the input box:
 `edit-room-range 1 10` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/o5k8N1g.png)
-1. The blocks list will be updated to reflect the configuration changes after restarting Hall-y
-![](https://i.imgur.com/MwVPp5U.png)
+![](https://i.imgur.com/yza5Iha.png)
+2. The result box will show you that the command has been executed successfully, with the newly updated room range
+![](https://i.imgur.com/gbWNmyX.png)
+3. Restart Hall-y
+4. The blocks list will be updated to reflect the configuration changes
+![](https://i.imgur.com/fK7GiDP.png)
 
 Here are some other examples:
 
@@ -815,16 +818,16 @@ Here are some other examples:
 Below are some frequently asked questions:
 
 **Q**: How do I transfer my data to another computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Hall-y home folder.
+**A**: Install the application in the other computer. Then, move your previous `preferences.json` file and `data` folder where Hall-y is located in.
 
 **Q**: Where is all my save data stored?<br>
-**A**: They are stored in the `data` folder that in the Hall-y home folder
+**A**: They are stored in the `data` folder where Hall-y is located in.
 
 **Q**: How do I make backups of my data in Hall-y?<br>
-**A**: Copy and paste the `data` folder located in the Hall-y home folder somewhere safe. To restore the backup. Copy it back into the same home folder.
+**A**: Copy and paste the `data` folder located in the Hall-y home folder to somewhere safe. To restore the backup, copy it back into the original folder.
 
 **Q**: How do I delete all my data in Hall-y?<br>
-**A**: Delete the `data` folder located in the Hall-y home folder.
+**A**: Delete the `data` folder where Hall-y is located.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -859,7 +862,7 @@ Action | Format, Examples
 
 ### 7.3 Utility related commands
 
-You can refer to the table below for a summary on the other utility commands.
+You can refer to the table below for a summary on the utility commands.
 
 Action | Format, Examples
 --------|------------------
@@ -882,5 +885,6 @@ Below are some common terms used in Hall-y and in the User Guide:
 * **Graphical User Interface (GUI)**: Visual interface to interact with the application
 * **Hall**: A residential living area that is populated by students
 * **Hall admin**: An administrative staff to handle hall-related matters
+* **Home folder**: The folder where Hall-y is located in
 * **Matriculation number**: Unique identification for NUS students, which they will obtain when they matriculate into NUS 
 * **Student group**: An interest group for the hall residents to conduct extracurricular activities
