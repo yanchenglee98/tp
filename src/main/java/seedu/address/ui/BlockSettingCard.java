@@ -29,7 +29,7 @@ public class BlockSettingCard extends UiPart<Region> {
         this.blockSetting = blockSetting;
 
         blockName.setText(blockSetting.getBlockName());
-        blockName.setMinWidth(40);
+        blockName.setPrefWidth(40);
         blockName.setTextAlignment(TextAlignment.LEFT);
         floors.setText(blockSetting.getFloors());
         rooms.setText(blockSetting.getRooms());
