@@ -100,9 +100,10 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_MATRICULATION_NUMBER);
         }
 
-        if (!personToEdit.getRoom().equals(editedPerson.getRoom())
-                && !personToEdit.getBlock().equals(editedPerson.getBlock())
-                && model.hasBlockRoom(editedPerson.getBlock(), editedPerson.getRoom())) {
+        boolean hasEditedPersonRoomChanged = !personToEdit.getRoom().equals(editedPerson.getRoom())
+                || !personToEdit.getBlock().equals(editedPerson.getBlock());
+
+        if (hasEditedPersonRoomChanged && model.hasBlockRoom(editedPerson.getBlock(), editedPerson.getRoom())) {
             throw new CommandException(MESSAGE_DUPLICATE_BLOCK_ROOM);
         }
 
