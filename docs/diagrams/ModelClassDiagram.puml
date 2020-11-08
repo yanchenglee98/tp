@@ -53,9 +53,9 @@ AddressBook .up.|> ReadOnlyAddressBook
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> " 1" UniqueEventList
-UniqueEventList o--> "*" Event
-Event *--> EventName
-Event *--> EventDate
+UniqueEventList o--> " * " Event
+Event *-left-> EventName
+Event *-left-> EventDate
 Event *--> Location
 Event *--> Description
 
@@ -66,10 +66,10 @@ Person *--> Phone
 Person *--> Email
 Person *--> Gender
 Person *--> Address
-Person *--> Block
-Person *--> Room
-Person *--> MatriculationNumber
-Person *--> "*" StudentGroup
+Person *-right-> Room
+Person *-right-> Block
+Person *-right-> MatriculationNumber
+Person *-->"*" StudentGroup
 
 Event --> "*" Person : "attendees"
 
@@ -77,7 +77,7 @@ Name -[hidden]right-> Phone
 Phone -[hidden]right-> Address
 Address -[hidden]right-> Email
 Event -[hidden]left-> Person
-StudentGroup -[hidden]right-> Person
+StudentGroup -[hidden]down-> Person
 
 ModelManager -->"1" Person : " filtered list"
 @enduml
