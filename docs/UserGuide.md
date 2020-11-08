@@ -267,7 +267,7 @@ Format: `edit RESIDENT_INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [br
 
 - You cannot edit a resident that will result in 2 residents with the same matriculation number, name or room number.
 
-- When editing student groups, the existing student groups of the resident will be removed.<br>For example, if John has basketball as a student group and is at index 1. So the command `edit 1 s/choir`, basketball will be removed and be replaced with choir.
+- When editing student groups, the existing student groups of the resident will be removed.<br>For example, if John has basketball as a student group and is at index 1. So the command `edit 1 s/choir` will result in `basketball` being removed and replaced with `choir`.
 
 - You can remove all the resident’s student groups by typing `s/` without specifying any student groups after it.
 Old data will be overridden.
