@@ -205,7 +205,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS br/ROOM_NUMBER g/GENDER m/M
 
 * `NAME` must only contain letters or numbers.
 
-* `PHONE_NUMBER` can only contain 1 to 15 digits, to cater for international phone numbers.
+* `PHONE_NUMBER` can only contain 3 to 15 digits, to cater for international phone numbers.
 
 * `GENDER` must be either M (for male) and F (for female).
 
