@@ -30,7 +30,7 @@ public class FindCommand extends Command {
             + "Parameters: "
             + "[" + PREFIX_NAME + "NAME_KEYWORDS..." + "] "
             + "[" + PREFIX_BLOCK + "BLOCK" + "] "
-            + "[" + PREFIX_FLOOR + "FLOOR" + "]"
+            + "[" + PREFIX_FLOOR + "FLOOR" + "] "
             + "[" + PREFIX_ROOM_NUMBER + "ROOM_NUMBER" + "] "
             + "[" + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER" + "] "
             + "[" + PREFIX_GENDER + "GENDER" + "] "
