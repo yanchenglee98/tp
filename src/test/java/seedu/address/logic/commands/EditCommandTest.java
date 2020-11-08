@@ -104,7 +104,11 @@ public class EditCommandTest {
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(firstPerson).build();
         EditCommand editCommand = new EditCommand(INDEX_SECOND_PERSON, descriptor);
 
-        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(editCommand, model, CommandUtil.MESSAGE_GENERIC_DUPLICATE_PERSON + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_MATRICULATION_NUMBER + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_BLOCK_ROOM + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_EMAIL + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_PHONE_NUMBER + "\n");
     }
 
     @Test
@@ -116,7 +120,11 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
                 new EditPersonDescriptorBuilder(personInList).build());
 
-        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(editCommand, model, CommandUtil.MESSAGE_GENERIC_DUPLICATE_PERSON + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_MATRICULATION_NUMBER + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_BLOCK_ROOM + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_EMAIL + "\n"
+                + CommandUtil.MESSAGE_DUPLICATE_PHONE_NUMBER + "\n");
     }
 
     @Test

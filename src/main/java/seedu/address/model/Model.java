@@ -7,8 +7,10 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.event.Event;
 import seedu.address.model.person.Block;
+import seedu.address.model.person.Email;
 import seedu.address.model.person.MatriculationNumber;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
 
 /**
@@ -66,7 +68,6 @@ public interface Model {
      */
     boolean hasPerson(Person person);
 
-
     /**
      * Returns true if a person with the given {@code matriculationNumber} already exists in the address book.
      */
@@ -76,6 +77,16 @@ public interface Model {
      * Returns true if a person with the given {@code block} and {@code room} already exists in the address book.
      */
     boolean hasBlockRoom(Block block, Room room);
+
+    /**
+     * Returns true if a person with the given {@code phone} already exists in the address book.
+     */
+    boolean hasPhone(Phone phone);
+
+    /**
+     * Returns true if a person with the given {@code email} already exists in the address book.
+     */
+    boolean hasEmail(Email email);
 
     /**
      * Deletes the given person.
