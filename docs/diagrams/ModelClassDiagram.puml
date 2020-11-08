@@ -75,4 +75,6 @@ Person *---> Block
 Person *---> MatriculationNumber
 Person *->"*" StudentGroup
 
+ModelManager -->"        1 " Person : " filtered list"
+
 @enduml
