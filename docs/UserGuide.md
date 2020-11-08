@@ -58,7 +58,7 @@ The target audience for Hall-y is the NUS Eusoff Hall administrative staff, who 
 
 You can refer to the diagram below to understand how Hall-y looks like:
 
-![](https://i.imgur.com/dthdQee.png)
+![](https://i.imgur.com/8PzWoXW.png)
 
 The table below shows a brief explanation of each section:
 
@@ -345,11 +345,11 @@ This section will cover various commands to manage events.
 
 This command helps you add an event into Hall-y.
 
-Let's say you are holding a new event called Hall-oween. You can add it into Hall-y using this command. Suppose that it has the following details:
+Let's say you are holding a new event called Halloween. You can add it into Hall-y using this command. Suppose that it has the following details:
 
 Parameters | Details
 ---------- | -------
-Name | Hall-oween
+Name | Halloween
 Date | 30/10/2020 20:00
 Location | Dining Hall
 Description | Halloween celebration at Eusoff Hall.
@@ -369,7 +369,7 @@ Format: `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION`
   
 * Hall-y can be used to save events which are already over for recording purposes.
 
-* Duplicate events cannot be saved in Hall-y. Hall-y regards 2 events to be the same if, ignoring case considerations, the following parameters are the same:
+* Duplicate events cannot be saved in Hall-y. Hall-y regards 2 events to be the same if, ignoring case considerations, all of the following parameters are the same:
     - `NAME`
     - `DATE`
     - `LOCATION`
@@ -380,10 +380,10 @@ Format: `add-event n/NAME dt/DATE l/LOCATION d/DESCRIPTION`
 
 Here's a step by step guide:
 1. Type the following command into the input box:
-`add-event n/Hall-oween dt/30/10/2020 20:00 l/Dining Hall d/Halloween celebration at Eusoff Hall.` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/eIKFbJR.png)
+`add-event n/Halloween dt/30/10/2020 20:00 l/Dining Hall d/Halloween celebration at Eusoff Hall.` and press <kbd>Enter</kbd> to execute the command
+![](https://i.imgur.com/LOuk97V.png)
 2. The events list will be updated to reflect the new event
-![](https://i.imgur.com/0iwDXgV.png)
+![](https://i.imgur.com/wysMP9S.png)
 
 Here are some other examples:
 * `add-event n/Hall DnD dt/15/12/2020 19:00 l/Dining Hall d/End of year Dinner and Dance.`
@@ -394,14 +394,14 @@ Here are some other examples:
 
 This command helps you edit an event’s details.
 
-Let's say an event called Hall-oween has been changed to start at 21:00 instead. This is the field you want to change:
+Let's say an event called Halloween has been changed to start at 21:00 instead. This is the field you want to change:
 
 Parameters | Details
 -------- | ------
 Date | 30/10/2020 21:00
 
-Let’s also assume that based on the current events list as shown below, Hall-oween has the event index of 1.
-![](https://i.imgur.com/5j6PgZ1.png)
+Let’s also assume that based on the current events list as shown below, Halloween has the event index of 1.
+![](https://i.imgur.com/hSQhgN8.png)
 
 You can edit the event's details by typing in the command with these parameters using the following format:
 
@@ -426,9 +426,9 @@ Format: `edit-event EVENT_INDEX [n/NAME] [dt/DATE] [l/LOCATION] [d/DESCRIPTION]`
 Here’s a step by step guide:
 1. Type the following command into the input box:
 `edit-event 1 dt/30/10/2020 21:00` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/x6sVmmg.png)
+![](https://i.imgur.com/2yZ3CvG.png)
 2. The events list will be updated to reflect the new event
-![](https://i.imgur.com/w4PS7zN.png)
+![](https://i.imgur.com/netgrrM.png)
 
 Here are some other examples you can try, assuming you have at least one event saved in Hall-y:
 * `edit-event 1 n/Hall DnD dt/15/12/2020 19:00 d/End of year Dinner and Dance.` 
@@ -438,10 +438,10 @@ Here are some other examples you can try, assuming you have at least one event s
 
 This command helps you delete an event from Hall-y.
 
-Let's say Hall-oween has been cancelled, and you wish to remove it from Hall-y.
+Let's say Halloween has been cancelled, and you wish to remove it from Hall-y.
 
-Let’s also assume that based on the current events list as shown below, Hall-oween has the event index of 1.
-![](https://i.imgur.com/5j6PgZ1.png)
+Let’s also assume that based on the current events list as shown below, Halloween has the event index of 1.
+![](https://i.imgur.com/hSQhgN8.png)
 
 You can delete the event by typing in the command with the event index using the following format:
 
@@ -457,9 +457,9 @@ Format: `delete-event EVENT_INDEX`
 
 Here's a step by step guide:
 1. Type the following command into the input box: `delete-event 1` and press <kbd>Enter</kbd> to execute the command
-![](https://i.imgur.com/iuGKbL1.png)
+![](https://i.imgur.com/e6s8ZQY.png)
 2. The events list will be updated to reflect the deleted event
-![](https://i.imgur.com/QMaYoUD.png)
+![](https://i.imgur.com/EdhbiZS.png)
 
 #### 4.2.4 Assigning a resident to a hall event: `assign` - Lee Yan Cheng
 
