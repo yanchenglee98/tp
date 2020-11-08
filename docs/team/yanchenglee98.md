@@ -46,7 +46,7 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `assign`,`clear-event` `export` and `list-event-attendees`: [\#43](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/43), [\#140](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/140)
+    * Added documentation for the features `assign`,`clear-event-attendees` `export` and `list-event-attendees`: [\#43](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/43), [\#140](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/140)
     * Updated existing documentation of features `delete`, `help` and `list`: [\#166](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/166/files), [\#182](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/182)
   * Developer Guide:
     * Added implementation details of the `export` feature: [\#103](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/103)
