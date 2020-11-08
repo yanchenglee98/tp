@@ -13,7 +13,7 @@ Class ReadOnlyAddressBook
 Class Model
 Class ModelManager
 Class UserPrefs
-Class ReadOnlyUserPrefs
+Class ReadOnlyUserPrefs <<Interface>>
 
 Package Person {
 Class Person
@@ -57,24 +57,23 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 AddressBook *--> "1" UniqueEventList
 AddressBook *--> "1" UniquePersonList
 
-UniqueEventList o--> "*" Event
-Event *--> EventName
-Event *--> EventDate
-Event *--> Location
-Event *--> Description
-Event ---> "*" Person : "attendees"
-
 UniquePersonList o--> "*" Person
-Person *-down-> Name
-Person *-down-> Phone
-Person *-down-> Email
-Person *-down-> Gender
-Person *---> Address
-Person *---> Room
 Person *---> Block
+Person *---> Room
+Person *--> Name
+Person *--> Phone
+Person *--> Email
+Person *--> Gender
 Person *---> MatriculationNumber
-Person *->"*" StudentGroup
+Person *---> Address
 
-ModelManager -->"        1 " Person : " filtered list"
+UniqueEventList o--> " * " Event
+Event *--> EventName
+Event *---> EventDate
+Event *---> Location
+Event *---> Description
+Event -> "*" Person : "attendees"
 
+Person *--->"  *  " StudentGroup
+ModelManager ----->"1" Person : " filtered list"
 @enduml
