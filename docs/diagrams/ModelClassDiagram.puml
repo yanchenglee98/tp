@@ -73,6 +73,6 @@ Person *---> Address
 Person *---> Room
 Person *---> Block
 Person *---> MatriculationNumber
-Person *-->"*" StudentGroup
+Person *->"*" StudentGroup
 
 @enduml
