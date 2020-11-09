@@ -42,9 +42,15 @@ to set up their development environment.
 
 ## **2 Design**
 
-<div markdown="span" class="alert alert-primary">
+<div markdown="span" class="alert alert-success">
 
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+
+</div>
+
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** In any sequence diagram, the lifeline for any object should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
 
@@ -234,7 +240,7 @@ Pros | Cons
 -----|-----
 \+ More well-known among developers | - Less technical users may not know how to open a .json file.
 
-### 3.2 Adding of events
+### 3.2 Adding of events - Low Jie Feng
 
 #### 3.2.1 Implementation
 The add event feature is facilitated by the `AddEventCommand`.
@@ -246,29 +252,30 @@ When `AddEventCommand#execute()` is called, the associated `Event` is passed int
 The `Model` component then saves the `Event`.
 
 Given below is a step-by-step usage scenario and how the add event feature works:
-1. The user launches the application and inputs `add-event n/Hall Dinner d/Dinner@Dining Hall` into the input box.
+1. The user launches the application and inputs `add-event n/Hall Dinner dt/01/01/2020 18:00 l/Dining Hall d/Dinner@Dining Hall` into the input box.
 2. The `UI` component accepts the input and passes it to `LogicManager#execute()`.
 3. The input is parsed through `AddressBookParser#parseCommand()`, returning an `AddEventCommand` with an `Event` class associated to it.
 4. The `LogicManager` class then calls `AddEventCommand#execute()`, which uses `Model#addEvent()` to save the associated `Event` class.
 
 The following sequence diagram shows how the add event operation works:
-![Add Event Sequence Diagram](diagrams/commands/dg-add-event.png)
+![Add Event Sequence Diagram](images/AddEventSequenceDiagram.png)
 
 #### 3.2.2 Design consideration:
 
-#### Aspect: When to create the new `Event` class
+##### Aspect: When to create the new `Event` class
 
 * **Alternative 1 (current choice)**: Create the new `Event` in `AddressBookParser#parseCommand()`
-
-Pros | Cons
------| -----
-\+ Early conversion of user's input into `Event` class<br />+ Consistent with the existing code base</span> | - Increases dependency between `Logic` and `Model` component
+    * Pros
+        * Early conversion of user's input into `Event` class.
+        * Consistent with the existing code base.
+    * Cons
+        * Increases dependency between `Logic` and `Model` component.
 
 * **Alternative 2**: Create the new `Event` in `AddEventCommand#execute()`
-
-Pros | Cons
------|-----
-\+ Decreases dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
+    * Pros
+        * Decreases dependency between `Logic` and `Model` component.
+    * Cons
+        * Late conversion of user's input into `Event` class.
 
 We decided to use **Alternative 1** as it is simpler.
 
