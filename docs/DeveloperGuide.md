@@ -138,7 +138,7 @@ The following steps explain the interactions of `Logic` component to parse and e
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
-1. The command execution can affect the `Model` (e.g. adding a person).
+1. The command execution can affect the `Model` (e.g. adding a resident).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
@@ -153,6 +153,10 @@ The ***Model Class Diagram*** given below shows the structure of the `Model` com
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
 **API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/model/Model.java)
+
+<div markdown="span" class="alert alert-info">
+:information_source: **Note:** The `Person` class is used to model a resident.
+</div>
 
 The `Model` component:
 
@@ -201,15 +205,15 @@ Given below is a step-by-step usage scenario of how the `export` feature works:
 
 2. The `LogicManager#execute()` is then called, and the input is parsed through `AddressBookParser#parseCommand()`, returning an `ExportCommand`.
 
-3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` followed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
+3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` followed by `ReadOnlyAddressBook#getPersonList()` to get the current list of residents.
 
-4. The person list is then passed to `ExportCommand#handleEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`.
+4. The residents list is then passed to `ExportCommand#handleEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`.
 
 The following sequence diagram shows how the export operation works:
 ![Export Sequence Diagram](images/ExportSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> 
-If the current person list is empty, an empty hally.txt file will be created.
+If the current residents list is empty, an empty hally.txt file will be created.
 </div>
 
 #### 3.1.2 Design consideration:
