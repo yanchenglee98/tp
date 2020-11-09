@@ -664,8 +664,8 @@ Use case ends.
     * 1a1. Hall-y shows an error message.\
       Use case ends.
       
-* 2b. User enters details in the wrong format.
-    * 2b1. Hall-y shows an error message and correct format.\
+* 1b. User enters details in the wrong format.
+    * 1b1. Hall-y shows an error message and correct format.\
       Use case ends.
 
 **Use case: UC10 - Assign a resident to an event** 
