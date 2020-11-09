@@ -648,9 +648,9 @@ Use case ends.
 
 **MSS**
 
-1.  User requests to edit a specific resident in the list
-2.  Hall-y edits resident in the list
-3.  Hall-y <ins>displays list (UC01) </ins>\
+1.  User requests to edit a specific event in the list
+2.  Hall-y edits event in the list
+3.  Hall-y <ins>displays events list (UC01) </ins>\
 Use case ends.
 
 **Extensions**
