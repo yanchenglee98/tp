@@ -47,4 +47,3 @@ Given below are my contributions to the project:
 * **Community**:
   * PRs reviewed (with non-trivial review comments): [\#67](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/67), [\#126](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/126)
   * Reported bugs and gave suggestions for other teams in the class (example: [#6](https://github.com/lowjiefeng1998/ped/issues/6))
-  
