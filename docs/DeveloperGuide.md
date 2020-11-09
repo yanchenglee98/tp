@@ -628,6 +628,10 @@ Use case ends
 3.  Hall-y <ins>displays events list (UC06)</ins>\
 Use case ends.
 
+* 1a. User enters details in the wrong format.
+    * 1a1. Hall-y shows an error message and correct format.\
+      Use case ends.
+
 **Use case: UC08 - Delete an event**
 
 **MSS**
