@@ -252,11 +252,11 @@ Given below is a step-by-step usage scenario and how the add event feature works
 4. The `LogicManager` class then calls `AddEventCommand#execute()`, which uses `Model#addEvent()` to save the associated `Event` class.
 
 The following sequence diagram shows how the add event operation works:
-![Add Event Sequence Diagram](diagrams/commands/dg-add-event.png)
+![Add Event Sequence Diagram](images/AddEventSequenceDiagram.png)
 
 #### 3.2.2 Design consideration:
 
-#### Aspect: When to create the new `Event` class
+##### Aspect: When to create the new `Event` class
 
 * **Alternative 1 (current choice)**: Create the new `Event` in `AddressBookParser#parseCommand()`
 
@@ -377,7 +377,7 @@ The following sequence diagram shows how finding students works:
 
 #### 3.5.2 Design consideration:
 
-#### Aspect: When to convert list of predicates to a single predicate
+##### Aspect: When to convert list of predicates to a single predicate
 
 * **Alternative 1 (current choice)**: Create the predicate during `AddressBookParser#parseCommand()`
 
