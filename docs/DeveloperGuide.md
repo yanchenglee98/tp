@@ -4,8 +4,8 @@ title: Developer Guide
 ---
 # Hall-y Developer Guide
 
-Version 1.3  
-_Updated on 23/10/2020_
+Version 1.4
+_Updated on 9/11/2020_
 
 Prepared by:  
 Aung Thuya Oo  
@@ -132,7 +132,7 @@ The `Logic` component consists of `LogicManager`, `Parser`, `Command`, etc. The 
 
 The `Parser` component is defined in `src/main/java/seedu.address/logic/parser` folder. For any command `XYZCommand`, it has a parser called `XYZCommandParser` that inherits from `Parser` and parses the respective `XYZCommand`. 
 
-The `Command` component is defined in `src/main/java/seedu.address/logic/commands` folder. For all`XYZCommand`, it inherits from `Command`. 
+The `Command` component is defined in `src/main/java/seedu.address/logic/commands` folder. For all `XYZCommand`, it inherits from `Command`. 
 
 The following steps explain the interactions of `Logic` component to parse and execute the user command:
 
@@ -189,10 +189,10 @@ This section describes some noteworthy details on how certain features are imple
 
 #### 3.1.1 Implementation
 The export feature is facilitated by `FileWriter` from Java's IO library.
-Currently, only email address and phone number can be exported. 
+This feature is used to export emails of the current list of residents displayed. 
 
 The key idea is that we will iterate through the current list and access the relevant information fields.
-This operation depends on the size of the current person list and will be relatively fast.
+This operation depends on the size of the current residents list and will be relatively fast.
 We will then write the information into a .txt file located at `/data/hally.txt` each separated by a new line. 
 
 Given below is a step-by-step usage scenario of how the `export` feature works:
@@ -219,7 +219,7 @@ If the current person list is empty, an empty hally.txt file will be created.
 * **Alternative 1 (current choice)**: Write to a .txt file.
     * Pros
         * More user-friendly.
-        * Most operating systems is able to open .txt.
+        * Most operating systems are able to open .txt files.
     * Cons
         * Does not offer much functionality apart from viewing and copying. 
 
@@ -803,6 +803,7 @@ testers are expected to do more *exploratory* testing.
    1. Test case: Download the jar file and copy into an empty folder. Then, double-click the jar file.<br>
    Expected: Shows the GUI with a set of sample residents. The window size may not be optimum.
 
+
 1. Saving window preferences
 
    1. Test case: Resize the window to an optimum size. Move the window to a different location. Close the window. Then, re-launch the app by double-clicking the jar file.<br>
@@ -814,6 +815,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Test case: `add n/John Doe`<br>
     Expected: No resident is added. Error details shown in the status message.
+    
     
 2. Adding duplicate resident
     1. Prerequisites: A resident with the same matriculation number `A0123456B` already exists.
@@ -855,6 +857,7 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `add-event n/Seminar dt/30/01/2020 15:00 l/Dining Hall d/A regular seminar`<br>
     Expected: The events list will be updated to reflect the newly added event called Seminar
 
+
 1. Add an event with invalid parameters
 
     1. Test case: `add-event n/Seminar@Hall dt/30/01/2020 15:00 l/Dining Hall d/A regular seminar`<br>
@@ -894,6 +897,7 @@ testers are expected to do more *exploratory* testing.
 
    2. Test case: `assign 1 1`<br>
       Expected: Resident 1 is assigned to event 1 and is reflected on the UI.
+
 
 2. Assigning a duplicate resident 
    1. Prerequisites: Resident 1 is already assign to event 1. 
