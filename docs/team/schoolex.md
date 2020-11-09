@@ -14,19 +14,20 @@ Given below are my contributions to the project.
     - Justification: This will allow the user to keep track of block and room information. 
     It allows the filter function to filter residents by block and room when required.
     - Highlights: There are many constraints for this field such as restricting range of values allowed and handling the 
-    various invalid user inputs. Hence,i had to implement rigorous validation checks to ensure that the app works correctly
+    various invalid user inputs. Hence,i had to implement rigorous validation checks to ensure that the app works correctly.
+    Block and room are also consolidated together as 1 field in the add/edit command so there were additional steps that had to be
+    taken in order to ensure that it integrates seamlessly with Hall-y.
     - Credits: The code uses a similar structure as existing fields such as email which was provided in the original AB3
 
 * **New Feature**: Block and room configurations
-    - What it does: Allows the user to modify the allowed range of blocks and room settings by modifying a settings file.
+    - What it does: Allows the user to modify the allowed range of blocks and room settings by modifying a json settings file.
     - Justification: Users will be managing different halls and the halls may have a different structure. This feature will allow
     the user to modify the configuration as required.
-    - Highlights: The code had to be modified to account for corrupted settings file so that the application can recover from it
-and not crash
-    - Credits: This is built on top of the preferences.json file provided in the original AB3
+    - Highlights: The code had to be tested rigorously to account for a corrupted settings file so that the application can recover from it
+and not crash. There were many possible invalid settings and i had to do multiple checks to cover as many edge cases as possible.
+    - Credits: This is built on top of the preferences.json file provided in the original AB3 which made use of the Jackson library.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=schoolex&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
-
 * **Project management**: 
     - Coordinated and managed tasks related to the User Guide
 
