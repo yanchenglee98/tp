@@ -42,9 +42,15 @@ to set up their development environment.
 
 ## **2 Design**
 
-<div markdown="span" class="alert alert-primary">
+<div markdown="span" class="alert alert-success">
 
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+
+</div>
+
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** In any sequence diagram, the lifeline for any object should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
 
@@ -100,7 +106,7 @@ The ***UI Class Diagram*** given below shows the structure of the `UI` component
 **API** :
 [`Ui.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The `UI` component consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The `UI` component consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `EventListPanel`, `ReferenceSection`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/resources/view/MainWindow.fxml).
 
@@ -153,7 +159,7 @@ The ***Model Class Diagram*** given below shows the structure of the `Model` com
 The `Model` component,
 
 * stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
+* stores Hall-y's data.
 * exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
@@ -191,7 +197,7 @@ Classes used by multiple components are in the `seedu.AddressBook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### 3.1 Exporting of information
+### 3.1 Exporting of information - Lee Yan Cheng
 
 #### 3.1.1 Implementation
 The export feature is facilitated by `FileWriter` from Java's IO library.
@@ -199,7 +205,7 @@ Currently, only email address and phone number can be exported.
 
 The key idea is that we will iterate through the current list and access the relevant information fields.
 This operation depends on the size of the current person list and will be relatively fast.
-We will then write the information into a .txt file located at `/data/hall.txt` each separated by a new line. 
+We will then write the information into a .txt file located at `/data/hally.txt` each separated by a new line. 
 
 Given below is a step-by-step usage scenario of how the `export` feature works:
 
@@ -209,7 +215,7 @@ Given below is a step-by-step usage scenario of how the `export` feature works:
 
 3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` followed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
 
-4. The person list is then passed to `ExportCommand#handlEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
+4. The person list is then passed to `ExportCommand#handleEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
 
 The following sequence diagram shows how the export operation works:
 ![Export Sequence Diagram](images/ExportSequenceDiagram.png)
@@ -222,19 +228,20 @@ If the current person list is empty, an empty hally.txt file will be created.
 
 ##### Aspect: What file format to export to
 
-* **Alternative 1 (current choice):** Write to a .txt file.
+* **Alternative 1 (current choice)**: Write to a .txt file.
+    * Pros
+        * More user-friendly.
+        * Most operating systems is able to open .txt.
+    * Cons
+        * Does not offer much functionality apart from viewing and copying. 
 
-Pros | Cons
------|-----
-\+ More user-friendly <br> + Most operating systems is able to open .txt files natively. | - Does not offer much functionality apart from viewing and copying. 
+* **Alternative 2 (current choice)**: Write to a .json file
+    * Pros
+        * More well-known among developers.
+    * Cons
+        * Less technical users may not know how to open a .json file. 
 
-* **Alternative 2:** Write to a .json file
-
-Pros | Cons
------|-----
-\+ More well-known among developers | - Less technical users may not know how to open a .json file.
-
-### 3.2 Adding of events
+### 3.2 Adding of events - Low Jie Feng
 
 #### 3.2.1 Implementation
 The add event feature is facilitated by the `AddEventCommand`.
@@ -246,7 +253,7 @@ When `AddEventCommand#execute()` is called, the associated `Event` is passed int
 The `Model` component then saves the `Event`.
 
 Given below is a step-by-step usage scenario and how the add event feature works:
-1. The user launches the application and inputs `add-event n/Hall Dinner d/Dinner@Dining Hall` into the input box.
+1. The user launches the application and inputs `add-event n/Hall Dinner dt/01/01/2020 18:00 l/Dining Hall d/Dinner@Dining Hall` into the input box.
 2. The `UI` component accepts the input and passes it to `LogicManager#execute()`.
 3. The input is parsed through `AddressBookParser#parseCommand()`, returning an `AddEventCommand` with an `Event` class associated to it.
 4. The `LogicManager` class then calls `AddEventCommand#execute()`, which uses `Model#addEvent()` to save the associated `Event` class.
@@ -259,16 +266,17 @@ The following sequence diagram shows how the add event operation works:
 ##### Aspect: When to create the new `Event` class
 
 * **Alternative 1 (current choice)**: Create the new `Event` in `AddressBookParser#parseCommand()`
-
-Pros | Cons
------| -----
-\+ Early conversion of user's input into `Event` class<br />+ Consistent with the existing code base</span> | - Increases dependency between `Logic` and `Model` component
+    * Pros
+        * Early conversion of user's input into `Event` class.
+        * Consistent with the existing code base.
+    * Cons
+        * Increases dependency between `Logic` and `Model` component.
 
 * **Alternative 2**: Create the new `Event` in `AddEventCommand#execute()`
-
-Pros | Cons
------|-----
-\+ Decreases dependency between `Logic` and `Model` component | - Late conversion of user's input into `Event` class
+    * Pros
+        * Decreases dependency between `Logic` and `Model` component.
+    * Cons
+        * Late conversion of user's input into `Event` class.
 
 We decided to use **Alternative 1** as it is simpler.
 
@@ -327,7 +335,7 @@ Pros | Cons
 
 Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work since we would require more rigorous testing to ensure that it is bug free. 
 
-### 3.4 Listing all student groups
+### 3.4 Listing all student groups - Tee Kok Siang
 
 #### 3.4.1 Implementation
 The listing all student groups feature is facilitated by `ListGroupCommand`. It extends `Command` and overrides `Command#execute()` to list all student groups.
@@ -397,7 +405,7 @@ For **Alternative 1**, it is difficult to compare 2 predicates as they have been
 With **Alternative 2**, it is easier to compare each equality of each element in the list of predicates instead to check whether the `FindCommand` objects are equal. 
 As testing is important to ensuring that programs run correctly, we decided to use alternative 2.
 
-### 3.6 Editing Floor settings
+### 3.6 Editing Floor settings - Tee Kok Siang
 
 #### 3.6.1 Implementation
 The editing floor settings feature is facilitated by `EditFloorCommand`. It extends `Command` and overrides `Command#execute()` to edit floor settings.
@@ -418,6 +426,25 @@ Given below is a step-by-step usage scenario and how the editing floor settings 
 The following sequence diagram shows how the editing floor settings operation works:
 ![Edit Floor Settings Sequence Diagram](images/EditFloorSequenceDiagram.png)  
 
+#### 3.6.2 Design consideration:
+
+#### Aspect: When to update Hall-y of the floor settings changes
+
+* **Alternative 1 (current choice)**: Update Hall-y of the floor settings change after restarting it
+    * Pros
+        * Able to revert the settings changes before it takes effect. 
+    * Cons
+        * Require to restart Hall-y to see the settings changes.
+
+* **Alternative 2**: Update Hall-y of the floor settings change immediately
+    * Pros
+        * Able to see the settings changes immediately. 
+    * Cons
+        * Possible to erase all of Hall-y data (including residents and events) if accidentally typing in the wrong values. 
+ 
+We decided to use **Alternative 1** as it provides additional safety measures to prevent erasing all of Hall-y data.
+
+For **Alternative 2**, the risk of erasing Hall-y data is relatively higher because the settings changes will take effect immediately. With **Alternative 1**, it is safer because the settings changes will only take effect after restarting Hall-y. The user can confirm the settings changes before it takes effect.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -475,29 +502,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | Hall admin managing residents       | View residents who are residing in the specific block  | I can keep track of the residents related to the specific block                  |
 | `* * *`  | Hall admin general                  | Export a list of emails          | I can email the correct group of students |
 | `* * *`  | Hall admin managing rooms           | Keep a record of who is residing in which rooms   | Quickly find out who is in which room                |
-| `* * `  | Hall admin managing rooms           | Keep a record of rooms that need maintenance   | Schedule rooms for maintenance and have maintenance records                |
-| `* * *`  | Hall admin managing student groups  | Keep track of the student group points accumulated by residents   | I know who can continue staying next semester                |
-| `* * *`  | Hall admin managing student groups  | Keep track of student groups within the hall   | So that I can find what student groups there are in the hall                |
 | `* * *`  | Hall admin managing student groups  | Keep track of student group member counts within the hall   | So that i can find out which student group’s are high in demand                |
-| `* * `  | Hall admin managing student groups  | Find who has which role in student group   | To find out which students are exco of the student group                |
-| `* * `  | Hall admin managing sports          | Find out whether our teams won IHG   | So that I know which athletes is good                |
-| `* * `  | Hall admin managing hall events     | Quickly filter out students involved in certain events   | I can email selected group of students easily                |
-| `* * *`  | Hall admin managing hall events     | Quickly find out who attended compulsory events   | I can email selected group of students easily                |
+| `* * *`  | Hall admin managing student groups  | Keep track of student groups within the hall   | So that I can find what student groups there are in the hall                |
+| `* * *`  | Hall admin managing hall events     | Quickly filter out students involved in certain events   | I can email selected group of students easily                |
 | `* * *`  | Hall admin managing hall events     | Create hall events  | I can contact the residents about the events                |
 | `* * *`  | Hall admin managing hall events     | Update hall events   | I can update the event's details                |
-| `* *`  | Hall admin managing hall events     | Archive hall events   | I can archive past events                |
-| `* * `  | Hall admin managing hall events     | Delete hall events   | I can remove events that were cancelled                |
-| `* * `  | Hall admin managing hall events     | Query past hall events based on period   | So that I can do a recap of hall events                |
-| `* * `  | Hall admin managing discipline      | Query for a student's demerit points and all rules broken   | I can expel them next sem                |
+| `* * *`  | Hall admin general                  | Export email, based on filters  | I can send this data to people who will want information on these residents                |
+| `* *`  | Hall admin managing hall events     | Quickly find out who attended compulsory events   | I can email selected group of students easily                |
+| `* *`  | Hall admin managing hall events     | Delete hall events   | I can remove events that were cancelled                |
+| `* *`  | Hall admin general     | Can change the block and room settings   | to cater to different halls               |
+| `*`  | Hall admin managing rooms           | Keep a record of rooms that need maintenance   | Schedule rooms for maintenance and have maintenance records                |
+| `*`  | Hall admin managing student groups  | Keep track of the student group points accumulated by residents   | I know who can continue staying next semester                |
+| `*`  | Hall admin managing student groups  | Find who has which role in student group   | To find out which students are exco of the student group                |
+| `*`  | Hall admin managing sports          | Find out whether our teams won IHG   | So that I know which athletes is good                |
+| `*`  | Hall admin managing hall events     | Archive hall events   | I can archive past events                |
+| `*`  | Hall admin managing hall events     | Query past hall events based on period   | So that I can do a recap of hall events                |
+| `*`  | Hall admin managing discipline      | Query for a student's demerit points and all rules broken   | I can expel them next sem                |
 | `*`  | Hall admin managing discipline      | Query most commonly broken rules   | I can work to prevent those cases                |
-| `* `  | Hall admin managing discipline      | Create rule lists for demerit points   | To create and include new rules such as covid temp measures                |
-| `* * `  | Hall admin managing discipline      | Award demerit points to a student records   | Punish students                |
-| `* `  | Hall admin managing discipline      | Select a rule that was broken when awarding demerit points   | To correctly allocate the demerit point for the student commiting the offence                |
-| `*  `  | Hall admin managing discipline      | Give additional details, e.g. who, what, when, how, where   | I know why they received the demerit points in the first place                |
-| `* * `  | Hall admin managing discipline      | Delete demerit points from students' records   | Undo any mistakes that occurred when giving them demerit points               |
-| `* `  | Hall admin managing discipline      | Reset demerit points for all students   | -                |
-| `* `  | Hall admin managing discipline      | Keep track of the budget left for the block events   | I can plan the event according to the budget                |
-| `* * `  | Hall admin general                  | Export csv, based on filters  | I can send this data to people who will want information on these residents                |
+| `*`  | Hall admin managing discipline      | Create rule lists for demerit points   | To create and include new rules such as covid temp measures                |
+| `*`  | Hall admin managing discipline      | Award demerit points to a student records   | Punish students                |
+| `*`  | Hall admin managing discipline      | Select a rule that was broken when awarding demerit points   | To correctly allocate the demerit point for the student commiting the offence                |
+| `*`  | Hall admin managing discipline      | Give additional details, e.g. who, what, when, how, where   | I know why they received the demerit points in the first place                |
+| `*`  | Hall admin managing discipline      | Delete demerit points from students' records   | Undo any mistakes that occurred when giving them demerit points               |
+| `*`  | Hall admin managing discipline      | Reset demerit points for all students   | -                |
+| `*`  | Hall admin managing discipline      | Keep track of the budget left for the block events   | I can plan the event according to the budget                |
 
 ## **Appendix C: Use Cases**
 
@@ -577,15 +605,53 @@ Use case ends
 
       Use case ends.
 
-**Use case: UC05 - Edit a resident**
+**Use case: UC10 - Assign a resident to an event** 
+
+Preconditions: Resident and event lists are populated.
+
+**MSS**
+
+1.  User assigns resident to event
+2.  Hall-y adds resident into event
+3.  Hall-y updates the event with the newly added resident\
+Use case ends.
+
+**Extensions**
+
+* 1a. User assigns duplicate resident to the event.
+    * 1a1. Hall-y shows an error message.\
+      Use case ends.
+
+**Use case: UC11 - List event attendees** 
+
+Preconditions: Event exists.
+
+**MSS**
+
+1.  User request to list event attendees
+2.  Hall-y displays list of event attendees \
+Use case ends.
+
+
+**Use case: UC12 - Clear event attendees** 
+
+Preconditions: Event exists.
+
+**MSS**
+
+1.  User request to clear event attendees
+2.  Hall-y clears list of event attendees
+3.  Hall-y displays the updated event\
+Use case ends.
+
+**Use case: UC13 - Export email**
 
 **MSS**
 
 1.  User requests to <ins>list contacts (UC01)</ins>
-2.  User request to export emails
-3.  Hall-y exports the list of email to a .txt file
-
-    Use case ends.
+2.  User requests to export emails
+3.  Hall-y exports the list of email to a .txt file\
+Use case ends.
 
 ## **Appendix D: Non-Functional Requirements**
 
@@ -632,27 +698,78 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### F.2 Deleting a person
+### F.2 Adding a resident
 
-1. Deleting a person while all persons are being shown
+1. Add a resident with missing parameter
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    1. Test case: `add n/John Doe`<br>
+    Expected: No resident is added. Error details shown in the status message.
+2. Adding duplicate resident
+    1. Prerequisites: A resident with the same matriculation number `A0123456B` already exists.
+    
+    2. Test case: `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/M br/A420 m/A0123456B s/basketball s/hackers`<br>
+    Expected: No resident is added. Error details shown in the status message.
+
+### F.3 Editing a resident
+
+1. Edit a resident with duplicate phone number, email address, matriculation number or room number
+
+    1. Prerequisites: A resident with the same matriculation number `A0123456B` already exists.
+    2. Prerequisites: A resident that is to be edited already exists.
+    2. Test case: `edit 1 m/A0123456B` <br>
+    Expected: Resident is not edited. Error details shown in the status message.
+
+### F.4 Deleting a resident
+
+1. Delete a resident while all residents are being shown
+
+   1. Prerequisites: List all residents using the `list` command. Multiple residents in the list.
 
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: First resident is deleted from the list. Details of the deleted resident shown in the status message.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No resident is deleted. Error details shown in the status message.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+### F.8 Assigning a resident
 
-### F.3 Saving data
+1. Assign a new resident
+   1. Prerequisites: Resident 1 is not assigned to event 1. 
 
-1. Dealing with missing/corrupted data files
+   2. Test case: `assign 1 1`<br>
+      Expected: Resident 1 is assigned to event 1 and is reflected on the UI.
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+2. Assigning a duplicate resident 
+   1. Prerequisites: Resident 1 is already assign to event 1. 
 
-1. _{ more test cases …​ }
+   2. Test case: `assign 1 1`<br>
+      Expected: An exeception is thrown, notifying the user that the resident has already been added.
+      
+### F.9 Listing of event attendees
+
+1. Listing an event attendees
+   1. Prerequisites: Event 1 exists. 
+
+   2. Test case: `list-event-attendees 1`<br>
+      Expected: Residents list is updated with the residents attending event 
+      
+### F.10 Clearing of event attendees
+
+1. Clearing an event attendees
+   1. Prerequisites: Event 1 exists and is populated with residents. 
+
+   2. Test case: `clear-event-attendees 1`<br>
+      Expected: Event 1 attendees is removed and reflected on the UI.
+
+### F.15 Saving data
+
+1. Deal with missing/corrupted data files
+
+   1. Test case: Delete the file<br> 
+   Expected: Hall-y will reset to the default details.
+   
+   2. Test case: Corrupt the file <br>
+   Expected: Hall-y will reset and an empty list will be presented.
