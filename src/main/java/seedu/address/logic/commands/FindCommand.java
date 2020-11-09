@@ -17,7 +17,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**
- * Finds and lists all persons in address book whose name contains any of the argument keywords.
+ * Finds and lists all residents in Hall-y whose name contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class FindCommand extends Command {
@@ -30,7 +30,7 @@ public class FindCommand extends Command {
             + "Parameters: "
             + "[" + PREFIX_NAME + "NAME_KEYWORDS..." + "] "
             + "[" + PREFIX_BLOCK + "BLOCK" + "] "
-            + "[" + PREFIX_FLOOR + "FLOOR" + "]"
+            + "[" + PREFIX_FLOOR + "FLOOR" + "] "
             + "[" + PREFIX_ROOM_NUMBER + "ROOM_NUMBER" + "] "
             + "[" + PREFIX_MATRICULATION_NUMBER + "MATRICULATION_NUMBER" + "] "
             + "[" + PREFIX_GENDER + "GENDER" + "] "

@@ -77,6 +77,10 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     public void setBlockSettings(String[] blockSettings) {
         requireNonNull(blockSettings);
+        if (blockSettings.length < 2) {
+            this.blockSettings = DEFAULT_BLOCK_SETTINGS;
+            return;
+        }
         for (int i = 0; i < blockSettings.length; i++) {
             if (!blockSettings[i].matches(Block.VALIDATION_REGEX)) {
                 this.blockSettings = DEFAULT_BLOCK_SETTINGS;
@@ -99,6 +103,8 @@ public class UserPrefs implements ReadOnlyUserPrefs {
             this.minRoomSettings = DEFAULT_MIN_ROOM_SETTINGS;
             this.maxRoomSettings = DEFAULT_MAX_ROOM_SETTINGS;
         }
+        assert minRoomSettings >= MIN_ALLOWED_ROOMS;
+        assert maxRoomSettings <= MAX_ALLOWED_ROOMS;
     }
 
     public int getMaxRoomSettings() {

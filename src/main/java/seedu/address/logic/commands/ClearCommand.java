@@ -15,7 +15,7 @@ public class ClearCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clears all residents and events.\n"
         + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_SUCCESS = "Address book has been cleared!";
+    public static final String MESSAGE_SUCCESS = "Hall-y has been cleared!";
 
 
     @Override

@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.CommandUtil.requireUniquePerson;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
@@ -43,11 +44,6 @@ public class AddCommand extends Command {
             + PREFIX_STUDENT_GROUP + "hackers ";
 
     public static final String MESSAGE_SUCCESS = "New resident added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This resident already exists in Hall-y.";
-    public static final String MESSAGE_DUPLICATE_MATRICULATION_NUMBER =
-            "An existing resident already has this matriculation number in Hall-y";
-    public static final String MESSAGE_DUPLICATE_BLOCK_ROOM =
-            "An existing resident is already staying in this room in Hall-y";
 
 
     private final Person toAdd;
@@ -63,18 +59,7 @@ public class AddCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-
-        if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-        }
-
-        if (model.hasMatriculationNumber(toAdd.getMatriculationNumber())) {
-            throw new CommandException(MESSAGE_DUPLICATE_MATRICULATION_NUMBER);
-        }
-
-        if (model.hasBlockRoom(toAdd.getBlock(), toAdd.getRoom())) {
-            throw new CommandException(MESSAGE_DUPLICATE_BLOCK_ROOM);
-        }
+        requireUniquePerson(model, toAdd);
 
         model.addPerson(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
