@@ -653,6 +653,23 @@ Use case ends.
 3.  Hall-y exports the list of email to a .txt file\
 Use case ends.
 
+**Use case: UC14 - Modify block room settings file directly**
+
+**MSS**
+
+1.  User exits Hall-y
+2.  User opens up the `preferences.json` file 
+3.  User modifies the block and room settings
+4.  User launch Hall-y
+5.  Hall-y shows the updated settings\
+Use case ends.
+
+**Extensions**
+
+* 3. The block and room settings are invalid
+    * 3a1. Hall-y reset the block and room settings to default\
+Use case ends.  
+
 ## **Appendix D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
