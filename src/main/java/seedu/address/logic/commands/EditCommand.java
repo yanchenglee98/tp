@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.CommandUtil.requireUniquePerson;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOCKROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
@@ -22,6 +23,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.event.Event;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Block;
 import seedu.address.model.person.Email;
@@ -58,11 +60,6 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Resident: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This resident already exists in Hall-y.";
-    public static final String MESSAGE_DUPLICATE_MATRICULATION_NUMBER =
-            "An existing resident already has this matriculation number in Hall-y";
-    public static final String MESSAGE_DUPLICATE_BLOCK_ROOM =
-            "An existing resident is already staying in this room in Hall-y";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -79,6 +76,7 @@ public class EditCommand extends Command {
         this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
     }
 
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -91,19 +89,24 @@ public class EditCommand extends Command {
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
 
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        if (!personToEdit.isSamePerson(editedPerson)) {
+            requireUniquePerson(model, editedPerson);
         }
 
-        if (!personToEdit.getMatriculationNumber().equals(editedPerson.getMatriculationNumber())
-                && model.hasMatriculationNumber(editedPerson.getMatriculationNumber())) {
-            throw new CommandException(MESSAGE_DUPLICATE_MATRICULATION_NUMBER);
-        }
+        // check for occurrence of resident in events list and also edit them
+        List<Event> eventList = model.getEventList();
+        for (Event event : eventList) {
+            Set<Person> attendeesList = event.getAttendeesList();
+            if (attendeesList.contains(personToEdit)) {
+                attendeesList.remove(personToEdit);
+                attendeesList.add(editedPerson);
 
-        if (!personToEdit.getRoom().equals(editedPerson.getRoom())
-                && !personToEdit.getBlock().equals(editedPerson.getBlock())
-                && model.hasBlockRoom(editedPerson.getBlock(), editedPerson.getRoom())) {
-            throw new CommandException(MESSAGE_DUPLICATE_BLOCK_ROOM);
+                Event editedEvent = new Event(event.getName(), event.getEventDate(), event.getLocation(),
+                        event.getDescription(), attendeesList);
+
+                // update model
+                model.setEvent(event, editedEvent);
+            }
         }
 
         model.setPerson(personToEdit, editedPerson);
