@@ -704,6 +704,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Test case: `add n/John Doe`<br>
     Expected: No resident is added. Error details shown in the status message.
+    
 2. Adding duplicate resident
     1. Prerequisites: A resident with the same matriculation number `A0123456B` already exists.
     
@@ -715,8 +716,10 @@ testers are expected to do more *exploratory* testing.
 1. Edit a resident with duplicate phone number, email address, matriculation number or room number
 
     1. Prerequisites: A resident with the same matriculation number `A0123456B` already exists.
+    
     2. Prerequisites: A resident that is to be edited already exists.
-    2. Test case: `edit 1 m/A0123456B` <br>
+    
+    3. Test case: `edit 1 m/A0123456B` <br>
     Expected: Resident is not edited. Error details shown in the status message.
 
 ### F.4 Deleting a resident
