@@ -418,6 +418,25 @@ Given below is a step-by-step usage scenario and how the editing floor settings 
 The following sequence diagram shows how the editing floor settings operation works:
 ![Edit Floor Settings Sequence Diagram](images/EditFloorSequenceDiagram.png)  
 
+#### 3.6.2 Design consideration:
+
+#### Aspect: When to update Hall-y of the floor settings changes
+
+* **Alternative 1 (current choice)**: Update Hall-y of the floor settings change after restarting it
+
+Pros | Cons
+-----| -----
+\+ Able to revert the settings changes before it takes effect | - Require to restart Hall-y to see the settings changes
+
+* **Alternative 2**: Update Hall-y of the floor settings change immediately
+
+Pros | Cons
+-----|-----
+\+ Able to see the settings changes immediately | - Possible to erase all of Hall-y data (including residents and events) if accidentally typing in the wrong values 
+ 
+We decided to use **Alternative 1** as it provides additional safety measures to prevent erasing all of Hall-y data.
+
+For **Alternative 2**, the risk of erasing Hall-y data is relatively higher because the settings changes will take effect immediately. With **Alternative 1**, it is safer because the settings changes will only take effect after restarting Hall-y. The user can confirm the settings changes before it takes effect.
 
 --------------------------------------------------------------------------------------------------------------------
 
