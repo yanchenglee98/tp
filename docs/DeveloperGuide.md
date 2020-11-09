@@ -22,18 +22,18 @@ Tee Kok Siang
 
 ## **1 Introduction**
 
-### **1.1 Purpose**
+### 1.1 Purpose
 
 This document describes the architecture and system design of Hall-y, a hall residents' contact management application.
 The goal of this document is to cover the high-level system architecture and design of this application.
 The document starts off by describing the high level overview before going into the details of the various components in their respective subsections.
 
-### **1.2 Audience**
+### 1.2 Audience
 
 This document is targeted at developers and designers who wish to do further development on the app.
 Software testers can utilize this document to aid them in uncovering bugs during testing.
 
-### **1.3 Development environment** 
+### 1.3 Development environment
 
 Developers and designers who wish to do further development on the app can refer to the guide [_Setting up and getting started_](SettingUp.md). 
 to set up their development environment.
@@ -106,11 +106,13 @@ The ***UI Class Diagram*** given below shows the structure of the `UI` component
 **API** :
 [`Ui.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
+The `UI` component builds the UI of the application.
+
 The `UI` component consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `EventListPanel`, `ReferenceSection`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/resources/view/MainWindow.fxml).
 
-The `UI` component,
+The `UI` component:
 
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
@@ -124,11 +126,13 @@ The ***Logic Class Diagram*** given below shows the structure of the `Logic` com
 **API** :
 [`Logic.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
+The `Logic` component executes the different commands.
+
 The `Logic` component consists of `LogicManager`, `Parser`, `Command`, etc. The `Logic` component parses and executes the user command.   
 
-The `Parser` component is defined in `src/main/java/seedu.address/logic/parser` folder, `XYZCommandParser` inherits from `Parser` and parses the respective `XYZCommand`. 
+The `Parser` component is defined in `src/main/java/seedu.address/logic/parser` folder. For any command `XYZCommand`, it has a parser called `XYZCommandParser` that inherits from `Parser` and parses the respective `XYZCommand`. 
 
-The `Command` component is defined in `src/main/java/seedu.address/logic/commands` folder, `XYZCommand` inherits from `Command`. 
+The `Command` component is defined in `src/main/java/seedu.address/logic/commands` folder. For all`XYZCommand`, it inherits from `Command`. 
 
 The following steps explain the interactions of `Logic` component to parse and execute the user command:
 
@@ -142,12 +146,6 @@ The ***Logic Component Sequence Diagram*** given below shows the interactions wi
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">
-
-:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
 ### 2.4 Model Component
 
 The ***Model Class Diagram*** given below shows the structure of the `Model` component.
@@ -156,24 +154,14 @@ The ***Model Class Diagram*** given below shows the structure of the `Model` com
 
 **API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/model/Model.java)
 
-The `Model` component,
+The `Model` component:
 
-* stores a `UserPref` object that represents the user’s preferences.
-* stores Hall-y's data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
-* does not depend on any of the other three components.
-
-
-<div markdown="span" class="alert alert-info">
-
-:information_source: **Note:** The ***Alternative Model Class Diagram*** given below shows an alternative (arguably, more OOP) model of the `Model` component.
-
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
-
-It has a `Tag` list in the `Hall-y`, which `Person` references. This allows `Hall-y` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
-
-</div>
-
+* Stores a `UserPref` object that represents the user’s preferences.
+* Stores Hall-y's data.
+* Exposes the following unmodifiable lists that can be 'observed' - i.e. the UI can be bound to these lists so that the UI automatically updates when the data in these lists change:
+    * `ObservableList<Person>`: list of Hall-y's residents
+    * `ObservableList<Event>`: list of Hall-y's events
+* Does not depend on any of the other three components.
 
 ### 2.5 Storage Component
 
@@ -183,13 +171,13 @@ The ***Storage Class Diagram*** given below shows the structure of the `Storage`
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-T11-2/tp/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
-The `Storage` component,
+The `Storage` component:
 * saves `UserPref` objects in json format and read it back.
-* saves the address book data in json format and read it back.
+* saves Hall-y's data in json format and read it back.
 
 ### 2.6 Common Classes
 
-Classes used by multiple components are in the `seedu.AddressBook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -215,7 +203,7 @@ Given below is a step-by-step usage scenario of how the `export` feature works:
 
 3. The `export` command then calls `ExportCommand#execute()`, and calls `Model#getAddressBook()` followed by `ReadOnlyAddressBook#getPersonList()` to get the current list of persons.
 
-4. The person list is then passed to `ExportCommand#handleEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`
+4. The person list is then passed to `ExportCommand#handleEmail()` which iterates through the list and calls `Person#getEmail()` to access the `Email` and writes to the file `hally.txt`.
 
 The following sequence diagram shows how the export operation works:
 ![Export Sequence Diagram](images/ExportSequenceDiagram.png)
@@ -284,7 +272,7 @@ For **Alternative 2**, we found it to be too complex. The user's input has to be
 By converting it to an `Event` class early, we can work at a higher level of abstraction.
 Other methods do not have to worry about string's format, and can focus on handling it as an `Event` class.
 
-### 3.3 Persistent block and room settings
+### 3.3 Persistent block and room settings - Pang Biao Yi
 
 #### 3.3.1 Implementation
 This feature is implemented by making use of a json file to store the blocks and rooms info of the Hall. It does this by defining all available block and rooms in an editable json file. 
@@ -321,19 +309,18 @@ The following sequence diagram shows how this feature works:
 
 ##### Aspect: Method of modifying the json file
 
-* **Alternative 1 (current choice):** Editing it directly
+* **Alternative 1 (current choice)**: Editing it directly
+    * Pros
+        * Easier to implement.
+    * Cons
+        * Less technical users may not know how to edit the file correctly. 
 
-Pros | Cons
------|-----
-\+ Easier to implement <br> | - Less technical users may not know how to edit the file correctly 
+* **Alternative 2**: Adding a command to support the editing of block room settings with dynamic updates to the block room reference section
+    * Pros
+        * All users will be able to edit the file safely without restarting the app
+    * Cons
+        * Time-consuming to implement.
 
-* **Alternative 2:** Via a command
-
-Pros | Cons
------|-----
-\+ All users will be able to edit the file safely | - Troublesome to implement
-
-Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work since we would require more rigorous testing to ensure that it is bug free. 
 
 ### 3.4 Listing all student groups - Tee Kok Siang
 
@@ -359,7 +346,7 @@ The following sequence diagram shows how the listing all student groups operatio
 If there is no resident or student group, an empty list will be displayed.
 </div>
 
-### 3.5 Finding Students
+### 3.5 Finding Students - Aung Thuya Oo
 
 #### 3.5.1 Implementation
 The finding of students based on their characteristics is facilitated by the `FindCommand`.
@@ -387,17 +374,21 @@ The following sequence diagram shows how finding students works:
 
 ##### Aspect: When to convert list of predicates to a single predicate
 
-* **Alternative 1 (current choice)**: Create the predicate during `AddressBookParser#parseCommand()`
+* **Alternative 1**: Create the predicate during `AddressBookParser#parseCommand()`
+    * Pros
+        * Memory is being freed earlier as list of predicates is being converted immediately.
+    * Cons
+        * Makes testing of equal find commands more difficult.
 
-Pros | Cons
------| -----
-\+ Memory is freed earlier as list of predicates is converted immediately | - Makes testing of equal find commands more difficult
 
-* **Alternative 2**: Create the predicate during `FindCommand#execute()`
+* **Alternative 2 (current choice)**: Create the predicate during `FindCommand#execute()`
+    * Pros
+        *  It is easier to compare equality for `FindCommand` objects.
+        *  It is easier to test.
+    * Cons
+        * More memory is needed to store the list of predicates for longer periods of time.
 
-Pros | Cons
------|-----
-\+ It is easier to compare equality for `FindCommand` objects<br/>\+ It is easier to test | - More memory is needed to store the list of predicates for longer period of time
+
 
 We decided to use **Alternative 2** as it increases testability by making it simpler to test.
 
@@ -450,31 +441,31 @@ For **Alternative 2**, the risk of erasing Hall-y data is relatively higher beca
 
 ## **4 Documentation**
 
-Refer to the guide [Documentation guide](Documentation.md).
+Developers and designers who wish to understand how Hall-y is currently documented can refer to the [_Documentation guide_](Documentation.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **5 Logging**
 
-Refer to the guide [Logging guide](Logging.md).
+Hall-y utilises logging to keep track of the users' activity. Developers and designers who wish to understand how logging works in Hall-y can refer to the [_Logging guide_](Logging.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **6 Testing**
 
-Refer to the guide [Testing guide](Testing.md).
+Developers and designers who wish to do further testing on Hall-y's features can refer to the [_Testing guide_](Testing.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **7 Configuration**
 
-Refer to the guide [Configuration guide](Configuration.md).
+Certain properties of Hall-y can be modified. Developers and designers who wish to learn more can refer to the [_Configuration guide_](Configuration.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **8 DevOps**
 
-Refer to the guide [DevOps guide](DevOps.md).
+Hall-y can be built and released automatically. Developers and designers who wish to learn more can refer to the [_DevOps guide_](DevOps.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -529,82 +520,75 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ## **Appendix C: Use Cases**
 
-(For all use cases below, the **System** is the `Hall-y` and the **Actor** is the `hall leader`, unless specified otherwise)
+(For all use cases below, the **System** is the `Hall-y` and the **Actor** is the `hall admin`, unless specified otherwise)
 
-**Use case: UC01 - Listing of contacts**
+**Use case: UC01 - List residents**
 
 **MSS**
 1.  User requests to list residents
-2.  Hall-y shows a list of residents
-
+2.  Hall-y shows a list of residents\
 Use case ends
 
-**Use case: UC02 - Delete a resident**
+
+**Use case: UC02 - Add a resident**
 
 **MSS**
-
-1.  User requests to <ins>list contacts (UC01)</ins>
-2.  User requests to delete a specific resident in the list
-3.  Hall-y deletes the resident
-
-    Use case ends.
-
-**Extensions**
-
-* 1a. The list is empty.
-
-  Use case ends.
-
-* 2a. The given index is invalid.
-
-    * 2a1. Hall-y shows an error message.
-
-      Use case resumes at step 2.
-
-**Use case: UC03 - Add a resident**
-
-**MSS**
-
 1.  User enters resident's details
 2.  Hall-y adds resident into list
-3.  Hall-y <ins>displays list (UC01)</ins>
-
-    Use case ends.
+3.  Hall-y <ins>displays list (UC01)</ins>\
+Use case ends.
 
 **Extensions**
 
 * 1a. User enters details in the wrong format.
-    * 1a1. Hall-y shows an error message and correct format.
-
+    * 1a1. Hall-y shows an error message and correct format.\
   Use case ends.
+  
+  
+**Use case: UC03 - Delete a resident**
+
+**MSS**
+
+1.  User requests to <ins>list residents (UC01)</ins>
+2.  User requests to delete a specific resident in the list
+3.  Hall-y deletes the resident\
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.\
+Use case ends.
+
+* 2a. The given index is invalid.
+    * 2a1. Hall-y shows an error message.\
+    Use case resumes at step 2.
+
+
 
 **Use case: UC04 - Edit a resident**
 
 **MSS**
 
-1.  User requests to <ins>list contact (UC01) </ins>
-2.  User request to edit a specific resident in the list
+1.  User requests to <ins>list residents (UC01) </ins>
+2.  User requests to edit a specific resident in the list
 3.  Hall-y edits resident in the list
-4.  Hall-y <ins>displays list (UC01) </ins>
-
-    Use case ends.
+4.  Hall-y <ins>displays list (UC01) </ins>\
+Use case ends.
 
 **Extensions**
 
-* 1a. The list is empty.
-
-  Use case ends.
+* 1a. The list is empty.\
+Use case ends.
 
 * 2a. The given index is invalid.
-
-    * 2a1. Hall-y shows an error message.
-
+    * 2a1. Hall-y shows an error message.\
       Use case ends.
+      
 * 2b. User enters details in the wrong format.
-    * 2b1. Hall-y shows an error message and correct format.
-
-      Use case ends.
-
+    * 2b1. Hall-y shows an error message and correct format.\
+    Use case ends.
+    
+ 
 **Use case: UC05 - List student groups**
 
 **MSS**
@@ -627,6 +611,8 @@ Use case ends
 2.  Hall-y adds event into list
 3.  Hall-y <ins>displays events list (UC06)</ins>\
 Use case ends.
+
+**Extensions**
 
 * 1a. User enters details in the wrong format.
     * 1a1. Hall-y shows an error message and correct format.\
@@ -663,10 +649,11 @@ Use case ends.
 
     * 1a1. Hall-y shows an error message.\
       Use case ends.
-      
+
 * 1b. User enters details in the wrong format.
     * 1b1. Hall-y shows an error message and correct format.\
       Use case ends.
+
 
 **Use case: UC10 - Assign a resident to an event** 
 
@@ -715,7 +702,7 @@ Use case ends.
 2.  User requests to export emails
 3.  Hall-y exports the list of email to a .txt file\
 Use case ends.
-
+    
 **Use case: UC14 - Modify block room settings file directly**
 
 **MSS**
@@ -733,6 +720,54 @@ Use case ends.
     * 3a1. Hall-y reset the block and room settings to default\
 Use case ends.  
 
+**Use case: UC15 - Edit block settings**
+
+**MSS**
+
+1.  User request to edit block settings
+2.  User enters the new block settings 
+3.  User restarts Hall-y
+4.  Hall-y shows the updated block settings\   
+Use case ends.
+
+**Extensions**
+
+- 2a. The block settings are invalid
+    - 2a1. Hall-y shows invalid block settings error message\
+      Use case ends.
+      
+**Use case: UC16 - Edit floor settings**
+
+**MSS**
+
+1.  User request to edit floor settings
+2.  User enters the new floor settings 
+3.  User restarts Hall-y
+4.  Hall-y shows the updated floor settings\
+Use case ends.
+
+**Extensions**
+
+- 2a. The floor settings are invalid
+    - 2a1. Hall-y shows invalid floor settings error message\
+Use case ends.
+      
+**Use case: UC17 - Edit room settings**
+
+**MSS**
+
+1.  User request to edit room settings
+2.  User enters the new room settings 
+3.  User restarts Hall-y
+4.  Hall-y shows the updated room settings\
+Use case ends.
+
+**Extensions**
+
+- 2a. The room settings are invalid
+    - 2a1. Hall-y shows invalid room settings error message\
+    Use case ends.
+
 ## **Appendix D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
@@ -746,9 +781,7 @@ Use case ends.
 ## **Appendix E: Glossary**
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 * **Matriculation number**: Unique Identification for NUS students, which they will obtain when they matriculate into NUS
-* **Matriculation year**: Year when students enrolled in NUS
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -756,7 +789,9 @@ Use case ends.
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b> These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">
+
+:information_source: <b>Note:</b> These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
@@ -765,18 +800,13 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   1. Download the jar file and copy into an empty folder
-
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Test case: Download the jar file and copy into an empty folder. Then, double-click the jar file.<br>
+   Expected: Shows the GUI with a set of sample residents. The window size may not be optimum.
 
 1. Saving window preferences
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
-
-   1. Re-launch the app by double-clicking the jar file.<br>
+   1. Test case: Resize the window to an optimum size. Move the window to a different location. Close the window. Then, re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
-
-1. _{ more test cases …​ }_
 
 ### F.2 Adding a resident
 
@@ -799,7 +829,7 @@ testers are expected to do more *exploratory* testing.
     
     2. Prerequisites: A resident that is to be edited already exists.
     
-    3. Test case: `edit 1 m/A0123456B` <br>
+    2. Test case: `edit 1 m/A0123456B` <br>
     Expected: Resident is not edited. Error details shown in the status message.
 
 ### F.4 Deleting a resident
@@ -816,6 +846,46 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
+
+
+### F.5 Adding an event
+
+1. Add an event with valid parameters
+
+    1. Test case: `add-event n/Seminar dt/30/01/2020 15:00 l/Dining Hall d/A regular seminar`<br>
+    Expected: The events list will be updated to reflect the newly added event called Seminar
+
+1. Add an event with invalid parameters
+
+    1. Test case: `add-event n/Seminar@Hall dt/30/01/2020 15:00 l/Dining Hall d/A regular seminar`<br>
+    Expected: No event will be added. The result box will indicate that event names cannot contain symbols.
+    
+    1. Test case: `add-event n/Seminar dt/30-01-2020 15:00 l/Dining Hall d/A regular seminar`<br>
+    Expected: No event will be added. The result box will indicate that event dates need to be of the format DD/MM/YYYY HH:mm.
+    
+    1. Test case: `add-event n/Seminar dt/30/01/2020 15:00 l/Dining Hall/Hall d/A regular seminar`<br>
+    Expected: No event will be added. The result box will indicate that event locations cannot contain symbols.
+
+### F.6 Editing an event
+
+1. Edit with valid parameters
+    
+    1. Prerequisites: There is an event with event index 1 called Hall Lunch.
+    
+    1. Test case: `edit-event 1 n/Hall Dinner`<br>
+    Expected: The event list will change the 1st event to be called Hall Dinner instead. The result box will show the details of the edited event.
+    
+    1. Test case: `edit-event X`<br>
+    Expected: No event is edited. The events list remain unchanged. The error message is shown in the result box.
+    
+### F.7 Deleting an event
+
+1. Delete an event
+
+    1. Prerequisites: There is an event with event index 1
+    
+    1. Test case: `delete-event 1`<br>
+    Expected: The first event is deleted. Details of the event are shown in the result box.
 
 ### F.8 Assigning a resident
 
@@ -847,6 +917,55 @@ testers are expected to do more *exploratory* testing.
    2. Test case: `clear-event-attendees 1`<br>
       Expected: Event 1 attendees is removed and reflected on the UI.
 
+### F.11 Finding residents
+
+1. Find a resident who has particular characteristics
+    
+    1. Test case: `find f/3`<br>
+    Expected: The residents list will be updated with all residents who stay on the third floor
+    
+    1. Test case: `find f/5`<br>
+    Expected: The residents list does not change. An error message is shown. 
+
+### F.12 Editing block settings
+
+1. Edit the block settings 
+
+    1. Test case: `edit-block-range A E` <br>
+    Expected: After restarting Hall-y, the blocks list will be updated to reflect the block settings changes
+        
+    2. Test case: `edit-block-range a E` <br>
+    Expected: The result box will indicate that block letter can only be a capital letter. 
+
+    3. Test case: `edit-block-range A e` <br>
+    Expected: The result box will indicate that block letter can only be a capital letter. 
+
+### F.13 Editing floor settings
+
+1. Edit the floor settings 
+
+    1. Test case: `edit-floor-range 1 5` <br>
+    Expected: After restarting Hall-y, the blocks list will be updated to reflect the floor settings changes
+        
+    2. Test case: `edit-floor-range 0 5` <br>
+    Expected: The result box will indicate that floor number can only from 1 to 9.
+
+    3. Test case: `edit-floor-range 1 10` <br>
+    Expected: The result box will indicate that floor number can only from 1 to 9.
+
+### F.14 Editing room settings
+
+1. Edit the room settings 
+
+    1. Test case: `edit-room-range 1 10` <br>
+    Expected: After restarting Hall-y, the blocks list will be updated to reflect the room settings changes
+        
+    2. Test case: `edit-room-range 0 10` <br>
+    Expected: The result box will indicate that room number can only from 1 to 99.
+
+    3. Test case: `edit-room-range 1 100` <br>
+    Expected: The result box will indicate that room number can only from 1 to 99.
+    
 ### F.15 Saving data
 
 1. Deal with missing/corrupted data files
@@ -856,3 +975,4 @@ testers are expected to do more *exploratory* testing.
    
    2. Test case: Corrupt the file <br>
    Expected: Hall-y will reset and an empty list will be presented.
+
