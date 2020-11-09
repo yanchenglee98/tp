@@ -4,7 +4,7 @@ title: Developer Guide
 ---
 # Hall-y Developer Guide
 
-Version 1.4
+Version 1.4\
 _Updated on 9/11/2020_
 
 Prepared by:  
@@ -910,7 +910,7 @@ testers are expected to do more *exploratory* testing.
    1. Prerequisites: Resident 1 is already assign to event 1. 
 
    2. Test case: `assign 1 1`<br>
-      Expected: An exeception is thrown, notifying the user that the resident has already been added.
+      Expected: An result box notifies the user that the resident has already been added.
       
 ### F.9 Listing of event attendees
 
@@ -918,7 +918,7 @@ testers are expected to do more *exploratory* testing.
    1. Prerequisites: Event 1 exists. 
 
    2. Test case: `list-event-attendees 1`<br>
-      Expected: Residents list is updated with the residents attending event 
+      Expected: Residents list is updated with the residents attending event 1
       
 ### F.10 Clearing of event attendees
 
