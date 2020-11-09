@@ -793,4 +793,3 @@ testers are expected to do more *exploratory* testing.
    
    2. Test case: Corrupt the file <br>
    Expected: Hall-y will reset and an empty list will be presented.
-   
