@@ -17,6 +17,8 @@ Class EventListPanel
 Class EventCard
 Class StatusBarFooter
 Class CommandBox
+Class ReferenceSection
+Class BlockSettingCard
 }
 
 package Model <<Rectangle>> {
@@ -36,11 +38,13 @@ MainWindow --> HelpWindow
 MainWindow *-down-> CommandBox
 MainWindow *-down-> ResultDisplay
 MainWindow *-down-> PersonListPanel
+MainWindow *-down-> ReferenceSection
 MainWindow *-down-> EventListPanel
 MainWindow *-down-> StatusBarFooter
 
 PersonListPanel -down-> PersonCard
 EventListPanel -down--> EventCard
+ReferenceSection -down--> BlockSettingCard
 
 MainWindow -left-|> UiPart
 
@@ -50,6 +54,8 @@ PersonListPanel --|> UiPart
 PersonCard --|> UiPart
 EventListPanel --|> UiPart
 EventCard --|> UiPart
+ReferenceSection --|> UiPart
+BlockSettingCard --|> UiPart
 StatusBarFooter --|> UiPart
 HelpWindow -down-|> UiPart
 
