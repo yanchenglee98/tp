@@ -12,7 +12,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/schoolex.png" width="200px">
 
 [[github](http://github.com/schoolex)]
-[[portfolio](team/pangbiaoyi.md)]
+[[portfolio](team/schoolex.md)]
 
 * Role: Developer
 * Responsibilities: Documentation

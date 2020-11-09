@@ -5,7 +5,7 @@ title: Low Jie Feng's Project Portfolio Page
 
 ## Project: Hall-y
 
-Hall-y is a hall residents' contact management application. It helps to keep track and update the residents' record, so the hall admin staff can easily find the residents based on the saved records.
+Hall-y is a hall residents contact management application. It helps to keep track and update the residents' record, so the hall admin staff can easily find the residents based on the saved records.
 
 Given below are my contributions to the project.
 
@@ -29,15 +29,16 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=lowjiefeng1998)
 
 * **Project management**:
-  * Managed and milestones `v1.1` and `v1.2` on Github
+  * Managed milestones `v1.1` and `v1.2` on Github
 
 * **Documentation**:
   * User Guide:
     * Added documentation for the features `add-event`, `delete-event`, `edit-event`: [\#223](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/223)
   * Developer Guide:
+    * Updated the class diagrams for the `Model` and `Storage` components [\#291](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/291)
     * Added implementation details for the `add-event` feature: [\#110](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/110)
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#67](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/67)
-  * Reported bugs and gave suggestions for other teams in the class (examples: [6](https://github.com/lowjiefeng1998/ped/issues/6))
+  * PRs reviewed (with non-trivial review comments): [\#67](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/67), [\#126](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/126)
+  * Reported bugs and gave suggestions for other teams in the class (example: [#6](https://github.com/lowjiefeng1998/ped/issues/6))
 
