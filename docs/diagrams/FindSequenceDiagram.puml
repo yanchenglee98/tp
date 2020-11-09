@@ -2,9 +2,9 @@
 !include style.puml
 
 skinparam sequence {
-    BoxFontSize 21
-    ArrowFontSize 18
-    ParticipantFontSize 18
+    BoxFontSize 22
+    ArrowFontSize 22
+    ParticipantFontSize 22
 }
 
 box Logic LOGIC_COLOR_T1
