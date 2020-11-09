@@ -335,7 +335,7 @@ Pros | Cons
 
 Due to time constraints, we decided to use **Alternative 1** as **Alternative 2** would require much more work since we would require more rigorous testing to ensure that it is bug free. 
 
-### 3.4 Listing all student groups
+### 3.4 Listing all student groups - Tee Kok Siang
 
 #### 3.4.1 Implementation
 The listing all student groups feature is facilitated by `ListGroupCommand`. It extends `Command` and overrides `Command#execute()` to list all student groups.
@@ -405,7 +405,7 @@ For **Alternative 1**, it is difficult to compare 2 predicates as they have been
 With **Alternative 2**, it is easier to compare each equality of each element in the list of predicates instead to check whether the `FindCommand` objects are equal. 
 As testing is important to ensuring that programs run correctly, we decided to use alternative 2.
 
-### 3.6 Editing Floor settings
+### 3.6 Editing Floor settings - Tee Kok Siang
 
 #### 3.6.1 Implementation
 The editing floor settings feature is facilitated by `EditFloorCommand`. It extends `Command` and overrides `Command#execute()` to edit floor settings.
@@ -431,16 +431,16 @@ The following sequence diagram shows how the editing floor settings operation wo
 #### Aspect: When to update Hall-y of the floor settings changes
 
 * **Alternative 1 (current choice)**: Update Hall-y of the floor settings change after restarting it
-
-Pros | Cons
------| -----
-\+ Able to revert the settings changes before it takes effect | - Require to restart Hall-y to see the settings changes
+    * Pros
+        * Able to revert the settings changes before it takes effect. 
+    * Cons
+        * Require to restart Hall-y to see the settings changes.
 
 * **Alternative 2**: Update Hall-y of the floor settings change immediately
-
-Pros | Cons
------|-----
-\+ Able to see the settings changes immediately | - Possible to erase all of Hall-y data (including residents and events) if accidentally typing in the wrong values 
+    * Pros
+        * Able to see the settings changes immediately. 
+    * Cons
+        * Possible to erase all of Hall-y data (including residents and events) if accidentally typing in the wrong values. 
  
 We decided to use **Alternative 1** as it provides additional safety measures to prevent erasing all of Hall-y data.
 
