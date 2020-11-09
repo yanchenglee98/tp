@@ -4,6 +4,9 @@ skinparam arrowThickness 1.1
 skinparam arrowColor STORAGE_COLOR
 skinparam classBackgroundColor STORAGE_COLOR
 
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> Storage
+
 Package Storage <<Rectangle>> {
 Interface Storage <<Interface>>
 Interface UserPrefsStorage <<Interface>>
@@ -12,6 +15,8 @@ Interface AddressBookStorage <<Interface>>
 Class StorageManager
 Class JsonUserPrefsStorage
 Class JsonAddressBookStorage
+
+
 
 StorageManager .up.|> Storage
 StorageManager o-down-> UserPrefsStorage
