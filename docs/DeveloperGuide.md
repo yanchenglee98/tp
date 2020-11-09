@@ -368,7 +368,10 @@ The resulting filtered list matches this predicate, which means that it matches 
 7. The `UI` displays the result in the result box.
 
 The following sequence diagram shows how finding students works:
-![Find Sequence Diagram](images/FindSequenceDiagram.png)  
+![Find Sequence Diagram](images/FindSequenceDiagram.png)
+
+`FindCommandParser` uses these predicates during `parseCommand()` to form the list of predicates in `FindCommand` as shown below: 
+![FindCommandParser Class Diagram](images/FindCommandParserClassDiagram.png)
 
 #### 3.5.2 Design consideration:
 
