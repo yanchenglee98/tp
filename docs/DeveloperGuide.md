@@ -720,7 +720,7 @@ Use case ends.
 
 **Extensions**
 
-* 3. The block and room settings are invalid
+* 3a. The block and room settings are invalid
     * 3a1. Hall-y reset the block and room settings to default\
 Use case ends.  
 
@@ -784,7 +784,7 @@ Use case ends.
 
 ## **Appendix E: Glossary**
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
+* **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Matriculation number**: Unique Identification for NUS students, which they will obtain when they matriculate into NUS
 
 --------------------------------------------------------------------------------------------------------------------
