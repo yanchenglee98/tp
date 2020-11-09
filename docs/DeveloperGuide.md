@@ -605,6 +605,65 @@ Use case ends
 
       Use case ends.
 
+**Use case: UC05 - List student groups**
+
+**MSS**
+1.  User requests to list student groups
+2.  Hall-y shows a list of student groups\
+Use case ends  
+
+**Use case: UC06 - Listing of events**
+
+**MSS**
+1.  User requests to list events
+2.  Hall-y shows a list of events\
+Use case ends
+
+**Use case: UC07 - Add an event**
+
+**MSS**
+
+1.  User enters event's details
+2.  Hall-y adds event into list
+3.  Hall-y <ins>displays events list (UC06)</ins>\
+Use case ends.
+
+**Use case: UC08 - Delete an event**
+
+**MSS**
+
+1.  Hall-y <ins>displays events list (UC06)</ins>
+2.  User requests to delete a specific event in the list
+3.  Hall-y deletes the event\
+    Use case ends.
+
+**Extensions**
+
+* 2a. The given index is invalid.
+
+    * 2a1. Hall-y shows an error message.\
+      Use case ends.
+
+**Use case: UC09 - Edit an event**
+
+**MSS**
+
+1.  User requests to edit a specific resident in the list
+2.  Hall-y edits resident in the list
+3.  Hall-y <ins>displays list (UC01) </ins>\
+Use case ends.
+
+**Extensions**
+
+* 1a. The given index is invalid.
+
+    * 1a1. Hall-y shows an error message.\
+      Use case ends.
+      
+* 2b. User enters details in the wrong format.
+    * 2b1. Hall-y shows an error message and correct format.\
+      Use case ends.
+
 **Use case: UC10 - Assign a resident to an event** 
 
 Preconditions: Resident and event lists are populated.
