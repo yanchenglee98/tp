@@ -654,7 +654,7 @@ Use case ends.
 
 1.  User requests to edit a specific event in the list
 2.  Hall-y edits event in the list
-3.  Hall-y <ins>displays events list (UC01) </ins>\
+3.  Hall-y <ins>displays events list (UC06) </ins>\
 Use case ends.
 
 **Extensions**
