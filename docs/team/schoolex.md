@@ -26,7 +26,6 @@ and not crash
     - Credits: This is built on top of the preferences.json file provided in the original AB3
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=schoolex&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
-
 * **Project management**: 
     - Coordinated and managed tasks related to the User Guide
 
