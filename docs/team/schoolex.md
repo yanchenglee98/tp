@@ -9,19 +9,41 @@ Hall-y is a hall residents' contact management application. It helps to keep tra
 
 Given below are my contributions to the project.
 
-* **New Feature**: To be updated.
+* **New Feature**: Addition of block and room fields
+    - What it does: Allows the user to create a new resident with information about their block and room
+    - Justification: This will allow the user to keep track of block and room information. 
+    It allows the filter function to filter residents by block and room when required.
+    - Highlights: There are many constraints for this field such as restricting range of values allowed and handling the 
+    various invalid user inputs. Hence,i had to implement rigorous validation checks to ensure that the app works correctly
+    - Credits: The code uses a similar structure as existing fields such as email which was provided in the original AB3
 
-* **Code contributed**: [RepoSense link (to be updated)]()
+* **New Feature**: Block and room configurations
+    - What it does: Allows the user to modify the allowed range of blocks and room settings by modifying a settings file.
+    - Justification: Users will be managing different halls and the halls may have a different structure. This feature will allow
+    the user to modify the configuration as required.
+    - Highlights: The code had to be modified to account for corrupted settings file so that the application can recover from it
+and not crash
+    - Credits: This is built on top of the preferences.json file provided in the original AB3
 
-* **Project management**: To be updated.
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=schoolex&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
-* **Enhancements to existing features**: To be updated.
+* **Project management**: 
+    - Coordinated and managed tasks related to the User Guide
+
+* **Enhancements to existing features**: UI enhancement
+    - What it does: It made the UI more visually pleasant by changing the colour schemes,font and layout.
+    [\#165](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/165)
+    - Justification: A visually pleasant UI will be more attractive to users
+    - Credits: Library functions provided by JavaFX 
 
 * **Documentation**:
-  * User Guide: To be updated.
-  * Developer Guide: To be updated.
+  * User Guide: Added documentation for the features `add`, `edit`, `clear`, `exit` and 
+  `Changing the blocks and rooms configuration` [\#247](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/247)
+  * Developer Guide: Added implementation details of the `Changing the blocks and rooms configuration` feature
+  [\#111](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/111)
 
-* **Community**: To be updated.
+* **Community**: 
+    - PRs reviewed (with non-trivial review comments): [\#117](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/117), [\#231](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/231)
+    - Reported bugs and suggestions for other teams in the class (examples: [\#6](https://github.com/schoolex/ped/issues/6))
 
-* **Tools**: To be updated.
 
