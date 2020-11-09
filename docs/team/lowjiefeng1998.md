@@ -5,7 +5,7 @@ title: Low Jie Feng's Project Portfolio Page
 
 ## Project: Hall-y
 
-Hall-y is a hall residents' contact management application. It helps to keep track and update the residents' record, so the hall admin staff can easily find the residents based on the saved records.
+Hall-y is a hall residents contact management application. It helps to keep track and update the residents' record, so the hall admin staff can easily find the residents based on the saved records.
 
 Given below are my contributions to the project.
 
@@ -40,5 +40,5 @@ Given below are my contributions to the project.
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments): [\#67](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/67), [\#126](https://github.com/AY2021S1-CS2103T-T11-2/tp/pull/126)
-  * Reported bugs and gave suggestions for other teams in the class (example: [6](https://github.com/lowjiefeng1998/ped/issues/6))
+  * Reported bugs and gave suggestions for other teams in the class (example: [#6](https://github.com/lowjiefeng1998/ped/issues/6))
 
